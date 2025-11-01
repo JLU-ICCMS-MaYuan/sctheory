@@ -1,0 +1,313 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     11618,        305]
+NotebookOptionsPosition[      9348,        265]
+NotebookOutlinePosition[      9787,        282]
+CellTagsIndexPosition[      9744,        279]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"d62fb0c8-e84d-40eb-9128-\
+914cc1632724"],
+
+Cell["\<\
+Task_13: Matrix representations using representation matrices\
+\>", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+  3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+  3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, {
+  3.715571191956353*^9, 3.715571211605142*^9}, {3.715573845446602*^9, 
+  3.71557386522208*^9}, {3.7155749162729387`*^9, 3.715574931537026*^9}, {
+  3.7155773396647787`*^9, 3.715577357645968*^9}, {3.7155788851948023`*^9, 
+  3.715578892177968*^9}, {3.715578958781513*^9, 3.715578959049312*^9}, {
+  3.7155790408514442`*^9, 3.7155790528761053`*^9}, {3.7155803638627863`*^9, 
+  3.715580402572497*^9}, {3.716019726910605*^9, 3.716019733377644*^9}, {
+  3.745481652917055*^9, 
+  3.745481653506513*^9}},ExpressionUUID->"b4eef3fb-6737-4e5f-a99c-\
+41d188b67b01"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"cfc1f86c-9688-40db-ae51-\
+7c14f0a5368a"],
+
+Cell[CellGroupData[{
+
+Cell["Task 13", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, {
+  3.715571215441505*^9, 3.715571215824078*^9}, {3.715573868810258*^9, 
+  3.715573869147704*^9}, {3.715574936025814*^9, 3.7155749364533243`*^9}, {
+  3.7155773619834642`*^9, 3.715577362377207*^9}, {3.715578616426693*^9, 
+  3.7155786166834803`*^9}, {3.715579059693437*^9, 3.7155790599971533`*^9}, {
+  3.715580407635006*^9, 3.715580408006283*^9}, {3.716019736235415*^9, 
+  3.7160197372024307`*^9}},ExpressionUUID->"c6bfccbf-e1f5-4a27-abe0-\
+4a6104d1fe7b"],
+
+Cell["see : Chapter 5, section 5.1 , p. 87.", "Text",
+ CellChangeTimes->{{3.745479947666832*^9, 3.745479950753091*^9}, {
+  3.745480064894534*^9, 
+  3.7454800757210207`*^9}},ExpressionUUID->"53e82b73-b6a8-44c4-a523-\
+4f2f6bb286d6"],
+
+Cell[TextData[{
+ "Use the ",
+ StyleBox["Mathematica ",
+  FontSlant->"Italic"],
+ "command ",
+ StyleBox["RotationMatrix ",
+  FontWeight->"Bold"],
+ " to form a matrix representation of the group",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"  ", 
+    RowBox[{
+     SubscriptBox["C", "4"], " ", "=", 
+     RowBox[{"{", 
+      RowBox[{"Ee", ",", 
+       SubscriptBox["C", 
+        RowBox[{"4", "a"}]], ",", 
+       SubscriptBox["C", 
+        RowBox[{"2", "a"}]], ",", " ", 
+       SubsuperscriptBox["C", 
+        RowBox[{"4", "a"}], 
+        RowBox[{"-", "1"}]]}]}]}]}], TraditionalForm]],ExpressionUUID->
+  "3195d7d0-8ec3-4914-a006-e13bfd18ff17"],
+ "} where the rotation axis is given by "
+}], "Text",
+ CellChangeTimes->{{3.5656816415621853`*^9, 3.565681860239293*^9}, {
+  3.635786170800764*^9, 3.635786173860598*^9}, {3.715571225242838*^9, 
+  3.715571374339094*^9}, {3.7155738798070374`*^9, 3.7155739017227373`*^9}, {
+  3.715573991685924*^9, 3.715574012227669*^9}, {3.7155749595051603`*^9, 
+  3.715574997227096*^9}, {3.7155750470765553`*^9, 3.7155751263004208`*^9}, {
+  3.715577368891337*^9, 3.7155773930370913`*^9}, {3.715578769168973*^9, 
+  3.7155788448933764`*^9}, {3.7155789131370583`*^9, 3.715578947371417*^9}, {
+  3.715579225893095*^9, 3.715579398857223*^9}, {3.7155804165228233`*^9, 
+  3.71558057374443*^9}, {3.74547996777066*^9, 
+  3.7454799705434313`*^9}},ExpressionUUID->"9ac5c922-2f1e-4509-b31f-\
+9fd181dfea1d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SubscriptBox["e", "a"], "=", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", 
+      SqrtBox["2"]], ",", 
+     FractionBox["1", 
+      SqrtBox["2"]], ",", "0"}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7155805809256477`*^9, 3.715580634270171*^9}, 
+   3.791883798434064*^9, {3.791883838417169*^9, 3.7918838715542183`*^9}},
+ FontWeight->"Plain",
+ CellLabel->
+  "In[107]:=",ExpressionUUID->"26c6da03-75d8-4a63-98fe-8672d7617131"],
+
+Cell["\<\
+Keep in mind that there is an active and passive definition of rotation \
+matrices (see Section 2.1)\
+\>", "Text",
+ CellChangeTimes->{{3.715580641339772*^9, 3.715580642864887*^9}, {
+  3.715580960450654*^9, 
+  3.7155809877170277`*^9}},ExpressionUUID->"106af6e9-998d-41de-8180-\
+488a17bc088f"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 
+  3.5656818754713144`*^9}},ExpressionUUID->"88e37ba1-28f0-410d-a436-\
+2e7dbf941b0c"],
+
+Cell["Start the group theory package.", "Text",
+ CellChangeTimes->{{3.715571417371958*^9, 
+  3.715571426911421*^9}},ExpressionUUID->"039147cd-a446-401b-a19a-\
+17a40f81a554"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.715571457490114*^9, 3.7155714691449003`*^9}},
+ CellLabel->
+  "In[108]:=",ExpressionUUID->"4dab6734-5ee4-4874-bb26-9e19152650be"],
+
+Cell["Set the angles for single  rotation matrices", "Text",
+ CellChangeTimes->{{3.715579463857931*^9, 3.7155795112708387`*^9}, {
+  3.715579560124888*^9, 
+  3.715579561407206*^9}},ExpressionUUID->"5150b148-3b10-46de-bf2f-\
+a558d4d9ca61"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"c4p", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"symb", ",", "ang"}], "}"}], "=", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Ee\>\"", ",", "\"\<\!\(\*SubscriptBox[\(C\), \(4  a\)]\)\>\"", 
+        ",", "\"\<\!\(\*SubscriptBox[\(C\), \(2  a\)]\)\>\"", ",", 
+        "\"\<\!\(\*SubsuperscriptBox[\(C\), \(4  a\), \(-1\)]\)\>\""}], "}"}],
+       ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        RowBox[{
+         RowBox[{"-", "\[Pi]"}], "/", "2"}], ",", "\[Pi]", ",", 
+        RowBox[{"\[Pi]", "/", "2"}]}], "}"}]}], "}"}]}]}], ";", 
+  RowBox[{"Grid", "[", 
+   RowBox[{"c4p", ",", 
+    RowBox[{"Frame", "->", "All"}], ",", 
+    RowBox[{"Background", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"None", ",", 
+       RowBox[{"1", "\[Rule]", "LightRed"}]}], "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.715579513731379*^9, 3.715579546916951*^9}, {
+  3.715579592177507*^9, 3.715579748836293*^9}, {3.7155874099851933`*^9, 
+  3.715587431367332*^9}},
+ CellLabel->
+  "In[109]:=",ExpressionUUID->"96cc8468-9715-42af-b96c-21085fc5e516"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mat", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"RotationMatrix", "[", 
+      RowBox[{"#", ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"1", "/", 
+          RowBox[{"Sqrt", "[", "2", "]"}]}], ",", 
+         RowBox[{"1", "/", 
+          RowBox[{"Sqrt", "[", "2", "]"}]}], ",", "0"}], "}"}]}], "]"}], 
+     "&"}], " ", "/@", "ang"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.715579760654229*^9, 3.7155797940736217`*^9}, {
+  3.7155874383739767`*^9, 3.7155874516593323`*^9}},
+ CellLabel->
+  "In[110]:=",ExpressionUUID->"677c1063-f4b2-46d8-86e3-5fbf473450d5"],
+
+Cell["The rotation matrices should form an Abelian group.", "Text",
+ CellChangeTimes->{{3.715579811173564*^9, 3.7155798736586657`*^9}, {
+  3.715587471944314*^9, 
+  3.715587486275735*^9}},ExpressionUUID->"838dd71e-009e-4409-abf6-\
+b2ba07ddff38"],
+
+Cell[BoxData[
+ RowBox[{"GTGroupQ", "[", "mat", "]"}]], "Input",
+ CellChangeTimes->{{3.715587490439514*^9, 3.7155874979534683`*^9}},
+ CellLabel->
+  "In[111]:=",ExpressionUUID->"c9a93833-3e90-4129-aee8-db3a34cb50bf"],
+
+Cell[BoxData[
+ RowBox[{"GTAbelianQ", "[", "mat", "]"}]], "Input",
+ CellChangeTimes->{{3.715587506036468*^9, 3.715587512590111*^9}},
+ CellLabel->
+  "In[112]:=",ExpressionUUID->"40f609a0-3552-4cd4-ab7d-91002403cad1"],
+
+Cell["Overview over matrix representation.", "Text",
+ CellChangeTimes->{{3.7155800563826513`*^9, 3.715580089405262*^9}, {
+  3.715587562709528*^9, 
+  3.715587578009418*^9}},ExpressionUUID->"24b49a90-0d05-4861-953e-\
+f93ec15160a2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"c4p", "=", 
+   RowBox[{"Append", "[", 
+    RowBox[{"c4p", ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"MatrixForm", "[", "#", "]"}], "&"}], "/@", "mat"}]}], "]"}]}],
+   ";", 
+  RowBox[{"Grid", "[", 
+   RowBox[{"c4p", ",", 
+    RowBox[{"Frame", "->", "All"}], ",", 
+    RowBox[{"Background", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"None", ",", 
+       RowBox[{"1", "\[Rule]", "LightRed"}]}], "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.715580129398259*^9, 3.71558022095396*^9}},
+ CellLabel->
+  "In[113]:=",ExpressionUUID->"2d74193c-383d-4eac-b355-af8b0d505ec0"],
+
+Cell["The matrices don\[CloseCurlyQuote]t have a block structure.", "Text",
+ CellChangeTimes->{{3.715580231657777*^9, 3.715580251077381*^9}, {
+  3.715580284289282*^9, 3.715580311012218*^9}, {3.715587583510981*^9, 
+  3.7155875937821417`*^9}},ExpressionUUID->"b2db4520-bcda-42bd-bfe9-\
+2df2303b9244"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1916, 1035},
+WindowMargins->{{38, Automatic}, {Automatic, 108}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"d62fb0c8-e84d-40eb-9128-914cc1632724"],
+Cell[801, 32, 856, 14, 53, "Subtitle",ExpressionUUID->"b4eef3fb-6737-4e5f-a99c-41d188b67b01"],
+Cell[1660, 48, 250, 7, 83, "Author",ExpressionUUID->"cfc1f86c-9688-40db-ae51-7c14f0a5368a"],
+Cell[CellGroupData[{
+Cell[1935, 59, 547, 8, 67, "Section",ExpressionUUID->"c6bfccbf-e1f5-4a27-abe0-4a6104d1fe7b"],
+Cell[2485, 69, 230, 4, 35, "Text",ExpressionUUID->"53e82b73-b6a8-44c4-a523-4f2f6bb286d6"],
+Cell[2718, 75, 1413, 35, 37, "Text",ExpressionUUID->"9ac5c922-2f1e-4509-b31f-9fd181dfea1d"],
+Cell[4134, 112, 476, 14, 50, "Input",ExpressionUUID->"26c6da03-75d8-4a63-98fe-8672d7617131"],
+Cell[4613, 128, 301, 7, 35, "Text",ExpressionUUID->"106af6e9-998d-41de-8180-488a17bc088f"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4951, 140, 155, 3, 53, "Section",ExpressionUUID->"88e37ba1-28f0-410d-a436-2e7dbf941b0c"],
+Cell[5109, 145, 173, 3, 35, "Text",ExpressionUUID->"039147cd-a446-401b-a19a-17a40f81a554"],
+Cell[5285, 150, 228, 4, 30, "Input",ExpressionUUID->"4dab6734-5ee4-4874-bb26-9e19152650be"],
+Cell[5516, 156, 237, 4, 35, "Text",ExpressionUUID->"5150b148-3b10-46de-bf2f-a558d4d9ca61"],
+Cell[5756, 162, 1122, 30, 33, "Input",ExpressionUUID->"96cc8468-9715-42af-b96c-21085fc5e516"],
+Cell[6881, 194, 607, 17, 30, "Input",ExpressionUUID->"677c1063-f4b2-46d8-86e3-5fbf473450d5"],
+Cell[7491, 213, 244, 4, 35, "Text",ExpressionUUID->"838dd71e-009e-4409-abf6-b2ba07ddff38"],
+Cell[7738, 219, 214, 4, 30, "Input",ExpressionUUID->"c9a93833-3e90-4129-aee8-db3a34cb50bf"],
+Cell[7955, 225, 214, 4, 30, "Input",ExpressionUUID->"40f609a0-3552-4cd4-ab7d-91002403cad1"],
+Cell[8172, 231, 229, 4, 35, "Text",ExpressionUUID->"24b49a90-0d05-4861-953e-f93ec15160a2"],
+Cell[8404, 237, 615, 18, 30, "Input",ExpressionUUID->"2d74193c-383d-4eac-b355-af8b0d505ec0"],
+Cell[9022, 257, 298, 4, 35, "Text",ExpressionUUID->"b2db4520-bcda-42bd-bfe9-2df2303b9244"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,861 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     30482,        851]
+NotebookOptionsPosition[     22292,        675]
+NotebookOutlinePosition[     24700,        734]
+CellTagsIndexPosition[     24657,        731]
+WindowTitle->Working with Quaternions
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY TUTORIAL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "fe2014f8-61f3-474b-b1aa-11e77b51bef7"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "4ca49960-5842-42be-811b-734e3acd0c8a"],
+        Background->RGBColor[
+         0.7450980392156863, 0.3254901960784314, 0.1411764705882353],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "2267ab26-b6b9-46a6-9e98-ca651e565b95"]
+         }],ExpressionUUID->"6973157c-6530-480f-b170-f0d47ed24b02"],
+         StripOnInput->
+          False], {"\<\"Handling of symmetry elements: multiplication, \
+symbols, matrices, etc. \"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/SymmetryElements"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"RelatedTutorialsSection"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "c10ed463-4c8d-462a-bf6e-39d8f8d3823b"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "90747746-5768-4d9a-a14f-206675fc6ad0"]
+         }],ExpressionUUID->"23c7515a-12f6-42de-80fd-58c43eee03a1"],
+         StripOnInput->
+          False], {"\<\"W. Hergert, R. M. Geilhufe, Group Theory in Solid \
+State Physics and Photonics: Problem Solving with Mathematica, Wiley-VCH, \
+ISBN: 978-3-527-41133-7 (2018).\"\>":>Documentation`HelpLookup[
+        "paclet:http://gtpack.org/book/"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"TutorialMoreAboutSection"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "1a0c0d8a-f514-4f18-87b6-7688d447cb6d"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Functions",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "8a2ba576-84d2-415c-ba4d-eeaf2b907976"]
+         }],ExpressionUUID->"04001a81-809e-4982-b4c8-f33d4c66df03"],
+         StripOnInput->False], {"\<\"GTQAbs\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTQAbs"], "\<\"GTQConjugate\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTQConjugate"], "\<\"GTQInverse\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTQInverse"], "\<\"GTQPolar\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTQPolar"], "\<\"GTQuaternionQ\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/GTQuaternionQ"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"TutorialFunction"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "dfaf6365-d765-450c-ac3b-6bf0f1515be0"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "c7408488-a746-49f9-8f19-26161a1b8572"]
+         }],ExpressionUUID->"66594100-abb3-442b-a97b-f1520d47e959"],
+         StripOnInput->
+          False], {"\<\"GroupTheory/tutorial/WorkingWithQuaternions\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/tutorial/WorkingWithQuaternions"]}, Visible -> 
+             False]]; SelectionMove[
+          DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/tutorial/\
+WorkingWithQuaternions.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$266303], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/tutorial/WorkingWithQuaternions" <> ".html"], 
+            None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "b3410b27-b785-4921-b441-1f39cd6188a1"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "bf518617-d3f7-418d-9559-e0e9f17cc196"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"08c106a2-31eb-4432-ad1a-4539ac03f73b"],
+
+Cell[CellGroupData[{
+
+Cell["Working with Quaternions", "Title",
+ CellID->509267359,ExpressionUUID->"2477d069-358a-4e5d-adfb-a1410b35bc77"],
+
+Cell["\<\
+GTPack includes basic functions for working with quaternions represented as a \
+list.\
+\>", "Text",
+ CellID->1534169418,ExpressionUUID->"0fc0155c-ca7a-4532-8e89-4a6cb3e9e433"],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{"{", 
+     RowBox[{"w", ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "}"}], Cell[TextData[{
+     "w + ",
+     StyleBox["i",
+      FontWeight->"Bold"],
+     " x +",
+     StyleBox[" j",
+      FontWeight->"Bold"],
+     " y + ",
+     StyleBox["k",
+      FontWeight->"Bold"],
+     " z"
+    }], "TableText",ExpressionUUID->"7b4aac4b-a540-460f-8b9b-688c0b0fb4ea"]}
+  }]], "DefinitionBox",
+ CellID->2096742444,ExpressionUUID->"cb6a6001-d68f-4132-99fc-76746b0efc0b"],
+
+Cell["Load GTPack.", "MathCaption",
+ CellID->8143462,ExpressionUUID->"25a27901-6804-471a-9854-e702033f57dc"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1649062054,ExpressionUUID->"6a689893-bc00-471b-90d5-3586f3c2d299"],
+
+Cell[TextData[{
+ "We obtain the quaternion representation of the symmetry element ",
+ Cell[BoxData[
+  SubscriptBox["C", 
+   RowBox[{"3", "z"}]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "8b8395f0-476d-44bf-8bd2-b000028ab788"],
+ " (three-fold rotation about the z-axis) by using ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTGetQuaternion"]], "paclet:GroupTheory/ref/GTGetQuaternion", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "e9583216-50e1-46bb-abd3-1b0489d0c95f"],
+ "."
+}], "MathCaption",
+ CellID->836781195,ExpressionUUID->"c42a923f-3518-43e7-b163-1662874b5552"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"q", "=", 
+  RowBox[{"GTGetQuaternion", "[", "C3z", "]"}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->2058623809,ExpressionUUID->"3d18b606-26da-46c1-ae0b-fd26feea9b5f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["1", "2"], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     RowBox[{"-", 
+      FractionBox[
+       SqrtBox["3"], "2"]}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1989803916,ExpressionUUID->"b0a47e23-4c0a-4250-91db-77f7019eaa84"]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     TemplateBox[{
+       Cell[
+        TextData["GTQuaternionQ"]], "paclet:GroupTheory/ref/GTQuaternionQ", 
+       "GroupTheory Package Symbol"},
+      "PackageLink",
+      BaseStyle->{"DefinitionBox", CellFrame -> 0}], "[", 
+     StyleBox["q", "TI"], "]"}], Cell[TextData[{
+     "gives True if ",
+     StyleBox["q", "TI"],
+     " is a quaternion."
+    }], "TableText",ExpressionUUID->"4e37e723-5965-4a15-9315-b9a837bfa5a8"]}
+  }]], "DefinitionBox",
+ CellID->84464537,ExpressionUUID->"5243f0ce-652b-481c-b6dd-8b3d674e1994"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTQuaternionQ", "[", "q", "]"}]], "Input",
+ CellLabel->"In[158]:=",
+ CellID->980835394,ExpressionUUID->"7a7da95c-ce69-4b71-b3f2-d82a4fd45195"],
+
+Cell[BoxData["True"], "Output",
+ CellLabel->"Out[158]=",
+ CellID->1075919687,ExpressionUUID->"b328b696-e069-4f8a-b911-b63901ea731b"]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{"a", "\[Diamond]", "b"}], Cell[TextData[{
+     "multiplication of two quaternions ",
+     StyleBox["a",
+      FontSlant->"Italic"],
+     " and ",
+     StyleBox["b",
+      FontSlant->"Italic"],
+     "."
+    }], "TableText",ExpressionUUID->"0d0ce5c7-33e8-459e-bcd3-d7617b699175"]},
+   {
+    RowBox[{
+     TemplateBox[{
+       Cell[
+        TextData["GTQInverse"]], "paclet:GroupTheory/ref/GTQInverse", 
+       "GroupTheory Package Symbol"},
+      "PackageLink",
+      BaseStyle->{"DefinitionBox", CellFrame -> 0}], "[", 
+     StyleBox["quaternion", "TI",
+      FontSlant->"Italic"], "]"}], Cell[TextData[{
+     "gives the inverse quaternion of a ",
+     StyleBox["quaternion", "TI"],
+     "."
+    }], "TableText",ExpressionUUID->"b4f6d23a-2213-449e-98eb-b594435060c0"]},
+   {
+    RowBox[{
+     TemplateBox[{
+       Cell[
+        TextData["GTQConjugate"]], "paclet:GroupTheory/ref/GTQConjugate", 
+       "GroupTheory Package Symbol"},
+      "PackageLink",
+      BaseStyle->{"DefinitionBox", CellFrame -> 0}], "[", 
+     StyleBox["quaternion", "TI",
+      FontSlant->"Italic"], "]"}], Cell[TextData[{
+     "gives the conjugate quaternion of a ",
+     StyleBox["quaternion", "TI"],
+     "."
+    }], "TableText",ExpressionUUID->"d7ac2428-e09e-45c0-a6a8-d0ec249ff46f"]}
+  }]], "DefinitionBox",
+ CellID->65316021,ExpressionUUID->"d8037eea-a74b-4aff-93fe-490c783b975a"],
+
+Cell["\<\
+The multiplication of two quaternions can be calculated with \[Diamond]\
+\>", "MathCaption",
+ CellID->836846125,ExpressionUUID->"fe895e7f-6378-4a96-8a50-2d832f6cadc2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"q1", "=", 
+  RowBox[{"GTGetQuaternion", "[", "C3z", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"q2", "=", 
+  RowBox[{"GTGetQuaternion", "[", "C2x", "]"}]}]}], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1849426604,ExpressionUUID->"2ff74092-74a0-4357-a413-be72de03dab8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["1", "2"], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     RowBox[{"-", 
+      FractionBox[
+       SqrtBox["3"], "2"]}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->657019390,ExpressionUUID->"882b6997-c32a-46be-9027-3206bf9d27b7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->2009135153,ExpressionUUID->"0de38afb-2e84-4a97-8143-8db4fca1a0cd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"q1", "\[Diamond]", "q2"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->673469725,ExpressionUUID->"5c7e67b6-baee-4076-902b-e6731e22fad6"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox["1", "2"]}], ",", 
+     FractionBox[
+      SqrtBox["3"], "2"], ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[4]=",
+ CellID->1487640815,ExpressionUUID->"3e74e41d-12e6-4a40-97ec-4770c65fb96c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTGetSymbol", "[", "%", "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->863296057,ExpressionUUID->"2fc5803d-bb42-4588-8bb0-009fa04d74f3"],
+
+Cell[BoxData[
+ SubsuperscriptBox[
+  OverscriptBox["\<\"C\"\>", "\<\"_\"\>"], "\<\"2B\"\>", "\<\"\"\>"]], \
+"Output",
+ CellLabel->"Out[5]=",
+ CellID->548436831,ExpressionUUID->"abdfe3fd-6072-4886-ae2a-43aa4b6c1404"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Quaternions form a division ring hence for every quaternion there exists a \
+multiplicative inverse element. Use ",
+ StyleBox["GTQInverse... ",
+  FontSlant->"Italic"]
+}], "MathCaption",
+ CellID->527921223,ExpressionUUID->"c58efa8e-7a7a-4673-b64a-d584fb5d3fa5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"q", "=", 
+  RowBox[{"GTGetQuaternion", "[", "C3z", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"GTQInverse", "[", "q", "]"}]}], "Input",
+ CellLabel->"In[6]:=",
+ CellID->634806807,ExpressionUUID->"7a642bc0-c509-4817-8611-73c5613ec30a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["1", "2"], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     RowBox[{"-", 
+      FractionBox[
+       SqrtBox["3"], "2"]}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[6]=",
+ CellID->1668937729,ExpressionUUID->"b46d26b5-504d-4fa7-aa3b-6218a53ec71c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["1", "2"], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     FractionBox[
+      SqrtBox["3"], "2"]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[6]=",
+ CellID->1674237375,ExpressionUUID->"9a54ac7f-7052-4af7-ae64-7b1634ee8359"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTGetSymbol", "[", "%", "]"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->994585898,ExpressionUUID->"bf821541-486b-435b-9653-733b4624f318"],
+
+Cell[BoxData[
+ SubsuperscriptBox[
+  OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3z\"\>", "\<\"-1\"\>"]], \
+"Output",
+ CellLabel->"Out[7]=",
+ CellID->1138859360,ExpressionUUID->"8c06d321-5e05-47d2-b0ed-5096a0d0f27f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"q", "\[Diamond]", 
+  RowBox[{"GTQInverse", "[", "q", "]"}]}]], "Input",
+ CellLabel->"In[8]:=",
+ CellID->688860855,ExpressionUUID->"064cab29-a2e7-4f8c-9b75-f29a7edf00d3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[8]=",
+ CellID->1339223360,ExpressionUUID->"55e44e20-145c-4c67-abda-4bcecf117f0a"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Obtain the conjugate quaternion by ",
+ StyleBox["GTQConjugate... ",
+  FontSlant->"Italic"]
+}], "MathCaption",
+ CellID->264125502,ExpressionUUID->"414a164f-6f58-44fe-a2d2-34c6699bdbc8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTQConjugate", "[", "q", "]"}]], "Input",
+ CellLabel->"In[9]:=",
+ CellID->991743516,ExpressionUUID->"a0eefb8f-48be-4114-9372-b247140c7b94"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["1", "2"], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     FractionBox[
+      SqrtBox["3"], "2"]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[9]=",
+ CellID->2115865562,ExpressionUUID->"395ad338-6cc8-44e0-98ba-92b29d56cb02"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"q", "+", 
+  RowBox[{"GTQConjugate", "[", "q", "]"}]}]], "Input",
+ CellLabel->"In[10]:=",
+ CellID->1780281480,ExpressionUUID->"9bbc7911-f380-4985-8390-11ddebad4e27"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"1", ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[10]=",
+ CellID->338765820,ExpressionUUID->"8017402d-5b11-4cbd-bee2-d85516b3870a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"q", "-", 
+  RowBox[{"GTQConjugate", "[", "q", "]"}]}]], "Input",
+ CellLabel->"In[11]:=",
+ CellID->2012179942,ExpressionUUID->"631ac1de-97f1-4a85-aabc-81307265794d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0", ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     RowBox[{"-", 
+      SqrtBox["3"]}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[11]=",
+ CellID->215697201,ExpressionUUID->"22e6a3cf-68c4-45e6-ae24-fb5e6a48dca2"]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    RowBox[{
+     TemplateBox[{
+       Cell[
+        TextData["GTQAbs"]], "paclet:GroupTheory/ref/GTQAbs", 
+       "GroupTheory Package Symbol"},
+      "PackageLink",
+      BaseStyle->{"DefinitionBox", CellFrame -> 0}], "[", 
+     StyleBox["quaternion", "TI",
+      FontSlant->"Italic"], "]"}], Cell[TextData[{
+     "gives the absolute value of a ",
+     StyleBox["quaternion", "TI"],
+     "."
+    }], "TableText",ExpressionUUID->"45bd7c69-1892-43a0-86aa-54f76672e79c"]},
+   {
+    RowBox[{
+     TemplateBox[{
+       Cell[
+        TextData["GTQPolar"]], "paclet:GroupTheory/ref/GTQPolar", 
+       "GroupTheory Package Symbol"},
+      "PackageLink",
+      BaseStyle->{"DefinitionBox", CellFrame -> 0}], "[", 
+     StyleBox["quaternion", "TI",
+      FontSlant->"Italic"], "]"}], Cell[TextData[{
+     "gives the polar angle of a ",
+     StyleBox["quaternion", "TI"],
+     "."
+    }], "TableText",ExpressionUUID->"ed9e0c57-e59f-4e97-bdcc-1074df5f4b8e"]}
+  }]], "DefinitionBox",
+ CellID->1332087895,ExpressionUUID->"26711f30-bd48-41a6-af66-9dbe3cb7be07"],
+
+Cell[TextData[{
+ "The absolute value of a quaternion can be calculated by ",
+ StyleBox["GTQAbs... ",
+  FontSlant->"Italic"]
+}], "MathCaption",
+ CellID->1835973506,ExpressionUUID->"b308c640-ab13-4278-92ac-da03248e2f28"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTQAbs", "[", "q", "]"}]], "Input",
+ CellLabel->"In[12]:=",
+ CellID->606753871,ExpressionUUID->"2a7c9c29-8978-4931-8fca-297bf32b1592"],
+
+Cell[BoxData["1"], "Output",
+ CellLabel->"Out[12]=",
+ CellID->400078451,ExpressionUUID->"ae4c2b10-48ac-4cdf-99e2-4a0e80412962"]
+}, Open  ]],
+
+Cell[TextData[{
+ "The polar angle of a quaternion can be calculated by ",
+ StyleBox["GTQPolar... ",
+  FontSlant->"Italic"]
+}], "MathCaption",
+ CellID->110606822,ExpressionUUID->"cf109feb-e1a1-4dac-8b23-f2883e93b080"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTQPolar", "[", "q", "]"}]], "Input",
+ CellLabel->"In[13]:=",
+ CellID->1232199258,ExpressionUUID->"32107d6d-92c6-4f9e-b05c-97e40260060d"],
+
+Cell[BoxData[
+ FractionBox["\[Pi]", "3"]], "Output",
+ CellLabel->"Out[13]=",
+ CellID->1796178713,ExpressionUUID->"81916bae-f58b-4eee-bb4e-8e40b2579e12"]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "TutorialMoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[TextData[Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData[
+             StyleBox[{"W. Hergert, R. M. Geilhufe, ", 
+               StyleBox[
+               "Group Theory in Solid State Physics and Photonics: Problem \
+Solving with Mathematica, Wiley-VCH, ISBN: 978-3-527-41133-7 (2018)", 
+                FontSlant -> "Italic"], "."}]]], "http://gtpack.org/book/"},
+          "WebLink",
+          BaseStyle->{"TutorialMoreAboutSection"}]],ExpressionUUID->
+         "b9947eb3-c4e4-496f-80d8-554d9b9b513a"]], "TutorialMoreAbout",
+         ExpressionUUID->"9aa983b4-198d-4cb2-82cf-c089fc9ccbb0"]}]}
+     }]}
+  }]], "TutorialMoreAboutSection",ExpressionUUID->"65b0021a-5e3f-4dee-be3b-\
+55cbe2902add"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Tech", " ", "Notes"}], 
+        "RelatedTutorialsSection"]},
+      {
+       RowBox[{
+       "\[FilledVerySmallSquare]", Cell[TextData[ButtonBox[
+        "Handling of symmetry elements: multiplication, symbols, matrices, \
+etc. ",
+         BaseStyle->"Link",
+         ButtonData->"paclet:GroupTheory/tutorial/SymmetryElements"]], 
+         "RelatedTutorials",ExpressionUUID->
+         "9dee0eb0-842e-4ea9-be74-cb4cb26ab03c"]}]}
+     }]}
+  }]], "RelatedTutorialsSection",ExpressionUUID->"c13d2e76-7cac-40a4-a2e0-\
+bc672980e214"],
+
+Cell[BoxData[""], "Input",ExpressionUUID->"1930bb80-6a9a-446c-84bc-ab9fd8ad1494"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell",ExpressionUUID->"70a0fe08-de0c-49f8-9250-94c25a417455"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{55.5, Automatic}, {Automatic, 20.25}},
+WindowTitle->"Working with Quaternions",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {"1988", ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 59, 50.792637}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Tutorial", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "GTPack includes basic functions for working with quaternions represented \
+as a list. Load GTPack. We obtain the quaternion representation of the \
+symmetry element C_ 3z (three-fold rotation about the z-axis) by using \
+GTGetQuaternion.", "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$266256, "title" -> 
+    "Working with Quaternions", "titlemodifier" -> "", "metadescription" -> 
+    "", "windowtitle" -> "Working with Quaternions", "type" -> "Tutorial", 
+    "uri" -> "GroupTheory/tutorial/WorkingWithQuaternions"}},
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"09dc3fc8-b31d-43de-80b9-fc2755c1058f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[596, 21, 6942, 165, 56, "AnchorBarGrid",ExpressionUUID->"08c106a2-31eb-4432-ad1a-4539ac03f73b",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[7563, 190, 116, 1, 64, "Title",ExpressionUUID->"2477d069-358a-4e5d-adfb-a1410b35bc77",
+ CellID->509267359],
+Cell[7682, 193, 185, 4, 36, "Text",ExpressionUUID->"0fc0155c-ca7a-4532-8e89-4a6cb3e9e433",
+ CellID->1534169418],
+Cell[7870, 199, 529, 18, 63, "DefinitionBox",ExpressionUUID->"cb6a6001-d68f-4132-99fc-76746b0efc0b",
+ CellID->2096742444],
+Cell[8402, 219, 108, 1, 36, "MathCaption",ExpressionUUID->"25a27901-6804-471a-9854-e702033f57dc",
+ CellID->8143462],
+Cell[8513, 222, 176, 3, 27, "Input",ExpressionUUID->"6a689893-bc00-471b-90d5-3586f3c2d299",
+ CellID->1649062054],
+Cell[8692, 227, 721, 19, 41, "MathCaption",ExpressionUUID->"c42a923f-3518-43e7-b163-1662874b5552",
+ CellID->836781195],
+Cell[CellGroupData[{
+Cell[9438, 250, 192, 4, 27, "Input",ExpressionUUID->"3d18b606-26da-46c1-ae0b-fd26feea9b5f",
+ CellID->2058623809],
+Cell[9633, 256, 316, 10, 55, "Output",ExpressionUUID->"b0a47e23-4c0a-4250-91db-77f7019eaa84",
+ CellID->1989803916]
+}, Open  ]],
+Cell[9964, 269, 565, 15, 64, "DefinitionBox",ExpressionUUID->"5243f0ce-652b-481c-b6dd-8b3d674e1994",
+ CellID->84464537],
+Cell[CellGroupData[{
+Cell[10554, 288, 166, 3, 27, "Input",ExpressionUUID->"7a7da95c-ce69-4b71-b3f2-d82a4fd45195",
+ CellID->980835394],
+Cell[10723, 293, 132, 2, 36, "Output",ExpressionUUID->"b328b696-e069-4f8a-b911-b63901ea731b",
+ CellID->1075919687]
+}, Open  ]],
+Cell[10870, 298, 1400, 40, 120, "DefinitionBox",ExpressionUUID->"d8037eea-a74b-4aff-93fe-490c783b975a",
+ CellID->65316021],
+Cell[12273, 340, 177, 3, 36, "MathCaption",ExpressionUUID->"fe895e7f-6378-4a96-8a50-2d832f6cadc2",
+ CellID->836846125],
+Cell[CellGroupData[{
+Cell[12475, 347, 290, 6, 45, "Input",ExpressionUUID->"2ff74092-74a0-4357-a413-be72de03dab8",
+ CellID->1849426604],
+Cell[12768, 355, 315, 10, 55, "Output",ExpressionUUID->"882b6997-c32a-46be-9027-3206bf9d27b7",
+ CellID->657019390],
+Cell[13086, 367, 252, 7, 36, "Output",ExpressionUUID->"0de38afb-2e84-4a97-8143-8db4fca1a0cd",
+ CellID->2009135153]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13375, 379, 158, 3, 27, "Input",ExpressionUUID->"5c7e67b6-baee-4076-902b-e6731e22fad6",
+ CellID->673469725],
+Cell[13536, 384, 317, 10, 55, "Output",ExpressionUUID->"3e74e41d-12e6-4a40-97ec-4770c65fb96c",
+ CellID->1487640815]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13890, 399, 162, 3, 70, "Input",ExpressionUUID->"2fc5803d-bb42-4588-8bb0-009fa04d74f3",
+ CellID->863296057],
+Cell[14055, 404, 214, 5, 42, "Output",ExpressionUUID->"abdfe3fd-6072-4886-ae2a-43aa4b6c1404",
+ CellID->548436831]
+}, Open  ]],
+Cell[14284, 412, 278, 6, 70, "MathCaption",ExpressionUUID->"c58efa8e-7a7a-4673-b64a-d584fb5d3fa5",
+ CellID->527921223],
+Cell[CellGroupData[{
+Cell[14587, 422, 257, 5, 70, "Input",ExpressionUUID->"7a642bc0-c509-4817-8611-73c5613ec30a",
+ CellID->634806807],
+Cell[14847, 429, 316, 10, 55, "Output",ExpressionUUID->"b46d26b5-504d-4fa7-aa3b-6218a53ec71c",
+ CellID->1668937729],
+Cell[15166, 441, 293, 9, 55, "Output",ExpressionUUID->"9a54ac7f-7052-4af7-ae64-7b1634ee8359",
+ CellID->1674237375]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15496, 455, 162, 3, 70, "Input",ExpressionUUID->"bf821541-486b-435b-9653-733b4624f318",
+ CellID->994585898],
+Cell[15661, 460, 216, 5, 42, "Output",ExpressionUUID->"8c06d321-5e05-47d2-b0ed-5096a0d0f27f",
+ CellID->1138859360]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15914, 470, 193, 4, 70, "Input",ExpressionUUID->"064cab29-a2e7-4f8c-9b75-f29a7edf00d3",
+ CellID->688860855],
+Cell[16110, 476, 231, 6, 36, "Output",ExpressionUUID->"55e44e20-145c-4c67-abda-4bcecf117f0a",
+ CellID->1339223360]
+}, Open  ]],
+Cell[16356, 485, 202, 5, 70, "MathCaption",ExpressionUUID->"414a164f-6f58-44fe-a2d2-34c6699bdbc8",
+ CellID->264125502],
+Cell[CellGroupData[{
+Cell[16583, 494, 163, 3, 70, "Input",ExpressionUUID->"a0eefb8f-48be-4114-9372-b247140c7b94",
+ CellID->991743516],
+Cell[16749, 499, 293, 9, 55, "Output",ExpressionUUID->"395ad338-6cc8-44e0-98ba-92b29d56cb02",
+ CellID->2115865562]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17079, 513, 188, 4, 70, "Input",ExpressionUUID->"9bbc7911-f380-4985-8390-11ddebad4e27",
+ CellID->1780281480],
+Cell[17270, 519, 231, 6, 36, "Output",ExpressionUUID->"8017402d-5b11-4cbd-bee2-d85516b3870a",
+ CellID->338765820]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17538, 530, 188, 4, 70, "Input",ExpressionUUID->"631ac1de-97f1-4a85-aabc-81307265794d",
+ CellID->2012179942],
+Cell[17729, 536, 268, 8, 38, "Output",ExpressionUUID->"22e6a3cf-68c4-45e6-ae24-fb5e6a48dca2",
+ CellID->215697201]
+}, Open  ]],
+Cell[18012, 547, 1076, 30, 70, "DefinitionBox",ExpressionUUID->"26711f30-bd48-41a6-af66-9dbe3cb7be07",
+ CellID->1332087895],
+Cell[19091, 579, 218, 5, 70, "MathCaption",ExpressionUUID->"b308c640-ab13-4278-92ac-da03248e2f28",
+ CellID->1835973506],
+Cell[CellGroupData[{
+Cell[19334, 588, 158, 3, 70, "Input",ExpressionUUID->"2a7c9c29-8978-4931-8fca-297bf32b1592",
+ CellID->606753871],
+Cell[19495, 593, 127, 2, 36, "Output",ExpressionUUID->"ae4c2b10-48ac-4cdf-99e2-4a0e80412962",
+ CellID->400078451]
+}, Open  ]],
+Cell[19637, 598, 216, 5, 70, "MathCaption",ExpressionUUID->"cf109feb-e1a1-4dac-8b23-f2883e93b080",
+ CellID->110606822],
+Cell[CellGroupData[{
+Cell[19878, 607, 161, 3, 70, "Input",ExpressionUUID->"32107d6d-92c6-4f9e-b05c-97e40260060d",
+ CellID->1232199258],
+Cell[20042, 612, 152, 3, 49, "Output",ExpressionUUID->"81916bae-f58b-4eee-bb4e-8e40b2579e12",
+ CellID->1796178713]
+}, Open  ]],
+Cell[20209, 618, 1073, 24, 70, "TutorialMoreAboutSection",ExpressionUUID->"65b0021a-5e3f-4dee-be3b-55cbe2902add"],
+Cell[CellGroupData[{
+Cell[21307, 646, 792, 21, 70, "RelatedTutorialsSection",ExpressionUUID->"c13d2e76-7cac-40a4-a2e0-bc672980e214"],
+Cell[22102, 669, 81, 0, 70, "Input",ExpressionUUID->"1930bb80-6a9a-446c-84bc-ab9fd8ad1494"]
+}, Open  ]]
+}, Open  ]],
+Cell[22210, 673, 78, 0, 70, "FooterCell",ExpressionUUID->"70a0fe08-de0c-49f8-9250-94c25a417455"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

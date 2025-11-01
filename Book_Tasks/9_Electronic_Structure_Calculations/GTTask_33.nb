@@ -1,0 +1,595 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     24006,        587]
+NotebookOptionsPosition[     19746,        518]
+NotebookOutlinePosition[     20237,        537]
+CellTagsIndexPosition[     20194,        534]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 3.635786109397464*^9}, {
+  3.716350660273884*^9, 3.716350667625144*^9}, {3.716357113497473*^9, 
+  3.716357118999264*^9}},ExpressionUUID->"c8f718af-f5b1-4f45-a085-\
+37cf7de6eb9c"],
+
+Cell["Task_33: Band structure of ferromagnetic Ni", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+   3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+   3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, 
+   3.6510653858085613`*^9, {3.651065421088859*^9, 3.651065421366317*^9}, {
+   3.6510687045818653`*^9, 3.651068710545953*^9}, {3.698590274583303*^9, 
+   3.6985902766031446`*^9}, {3.715676225518305*^9, 3.715676245048991*^9}, {
+   3.715755292106161*^9, 3.715755292520115*^9}, {3.715758251670918*^9, 
+   3.715758274686324*^9}, {3.7157611881702137`*^9, 3.715761209296259*^9}, {
+   3.7159194801332703`*^9, 3.715919494968292*^9}, {3.715924866832803*^9, 
+   3.715924890601943*^9}, {3.715935521784905*^9, 3.715935522008493*^9}, {
+   3.715935863328487*^9, 3.7159358688072147`*^9}, {3.716265301834907*^9, 
+   3.716265314003121*^9}, {3.716269384238058*^9, 3.716269394305436*^9}, {
+   3.716277747107719*^9, 3.7162777598070107`*^9}, {3.716308016868555*^9, 
+   3.716308028578641*^9}, {3.716358198556149*^9, 3.716358210692271*^9}, {
+   3.716369046810933*^9, 3.716369051115505*^9}, {3.745569005607683*^9, 
+   3.74556902195126*^9}},ExpressionUUID->"93b4e1c2-6079-451c-8193-\
+85e914013b28"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"96b5604f-5f8a-4679-8bd0-\
+54e66744155c"],
+
+Cell[CellGroupData[{
+
+Cell["Task 33", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, 
+   3.6510654285215063`*^9, {3.698590282115162*^9, 3.698590283315255*^9}, {
+   3.71567624900875*^9, 3.7156762495600367`*^9}, {3.715755448158073*^9, 
+   3.715755448639861*^9}, {3.7157582840802937`*^9, 3.715758284687776*^9}, 
+   3.715761214043702*^9, 3.715923389350745*^9, {3.7159248959570093`*^9, 
+   3.715924896249406*^9}, {3.715935857389296*^9, 3.7159358576243887`*^9}, {
+   3.7162653161351357`*^9, 3.716265316926951*^9}, {3.716271946113678*^9, 
+   3.716271946787816*^9}, {3.7162777638914433`*^9, 3.716277764126568*^9}, {
+   3.716308033241417*^9, 3.716308033711419*^9}, {3.716358213291006*^9, 
+   3.716358213425891*^9}},ExpressionUUID->"a00efb09-ff6e-4dd3-895c-\
+b17c985a75e3"],
+
+Cell[TextData[{
+ "Nickel is a ferromagnetic metal from the 3",
+ StyleBox["d",
+  FontSlant->"Italic"],
+ " series with fcc structure. Calculate the band structure and the density of \
+states for the two spin directions. Calculate the Fermi energy. What follows \
+for the magnetic moment? Use a TB-Hamiltonian in two center form. Take into \
+account nearest and next-nearest neighbors. The basis consists of ",
+ StyleBox["s,p ",
+  FontSlant->"Italic"],
+ "and ",
+ StyleBox["d",
+  FontSlant->"Italic"],
+ " functions. Hint: The corresponding Hamiltonian can be found in the \
+directory containing the solutions of all tasks. Otherwise Fig 9.17 contains \
+the details for the construction. Use the parameters from ",
+ StyleBox["TB-Handbook.parm",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.5656816415621853`*^9, 3.565681860239293*^9}, {
+   3.635786170800764*^9, 3.635786173860598*^9}, {3.651065436926057*^9, 
+   3.651065635578711*^9}, {3.651068560289382*^9, 3.6510686003385973`*^9}, {
+   3.698590315173243*^9, 3.698590316986977*^9}, {3.698590659653771*^9, 
+   3.698590660901269*^9}, {3.715676257064826*^9, 3.715676287709859*^9}, {
+   3.7157582892011023`*^9, 3.715758394670127*^9}, {3.7157612456348457`*^9, 
+   3.715761334275275*^9}, {3.715761702901366*^9, 3.715761703563676*^9}, {
+   3.715919504783739*^9, 3.715919509087599*^9}, {3.715919546359535*^9, 
+   3.715919550949649*^9}, 3.715919875130816*^9, {3.715919967288609*^9, 
+   3.7159200921187687`*^9}, {3.715924903585038*^9, 3.715925035819388*^9}, {
+   3.715925379424611*^9, 3.7159254018140907`*^9}, 3.715931208054966*^9, {
+   3.715935877999349*^9, 3.7159359203110228`*^9}, {3.715935952802744*^9, 
+   3.715935991142565*^9}, 3.7160214713462343`*^9, {3.716032135963929*^9, 
+   3.716032140279677*^9}, {3.716033588814055*^9, 3.716033610657587*^9}, 
+   3.716265325749833*^9, {3.716265424935968*^9, 3.716265582499449*^9}, {
+   3.716268875255941*^9, 3.716268890475565*^9}, {3.7162689364359207`*^9, 
+   3.716268943429739*^9}, {3.716269001850153*^9, 3.716269002317404*^9}, {
+   3.716269441171468*^9, 3.7162694439053373`*^9}, {3.7162695715962143`*^9, 
+   3.716269576399132*^9}, {3.716269626912436*^9, 3.716269634370779*^9}, {
+   3.716270761367543*^9, 3.716270801317339*^9}, {3.716277789603942*^9, 
+   3.71627782036587*^9}, {3.7163080437538433`*^9, 3.716308124944086*^9}, {
+   3.716357510786626*^9, 3.716357529461093*^9}, {3.716358234913561*^9, 
+   3.716358320651371*^9}, {3.7163583772961617`*^9, 3.7163583911794167`*^9}, {
+   3.71636912658319*^9, 3.7163691335009212`*^9}, {3.716369181406011*^9, 
+   3.7163691952200527`*^9}},ExpressionUUID->"b9a29c54-8341-4307-9c61-\
+1d44351fc417"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 3.5656818754713144`*^9}, {
+  3.651068604062579*^9, 3.6510686054795933`*^9}, {3.715758402017662*^9, 
+  3.7157584036702013`*^9}},ExpressionUUID->"92b86061-73d2-42d8-a746-\
+5a503ffe67fc"],
+
+Cell["GTPack will used.", "Text",
+ CellChangeTimes->{{3.6510687190694857`*^9, 
+  3.6510687427760773`*^9}},ExpressionUUID->"e91fbc11-a3fc-44d3-8a2e-\
+36fd29821802"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.565681889253334*^9, 3.5656819493414183`*^9}, {
+  3.635786193501388*^9, 3.635786195193049*^9}, {3.6510687481027937`*^9, 
+  3.651068762513336*^9}, {3.651068796080668*^9, 3.6510687983863363`*^9}},
+ CellLabel->
+  "In[380]:=",ExpressionUUID->"e201cc34-c227-4a0e-915e-471e2eff2517"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../datasets\>\""}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{
+  3.716352887699656*^9, {3.716353055125945*^9, 3.716353085108862*^9}, 
+   3.716353290152177*^9, 3.7163584663910303`*^9},
+ CellLabel->
+  "In[381]:=",ExpressionUUID->"321125bf-a3c0-46cc-93c4-eef704c4cc13"],
+
+Cell[CellGroupData[{
+
+Cell["Read the Hamiltonian", "Subsection",
+ CellChangeTimes->{{3.716358434684005*^9, 
+  3.716358439644915*^9}},ExpressionUUID->"41ff6eb1-1927-4dcc-94b3-\
+205bd1d945cc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Hfcc", "=", 
+   RowBox[{"GTReadFromFile", "[", "\"\<fcc_spd.ham\>\"", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.716358474844389*^9, 3.716358497054826*^9}},
+ CellLabel->
+  "In[382]:=",ExpressionUUID->"1e9a1a40-8425-4a1f-84a2-ea0455673ee7"],
+
+Cell["Splitting of the on-site energies ", "Text",
+ CellChangeTimes->{{3.7163589743878098`*^9, 
+  3.7163589826340113`*^9}},ExpressionUUID->"08d3b9ec-d07e-4191-b1a8-\
+e69a65de7f17"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Hfcc1", "=", 
+   RowBox[{"GTTbHamiltonianOnsite", "[", 
+    RowBox[{"Hfcc", ",", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Ni\>\"", ",", "1", ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1", ",", "2"}], "}"}]}], "}"}], "}"}], ",", 
+     "\"\<fcc\>\""}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716358988635583*^9, 3.7163590691473217`*^9}},
+ CellLabel->
+  "In[383]:=",ExpressionUUID->"f977cbdf-9c64-45f5-9e5b-e1cc3a5f6454"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Hamiltonians for the two spin directions", "Subsection",
+ CellChangeTimes->{{3.7163585161355*^9, 
+  3.7163585247299013`*^9}},ExpressionUUID->"b1137702-e8c1-49b7-ae78-\
+3c53b019ec7d"],
+
+Cell["\<\
+The parameter library contains sets for the spin up and spin down bands of \
+Ni. Thus, we can set up Hamiltonians for the two spin directions.\
+\>", "Text",
+ CellChangeTimes->{{3.7163587416324472`*^9, 
+  3.716358824996131*^9}},ExpressionUUID->"bccaaff0-4b34-49aa-8d79-\
+6f7140b93286"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Niup", "=", 
+   RowBox[{"GTTbDatabaseRetrieve", "[", 
+    RowBox[{"\"\<TB_Handbook\>\"", ",", "\"\<Ni_up\>\""}], "]"}]}], ";", 
+  RowBox[{"GTTbPrintParmSet", "[", 
+   RowBox[{"\"\<TB_Handbook\>\"", ",", "\"\<Ni_up\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.716358828713276*^9, 3.716358942437737*^9}},
+ CellLabel->
+  "In[384]:=",ExpressionUUID->"e87452e8-dec1-45ee-b2f0-f2ad08d61287"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Nidown", "=", 
+   RowBox[{"GTTbDatabaseRetrieve", "[", 
+    RowBox[{"\"\<TB_Handbook\>\"", ",", "\"\<Ni_down\>\""}], "]"}]}], ";", 
+  RowBox[{"GTTbPrintParmSet", "[", 
+   RowBox[{"\"\<TB_Handbook\>\"", ",", "\"\<Ni_down\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.716358828713276*^9, 3.716358942437737*^9}, {
+  3.716359092076325*^9, 3.7163591045858717`*^9}},
+ CellLabel->
+  "In[385]:=",ExpressionUUID->"0d34e1d0-6160-4fe8-ad7d-0b6851ae0c05"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Hup", "=", 
+   RowBox[{"Hfcc1", " ", "/.", 
+    RowBox[{"GTTbParmToRule", "[", "Niup", "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Hdown", "=", 
+   RowBox[{"Hfcc1", " ", "/.", 
+    RowBox[{"GTTbParmToRule", "[", "Nidown", "]"}]}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.716359128550269*^9, 3.716359176879197*^9}},
+ CellLabel->
+  "In[386]:=",ExpressionUUID->"9e1d8129-ba53-434e-bf81-25ed5ff8aa00"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Band structures", "Subsection",
+ CellChangeTimes->{{3.716359680739641*^9, 
+  3.716359700674967*^9}},ExpressionUUID->"38359c6e-f4b0-4e1f-8f4a-\
+f1dc9e021dd4"],
+
+Cell["\<\
+The band structures for both spin directions will be calculated.\
+\>", "Text",
+ CellChangeTimes->{{3.716368446643959*^9, 3.716368460571492*^9}, {
+  3.791886167308908*^9, 
+  3.791886169308807*^9}},ExpressionUUID->"2942dd51-c3f7-455d-848f-\
+eff1f9cf012e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kp", "=", 
+   RowBox[{
+    RowBox[{"GTBZPath", "[", "\"\<fcc\>\"", "]"}], "//", "N"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.716359712177534*^9, 3.716359727102776*^9}},
+ CellLabel->
+  "In[388]:=",ExpressionUUID->"5dc6d112-dcac-4b94-878a-d8fc5c184e82"],
+
+Cell[BoxData[
+ RowBox[{"bandsu", "=", 
+  RowBox[{"GTBandStructure", "[", 
+   RowBox[{"Hup", ",", "kp", ",", "50", ",", "9", ",", 
+    RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "4.49"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.1"}], ",", "1"}], "}"}]}], "}"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.716359739886217*^9, 3.716359859539146*^9}},
+ CellLabel->
+  "In[389]:=",ExpressionUUID->"d28da1a5-8a39-41e8-a227-d255eea5e2fc"],
+
+Cell[BoxData[
+ RowBox[{"bandsd", "=", 
+  RowBox[{"GTBandStructure", "[", 
+   RowBox[{"Hdown", ",", "kp", ",", "50", ",", "9", ",", 
+    RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "4.49"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "0.1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.716359870227669*^9, 3.716359897711694*^9}},
+ CellLabel->
+  "In[390]:=",ExpressionUUID->"c0a3539d-3d34-428e-bdd9-dbcaaec9d614"],
+
+Cell["\<\
+We see that the two spin direction have a different bandstructure. This will \
+end up finally in a magnetic moment.\
+\>", "Text",
+ CellChangeTimes->{{3.716368475916924*^9, 
+  3.716368517767744*^9}},ExpressionUUID->"6f134945-9723-42e0-81bd-\
+3c4ba20718b0"],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"bandsu", ",", "bandsd"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7163599039379187`*^9, 3.716359915295377*^9}},
+ CellLabel->
+  "In[391]:=",ExpressionUUID->"5092c6c8-1e53-498d-bb1e-dc7bd9d479f6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Find the Fermi energy.", "Subsection",
+ CellChangeTimes->{{3.71635919085186*^9, 3.716359206838181*^9}, {
+  3.716359305816691*^9, 
+  3.716359314423839*^9}},ExpressionUUID->"60c57597-1c9b-408f-b0f5-\
+6974d30e309c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7163608671634808`*^9, 3.716360885880274*^9}},
+ CellLabel->
+  "In[392]:=",ExpressionUUID->"46304a71-199a-4d25-a2da-5805bccf13e0"],
+
+Cell["\<\
+To find the Fermi energy, we have to calculate the integrated DOS for both \
+spin directions.  We plot the DOS and store DOS and integrated DOS\
+\>", "Text",
+ CellChangeTimes->{{3.716359336518108*^9, 3.716359394975336*^9}, 
+   3.7163608634592867`*^9, {3.716368536343051*^9, 
+   3.7163685628242273`*^9}},ExpressionUUID->"318656eb-fbd2-48cc-ae7e-\
+118fe1aa229b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dos", "=", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "1", ",", 
+     RowBox[{"-", "0.1"}], ",", "1.1", ",", "601", ",", ".0", ",", "1"}], 
+    "}"}]}], ";", 
+  RowBox[{"GTDensityOfStates", "[", 
+   RowBox[{"Hup", ",", "\"\<fcc\>\"", ",", "dos", ",", 
+    RowBox[{"GOPlotDos", "\[Rule]", "\"\<ALL\>\""}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", "Red"}], "}"}]}], ",", 
+    RowBox[{"GOStore", "\[Rule]", "\"\<dosup.dat\>\""}], ",", 
+    RowBox[{"PlotLabel", "\[Rule]", "\"\<Ni DOS spin up\>\""}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.716359934190609*^9, 3.716360009751152*^9}, {
+   3.7163600758129177`*^9, 3.716360196379964*^9}, {3.716360283967255*^9, 
+   3.7163603181517353`*^9}, {3.71636035424332*^9, 3.7163603544108267`*^9}, {
+   3.716360410835053*^9, 3.71636041465546*^9}, 3.716360472665736*^9, 
+   3.716360585764244*^9, {3.7163608968982153`*^9, 3.716360916529888*^9}, {
+   3.71636857200919*^9, 3.716368600557726*^9}},
+ CellLabel->
+  "In[393]:=",ExpressionUUID->"7d2f28ad-0fff-4dc3-9588-9cca97924fe4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dos", "=", 
+   RowBox[{"{", 
+    RowBox[{"6", ",", "1", ",", 
+     RowBox[{"-", "0.1"}], ",", "1.1", ",", "601", ",", ".0", ",", "1"}], 
+    "}"}]}], ";", 
+  RowBox[{"GTDensityOfStates", "[", 
+   RowBox[{"Hdown", ",", "\"\<fcc\>\"", ",", "dos", ",", 
+    RowBox[{"GOPlotDos", "\[Rule]", "\"\<ALL\>\""}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", "Red"}], "}"}]}], ",", 
+    RowBox[{"GOStore", "\[Rule]", "\"\<dosdown.dat\>\""}], ",", 
+    RowBox[{"PlotLabel", "\[Rule]", "\"\<Ni DOS spin down\>\""}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7163609370577517`*^9, 3.716360946338831*^9}, {
+  3.7163686102369556`*^9, 3.7163686269951687`*^9}},
+ CellLabel->
+  "In[374]:=",ExpressionUUID->"4ebc1c4c-9cef-4fdb-980b-aee6ed2412fd"],
+
+Cell["\<\
+We read the data calculated in the previous step. The datsets contain at the \
+first place the DOS and than the integrated DOS.\
+\>", "Text",
+ CellChangeTimes->{{3.7163686516337843`*^9, 
+  3.716368710291752*^9}},ExpressionUUID->"c6bd78a8-5ba7-4431-a6bc-\
+cf3d96c72ecd"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"updata", "=", 
+   RowBox[{"GTReadFromFile", "[", "\"\<dosup.dat\>\"", "]"}]}], ";", 
+  RowBox[{"downdata", "=", 
+   RowBox[{"GTReadFromFile", "[", "\"\<dosdown.dat\>\"", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.716360783402687*^9, 3.7163608383711*^9}, {
+  3.716360972192034*^9, 3.716360997784813*^9}, {3.716367314006274*^9, 
+  3.716367317379204*^9}, {3.716367370539592*^9, 3.716367371638562*^9}},
+ CellLabel->
+  "In[375]:=",ExpressionUUID->"4b79672a-3ad1-4309-99f5-c7dc96a9b964"],
+
+Cell["Two interpolating functions for the IDOS are prepared.", "Text",
+ CellChangeTimes->{{3.716368767031197*^9, 
+  3.716368796029603*^9}},ExpressionUUID->"fccd78fa-d708-4d57-9418-\
+4022602d6159"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fup", "=", 
+   RowBox[{"Interpolation", "[", 
+    RowBox[{"updata", "[", 
+     RowBox[{"[", "2", "]"}], "]"}], "]"}]}], ";", 
+  RowBox[{"fdown", "=", 
+   RowBox[{"Interpolation", "[", 
+    RowBox[{"downdata", "[", 
+     RowBox[{"[", "2", "]"}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.716368806953706*^9, 3.7163688209603024`*^9}},
+ CellLabel->
+  "In[376]:=",ExpressionUUID->"e98bc9bd-f4bd-4131-b558-c26a90908100"],
+
+Cell[BoxData[
+ RowBox[{"Plot", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"fup", "[", "x", "]"}], ",", 
+     RowBox[{"fdown", "[", "x", "]"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", 
+     RowBox[{"-", ".1"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7163673239613123`*^9, 3.716367400304349*^9}, {
+  3.716368826417701*^9, 3.716368873442482*^9}},
+ CellLabel->
+  "In[377]:=",ExpressionUUID->"4af4d92f-7755-4404-b390-94a2c219e37b"],
+
+Cell[TextData[{
+ "Now it is easy to calculate the Fermi energy, The valence electron \
+configuration of Ni is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    RowBox[{"3", " ", 
+     SuperscriptBox["d", "8"], " ", "4", " ", 
+     SuperscriptBox["s", "2"], "  "}]}], TraditionalForm]],ExpressionUUID->
+  "f783a685-31b0-4deb-8213-c951147a135b"],
+ ", i.e. all together 10 electrons have to occupy the spin up and down bands."
+}], "Text",
+ CellChangeTimes->{{3.716368878437454*^9, 
+  3.7163689831539*^9}},ExpressionUUID->"036d7959-8adf-4a8b-9bfe-7d484a4bbbb8"],
+
+Cell[BoxData[
+ RowBox[{"enf", "=", 
+  RowBox[{"en", " ", "/.", 
+   RowBox[{"FindRoot", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"fup", "[", "en", "]"}], "+", 
+       RowBox[{"fdown", "[", "en", "]"}]}], "\[Equal]", "10"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"en", ",", ".5"}], "}"}]}], "]"}]}]}]], "Input",
+ CellLabel->
+  "In[378]:=",ExpressionUUID->"0acd7874-0af1-47a1-be8a-5cf65c3f9e35"],
+
+Cell["Finally we have", "Text",
+ CellChangeTimes->{{3.716369013135899*^9, 
+  3.7163690176692543`*^9}},ExpressionUUID->"e666989d-950a-4380-8f2e-\
+c7f4b1ac7710"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tab", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<\!\(\*SuperscriptBox[\(DOS\), \
+\(\[UpArrow]\)]\)(\!\(\*SubscriptBox[\(E\), \(F\)]\))\>\"", ",", 
+       "\"\<\!\(\*SuperscriptBox[\(DOS\), \
+\(\[DownArrow]\)]\)(\!\(\*SubscriptBox[\(E\), \(F\)]\))\>\"", ",", " ", 
+       "\"\<m (\!\(\*SubscriptBox[\(\[Mu]\), \(B\)]\))\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"fup", "[", "enf", "]"}], ",", 
+       RowBox[{"fdown", "[", "enf", "]"}], ",", 
+       RowBox[{
+        RowBox[{"fup", "[", "enf", "]"}], "-", 
+        RowBox[{"fdown", "[", "enf", "]"}]}]}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"Grid", "[", 
+   RowBox[{"tab", ",", 
+    RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+    RowBox[{"Background", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"None", ",", 
+       RowBox[{"1", "\[Rule]", "LightRed"}]}], "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.716367990699141*^9, 3.716368249917479*^9}},
+ CellLabel->
+  "In[379]:=",ExpressionUUID->"da7cc2d5-acd0-42fd-bce4-164c199d90e8"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1327, 905},
+WindowMargins->{{0, Automatic}, {Automatic, 112}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 326, 9, 98, "Title",ExpressionUUID->"c8f718af-f5b1-4f45-a085-37cf7de6eb9c"],
+Cell[909, 33, 1252, 17, 53, "Subtitle",ExpressionUUID->"93b4e1c2-6079-451c-8193-85e914013b28"],
+Cell[2164, 52, 250, 7, 83, "Author",ExpressionUUID->"96b5604f-5f8a-4679-8bd0-54e66744155c"],
+Cell[CellGroupData[{
+Cell[2439, 63, 772, 11, 67, "Section",ExpressionUUID->"a00efb09-ff6e-4dd3-895c-b17c985a75e3"],
+Cell[3214, 76, 2628, 44, 81, "Text",ExpressionUUID->"b9a29c54-8341-4307-9c61-1d44351fc417"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[5879, 125, 254, 4, 53, "Section",ExpressionUUID->"92b86061-73d2-42d8-a746-5a503ffe67fc"],
+Cell[6136, 131, 163, 3, 35, "Text",ExpressionUUID->"e91fbc11-a3fc-44d3-8a2e-36fd29821802"],
+Cell[6302, 136, 376, 6, 30, "Input",ExpressionUUID->"e201cc34-c227-4a0e-915e-471e2eff2517"],
+Cell[6681, 144, 395, 10, 30, "Input",ExpressionUUID->"321125bf-a3c0-46cc-93c4-eef704c4cc13"],
+Cell[CellGroupData[{
+Cell[7101, 158, 168, 3, 54, "Subsection",ExpressionUUID->"41ff6eb1-1927-4dcc-94b3-205bd1d945cc"],
+Cell[7272, 163, 282, 7, 30, "Input",ExpressionUUID->"1e9a1a40-8425-4a1f-84a2-ea0455673ee7"],
+Cell[7557, 172, 180, 3, 35, "Text",ExpressionUUID->"08d3b9ec-d07e-4191-b1a8-e69a65de7f17"],
+Cell[7740, 177, 494, 13, 30, "Input",ExpressionUUID->"f977cbdf-9c64-45f5-9e5b-e1cc3a5f6454"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8271, 195, 188, 3, 54, "Subsection",ExpressionUUID->"b1137702-e8c1-49b7-ae78-3c53b019ec7d"],
+Cell[8462, 200, 294, 6, 35, "Text",ExpressionUUID->"bccaaff0-4b34-49aa-8d79-6f7140b93286"],
+Cell[8759, 208, 424, 9, 30, "Input",ExpressionUUID->"e87452e8-dec1-45ee-b2f0-f2ad08d61287"],
+Cell[9186, 219, 481, 10, 30, "Input",ExpressionUUID->"0d34e1d0-6160-4fe8-ad7d-0b6851ae0c05"],
+Cell[9670, 231, 483, 13, 73, "Input",ExpressionUUID->"9e1d8129-ba53-434e-bf81-25ed5ff8aa00"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10190, 249, 163, 3, 54, "Subsection",ExpressionUUID->"38359c6e-f4b0-4e1f-8f4a-f1dc9e021dd4"],
+Cell[10356, 254, 263, 6, 35, "Text",ExpressionUUID->"2942dd51-c3f7-455d-848f-eff1f9cf012e"],
+Cell[10622, 262, 292, 8, 30, "Input",ExpressionUUID->"5dc6d112-dcac-4b94-878a-d8fc5c184e82"],
+Cell[10917, 272, 592, 16, 30, "Input",ExpressionUUID->"d28da1a5-8a39-41e8-a227-d255eea5e2fc"],
+Cell[11512, 290, 641, 16, 30, "Input",ExpressionUUID->"c0a3539d-3d34-428e-bdd9-dbcaaec9d614"],
+Cell[12156, 308, 265, 6, 35, "Text",ExpressionUUID->"6f134945-9723-42e0-81bd-3c4ba20718b0"],
+Cell[12424, 316, 241, 5, 30, "Input",ExpressionUUID->"5092c6c8-1e53-498d-bb1e-dc7bd9d479f6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12702, 326, 218, 4, 54, "Subsection",ExpressionUUID->"60c57597-1c9b-408f-b0f5-6974d30e309c"],
+Cell[12923, 332, 274, 6, 30, "Input",ExpressionUUID->"46304a71-199a-4d25-a2da-5805bccf13e0"],
+Cell[13200, 340, 370, 7, 35, "Text",ExpressionUUID->"318656eb-fbd2-48cc-ae7e-118fe1aa229b"],
+Cell[13573, 349, 1095, 23, 52, "Input",ExpressionUUID->"7d2f28ad-0fff-4dc3-9588-9cca97924fe4"],
+Cell[14671, 374, 811, 19, 52, "Input",ExpressionUUID->"4ebc1c4c-9cef-4fdb-980b-aee6ed2412fd"],
+Cell[15485, 395, 279, 6, 35, "Text",ExpressionUUID->"c6bd78a8-5ba7-4431-a6bc-cf3d96c72ecd"],
+Cell[15767, 403, 524, 11, 30, "Input",ExpressionUUID->"4b79672a-3ad1-4309-99f5-c7dc96a9b964"],
+Cell[16294, 416, 196, 3, 35, "Text",ExpressionUUID->"fccd78fa-d708-4d57-9418-4022602d6159"],
+Cell[16493, 421, 458, 12, 30, "Input",ExpressionUUID->"e98bc9bd-f4bd-4131-b558-c26a90908100"],
+Cell[16954, 435, 525, 14, 30, "Input",ExpressionUUID->"4af4d92f-7755-4404-b390-94a2c219e37b"],
+Cell[17482, 451, 557, 13, 35, "Text",ExpressionUUID->"036d7959-8adf-4a8b-9bfe-7d484a4bbbb8"],
+Cell[18042, 466, 415, 12, 30, "Input",ExpressionUUID->"0acd7874-0af1-47a1-be8a-5cf65c3f9e35"],
+Cell[18460, 480, 159, 3, 35, "Text",ExpressionUUID->"e666989d-950a-4380-8f2e-c7f4b1ac7710"],
+Cell[18622, 485, 1084, 28, 54, "Input",ExpressionUUID->"da7cc2d5-acd0-42fd-bce4-164c199d90e8"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

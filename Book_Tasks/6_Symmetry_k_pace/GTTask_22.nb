@@ -1,0 +1,430 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     16605,        422]
+NotebookOptionsPosition[     13091,        364]
+NotebookOutlinePosition[     13580,        383]
+CellTagsIndexPosition[     13537,        380]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"39084f0f-5c3f-474c-bef9-\
+c5aa415195ea"],
+
+Cell["Task_22: Reciprocal lattice of the fcc and bcc lattices", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+   3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+   3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, 
+   3.6510653858085613`*^9, {3.651065421088859*^9, 3.651065421366317*^9}, {
+   3.6510687045818653`*^9, 3.651068710545953*^9}, {3.698590274583303*^9, 
+   3.6985902766031446`*^9}, {3.715676225518305*^9, 3.715676245048991*^9}, {
+   3.715755292106161*^9, 3.715755292520115*^9}, {3.715758251670918*^9, 
+   3.715758274686324*^9}, {3.7454933310266333`*^9, 
+   3.745493332005952*^9}},ExpressionUUID->"25fb425b-43e5-46a8-a80f-\
+e4402bb077e1"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"3fe1f4d6-7fbe-4b7b-ae22-\
+8e488b846ff0"],
+
+Cell[CellGroupData[{
+
+Cell["Task 22", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, 
+   3.6510654285215063`*^9, {3.698590282115162*^9, 3.698590283315255*^9}, {
+   3.71567624900875*^9, 3.7156762495600367`*^9}, {3.715755448158073*^9, 
+   3.715755448639861*^9}, {3.7157582840802937`*^9, 
+   3.715758284687776*^9}},ExpressionUUID->"039caaab-a700-4bdd-9772-\
+d84e0ebd38ad"],
+
+Cell["see : Chapter 6, section 6.2, p. 137.", "Text",
+ CellChangeTimes->{
+  3.7454933676206007`*^9, {3.745493404891646*^9, 
+   3.7454934226302977`*^9}},ExpressionUUID->"4852513d-ded0-4879-8892-\
+173b4f6c75ae"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    FormBox[
+     SubsuperscriptBox["C", 
+      RowBox[{"4", "z"}], 
+      RowBox[{"-", "1"}]],
+     TraditionalForm]}], TraditionalForm]],ExpressionUUID->
+  "c6d49b51-ae7d-4462-93a6-248947c819fd"],
+ " is invariant under inversion and mapped to ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", 
+    RowBox[{"4", "z"}]], TraditionalForm]],ExpressionUUID->
+  "6972a003-6c00-482c-bda6-3d5949557ca1"],
+ " under ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", 
+    RowBox[{"2", "x"}]], TraditionalForm]],ExpressionUUID->
+  "0537269f-1f89-4dc5-9d32-dc994ee2c936"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["IC", 
+    RowBox[{"2", "x"}]], TraditionalForm]],ExpressionUUID->
+  "714fc63a-25e5-40b5-afde-ccafb6ea9242"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.6510687190694857`*^9, 3.6510687427760773`*^9}, {
+  3.716100304122292*^9, 3.716100356350444*^9}, {3.716100418333067*^9, 
+  3.716100436758465*^9}, {3.7161004866512337`*^9, 
+  3.716100666495678*^9}},ExpressionUUID->"0f4964a4-d1ee-4984-a2a6-\
+cb03cc538d81"],
+
+Cell[TextData[{
+ "Use the commands ",
+ StyleBox["GTBravaisLattice ",
+  FontWeight->"Bold"],
+ "and ",
+ StyleBox["GTReciprocalBasis ",
+  FontWeight->"Bold"],
+ "to verify that the reciprocal lattice of a face-centered cubic lattice is \
+given by a space-centered lattice and vice versa."
+}], "Text",
+ CellChangeTimes->{{3.5656816415621853`*^9, 3.565681860239293*^9}, {
+  3.635786170800764*^9, 3.635786173860598*^9}, {3.651065436926057*^9, 
+  3.651065635578711*^9}, {3.651068560289382*^9, 3.6510686003385973`*^9}, {
+  3.698590315173243*^9, 3.698590316986977*^9}, {3.698590659653771*^9, 
+  3.698590660901269*^9}, {3.715676257064826*^9, 3.715676287709859*^9}, {
+  3.7157582892011023`*^9, 
+  3.715758394670127*^9}},ExpressionUUID->"88ff6f8e-a215-47d6-b7f6-\
+ceaf14a84831"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 3.5656818754713144`*^9}, {
+  3.651068604062579*^9, 3.6510686054795933`*^9}, {3.715758402017662*^9, 
+  3.7157584036702013`*^9}},ExpressionUUID->"3ff3e08f-3170-40d2-837e-\
+51b8496f0014"],
+
+Cell["GTPack will used.", "Text",
+ CellChangeTimes->{{3.6510687190694857`*^9, 
+  3.6510687427760773`*^9}},ExpressionUUID->"3de0daf7-1f7c-4cc5-a88a-\
+441fd99981f7"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.565681889253334*^9, 3.5656819493414183`*^9}, {
+  3.635786193501388*^9, 3.635786195193049*^9}, {3.6510687481027937`*^9, 
+  3.651068762513336*^9}, {3.651068796080668*^9, 3.6510687983863363`*^9}},
+ CellLabel->"In[65]:=",ExpressionUUID->"4a4a01ba-0c6d-4605-ac9d-e43d31bd57f3"],
+
+Cell["\<\
+The conventional cell of the fcc lattice contains 4 atoms. This can be seen \
+also in the image. To the unit cell contribute :  8 corner atoms (weight \
+1/8), 6 atoms in the face center (weight 1/2) -> 8*1/8+6*1/2 =4\
+\>", "Text",
+ CellChangeTimes->{{3.715758805950165*^9, 3.7157588435316896`*^9}, {
+  3.715759454488411*^9, 
+  3.7157595573697042`*^9}},ExpressionUUID->"bd1c70c4-b1ec-4e24-985b-\
+0bfe914e0464"],
+
+Cell[CellGroupData[{
+
+Cell["fcc lattice", "Subsection",
+ CellChangeTimes->{{3.7157595853155537`*^9, 
+  3.715759588577599*^9}},ExpressionUUID->"c3b8a16c-210e-4805-8ab8-\
+788180828a93"],
+
+Cell[BoxData[
+ RowBox[{"GTBravaisLattice", "[", 
+  RowBox[{"{", 
+   RowBox[{"\"\<Cubic\>\"", ",", "\"\<F\>\""}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.715758420884615*^9, 3.7157584280385103`*^9}, 
+   3.715758462163115*^9, {3.7157586783555937`*^9, 3.715758712612235*^9}},
+ CellLabel->"In[66]:=",ExpressionUUID->"edb198c1-a8ed-43be-8a45-7f78c2230a32"],
+
+Cell[BoxData[
+ RowBox[{"GTBravaisLattice", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\"\<Cubic\>\"", ",", "\"\<F\>\""}], "}"}], ",", 
+   RowBox[{"GOData", "\[Rule]", "\"\<Image\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.715758758338893*^9, 3.715758789609354*^9}},
+ CellLabel->"In[67]:=",ExpressionUUID->"b873c498-e089-4117-92a5-3a2b327b4fc5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["bcc lattice", "Subsection",
+ CellChangeTimes->{{3.715759594303445*^9, 
+  3.715759596587734*^9}},ExpressionUUID->"6dbda3c8-34a8-4de2-ae27-\
+e1ad3910d89b"],
+
+Cell[BoxData[
+ RowBox[{"GTBravaisLattice", "[", 
+  RowBox[{"{", 
+   RowBox[{"\"\<Cubic\>\"", ",", "\"\<I\>\""}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.715758420884615*^9, 3.7157584280385103`*^9}, 
+   3.715758462163115*^9, {3.7157586783555937`*^9, 3.715758712612235*^9}, {
+   3.715759609605187*^9, 3.71575961753526*^9}},
+ CellLabel->"In[68]:=",ExpressionUUID->"51c1c5b4-2178-4614-b016-2c394ca256cf"],
+
+Cell[BoxData[
+ RowBox[{"GTBravaisLattice", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\"\<Cubic\>\"", ",", "\"\<I\>\""}], "}"}], ",", 
+   RowBox[{"GOData", "\[Rule]", "\"\<Image\>\""}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.715758758338893*^9, 3.715758789609354*^9}, {
+  3.715759625714308*^9, 3.715759626625573*^9}},
+ CellLabel->"In[69]:=",ExpressionUUID->"f95b74e9-eb20-42c6-a140-dca1d0b018dd"],
+
+Cell["Obviously, we have 2 atoms per conventional cell. ", "Text",
+ CellChangeTimes->{{3.71575964109382*^9, 
+  3.715759661557523*^9}},ExpressionUUID->"92f0eb08-25d4-44c6-a88c-\
+fae1a2a08ba6"],
+
+Cell["\<\
+For the comparison of the lattices we need the primitive cells.\
+\>", "Text",
+ CellChangeTimes->{{3.715759687355076*^9, 
+  3.715759708977272*^9}},ExpressionUUID->"303ca80a-e3c9-4e6d-b26f-\
+69c71ee72b65"],
+
+Cell[BoxData[
+ RowBox[{"bcc", "=", 
+  RowBox[{"GTBravaisLattice", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\"\<Cubic\>\"", ",", "\"\<I\>\""}], "}"}], ",", 
+    RowBox[{"GOBravais", "\[Rule]", "\"\<Primitive\>\""}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7157597356074867`*^9, 3.7157597546535997`*^9}},
+ CellLabel->"In[70]:=",ExpressionUUID->"da8fc638-db82-43a3-8bac-cb0a72b6af1e"],
+
+Cell[BoxData[
+ RowBox[{"fcc", "=", 
+  RowBox[{"GTBravaisLattice", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"\"\<Cubic\>\"", ",", "\"\<F\>\""}], "}"}], ",", 
+    RowBox[{"GOBravais", "\[Rule]", "\"\<Primitive\>\""}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.715759765785651*^9, 3.715759785051157*^9}},
+ CellLabel->"In[71]:=",ExpressionUUID->"964484ab-74da-4ff7-b962-7cc86f3332c0"],
+
+Cell["Reciprocal basis of the fcc lattice", "Item",
+ CellChangeTimes->{{3.715759892514209*^9, 
+  3.715759904101163*^9}},ExpressionUUID->"5c344a7b-22c4-4c39-9111-\
+dfcb0e03b755"],
+
+Cell[BoxData[
+ RowBox[{"rfcc", "=", 
+  RowBox[{"GTReciprocalBasis", "[", "fcc", "]"}]}]], "Input",
+ CellChangeTimes->{{3.715759813407488*^9, 3.715759857547941*^9}, {
+  3.7157599580135603`*^9, 3.715759959733779*^9}},
+ CellLabel->"In[72]:=",ExpressionUUID->"da34842b-2ed9-4983-b533-6439f4c86dac"],
+
+Cell[BoxData[
+ RowBox[{"rfcc", "-", 
+  RowBox[{"bcc", "*", " ", 
+   RowBox[{"(", 
+    RowBox[{"4", 
+     RowBox[{"\[Pi]", "/", 
+      RowBox[{"a", "^", "2"}]}]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.7157599628975773`*^9, 3.715759978554639*^9}, {
+  3.715760049454084*^9, 3.715760072720613*^9}, {3.715760105963669*^9, 
+  3.715760149614567*^9}},
+ CellLabel->"In[73]:=",ExpressionUUID->"3a6d56df-fa30-4cba-b0e5-ecb3963e91d9"],
+
+Cell["\<\
+The reciprocal lattice of an fcc lattice corresponds to the bcc lattice.\
+\>", "Text",
+ CellChangeTimes->{{3.715760184840671*^9, 
+  3.715760211569902*^9}},ExpressionUUID->"79443a44-eec6-4df1-827c-\
+8eadbd01557b"],
+
+Cell["Reciprocal basis of the bcc lattice", "Item",
+ CellChangeTimes->{{3.715759892514209*^9, 3.715759904101163*^9}, {
+  3.715760545477394*^9, 
+  3.715760546105774*^9}},ExpressionUUID->"088c11c1-aab7-4c35-8a12-\
+db762a310e46"],
+
+Cell[BoxData[
+ RowBox[{"rbcc", "=", 
+  RowBox[{"GTReciprocalBasis", "[", "bcc", "]"}]}]], "Input",
+ CellChangeTimes->{{3.715759813407488*^9, 3.715759857547941*^9}, {
+  3.7157599580135603`*^9, 3.715759959733779*^9}, {3.715760552147889*^9, 
+  3.7157605587287416`*^9}},
+ CellLabel->"In[74]:=",ExpressionUUID->"7f823349-6627-45a9-83d7-a04cfbe6307f"],
+
+Cell[BoxData[
+ RowBox[{"rbcc", "-", 
+  RowBox[{"fcc", "*", " ", 
+   RowBox[{"(", 
+    RowBox[{"4", 
+     RowBox[{"\[Pi]", "/", 
+      RowBox[{"a", "^", "2"}]}]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.7157599628975773`*^9, 3.715759978554639*^9}, {
+  3.715760049454084*^9, 3.715760072720613*^9}, {3.715760105963669*^9, 
+  3.715760149614567*^9}, {3.715760565445599*^9, 3.7157605699456*^9}},
+ CellLabel->"In[75]:=",ExpressionUUID->"29024338-9ef9-448a-b176-c860a3ebb3a2"],
+
+Cell["\<\
+The reciprocal lattice of an bcc lattice corresponds to the fcc lattice.\
+\>", "Text",
+ CellChangeTimes->{{3.715760184840671*^9, 3.715760211569902*^9}, {
+  3.715760576627611*^9, 
+  3.71576058277017*^9}},ExpressionUUID->"f146750c-bf85-4e6e-8fd5-\
+9b4b5b9c0c3d"],
+
+Cell[TextData[{
+ "Definition of the reciprocal basis ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["a", "i"], " ", "\[CenterDot]", " ", 
+    SubscriptBox["b", "j"]}], TraditionalForm]],ExpressionUUID->
+  "548f02ef-fb4a-4250-ac36-314ac86383c6"],
+ " = 2\[Pi] ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Delta]", 
+    RowBox[{"i", ",", "j"}]], TraditionalForm]],ExpressionUUID->
+  "c62c40cb-0341-4811-948a-a5f4d3e732b4"]
+}], "Item",
+ CellChangeTimes->{{3.715759892514209*^9, 3.715759904101163*^9}, {
+  3.715760545477394*^9, 3.715760546105774*^9}, {3.715760713847652*^9, 
+  3.7157607319393463`*^9}, {3.715760772932955*^9, 
+  3.7157607895973377`*^9}},ExpressionUUID->"3c1b9c14-3b34-4685-a58b-\
+1d3e70b84744"],
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"fcc", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], ".", 
+      RowBox[{"rfcc", "[", 
+       RowBox[{"[", "j", "]"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "1", ",", "3"}], "}"}]}], "]"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.715760594169586*^9, 3.715760648427268*^9}, {
+  3.715760680885612*^9, 3.715760681333962*^9}},
+ CellLabel->"In[76]:=",ExpressionUUID->"e798b3e9-6ffb-48b5-bffd-ebd95dcc9e03"],
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"bcc", "[", 
+       RowBox[{"[", "i", "]"}], "]"}], ".", 
+      RowBox[{"rbcc", "[", 
+       RowBox[{"[", "j", "]"}], "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "3"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "1", ",", "3"}], "}"}]}], "]"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "All"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.715760693969008*^9, 3.715760697770227*^9}},
+ CellLabel->"In[77]:=",ExpressionUUID->"fc33db89-1839-468b-875a-4b41219df614"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1155, 905},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"39084f0f-5c3f-474c-bef9-c5aa415195ea"],
+Cell[801, 32, 725, 10, 53, "Subtitle",ExpressionUUID->"25fb425b-43e5-46a8-a80f-e4402bb077e1"],
+Cell[1529, 44, 250, 7, 83, "Author",ExpressionUUID->"3fe1f4d6-7fbe-4b7b-ae22-8e488b846ff0"],
+Cell[CellGroupData[{
+Cell[1804, 55, 378, 6, 67, "Section",ExpressionUUID->"039caaab-a700-4bdd-9772-d84e0ebd38ad"],
+Cell[2185, 63, 209, 4, 35, "Text",ExpressionUUID->"4852513d-ded0-4879-8892-173b4f6c75ae"],
+Cell[2397, 69, 1075, 34, 35, "Text",ExpressionUUID->"0f4964a4-d1ee-4984-a2a6-cb03cc538d81"],
+Cell[3475, 105, 765, 17, 58, "Text",ExpressionUUID->"88ff6f8e-a215-47d6-b7f6-ceaf14a84831"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4277, 127, 254, 4, 53, "Section",ExpressionUUID->"3ff3e08f-3170-40d2-837e-51b8496f0014"],
+Cell[4534, 133, 163, 3, 35, "Text",ExpressionUUID->"3de0daf7-1f7c-4cc5-a88a-441fd99981f7"],
+Cell[4700, 138, 372, 5, 30, "Input",ExpressionUUID->"4a4a01ba-0c6d-4605-ac9d-e43d31bd57f3"],
+Cell[5075, 145, 419, 8, 58, "Text",ExpressionUUID->"bd1c70c4-b1ec-4e24-985b-0bfe914e0464"],
+Cell[CellGroupData[{
+Cell[5519, 157, 161, 3, 54, "Subsection",ExpressionUUID->"c3b8a16c-210e-4805-8ab8-788180828a93"],
+Cell[5683, 162, 357, 6, 30, "Input",ExpressionUUID->"edb198c1-a8ed-43be-8a45-7f78c2230a32"],
+Cell[6043, 170, 353, 7, 30, "Input",ExpressionUUID->"b873c498-e089-4117-92a5-3a2b327b4fc5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6433, 182, 159, 3, 54, "Subsection",ExpressionUUID->"6dbda3c8-34a8-4de2-ae27-e1ad3910d89b"],
+Cell[6595, 187, 406, 7, 30, "Input",ExpressionUUID->"51c1c5b4-2178-4614-b016-2c394ca256cf"],
+Cell[7004, 196, 402, 8, 30, "Input",ExpressionUUID->"f95b74e9-eb20-42c6-a140-dca1d0b018dd"],
+Cell[7409, 206, 191, 3, 35, "Text",ExpressionUUID->"92f0eb08-25d4-44c6-a88c-fae1a2a08ba6"],
+Cell[7603, 211, 213, 5, 35, "Text",ExpressionUUID->"303ca80a-e3c9-4e6d-b26f-69c71ee72b65"],
+Cell[7819, 218, 393, 8, 30, "Input",ExpressionUUID->"da8fc638-db82-43a3-8bac-cb0a72b6af1e"],
+Cell[8215, 228, 389, 8, 30, "Input",ExpressionUUID->"964484ab-74da-4ff7-b962-7cc86f3332c0"],
+Cell[8607, 238, 177, 3, 32, "Item",ExpressionUUID->"5c344a7b-22c4-4c39-9111-dfcb0e03b755"],
+Cell[8787, 243, 294, 5, 30, "Input",ExpressionUUID->"da34842b-2ed9-4983-b533-6439f4c86dac"],
+Cell[9084, 250, 428, 10, 30, "Input",ExpressionUUID->"3a6d56df-fa30-4cba-b0e5-ecb3963e91d9"],
+Cell[9515, 262, 222, 5, 35, "Text",ExpressionUUID->"79443a44-eec6-4df1-827c-8eadbd01557b"],
+Cell[9740, 269, 226, 4, 32, "Item",ExpressionUUID->"088c11c1-aab7-4c35-8a12-db762a310e46"],
+Cell[9969, 275, 345, 6, 30, "Input",ExpressionUUID->"7f823349-6627-45a9-83d7-a04cfbe6307f"],
+Cell[10317, 283, 472, 10, 30, "Input",ExpressionUUID->"29024338-9ef9-448a-b176-c860a3ebb3a2"],
+Cell[10792, 295, 270, 6, 35, "Text",ExpressionUUID->"f146750c-bf85-4e6e-8fd5-9b4b5b9c0c3d"],
+Cell[11065, 303, 719, 19, 35, "Item",ExpressionUUID->"3c1b9c14-3b34-4685-a58b-1d3e70b84744"],
+Cell[11787, 324, 655, 17, 30, "Input",ExpressionUUID->"e798b3e9-6ffb-48b5-bffd-ebd95dcc9e03"],
+Cell[12445, 343, 606, 16, 30, "Input",ExpressionUUID->"fc33db89-1839-468b-875a-4b41219df614"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

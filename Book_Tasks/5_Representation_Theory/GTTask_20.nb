@@ -1,0 +1,490 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     18241,        482]
+NotebookOptionsPosition[     14166,        415]
+NotebookOutlinePosition[     14604,        432]
+CellTagsIndexPosition[     14561,        429]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"96c520c9-1ffc-4939-87c2-\
+8f1de0e86115"],
+
+Cell["Task_20: Clebsch-Gordan coefficients", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+  3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+  3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, {
+  3.715571191956353*^9, 3.715571211605142*^9}, {3.715573845446602*^9, 
+  3.71557386522208*^9}, {3.7155749162729387`*^9, 3.715574931537026*^9}, {
+  3.7155773396647787`*^9, 3.715577357645968*^9}, {3.7155788851948023`*^9, 
+  3.715578892177968*^9}, {3.715587625318437*^9, 3.715587626778842*^9}, {
+  3.7155888215605288`*^9, 3.715588822098742*^9}, {3.71558924339729*^9, 
+  3.7155892478735113`*^9}, {3.7155899556015587`*^9, 3.715589955981695*^9}, {
+  3.7155899908572607`*^9, 3.7155900000601892`*^9}, {3.716019231451898*^9, 
+  3.716019236050912*^9}, {3.745492097275043*^9, 
+  3.745492098326542*^9}},ExpressionUUID->"e7e00033-31de-4f2f-84be-\
+32108086dd25"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"e244a576-1d11-40f2-9cd6-\
+33ca38ab976a"],
+
+Cell[CellGroupData[{
+
+Cell["Task 20", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, {
+  3.715571215441505*^9, 3.715571215824078*^9}, {3.715573868810258*^9, 
+  3.715573869147704*^9}, {3.715574936025814*^9, 3.7155749364533243`*^9}, {
+  3.7155773619834642`*^9, 3.715577362377207*^9}, {3.715578616426693*^9, 
+  3.7155786166834803`*^9}, {3.7155892519228907`*^9, 3.715589252215455*^9}, {
+  3.7160192398875713`*^9, 
+  3.7160192404725723`*^9}},ExpressionUUID->"f43f92fb-2905-4bba-9491-\
+6a9064cf15d9"],
+
+Cell["see : Chapter 5, section 5.5, p. 119.", "Text",
+ CellChangeTimes->{
+  3.745492112007986*^9, {3.745492150063302*^9, 
+   3.74549216014853*^9}},ExpressionUUID->"629db8b4-5b80-4070-bcd1-\
+43f290455372"],
+
+Cell[TextData[{
+ "Install the group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["T", "d"], TraditionalForm]],ExpressionUUID->
+  "4eee4868-d7b9-4331-b83e-5521d490e371"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.5656816415621853`*^9, 3.565681860239293*^9}, {
+  3.635786170800764*^9, 3.635786173860598*^9}, {3.715571225242838*^9, 
+  3.715571374339094*^9}, {3.7155738798070374`*^9, 3.7155739017227373`*^9}, {
+  3.715573991685924*^9, 3.715574012227669*^9}, {3.7155749595051603`*^9, 
+  3.715574997227096*^9}, {3.7155750470765553`*^9, 3.7155751263004208`*^9}, {
+  3.715577368891337*^9, 3.7155773930370913`*^9}, {3.715578769168973*^9, 
+  3.7155788448933764`*^9}, {3.7155789131370583`*^9, 3.715578947371417*^9}, {
+  3.715589256344595*^9, 3.7155893367830057`*^9}, {3.7155900063266687`*^9, 
+  3.7155900234040747`*^9}},ExpressionUUID->"cab8a017-5a2c-4431-97b8-\
+36beafa5b02e"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Install the character table and use the Mulliken notation (",
+ StyleBox["GTCharacterTable",
+  FontWeight->"Bold"],
+ ")."
+}], "ItemNumbered",
+ CellChangeTimes->{{3.715590047704596*^9, 3.715590092105739*^9}, {
+  3.745492178449054*^9, 
+  3.7454921827098017`*^9}},ExpressionUUID->"22e41b2a-9a6a-495c-a9e1-\
+7d75551f6693"],
+
+Cell[TextData[{
+ "Calculate the character system of the direct product representation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["T", "2"], "\[CircleTimes]", 
+    SubscriptBox["T", "2"]}], TraditionalForm]],ExpressionUUID->
+  "e56686a0-18e9-4e95-822c-952509530e02"],
+ " (",
+ StyleBox["GTDirectProductChars",
+  FontWeight->"Bold"],
+ ")."
+}], "ItemNumbered",
+ CellChangeTimes->{{3.715590047704596*^9, 3.715590201322981*^9}, {
+  3.745492194317951*^9, 
+  3.7454921953787603`*^9}},ExpressionUUID->"76f70ca4-e1e5-4880-b9e4-\
+7e52fba010ed"],
+
+Cell[TextData[{
+ "Decompose the direct product representation into irreducible \
+representations of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["T", "d"], TraditionalForm]],ExpressionUUID->
+  "c3bfc744-8f6c-4df6-9e62-f1d2d36ef869"],
+ " (",
+ StyleBox["GTIrep",
+  FontWeight->"Bold"],
+ ")"
+}], "ItemNumbered",
+ CellChangeTimes->{{3.715590047704596*^9, 3.715590248146018*^9}, 
+   3.7454922021376534`*^9},ExpressionUUID->"f221b38d-8f71-4efe-9a9f-\
+3f69e8e33f4a"],
+
+Cell[TextData[{
+ "Calculate the related Clebsch-Gordan coefficients (",
+ StyleBox["GTClrenbschGordanCoefficients",
+  FontWeight->"Bold"],
+ ") and illustrate them using ",
+ StyleBox["GTClebschGordanTable",
+  FontWeight->"Bold"],
+ "."
+}], "ItemNumbered",
+ CellChangeTimes->{{3.715590047704596*^9, 3.715590248137513*^9}, {
+  3.715590278580812*^9, 3.7155902999336576`*^9}, {3.715590607224231*^9, 
+  3.71559065493326*^9}},ExpressionUUID->"77a66d67-a270-4e7c-a7e8-\
+ca25c4b187fb"]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 
+  3.5656818754713144`*^9}},ExpressionUUID->"72aeebaa-1009-4c3c-bbd1-\
+824be7a54cce"],
+
+Cell["Start the group theory package.", "Text",
+ CellChangeTimes->{{3.715571417371958*^9, 
+  3.715571426911421*^9}},ExpressionUUID->"8cf221ce-7bd8-4545-89ea-\
+b48c68a2567c"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.715571457490114*^9, 3.7155714691449003`*^9}},
+ CellLabel->"In[26]:=",ExpressionUUID->"9031ee73-640f-4541-99eb-851f531a5932"],
+
+Cell[TextData[{
+ "Install the group ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["T", "d"], "."}], TraditionalForm]],ExpressionUUID->
+  "217de367-74f1-4715-ab59-ce7e52f4256b"]
+}], "Text",
+ CellChangeTimes->{{3.71558937477465*^9, 3.715589383822029*^9}, {
+  3.7155906697387247`*^9, 
+  3.715590674465569*^9}},ExpressionUUID->"bf5fbf98-97e1-486f-b65c-\
+b86ae8f4513b"],
+
+Cell[BoxData[
+ RowBox[{"td", "=", 
+  RowBox[{"GTInstallGroup", "[", "Td", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7155893911439257`*^9, 3.715589400471192*^9}, {
+  3.715590678368668*^9, 3.715590684746209*^9}},
+ CellLabel->"In[27]:=",ExpressionUUID->"7f630fba-48e5-43e0-abce-aa7a60165cfc"],
+
+Cell[CellGroupData[{
+
+Cell["1. Character table", "Subsection",
+ CellChangeTimes->{{3.715590705582675*^9, 3.715590708810371*^9}, {
+  3.715590754463344*^9, 
+  3.715590755014668*^9}},ExpressionUUID->"07f7041b-8cbc-4d84-b957-\
+78a0f9b41d51"],
+
+Cell["The character table has to be calculated.", "Text",
+ CellChangeTimes->{{3.715589423365218*^9, 
+  3.7155894359983797`*^9}},ExpressionUUID->"316c65c5-568a-49dc-9ed5-\
+e2e782572dc7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ctab", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"classes", ",", "characters", ",", "names"}], "}"}], "=", 
+    RowBox[{"GTCharacterTable", "[", 
+     RowBox[{"td", ",", 
+      RowBox[{"GOIrepNotation", "\[Rule]", "\"\<Mulliken\>\""}]}], "]"}]}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.715589440092247*^9, 3.715589495432865*^9}, {
+  3.715590712084755*^9, 3.71559074847952*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"7f812aa4-57c8-4133-a55c-99b6e68cc605"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "2. Character system of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["T", "2"], "\[CircleTimes]", " ", 
+    SubscriptBox["T", "2"]}], TraditionalForm]],ExpressionUUID->
+  "08055b4d-93b5-4450-b9e1-8d7a8a8ddd1f"]
+}], "Subsection",
+ CellChangeTimes->{{3.715590761944859*^9, 3.7155907899044533`*^9}, 
+   3.745492230492813*^9},ExpressionUUID->"d9943a65-1cf6-4e7d-b911-\
+83da792e890b"],
+
+Cell[BoxData[
+ RowBox[{"?", "GTDirectProductChars"}]], "Input",
+ CellChangeTimes->{{3.715590795001001*^9, 3.7155908100630627`*^9}},
+ CellLabel->"In[29]:=",ExpressionUUID->"9d70f7f8-2107-4a08-a751-07a1b900ceaa"],
+
+Cell[TextData[{
+ "Character of the irreducible representation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["T", "2"], "."}], TraditionalForm]],ExpressionUUID->
+  "b2dcaf09-7629-4e6e-86d0-78ef3f2ce0ad"]
+}], "Text",
+ CellChangeTimes->{{3.715591892622971*^9, 
+  3.715591912098755*^9}},ExpressionUUID->"32c4c1f9-04c9-424e-9b31-\
+d6781f1f8619"],
+
+Cell[BoxData[
+ RowBox[{"charsT2", "=", 
+  RowBox[{"characters", "[", 
+   RowBox[{"[", "4", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.715590826512197*^9, 3.7155908544665327`*^9}, {
+  3.715590894687145*^9, 3.7155908969805593`*^9}},
+ CellLabel->"In[30]:=",ExpressionUUID->"2a7eb3f3-2b24-435e-a2e0-093771579e30"],
+
+Cell[TextData[{
+ "Calculation of the characters of the direct product ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["T", "2"], "\[CircleTimes]", 
+    SubscriptBox["T", "2"]}], TraditionalForm]],ExpressionUUID->
+  "56978db4-c267-4312-ae69-b868b4956098"]
+}], "Text",
+ CellChangeTimes->{{3.715591932188912*^9, 
+  3.715591967764306*^9}},ExpressionUUID->"6744648d-4d87-49b6-8a15-\
+30b8f76ddeed"],
+
+Cell[BoxData[
+ RowBox[{"chardp", "=", 
+  RowBox[{"GTDirectProductChars", "[", 
+   RowBox[{"charsT2", ",", "charsT2"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.715590860875951*^9, 3.715590922169649*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"297455c3-03a9-4fbc-845c-cdb192ba900c"],
+
+Cell["Obviously", "Text",
+ CellChangeTimes->{{3.7155919945542803`*^9, 
+  3.715591997406197*^9}},ExpressionUUID->"32ac3a3d-6c10-4787-a823-\
+9f29c18b3951"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"charsT2", "*", "charsT2"}], " ", "\[Equal]", "chardp"}]], "Input",
+ CellChangeTimes->{{3.715592000917951*^9, 3.715592025542697*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"50b19118-7224-4655-8a9e-701469927fbd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["3. Decomposition of the direct product representation", "Subsection",
+ CellChangeTimes->{{3.7155909392476788`*^9, 
+  3.715590955706788*^9}},ExpressionUUID->"af5c9681-44bb-4378-b374-\
+42321b8f3073"],
+
+Cell[BoxData[
+ RowBox[{"GTIrep", "[", 
+  RowBox[{"chardp", ",", "ctab"}], "]"}]], "Input",
+ CellChangeTimes->{{3.715590963752705*^9, 3.715590979400077*^9}},
+ CellLabel->"In[33]:=",ExpressionUUID->"66ebe9f4-7214-4532-be42-7954f269faf9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["4. Calculation of the Clebsch-Gordan coefficients", "Subsection",
+ CellChangeTimes->{{3.7155909932914143`*^9, 
+  3.715591012846568*^9}},ExpressionUUID->"1c19c1f4-7ab9-4874-871b-\
+0ea31bfbf5e8"],
+
+Cell[BoxData[
+ RowBox[{"?", "GTClebschGordanCoefficients"}]], "Input",
+ CellChangeTimes->{{3.7155910388972607`*^9, 3.715591049049507*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"18c35b6a-ecbb-4ba8-b5d8-ed5dae320523"],
+
+Cell[TextData[{
+ StyleBox["GTGetIrep",
+  FontWeight->"Bold"],
+ StyleBox[" ",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ "is used to calculate the representation  matrices for the irreducible \
+representations of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["T", "d"], "."}], TraditionalForm]],ExpressionUUID->
+  "a7eb408b-8577-432d-8d78-c609d0a43dbe"]
+}], "Text",
+ CellChangeTimes->{{3.745492383780953*^9, 3.745492464335678*^9}, {
+  3.7454924967647038`*^9, 
+  3.745492499411004*^9}},ExpressionUUID->"99ccd852-d587-4921-9e59-\
+593e5bb880da"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ireps", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", "5", "}"}]}], "]"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ireps", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "=", 
+     RowBox[{"GTGetIrep", "[", 
+      RowBox[{"td", ",", "i", ",", "ctab"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "5"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.715591153708349*^9, 3.715591191814085*^9}, {
+  3.715591225159979*^9, 3.715591302089573*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"4600fc49-4819-49ae-b000-0245d3707dfa"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["T", "2"], TraditionalForm]],ExpressionUUID->
+  "538e25f0-8d56-43b9-b4b6-d0ef5d26418d"],
+ "is the fourth irreducible representation."
+}], "Text",
+ CellChangeTimes->{{3.7454925267148523`*^9, 
+  3.7454925429463243`*^9}},ExpressionUUID->"6baee4d8-5901-4454-96f4-\
+a22def57f1c3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"iT2", "=", 
+   RowBox[{"ireps", "[", 
+    RowBox[{"[", "4", "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.715591317884286*^9, 3.715591340712425*^9}},
+ CellLabel->"In[36]:=",ExpressionUUID->"b1149f2e-e7a5-4c57-940a-520aa20d7bc1"],
+
+Cell["\<\
+Calculate the Clebsch-Gordan coefficients and create the table.\
+\>", "Text",
+ CellChangeTimes->{{3.745492561019327*^9, 
+  3.74549263037431*^9}},ExpressionUUID->"04a1f0fc-5d99-4693-b37f-\
+19da09f9748d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cgc", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", "5", "}"}]}], "]"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"cgc", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "=", 
+     RowBox[{"GTClebschGordanCoefficients", "[", 
+      RowBox[{"iT2", ",", "iT2", ",", 
+       RowBox[{"ireps", "[", 
+        RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], " ", ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "5"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7155913473314257`*^9, 3.715591349238262*^9}, {
+  3.7155914053550797`*^9, 3.7155914183034782`*^9}, {3.715591642738173*^9, 
+  3.7155917160278893`*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"16e98efb-6c82-4e7e-bc43-63c4091dfd57"],
+
+Cell[BoxData[
+ RowBox[{"GTClebschGordanTable", "[", 
+  RowBox[{"iT2", ",", "iT2", ",", "cgc", ",", "names"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7155917237244577`*^9, 3.715591753873383*^9}, {
+  3.715591787377931*^9, 3.715591802531453*^9}},
+ CellLabel->"In[38]:=",ExpressionUUID->"a7f6891e-cdb0-4a11-9f97-bbeb6e9db90b"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{808, 755},
+WindowMargins->{{857, Automatic}, {Automatic, 161}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"96c520c9-1ffc-4939-87c2-8f1de0e86115"],
+Cell[801, 32, 921, 13, 53, "Subtitle",ExpressionUUID->"e7e00033-31de-4f2f-84be-32108086dd25"],
+Cell[1725, 47, 250, 7, 83, "Author",ExpressionUUID->"e244a576-1d11-40f2-9cd6-33ca38ab976a"],
+Cell[CellGroupData[{
+Cell[2000, 58, 503, 8, 67, "Section",ExpressionUUID->"f43f92fb-2905-4bba-9491-6a9064cf15d9"],
+Cell[2506, 68, 204, 4, 35, "Text",ExpressionUUID->"629db8b4-5b80-4070-bcd1-43f290455372"],
+Cell[2713, 74, 863, 17, 35, "Text",ExpressionUUID->"cab8a017-5a2c-4431-97b8-36beafa5b02e"],
+Cell[CellGroupData[{
+Cell[3601, 95, 335, 9, 32, "ItemNumbered",ExpressionUUID->"22e41b2a-9a6a-495c-a9e1-7d75551f6693"],
+Cell[3939, 106, 548, 16, 32, "ItemNumbered",ExpressionUUID->"76f70ca4-e1e5-4880-b9e4-7e52fba010ed"],
+Cell[4490, 124, 459, 14, 32, "ItemNumbered",ExpressionUUID->"f221b38d-8f71-4efe-9a9f-3f69e8e33f4a"],
+Cell[4952, 140, 474, 12, 53, "ItemNumbered",ExpressionUUID->"77a66d67-a270-4e7c-a7e8-ca25c4b187fb"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[5475, 158, 155, 3, 53, "Section",ExpressionUUID->"72aeebaa-1009-4c3c-bbd1-824be7a54cce"],
+Cell[5633, 163, 173, 3, 35, "Text",ExpressionUUID->"8cf221ce-7bd8-4545-89ea-b48c68a2567c"],
+Cell[5809, 168, 224, 3, 30, "Input",ExpressionUUID->"9031ee73-640f-4541-99eb-851f531a5932"],
+Cell[6036, 173, 376, 11, 35, "Text",ExpressionUUID->"bf5fbf98-97e1-486f-b65c-b86ae8f4513b"],
+Cell[6415, 186, 288, 5, 30, "Input",ExpressionUUID->"7f630fba-48e5-43e0-abce-aa7a60165cfc"],
+Cell[CellGroupData[{
+Cell[6728, 195, 215, 4, 54, "Subsection",ExpressionUUID->"07f7041b-8cbc-4d84-b957-78a0f9b41d51"],
+Cell[6946, 201, 185, 3, 35, "Text",ExpressionUUID->"316c65c5-568a-49dc-9ed5-e2e782572dc7"],
+Cell[7134, 206, 503, 12, 30, "Input",ExpressionUUID->"7f812aa4-57c8-4133-a55c-99b6e68cc605"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7674, 223, 409, 11, 54, "Subsection",ExpressionUUID->"d9943a65-1cf6-4e7d-b911-83da792e890b"],
+Cell[8086, 236, 210, 3, 30, "Input",ExpressionUUID->"9d70f7f8-2107-4a08-a751-07a1b900ceaa"],
+Cell[8299, 241, 352, 10, 35, "Text",ExpressionUUID->"32c4c1f9-04c9-424e-9b31-d6781f1f8619"],
+Cell[8654, 253, 314, 6, 30, "Input",ExpressionUUID->"2a7eb3f3-2b24-435e-a2e0-093771579e30"],
+Cell[8971, 261, 402, 11, 35, "Text",ExpressionUUID->"6744648d-4d87-49b6-8a15-30b8f76ddeed"],
+Cell[9376, 274, 282, 5, 30, "Input",ExpressionUUID->"297455c3-03a9-4fbc-845c-cdb192ba900c"],
+Cell[9661, 281, 153, 3, 35, "Text",ExpressionUUID->"32ac3a3d-6c10-4787-a823-9f29c18b3951"],
+Cell[9817, 286, 246, 4, 30, "Input",ExpressionUUID->"50b19118-7224-4655-8a9e-701469927fbd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10100, 295, 203, 3, 54, "Subsection",ExpressionUUID->"af5c9681-44bb-4378-b374-42321b8f3073"],
+Cell[10306, 300, 235, 4, 30, "Input",ExpressionUUID->"66ebe9f4-7214-4532-be42-7954f269faf9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10578, 309, 199, 3, 54, "Subsection",ExpressionUUID->"1c19c1f4-7ab9-4874-871b-0ea31bfbf5e8"],
+Cell[10780, 314, 217, 3, 30, "Input",ExpressionUUID->"18c35b6a-ecbb-4ba8-b5d8-ed5dae320523"],
+Cell[11000, 319, 557, 17, 35, "Text",ExpressionUUID->"99ccd852-d587-4921-9e59-593e5bb880da"],
+Cell[11560, 338, 635, 17, 30, "Input",ExpressionUUID->"4600fc49-4819-49ae-b000-0245d3707dfa"],
+Cell[12198, 357, 333, 9, 35, "Text",ExpressionUUID->"6baee4d8-5901-4454-96f4-a22def57f1c3"],
+Cell[12534, 368, 272, 6, 30, "Input",ExpressionUUID->"b1149f2e-e7a5-4c57-940a-520aa20d7bc1"],
+Cell[12809, 376, 212, 5, 35, "Text",ExpressionUUID->"04a1f0fc-5d99-4693-b37f-19da09f9748d"],
+Cell[13024, 383, 777, 20, 52, "Input",ExpressionUUID->"16e98efb-6c82-4e7e-bc43-63c4091dfd57"],
+Cell[13804, 405, 322, 5, 30, "Input",ExpressionUUID->"a7f6891e-cdb0-4a11-9f97-bbeb6e9db90b"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,290 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     10699,        282]
+NotebookOptionsPosition[      7988,        234]
+NotebookOutlinePosition[      8426,        251]
+CellTagsIndexPosition[      8383,        248]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"6e04d9c9-f43a-4486-be27-\
+6c300580409b"],
+
+Cell["Task_3: Binary rotation", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+  3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+  3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, {
+  3.698228355707979*^9, 3.698228357328171*^9}, {3.712383976414645*^9, 
+  3.712383978573269*^9}},ExpressionUUID->"83fa5f78-4652-4b79-92a3-\
+007af784781e"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"e075c80a-14b3-4496-ac00-\
+0a25abdaba14"],
+
+Cell[CellGroupData[{
+
+Cell["Task 3", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, {
+  3.712383982200282*^9, 
+  3.712383982582698*^9}},ExpressionUUID->"d2baa8e4-78da-4107-b1ae-\
+9dcb3d8085e3"],
+
+Cell["see: Chapter 2, section 2.1.3, p. 23", "Text",
+ CellChangeTimes->{{3.745468520221672*^9, 
+  3.7454685504785833`*^9}},ExpressionUUID->"977615e5-834e-4a84-bf64-\
+ca5cecd140ac"],
+
+Cell[TextData[{
+ "Verify, that \n1) the identity quaternion is given by \
+\[DoubleStruckCapitalI]=\[LeftDoubleBracket]1,",
+ StyleBox["0",
+  FontWeight->"Bold"],
+ "\[RightDoubleBracket]",
+ StyleBox["\n",
+  FontWeight->"Bold"],
+ "2) the inverse quaternion is given by ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["\[DoubleStruckCapitalA]", 
+    RowBox[{"-", "1"}]], TraditionalForm]],ExpressionUUID->
+  "f5358d5e-d857-49f4-89d6-4c88cf29f3a6"],
+ "= ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["\[DoubleStruckCapitalA]", "*"], " ", "/"}], " ", 
+    "\[VerticalSeparator]", 
+    RowBox[{"\[DoubleStruckCapitalA]", "|"}]}], TraditionalForm]],
+  ExpressionUUID->"aa48d14c-5d3d-4726-bdf8-a2e9c8b1699e"]
+}], "Text",
+ CellChangeTimes->{{3.5656816415621853`*^9, 3.565681860239293*^9}, {
+   3.635786170800764*^9, 3.635786173860598*^9}, {3.712030559339693*^9, 
+   3.712030575250453*^9}, 3.7120368247611017`*^9, {3.712384001771514*^9, 
+   3.712384042310062*^9}, {3.7123840821186323`*^9, 3.712384226276465*^9}, {
+   3.745467993942322*^9, 
+   3.745467994518396*^9}},ExpressionUUID->"590ab4e5-6a07-44af-ba4b-\
+dcc13965deb5"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 
+  3.5656818754713144`*^9}},ExpressionUUID->"ad1a80c5-18fc-4389-ad51-\
+3325487f3faa"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.7123842427203293`*^9, 3.712384255647007*^9}},
+ CellLabel->"In[75]:=",ExpressionUUID->"9e23fa4e-1d15-4275-8fd3-b00c25969c1a"],
+
+Cell[CellGroupData[{
+
+Cell["Unit Quaternion", "Subsection",
+ CellChangeTimes->{{3.712384806990959*^9, 
+  3.7123848110337477`*^9}},ExpressionUUID->"519df6a9-c312-4f61-b045-\
+e4c780a3d33b"],
+
+Cell["A general quaternion \[DoubleStruckCapitalA] will be defined as", "Text",
+ CellChangeTimes->{{3.5656818798913207`*^9, 3.5656818869633307`*^9}, {
+  3.712384298298012*^9, 
+  3.712384325960415*^9}},ExpressionUUID->"3564c937-e461-44f7-875b-\
+e2fc7d6e457f"],
+
+Cell[BoxData[
+ RowBox[{"aq", "=", 
+  RowBox[{"{", 
+   RowBox[{"a", ",", 
+    RowBox[{"{", 
+     RowBox[{"ax", ",", "ay", ",", "az"}], 
+     StyleBox["}", "Input"]}]}], 
+   StyleBox["}", "Input"]}]}]], "Input",
+ CellChangeTimes->{{3.565681889253334*^9, 3.5656819493414183`*^9}, {
+  3.635786193501388*^9, 3.635786195193049*^9}, {3.7119864704426403`*^9, 
+  3.711986499343966*^9}, {3.711986899400642*^9, 3.71198690385325*^9}, {
+  3.7119871332923107`*^9, 3.7119871624958553`*^9}, {3.71238433190204*^9, 
+  3.712384345569681*^9}},
+ CellLabel->"In[76]:=",ExpressionUUID->"476d9b33-6540-4f03-b4d3-65e05f2564b9"],
+
+Cell["Per definitionem the unit quaternion \[DoubleStruckCapitalI] is given \
+by", "Text",
+ CellChangeTimes->{{3.712384352758539*^9, 
+  3.7123843771150723`*^9}},ExpressionUUID->"979d3e67-d44b-41eb-9e79-\
+78420ded5b36"],
+
+Cell[BoxData[
+ RowBox[{"unit", "=", 
+  RowBox[{"{", 
+   RowBox[{"1", ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.712384368600442*^9, 3.712384387791566*^9}},
+ CellLabel->"In[77]:=",ExpressionUUID->"966a9666-9466-44b1-b95b-8a68f86e2dea"],
+
+Cell["Thus, we get", "Text",
+ CellChangeTimes->{{3.7123843920075703`*^9, 3.712384403462706*^9}, {
+  3.712384548850013*^9, 
+  3.712384550018593*^9}},ExpressionUUID->"c7e0c1e7-60dd-4c22-a45e-\
+830aca3527e0"],
+
+Cell[BoxData[{
+ RowBox[{"GTQMultiplication", "[", 
+  RowBox[{"aq", ",", "unit"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"GTQMultiplication", "[", 
+  RowBox[{"unit", ",", "aq"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7123845662876167`*^9, 3.712384610197016*^9}},
+ CellLabel->"In[78]:=",ExpressionUUID->"cf7fd369-2923-4f4d-b7fc-8cd11eeabcc1"],
+
+Cell["Short formulation \[Diamond] (ESC dia ESC)", "Text",
+ CellChangeTimes->{{3.7123846271948566`*^9, 
+  3.712384666007904*^9}},ExpressionUUID->"e986f244-549e-4d50-8845-\
+e3d39948a41e"],
+
+Cell[BoxData[
+ RowBox[{"aq", " ", "\[Diamond]", "unit"}]], "Input",
+ CellChangeTimes->{{3.712384669215125*^9, 3.712384688789515*^9}},
+ CellLabel->"In[80]:=",ExpressionUUID->"8483c6cc-7e43-4d05-b1f1-c922014828ae"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Inverse", "Subsection",
+ CellChangeTimes->{{3.712384816278277*^9, 
+  3.712384817682774*^9}},ExpressionUUID->"c1854847-57cd-4f07-949d-\
+fba9c174b5af"],
+
+Cell["The inverse quaternion is implemented", "Text",
+ CellChangeTimes->{{3.712384824084004*^9, 
+  3.7123848386528893`*^9}},ExpressionUUID->"a91a79b6-ecc6-4215-9f8b-\
+68c7bfb69e4e"],
+
+Cell[BoxData[
+ RowBox[{"aqi", "=", 
+  RowBox[{"GTQInverse", "[", "aq", "]"}]}]], "Input",
+ CellChangeTimes->{{3.712384771562147*^9, 3.712384792471833*^9}, {
+  3.712384842929991*^9, 3.712384844290201*^9}},
+ CellLabel->"In[81]:=",ExpressionUUID->"bbd952ca-8015-446c-80f7-26d320cd70a4"],
+
+Cell["\<\
+If this is the correct inverse quaternion the product with aq should give the \
+unit quaternion.\
+\>", "Text",
+ CellChangeTimes->{{3.7123848550339823`*^9, 3.712384889649969*^9}, {
+   3.71238503528341*^9, 3.7123850359247*^9}, 
+   3.714699245273528*^9},ExpressionUUID->"a1f2d6ef-0fc9-4e39-b847-\
+d4914f2f40c3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"aq", " ", "\[Diamond]", " ", "aqi"}], "//", 
+  "FullSimplify"}]], "Input",
+ CellChangeTimes->{{3.7123848967662354`*^9, 3.71238492365058*^9}},
+ CellLabel->"In[82]:=",ExpressionUUID->"26284674-793e-4d4f-a5ae-82922380b866"],
+
+Cell["\<\
+On the other hand the inverse is given by the conjugate quaternion and the \
+absolute value.\
+\>", "Text",
+ CellChangeTimes->{{3.712384938785061*^9, 3.7123849696609497`*^9}, {
+  3.712385030346249*^9, 
+  3.712385062643731*^9}},ExpressionUUID->"e3515633-72e4-4234-8229-\
+b46de07305c2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"aqi", "==", 
+   RowBox[{
+    RowBox[{"GTQConjugate", "[", "aq", "]"}], "/", 
+    RowBox[{
+     RowBox[{"GTQAbs", "[", "aq", "]"}], "^", "2"}]}]}], " ", "//", 
+  "FullSimplify", " "}]], "Input",
+ CellChangeTimes->{{3.712385065892056*^9, 3.712385150113768*^9}, {
+  3.7123854894192343`*^9, 3.7123854976429043`*^9}},
+ CellLabel->"In[83]:=",ExpressionUUID->"fd82c70f-c637-4136-ae1c-24b24f0f4cef"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{888, 1035},
+WindowMargins->{{232, Automatic}, {Automatic, 30}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"6e04d9c9-f43a-4486-be27-6c300580409b"],
+Cell[801, 32, 413, 6, 53, "Subtitle",ExpressionUUID->"83fa5f78-4652-4b79-92a3-007af784781e"],
+Cell[1217, 40, 250, 7, 83, "Author",ExpressionUUID->"e075c80a-14b3-4496-ac00-0a25abdaba14"],
+Cell[CellGroupData[{
+Cell[1492, 51, 202, 4, 67, "Section",ExpressionUUID->"d2baa8e4-78da-4107-b1ae-9dcb3d8085e3"],
+Cell[1697, 57, 180, 3, 35, "Text",ExpressionUUID->"977615e5-834e-4a84-bf64-ca5cecd140ac"],
+Cell[1880, 62, 1139, 30, 82, "Text",ExpressionUUID->"590ab4e5-6a07-44af-ba4b-dcc13965deb5"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3056, 97, 155, 3, 53, "Section",ExpressionUUID->"ad1a80c5-18fc-4389-ad51-3325487f3faa"],
+Cell[3214, 102, 224, 3, 30, "Input",ExpressionUUID->"9e23fa4e-1d15-4275-8fd3-b00c25969c1a"],
+Cell[CellGroupData[{
+Cell[3463, 109, 165, 3, 54, "Subsection",ExpressionUUID->"519df6a9-c312-4f61-b045-e4c780a3d33b"],
+Cell[3631, 114, 258, 4, 35, "Text",ExpressionUUID->"3564c937-e461-44f7-875b-e2fc7d6e457f"],
+Cell[3892, 120, 602, 13, 30, "Input",ExpressionUUID->"476d9b33-6540-4f03-b4d3-65e05f2564b9"],
+Cell[4497, 135, 218, 4, 35, "Text",ExpressionUUID->"979d3e67-d44b-41eb-9e79-78420ded5b36"],
+Cell[4718, 141, 305, 7, 30, "Input",ExpressionUUID->"966a9666-9466-44b1-b95b-8a68f86e2dea"],
+Cell[5026, 150, 205, 4, 35, "Text",ExpressionUUID->"c7e0c1e7-60dd-4c22-a45e-830aca3527e0"],
+Cell[5234, 156, 344, 6, 52, "Input",ExpressionUUID->"cf7fd369-2923-4f4d-b7fc-8cd11eeabcc1"],
+Cell[5581, 164, 186, 3, 35, "Text",ExpressionUUID->"e986f244-549e-4d50-8845-e3d39948a41e"],
+Cell[5770, 169, 212, 3, 30, "Input",ExpressionUUID->"8483c6cc-7e43-4d05-b1f1-c922014828ae"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6019, 177, 155, 3, 54, "Subsection",ExpressionUUID->"c1854847-57cd-4f07-949d-fba9c174b5af"],
+Cell[6177, 182, 181, 3, 35, "Text",ExpressionUUID->"a91a79b6-ecc6-4215-9f8b-68c7bfb69e4e"],
+Cell[6361, 187, 283, 5, 30, "Input",ExpressionUUID->"bbd952ca-8015-446c-80f7-26d320cd70a4"],
+Cell[6647, 194, 318, 7, 35, "Text",ExpressionUUID->"a1f2d6ef-0fc9-4e39-b847-d4914f2f40c3"],
+Cell[6968, 203, 255, 5, 30, "Input",ExpressionUUID->"26284674-793e-4d4f-a5ae-82922380b866"],
+Cell[7226, 210, 293, 7, 35, "Text",ExpressionUUID->"e3515633-72e4-4234-8229-b46de07305c2"],
+Cell[7522, 219, 426, 10, 30, "Input",ExpressionUUID->"fd82c70f-c637-4136-ae1c-24b24f0f4cef"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

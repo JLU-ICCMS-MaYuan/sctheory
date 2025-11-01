@@ -1,0 +1,1670 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     61347,       1660]
+NotebookOptionsPosition[     52294,       1476]
+NotebookOutlinePosition[     55321,       1543]
+CellTagsIndexPosition[     55278,       1540]
+WindowTitle->Installation of Point Groups and Character Tables
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY TUTORIAL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "f76beffd-39fc-47cd-bc26-ee9f13225238"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "17d1b1f4-8237-4764-a4e7-ecbee3af24ae"],
+        Background->RGBColor[
+         0.7450980392156863, 0.3254901960784314, 0.1411764705882353],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "97672a65-29ce-4f4f-a35f-bc780e012734"]
+         }],ExpressionUUID->"a8d9e4d1-46fc-4bc3-9ab0-6a2f66f23ab1"],
+         StripOnInput->
+          False], {"\<\"W. Hergert, R. M. Geilhufe, Group Theory in Solid \
+State Physics and Photonics: Problem Solving with Mathematica, Wiley-VCH, \
+ISBN: 978-3-527-41133-7 (2018).\"\>":>Documentation`HelpLookup[
+        "paclet:http://gtpack.org/book/"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"TutorialMoreAboutSection"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "6234406a-61e1-47d0-ae97-c97c745f2114"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Functions",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "250b83c8-7e70-44a4-885b-08a76cf92d6f"]
+         }],ExpressionUUID->"4a7be79c-32bb-4ea6-afc5-c85fe8e24798"],
+         StripOnInput->False], {"\<\"GOIrepNotation\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GOIrepNotation"], "\<\"GOReality\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GOReality"], "\<\"GTCharacterTable\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCharacterTable"], "\<\"GTInstallGroup\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/GTInstallGroup"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"TutorialFunction"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "3f274f41-d8d6-40c1-8a69-8243f9255a40"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "9f0c5d85-8338-49bd-ad24-28a4e819fc80"]
+         }],ExpressionUUID->"8d9e63eb-ecf5-4b26-b070-7b4ca40130d2"],
+         StripOnInput->
+          False], {"\<\"GroupTheory/tutorial/PointGroupsCharacterTables\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/tutorial/PointGroupsCharacterTables"]}, 
+             Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/tutorial/\
+PointGroupsCharacterTables.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$262902], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/tutorial/PointGroupsCharacterTables" <> ".html"], 
+            None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "351e5e03-9dc6-469d-a6db-f3e4cc49d51d"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "3479781e-174c-4974-99b9-48c7ee971ecc"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"8363c982-1ceb-4b85-acf1-a16cd4e5df37"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+
+Installation of Point Groups and Character Tables\
+\>", "Title",
+ CellID->509267359,ExpressionUUID->"c696292b-de6e-43ed-9ff2-180c835fc0a2"],
+
+Cell["\<\
+The example shows the installation of point groups using GTInstallGroup and \
+the calculation of character tables using GTCharacterTable.\
+\>", "Text",
+ CellID->1534169418,ExpressionUUID->"69e128cc-3538-49f9-ad91-5c58ab90399e"],
+
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{
+      Cell[
+       TextData["GTInstallGroup"]], "paclet:GroupTheory/ref/GTInstallGroup", 
+      "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "installs a point or space group", "TableText",ExpressionUUID->
+     "e5118c15-058b-41fe-9e53-53e5bb0cb75b"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["GTCharacterTable"]], 
+      "paclet:GroupTheory/ref/GTCharacterTable", "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "gives the character table of a group", "TableText",ExpressionUUID->
+     "2b7155fc-ef58-4605-be11-bb0dd534c5a8"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["GOIrepNotation"]], "paclet:GroupTheory/ref/GOIrepNotation", 
+      "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell["\<\
+is an option to specify the used notation for irreducible representation\
+\>", "TableText",ExpressionUUID->"766232ed-a421-4ccc-8ed4-f44a91213a5c"]}
+  }]], "DefinitionBox",
+ CellID->2096742444,ExpressionUUID->"9871e171-af89-4da2-9692-d0bf577bb182"],
+
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{
+      Cell[
+       TextData["GOReality"]], "paclet:GroupTheory/ref/GOReality", 
+      "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell["\<\
+is an option to decide whether additional information about the reality of \
+irreducible representations are printed within the character table.\
+\>", "TableText",ExpressionUUID->"c64dc338-9fb6-4089-b0da-dac66c40a7d4"]}
+  }]], "DefinitionBox",
+ CellID->1696478601,ExpressionUUID->"af2b9134-087d-4258-85c5-e9f5703088a5"],
+
+Cell[TextData[{
+ "For our example we use the tetrahedral point group T, containing 12 \
+elements. In general, point groups, space, groups, and double groups can be \
+installed using the module ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTInstallGroup"]], "paclet:GroupTheory/ref/GTInstallGroup", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "6f1b158e-82e6-44bf-8bbe-5671e3a9421a"],
+ ". "
+}], "MathCaption",
+ CellID->836781195,ExpressionUUID->"237bcede-a052-44e1-b8ee-6cad898acfb5"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->776075125,ExpressionUUID->"0af981b7-9f5c-44d0-9f63-a618a8661ab1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"group", "=", 
+  RowBox[{"GTInstallGroup", "[", "T", "]"}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1961105960,ExpressionUUID->"0040b185-2b32-4945-a0af-6f0fb8bc6aeb"],
+
+Cell[BoxData["\<\"The standard representation has changed to O(3)\"\>"], \
+"Print",
+ CellLabel->"During evaluation of In[84]:=",
+ CellID->439160087,ExpressionUUID->"706f1386-1456-4f2a-a62e-2643689b2f6f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Ee\"\>", ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"\"\>"], 
+   ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", "\<\"\"\>"], 
+   ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"-1\"\>"],
+    ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", "\<\"\"\>"], 
+   ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"\"\>"]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1215993105,ExpressionUUID->"a9ebc8f7-f007-44bd-abbb-25daa0580348"]
+}, Open  ]],
+
+Cell["\<\
+Point groups can be denoted in various ways. The name T is the name of the \
+above installed group in the Sch\[ODoubleDot]nflies notation. Similarly, the \
+same group can be installed using the Hermann-Mauguin notation, where the \
+corresponding name is given by 23. To avoid confusion of such point group \
+names with space group numbers, the Hermann-Mauguin notation needs to be \
+embedded in | \[Ellipsis] | as shown in the following.\
+\>", "MathCaption",
+ CellID->450860299,ExpressionUUID->"241decf5-b534-48f4-bf3f-16ac5168117b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"group", "=", 
+  RowBox[{"GTInstallGroup", "[", 
+   RowBox[{"\[LeftBracketingBar]", "23", "\[RightBracketingBar]"}], 
+   "]"}]}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1442748066,ExpressionUUID->"20cff8d8-4475-4f25-b56d-9dcccc0a046f"],
+
+Cell[BoxData["\<\"The standard representation has changed to O(3)\"\>"], \
+"Print",
+ CellLabel->"During evaluation of In[85]:=",
+ CellID->1262056656,ExpressionUUID->"dc9ec058-5a15-4ead-92df-37f5c9848804"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Ee\"\>", ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"\"\>"], 
+   ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", "\<\"\"\>"], 
+   ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"-1\"\>"],
+    ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", "\<\"\"\>"], 
+   ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"\"\>"]}], "}"}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1433794708,ExpressionUUID->"2ce21329-ce71-440e-af5f-614ee82b0e26"]
+}, Open  ]],
+
+Cell[TextData[{
+ "The character table of the group is installed using ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCharacterTable"]], "paclet:GroupTheory/ref/GTCharacterTable",
+     "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "f61f5218-9a0e-4828-b0f6-6512edf4ab16"],
+ ". The point group T contains 4 classes and therefore 4 irreducible \
+representations."
+}], "MathCaption",
+ CellID->2133741803,ExpressionUUID->"6c76721a-e8c2-4bd2-9504-c325f541c9a5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTCharacterTable", "[", "group", "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->495006799,ExpressionUUID->"933df668-acfa-4ce8-a732-7abac3ea5f65"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"\"\>", "\<\"Ee\"\>", 
+     RowBox[{"3", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"]}], 
+     RowBox[{"4", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"\"\>"]}], 
+     RowBox[{"4", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", "\<\"-1\"\
+\>"]}]},
+    {
+     TemplateBox[{"\"\[CapitalGamma]\"", "\"1\""},
+      "Superscript"], "1", "1", "1", "1"},
+    {
+     TemplateBox[{"\"\[CapitalGamma]\"", "\"2\""},
+      "Superscript"], "1", "1", 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", 
+        SqrtBox["3"]}], ")"}]}], 
+     RowBox[{
+      FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[ImaginaryI]", "+", 
+        SqrtBox["3"]}], ")"}]}]},
+    {
+     TemplateBox[{"\"\[CapitalGamma]\"", "\"3\""},
+      "Superscript"], "1", "1", 
+     RowBox[{
+      FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[ImaginaryI]", "+", 
+        SqrtBox["3"]}], ")"}]}], 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", 
+        SqrtBox["3"]}], ")"}]}]},
+    {
+     TemplateBox[{"\"\[CapitalGamma]\"", "\"4\""},
+      "Superscript"], "3", 
+     RowBox[{"-", "1"}], "0", "0"}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+   GridBoxBackground->{
+    "ColumnsIndexed" -> {1 -> RGBColor[1, 0.5, 0.5]}, 
+     "RowsIndexed" -> {1 -> RGBColor[1, 0.5, 0.5]}, 
+     "ItemsIndexed" -> {{1, 1} -> RGBColor[1, 1, 0]}},
+   GridBoxDividers->{
+    "ColumnsIndexed" -> {2 -> RGBColor[1, 0, 0]}, 
+     "RowsIndexed" -> {2 -> RGBColor[1, 0, 0]}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Print",
+ CellLabel->"During evaluation of In[86]:=",
+ CellID->514293219,ExpressionUUID->"9d32553b-45a9-4c5d-baa8-9bb148410b00"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "1"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", "\<\"Ee\"\>", "}"}]}],
+  SequenceForm[
+   Subscript["C", 1], " = ", {GroupTheory`Symbols`Ee}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[86]:=",
+ CellID->642110940,ExpressionUUID->"13a90e05-83e4-4dc1-a9a8-fbf42f147b97"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "2"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], ",", 
+     
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], ",", 
+     
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"]}], 
+    "}"}]}],
+  SequenceForm[
+   Subscript["C", 2], " = ", {
+   GroupTheory`Symbols`C2z, GroupTheory`Symbols`C2y, GroupTheory`Symbols`C2x}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[86]:=",
+ CellID->807316318,ExpressionUUID->"63e8b8ca-c931-438e-b571-fd09299a0498"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "3"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"\"\>"],
+      ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"\"\>"]}], "}"}]}],
+  SequenceForm[
+   Subscript["C", 3], " = ", {
+   GroupTheory`Symbols`C3\[Beta], GroupTheory`Symbols`C3\[Gamma], 
+    GroupTheory`Symbols`C3\[Alpha], GroupTheory`Symbols`C3\[Delta]}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[86]:=",
+ CellID->1715089761,ExpressionUUID->"be44ae60-ec29-44c9-925f-57f61d8df758"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "4"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"]}], "}"}]}],
+  SequenceForm[
+   Subscript["C", 4], " = ", {
+   GroupTheory`Symbols`C3\[Gamma]i, GroupTheory`Symbols`C3\[Alpha]i, 
+    GroupTheory`Symbols`C3\[Beta]i, GroupTheory`Symbols`C3\[Delta]i}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[86]:=",
+ CellID->2124830085,ExpressionUUID->"80b9ce20-537d-4753-b00b-0b303023a711"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", "\<\"Ee\"\>", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], 
+       ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], 
+       ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"\"\>"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"-1\"\
+\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], "+", 
+          SqrtBox["3"]}], ")"}]}], ",", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[ImaginaryI]", "+", 
+          SqrtBox["3"]}], ")"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[ImaginaryI]", "+", 
+          SqrtBox["3"]}], ")"}]}], ",", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], "+", 
+          SqrtBox["3"]}], ")"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", 
+       RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     TemplateBox[{"\"\[CapitalGamma]\"", "\"1\""},
+      "Superscript"], ",", 
+     TemplateBox[{"\"\[CapitalGamma]\"", "\"2\""},
+      "Superscript"], ",", 
+     TemplateBox[{"\"\[CapitalGamma]\"", "\"3\""},
+      "Superscript"], ",", 
+     TemplateBox[{"\"\[CapitalGamma]\"", "\"4\""},
+      "Superscript"]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[4]=",
+ CellID->572403024,ExpressionUUID->"2567ab09-9fc2-4878-965a-3df2d7363aa7"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Various notations for irreducible representations of point groups \
+exist.GTPack supports the Mulliken notation [",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["J.Chem.Phys.23, 1997 (1955)"]], 
+    "https://aip.scitation.org/doi/10.1063/1.1740655"},
+   "WebLink",
+   BaseStyle->{"MathCaption"}]],ExpressionUUID->
+  "b3480156-0edc-43ae-92f4-75f48a0c5256"],
+ "] and the notation proposed by Bouckaert, Smoluchowski, and Wigner [",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["Phys.Rev.50, 58 (1936)"]], 
+    "https://journals.aps.org/pr/abstract/10.1103/PhysRev.50.58"},
+   "WebLink",
+   BaseStyle->{"MathCaption"}]],ExpressionUUID->
+  "50f653d2-f3ab-4d25-ae99-7982ecff2a91"],
+ "]. The notation can be chosen by specifying the option ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GOIrepNotation"]], "paclet:GroupTheory/ref/GOIrepNotation", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "e90ab2d3-6202-4f68-b70f-978c8516a77d"],
+ ". The Mulliken notation is obtained as follows :"
+}], "MathCaption",
+ CellID->228903335,ExpressionUUID->"ed4b8f71-2a46-42ef-acbf-d46e887cb918"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTCharacterTable", "[", 
+  RowBox[{"group", ",", 
+   RowBox[{"GOIrepNotation", "\[Rule]", "\"\<Mulliken\>\""}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->1607052338,ExpressionUUID->"2943d756-6502-4c25-a08a-842c1fb8e49c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"\"\>", "\<\"Ee\"\>", 
+     RowBox[{"3", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"]}], 
+     RowBox[{"4", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"\"\>"]}], 
+     RowBox[{"4", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", "\<\"-1\"\
+\>"]}]},
+    {"\<\"A\"\>", "1", "1", "1", "1"},
+    {
+     TemplateBox[{"\"E\"", "\"1\""},
+      "Superscript"], "1", "1", 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", 
+        SqrtBox["3"]}], ")"}]}], 
+     RowBox[{
+      FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[ImaginaryI]", "+", 
+        SqrtBox["3"]}], ")"}]}]},
+    {
+     TemplateBox[{"\"E\"", "\"2\""},
+      "Superscript"], "1", "1", 
+     RowBox[{
+      FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[ImaginaryI]", "+", 
+        SqrtBox["3"]}], ")"}]}], 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", 
+        SqrtBox["3"]}], ")"}]}]},
+    {"\<\"T\"\>", "3", 
+     RowBox[{"-", "1"}], "0", "0"}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+   GridBoxBackground->{
+    "ColumnsIndexed" -> {1 -> RGBColor[1, 0.5, 0.5]}, 
+     "RowsIndexed" -> {1 -> RGBColor[1, 0.5, 0.5]}, 
+     "ItemsIndexed" -> {{1, 1} -> RGBColor[1, 1, 0]}},
+   GridBoxDividers->{
+    "ColumnsIndexed" -> {2 -> RGBColor[1, 0, 0]}, 
+     "RowsIndexed" -> {2 -> RGBColor[1, 0, 0]}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Print",
+ CellLabel->"During evaluation of In[87]:=",
+ CellID->6241186,ExpressionUUID->"149cbc2f-f5e1-45b8-8d42-83b11ed5fe98"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "1"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", "\<\"Ee\"\>", "}"}]}],
+  SequenceForm[
+   Subscript["C", 1], " = ", {GroupTheory`Symbols`Ee}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[87]:=",
+ CellID->122826399,ExpressionUUID->"bcc2452f-981e-4845-be05-aea989ef7670"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "2"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], ",", 
+     
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], ",", 
+     
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"]}], 
+    "}"}]}],
+  SequenceForm[
+   Subscript["C", 2], " = ", {
+   GroupTheory`Symbols`C2z, GroupTheory`Symbols`C2y, GroupTheory`Symbols`C2x}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[87]:=",
+ CellID->542488803,ExpressionUUID->"1b40f0c0-94c0-4bc8-9ba6-47a28295a0b5"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "3"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"\"\>"],
+      ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"\"\>"]}], "}"}]}],
+  SequenceForm[
+   Subscript["C", 3], " = ", {
+   GroupTheory`Symbols`C3\[Beta], GroupTheory`Symbols`C3\[Gamma], 
+    GroupTheory`Symbols`C3\[Alpha], GroupTheory`Symbols`C3\[Delta]}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[87]:=",
+ CellID->1888134251,ExpressionUUID->"a0450cd2-5107-4a4b-a973-63e617ee26ea"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "4"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"]}], "}"}]}],
+  SequenceForm[
+   Subscript["C", 4], " = ", {
+   GroupTheory`Symbols`C3\[Gamma]i, GroupTheory`Symbols`C3\[Alpha]i, 
+    GroupTheory`Symbols`C3\[Beta]i, GroupTheory`Symbols`C3\[Delta]i}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[87]:=",
+ CellID->1751796733,ExpressionUUID->"7313dc41-d608-4e84-b8bc-d2884fc7b32c"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", "\<\"Ee\"\>", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], 
+       ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], 
+       ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"\"\>"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"-1\"\
+\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], "+", 
+          SqrtBox["3"]}], ")"}]}], ",", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[ImaginaryI]", "+", 
+          SqrtBox["3"]}], ")"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[ImaginaryI]", "+", 
+          SqrtBox["3"]}], ")"}]}], ",", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], "+", 
+          SqrtBox["3"]}], ")"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", 
+       RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"A\"\>", ",", 
+     TemplateBox[{"\"E\"", "\"1\""},
+      "Superscript"], ",", 
+     TemplateBox[{"\"E\"", "\"2\""},
+      "Superscript"], ",", "\<\"T\"\>"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[5]=",
+ CellID->2030610397,ExpressionUUID->"b59d9409-8ff2-4dd4-b499-f290f7e2c03f"]
+}, Open  ]],
+
+Cell["\<\
+Similarly, the Bouckaert-Smoluchowski-Wigner notation can be chosen in the \
+following way :\
+\>", "MathCaption",
+ CellID->239328767,ExpressionUUID->"2eb54b45-aa27-40c3-b581-3af1796d0184"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTCharacterTable", "[", 
+  RowBox[{"group", ",", 
+   RowBox[{"GOIrepNotation", "\[Rule]", "\"\<Bouckaert\>\""}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->599104050,ExpressionUUID->"ec1efd65-ec7f-449e-af68-516527a67daf"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"\"\>", "\<\"Ee\"\>", 
+     RowBox[{"3", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"]}], 
+     RowBox[{"4", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"\"\>"]}], 
+     RowBox[{"4", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", "\<\"-1\"\
+\>"]}]},
+    {"\<\"1\"\>", "1", "1", "1", "1"},
+    {"\<\"3\"\>", "1", "1", 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", 
+        SqrtBox["3"]}], ")"}]}], 
+     RowBox[{
+      FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[ImaginaryI]", "+", 
+        SqrtBox["3"]}], ")"}]}]},
+    {"\<\"2\"\>", "1", "1", 
+     RowBox[{
+      FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[ImaginaryI]", "+", 
+        SqrtBox["3"]}], ")"}]}], 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", 
+        SqrtBox["3"]}], ")"}]}]},
+    {"\<\"4\"\>", "3", 
+     RowBox[{"-", "1"}], "0", "0"}
+   },
+   AutoDelete->False,
+   GridBoxAlignment->{"Columns" -> {{Center}}, "Rows" -> {{Baseline}}},
+   GridBoxBackground->{
+    "ColumnsIndexed" -> {1 -> RGBColor[1, 0.5, 0.5]}, 
+     "RowsIndexed" -> {1 -> RGBColor[1, 0.5, 0.5]}, 
+     "ItemsIndexed" -> {{1, 1} -> RGBColor[1, 1, 0]}},
+   GridBoxDividers->{
+    "ColumnsIndexed" -> {2 -> RGBColor[1, 0, 0]}, 
+     "RowsIndexed" -> {2 -> RGBColor[1, 0, 0]}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Print",
+ CellLabel->"During evaluation of In[88]:=",
+ CellID->1868711213,ExpressionUUID->"5e149761-cff4-4b5b-979d-59532f4a370f"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "1"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", "\<\"Ee\"\>", "}"}]}],
+  SequenceForm[
+   Subscript["C", 1], " = ", {GroupTheory`Symbols`Ee}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[88]:=",
+ CellID->606021850,ExpressionUUID->"610f40b7-74f4-4508-bb43-15dbc6192cf8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "2"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], ",", 
+     
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], ",", 
+     
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"]}], 
+    "}"}]}],
+  SequenceForm[
+   Subscript["C", 2], " = ", {
+   GroupTheory`Symbols`C2z, GroupTheory`Symbols`C2y, GroupTheory`Symbols`C2x}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[88]:=",
+ CellID->1673604963,ExpressionUUID->"c81ca8ab-f5e5-4e5a-8d66-0542ae1b60f3"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "3"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"\"\>"],
+      ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"\"\>"]}], "}"}]}],
+  SequenceForm[
+   Subscript["C", 3], " = ", {
+   GroupTheory`Symbols`C3\[Beta], GroupTheory`Symbols`C3\[Gamma], 
+    GroupTheory`Symbols`C3\[Alpha], GroupTheory`Symbols`C3\[Delta]}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[88]:=",
+ CellID->132607830,ExpressionUUID->"637ec4be-f535-43e4-b059-3cda1efe3e32"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "4"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"]}], "}"}]}],
+  SequenceForm[
+   Subscript["C", 4], " = ", {
+   GroupTheory`Symbols`C3\[Gamma]i, GroupTheory`Symbols`C3\[Alpha]i, 
+    GroupTheory`Symbols`C3\[Beta]i, GroupTheory`Symbols`C3\[Delta]i}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[88]:=",
+ CellID->370011717,ExpressionUUID->"cd05e67c-d714-4137-901f-217bcdb57dbd"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", "\<\"Ee\"\>", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], 
+       ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], 
+       ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"\"\>"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"-1\"\
+\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], "+", 
+          SqrtBox["3"]}], ")"}]}], ",", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[ImaginaryI]", "+", 
+          SqrtBox["3"]}], ")"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[ImaginaryI]", "+", 
+          SqrtBox["3"]}], ")"}]}], ",", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], "+", 
+          SqrtBox["3"]}], ")"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", 
+       RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"1\"\>", ",", "\<\"3\"\>", ",", "\<\"2\"\>", 
+     ",", "\<\"4\"\>"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[6]=",
+ CellID->480156195,ExpressionUUID->"d04a27d8-3824-4670-a10e-83dd619633dc"]
+}, Open  ]],
+
+Cell[TextData[{
+ "While irreducible representations are complex in general, similarity \
+transformations into a set of real matrices exist in various cases. As such, \
+irreducible representations can be classified with respect to their \"reality\
+\" as \"potentially real\", \"essentially complex\", or \"pseudo-real\". This \
+behavior is important when time-reversal symmetry is taken into account. By \
+specifying the option ",
+ ButtonBox["GOReality",
+  BaseStyle->"Link",
+  ButtonData->"paclet:GroupTheory/ref/GOReality"],
+ " this additional property of irreducible representations is determined :"
+}], "MathCaption",
+ CellID->1251100084,ExpressionUUID->"f2275cfa-3d7d-4bce-8da6-71c9d360a3b1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTCharacterTable", "[", 
+  RowBox[{"group", ",", 
+   RowBox[{"GOIrepNotation", "\[Rule]", "\"\<Mulliken\>\""}], ",", 
+   RowBox[{"GOReality", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->14234766,ExpressionUUID->"93ef1d6e-b048-427b-ac69-359d67d1b421"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"\"\>", "\<\"Ee\"\>", 
+     RowBox[{"3", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"]}], 
+     RowBox[{"4", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"\"\>"]}], 
+     RowBox[{"4", " ", 
+      SubsuperscriptBox[
+       OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", "\<\"-1\"\
+\>"]}], "\<\"Reality\"\>"},
+    {"\<\"A\"\>", "1", "1", "1", "1", "\<\"potentially real\"\>"},
+    {
+     TemplateBox[{"\"E\"", "\"1\""},
+      "Superscript"], "1", "1", 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", 
+        SqrtBox["3"]}], ")"}]}], 
+     RowBox[{
+      FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[ImaginaryI]", "+", 
+        SqrtBox["3"]}], ")"}]}], "\<\"essentially complex\"\>"},
+    {
+     TemplateBox[{"\"E\"", "\"2\""},
+      "Superscript"], "1", "1", 
+     RowBox[{
+      FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{"\[ImaginaryI]", "+", 
+        SqrtBox["3"]}], ")"}]}], 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", "\[ImaginaryI]"}], "+", 
+        SqrtBox["3"]}], ")"}]}], "\<\"essentially complex\"\>"},
+    {"\<\"T\"\>", "3", 
+     RowBox[{"-", "1"}], "0", "0", "\<\"potentially real\"\>"}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{
+    "ColumnsIndexed" -> {1 -> RGBColor[1, 0.5, 0.5]}, 
+     "RowsIndexed" -> {1 -> RGBColor[1, 0.5, 0.5]}, 
+     "ItemsIndexed" -> {{1, 1} -> RGBColor[1, 1, 0]}},
+   GridBoxDividers->{
+    "ColumnsIndexed" -> {2 -> RGBColor[1, 0, 0]}, 
+     "RowsIndexed" -> {2 -> RGBColor[1, 0, 0]}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Print",
+ CellLabel->"During evaluation of In[89]:=",
+ CellID->57962492,ExpressionUUID->"62e491c9-8d0e-4752-a91a-1e74107831aa"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "1"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", "\<\"Ee\"\>", "}"}]}],
+  SequenceForm[
+   Subscript["C", 1], " = ", {GroupTheory`Symbols`Ee}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[89]:=",
+ CellID->1343188802,ExpressionUUID->"afccab6a-78c2-46ff-b160-c949223161fd"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "2"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], ",", 
+     
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], ",", 
+     
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"]}], 
+    "}"}]}],
+  SequenceForm[
+   Subscript["C", 2], " = ", {
+   GroupTheory`Symbols`C2z, GroupTheory`Symbols`C2y, GroupTheory`Symbols`C2x}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[89]:=",
+ CellID->1882520370,ExpressionUUID->"3086e2ef-5919-4e00-bfbe-605e927c69a8"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "3"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"\"\>"],
+      ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"\"\>"]}], "}"}]}],
+  SequenceForm[
+   Subscript["C", 3], " = ", {
+   GroupTheory`Symbols`C3\[Beta], GroupTheory`Symbols`C3\[Gamma], 
+    GroupTheory`Symbols`C3\[Alpha], GroupTheory`Symbols`C3\[Delta]}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[89]:=",
+ CellID->1500538854,ExpressionUUID->"81e4f738-11a6-4fb5-b842-c24f764ea86f"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   SubscriptBox["\<\"C\"\>", "4"], "\[InvisibleSpace]", "\<\" = \"\>", 
+   "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"-1\"\>"], ",", 
+     SubsuperscriptBox[
+      OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"]}], "}"}]}],
+  SequenceForm[
+   Subscript["C", 4], " = ", {
+   GroupTheory`Symbols`C3\[Gamma]i, GroupTheory`Symbols`C3\[Alpha]i, 
+    GroupTheory`Symbols`C3\[Beta]i, GroupTheory`Symbols`C3\[Delta]i}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[89]:=",
+ CellID->1165880415,ExpressionUUID->"8a06cf0c-2b7a-421c-a820-ad0f184f9706"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", "\<\"Ee\"\>", "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], 
+       ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], 
+       ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"\"\>"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"-1\"\
+\>"], ",", 
+       SubsuperscriptBox[
+        OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], "+", 
+          SqrtBox["3"]}], ")"}]}], ",", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[ImaginaryI]", "+", 
+          SqrtBox["3"]}], ")"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{"\[ImaginaryI]", "+", 
+          SqrtBox["3"]}], ")"}]}], ",", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"-", "\[ImaginaryI]"}], "+", 
+          SqrtBox["3"]}], ")"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"3", ",", 
+       RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"A\"\>", ",", 
+     TemplateBox[{"\"E\"", "\"1\""},
+      "Superscript"], ",", 
+     TemplateBox[{"\"E\"", "\"2\""},
+      "Superscript"], ",", "\<\"T\"\>"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[7]=",
+ CellID->371303891,ExpressionUUID->"74a92728-06ed-4008-9ea6-b92cde84293e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "TutorialMoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[TextData[Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData[
+             StyleBox[{"W. Hergert, R. M. Geilhufe, ", 
+               StyleBox[
+               "Group Theory in Solid State Physics and Photonics: Problem \
+Solving with Mathematica, Wiley-VCH, ISBN: 978-3-527-41133-7 (2018)", 
+                FontSlant -> "Italic"], "."}]]], "http://gtpack.org/book/"},
+          "WebLink",
+          BaseStyle->{"TutorialMoreAboutSection"}]],ExpressionUUID->
+         "b375aedb-3e53-4096-86c6-42bf3cdb1f48"]], "TutorialMoreAbout",
+         ExpressionUUID->"e73b3247-2077-4e40-939f-94d6ad3aebf9"]}]}
+     }]}
+  }]], "TutorialMoreAboutSection",ExpressionUUID->"2bd47a91-eac7-4a63-be55-\
+bd606cde8c9c"],
+
+Cell[BoxData[""], "Input",ExpressionUUID->"4dd76d9f-7335-4729-9b87-9fd09bd5e187"],
+
+Cell[BoxData[""], "Input",ExpressionUUID->"ac984da6-5f05-4523-a958-3ed92bba6aef"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell",ExpressionUUID->"c377607a-9f7f-4767-bce4-3ad88a3657a0"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{55.5, Automatic}, {Automatic, 20.25}},
+WindowTitle->"Installation of Point Groups and Character Tables",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {$Failed, ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 59, 41.900846}", 
+    "history" -> {"1.1", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Tutorial", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "The example shows the installation of point groups using GTInstallGroup \
+and the calculation of character tables using GTCharacterTable. For our \
+example we use the tetrahedral point group T, containing 12 elements. In \
+general, point groups, space, groups, and double groups can be installed \
+using the module GTInstallGroup. Point groups can be denoted in various ways. \
+The name T is the name of the above installed group in the \
+Sch\[ODoubleDot]nflies notation. Similarly, the same group can be installed \
+using the Hermann-Mauguin notation, where the corresponding name is given by \
+23. To avoid confusion of such point group names with space group numbers, \
+the Hermann-Mauguin notation needs to be embedded in | \\[Ellipsis] | as \
+shown in the following.", "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$262853, "title" -> 
+    "Installation of Point Groups and Character Tables", "titlemodifier" -> 
+    "", "metadescription" -> "", "windowtitle" -> 
+    "Installation of Point Groups and Character Tables", "type" -> "Tutorial",
+     "uri" -> "GroupTheory/tutorial/PointGroupsCharacterTables"}},
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"ffa85637-2132-4624-9ef7-3ec98e844230"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[621, 21, 5821, 137, 56, "AnchorBarGrid",ExpressionUUID->"8363c982-1ceb-4b85-acf1-a16cd4e5df37",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[6467, 162, 150, 4, 160, "Title",ExpressionUUID->"c696292b-de6e-43ed-9ff2-180c835fc0a2",
+ CellID->509267359],
+Cell[6620, 168, 237, 4, 60, "Text",ExpressionUUID->"69e128cc-3538-49f9-ad91-5c58ab90399e",
+ CellID->1534169418],
+Cell[6860, 174, 1197, 29, 125, "DefinitionBox",ExpressionUUID->"9871e171-af89-4da2-9692-d0bf577bb182",
+ CellID->2096742444],
+Cell[8060, 205, 564, 12, 82, "DefinitionBox",ExpressionUUID->"af2b9134-087d-4258-85c5-e9f5703088a5",
+ CellID->1696478601],
+Cell[8627, 219, 607, 15, 57, "MathCaption",ExpressionUUID->"237bcede-a052-44e1-b8ee-6cad898acfb5",
+ CellID->836781195],
+Cell[9237, 236, 175, 3, 27, "Input",ExpressionUUID->"0af981b7-9f5c-44d0-9f63-a618a8661ab1",
+ CellID->776075125],
+Cell[CellGroupData[{
+Cell[9437, 243, 193, 4, 27, "Input",ExpressionUUID->"0040b185-2b32-4945-a0af-6f0fb8bc6aeb",
+ CellID->1961105960],
+Cell[9633, 249, 203, 3, 25, "Print",ExpressionUUID->"706f1386-1456-4f2a-a62e-2643689b2f6f",
+ CellID->439160087],
+Cell[9839, 254, 1346, 34, 47, "Output",ExpressionUUID->"a9ebc8f7-f007-44bd-abbb-25daa0580348",
+ CellID->1215993105]
+}, Open  ]],
+Cell[11200, 291, 543, 8, 74, "MathCaption",ExpressionUUID->"241decf5-b534-48f4-bf3f-16ac5168117b",
+ CellID->450860299],
+Cell[CellGroupData[{
+Cell[11768, 303, 261, 6, 27, "Input",ExpressionUUID->"20cff8d8-4475-4f25-b56d-9dcccc0a046f",
+ CellID->1442748066],
+Cell[12032, 311, 204, 3, 25, "Print",ExpressionUUID->"dc9ec058-5a15-4ead-92df-37f5c9848804",
+ CellID->1262056656],
+Cell[12239, 316, 1346, 34, 47, "Output",ExpressionUUID->"2ce21329-ce71-440e-af5f-614ee82b0e26",
+ CellID->1433794708]
+}, Open  ]],
+Cell[13600, 353, 572, 14, 70, "MathCaption",ExpressionUUID->"6c76721a-e8c2-4bd2-9504-c325f541c9a5",
+ CellID->2133741803],
+Cell[CellGroupData[{
+Cell[14197, 371, 171, 3, 70, "Input",ExpressionUUID->"933df668-acfa-4ce8-a732-7abac3ea5f65",
+ CellID->495006799],
+Cell[CellGroupData[{
+Cell[14393, 378, 2294, 65, 70, "Print",ExpressionUUID->"9d32553b-45a9-4c5d-baa8-9bb148410b00",
+ CellID->514293219],
+Cell[16690, 445, 402, 10, 70, "Print",ExpressionUUID->"13a90e05-83e4-4dc1-a9a8-fbf42f147b97",
+ CellID->642110940],
+Cell[17095, 457, 779, 21, 70, "Print",ExpressionUUID->"63e8b8ca-c931-438e-b571-fd09299a0498",
+ CellID->807316318],
+Cell[17877, 480, 962, 25, 70, "Print",ExpressionUUID->"be44ae60-ec29-44c9-925f-57f61d8df758",
+ CellID->1715089761],
+Cell[18842, 507, 970, 25, 70, "Print",ExpressionUUID->"80b9ce20-537d-4753-b00b-0b303023a711",
+ CellID->2124830085]
+}, Open  ]],
+Cell[19827, 535, 3165, 91, 77, "Output",ExpressionUUID->"2567ab09-9fc2-4878-965a-3df2d7363aa7",
+ CellID->572403024]
+}, Open  ]],
+Cell[23007, 629, 1232, 32, 70, "MathCaption",ExpressionUUID->"ed4b8f71-2a46-42ef-acbf-d46e887cb918",
+ CellID->228903335],
+Cell[CellGroupData[{
+Cell[24264, 665, 256, 6, 70, "Input",ExpressionUUID->"2943d756-6502-4c25-a08a-842c1fb8e49c",
+ CellID->1607052338],
+Cell[CellGroupData[{
+Cell[24545, 675, 2142, 61, 70, "Print",ExpressionUUID->"149cbc2f-f5e1-45b8-8d42-83b11ed5fe98",
+ CellID->6241186],
+Cell[26690, 738, 402, 10, 70, "Print",ExpressionUUID->"bcc2452f-981e-4845-be05-aea989ef7670",
+ CellID->122826399],
+Cell[27095, 750, 779, 21, 70, "Print",ExpressionUUID->"1b40f0c0-94c0-4bc8-9ba6-47a28295a0b5",
+ CellID->542488803],
+Cell[27877, 773, 962, 25, 70, "Print",ExpressionUUID->"a0450cd2-5107-4a4b-a973-63e617ee26ea",
+ CellID->1888134251],
+Cell[28842, 800, 970, 25, 70, "Print",ExpressionUUID->"7313dc41-d608-4e84-b8bc-d2884fc7b32c",
+ CellID->1751796733]
+}, Open  ]],
+Cell[29827, 828, 3016, 87, 77, "Output",ExpressionUUID->"b59d9409-8ff2-4dd4-b499-f290f7e2c03f",
+ CellID->2030610397]
+}, Open  ]],
+Cell[32858, 918, 198, 4, 70, "MathCaption",ExpressionUUID->"2eb54b45-aa27-40c3-b581-3af1796d0184",
+ CellID->239328767],
+Cell[CellGroupData[{
+Cell[33081, 926, 256, 6, 70, "Input",ExpressionUUID->"ec1efd65-ec7f-449e-af68-516527a67daf",
+ CellID->599104050],
+Cell[CellGroupData[{
+Cell[33362, 936, 2051, 57, 70, "Print",ExpressionUUID->"5e149761-cff4-4b5b-979d-59532f4a370f",
+ CellID->1868711213],
+Cell[35416, 995, 402, 10, 70, "Print",ExpressionUUID->"610f40b7-74f4-4508-bb43-15dbc6192cf8",
+ CellID->606021850],
+Cell[35821, 1007, 780, 21, 70, "Print",ExpressionUUID->"c81ca8ab-f5e5-4e5a-8d66-0542ae1b60f3",
+ CellID->1673604963],
+Cell[36604, 1030, 961, 25, 70, "Print",ExpressionUUID->"637ec4be-f535-43e4-b059-3cda1efe3e32",
+ CellID->132607830],
+Cell[37568, 1057, 969, 25, 70, "Print",ExpressionUUID->"cd05e67c-d714-4137-901f-217bcdb57dbd",
+ CellID->370011717]
+}, Open  ]],
+Cell[38552, 1085, 2927, 84, 77, "Output",ExpressionUUID->"d04a27d8-3824-4670-a10e-83dd619633dc",
+ CellID->480156195]
+}, Open  ]],
+Cell[41494, 1172, 696, 12, 70, "MathCaption",ExpressionUUID->"f2275cfa-3d7d-4bce-8da6-71c9d360a3b1",
+ CellID->1251100084],
+Cell[CellGroupData[{
+Cell[42215, 1188, 302, 6, 70, "Input",ExpressionUUID->"93ef1d6e-b048-427b-ac69-359d67d1b421",
+ CellID->14234766],
+Cell[CellGroupData[{
+Cell[42542, 1198, 2208, 60, 70, "Print",ExpressionUUID->"62e491c9-8d0e-4752-a91a-1e74107831aa",
+ CellID->57962492],
+Cell[44753, 1260, 403, 10, 70, "Print",ExpressionUUID->"afccab6a-78c2-46ff-b160-c949223161fd",
+ CellID->1343188802],
+Cell[45159, 1272, 780, 21, 70, "Print",ExpressionUUID->"3086e2ef-5919-4e00-bfbe-605e927c69a8",
+ CellID->1882520370],
+Cell[45942, 1295, 962, 25, 70, "Print",ExpressionUUID->"81e4f738-11a6-4fb5-b842-c24f764ea86f",
+ CellID->1500538854],
+Cell[46907, 1322, 970, 25, 70, "Print",ExpressionUUID->"8a06cf0c-2b7a-421c-a820-ad0f184f9706",
+ CellID->1165880415]
+}, Open  ]],
+Cell[47892, 1350, 3015, 87, 77, "Output",ExpressionUUID->"74a92728-06ed-4008-9ea6-b92cde84293e",
+ CellID->371303891]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[50944, 1442, 1073, 24, 70, "TutorialMoreAboutSection",ExpressionUUID->"2bd47a91-eac7-4a63-be55-bd606cde8c9c"],
+Cell[52020, 1468, 81, 0, 70, "Input",ExpressionUUID->"4dd76d9f-7335-4729-9b87-9fd09bd5e187"],
+Cell[52104, 1470, 81, 0, 70, "Input",ExpressionUUID->"ac984da6-5f05-4523-a958-3ed92bba6aef"]
+}, Open  ]]
+}, Open  ]],
+Cell[52212, 1474, 78, 0, 70, "FooterCell",ExpressionUUID->"c377607a-9f7f-4767-bce4-3ad88a3657a0"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

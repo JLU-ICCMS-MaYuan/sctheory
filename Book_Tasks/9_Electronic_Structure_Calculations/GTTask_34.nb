@@ -1,0 +1,752 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     29294,        744]
+NotebookOptionsPosition[     23649,        660]
+NotebookOutlinePosition[     24086,        677]
+CellTagsIndexPosition[     24043,        674]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"8c3b86ff-cb38-46f4-af0a-\
+c8920ea99f7b"],
+
+Cell["Task_34: Free-electron Fermi surface of metals ", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+  3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+  3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, {
+  3.691479359047338*^9, 3.6914793596013803`*^9}, {3.691479396236004*^9, 
+  3.691479413192193*^9}, {3.716369745750106*^9, 3.716369746872714*^9}, {
+  3.745560723980619*^9, 
+  3.745560729409153*^9}},ExpressionUUID->"1959b214-ddf9-4954-9007-\
+528af30f0a91"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"7ac1bd62-cc43-4dba-ae18-\
+64c9bc676a1d"],
+
+Cell[CellGroupData[{
+
+Cell["Task 34", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, {
+  3.691479419663885*^9, 3.691479420096105*^9}, {3.716369752283184*^9, 
+  3.716369752418913*^9}, {3.745560733821787*^9, 
+  3.745560734836972*^9}},ExpressionUUID->"d2cbb07c-2b96-4ac8-8d79-\
+4a5d238effc6"],
+
+Cell["see : Chapter 9, section 9.2.2, p. 203.", "Text",
+ CellChangeTimes->{
+  3.745498263586955*^9, {3.7454982950104713`*^9, 3.745498304161786*^9}, {
+   3.7454988429457417`*^9, 3.745498864534718*^9}, {3.7455037802338257`*^9, 
+   3.7455038056602087`*^9}},ExpressionUUID->"9ce82568-c10f-4c01-b055-\
+1a7d9b962c49"],
+
+Cell["\<\
+Calculate the free - electron Fermi surface for metals with fcc and bcc \
+structure. Consider a valence of 1, 2, 3 and 4. \
+\>", "Text",
+ CellChangeTimes->{{3.6914794396887083`*^9, 3.691479453623493*^9}, {
+  3.691479563429913*^9, 3.69147957524474*^9}, {3.6917339710565977`*^9, 
+  3.691733973481421*^9}},ExpressionUUID->"012a7680-98f0-49fa-9519-\
+001a819b9989"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Inititialization", "Section",
+ CellChangeTimes->{{3.691734447733213*^9, 
+  3.691734454132409*^9}},ExpressionUUID->"7adea212-d170-489e-936b-\
+7a2c45cac25e"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.691734460157167*^9, 3.69173447312252*^9}},
+ CellLabel->
+  "In[394]:=",ExpressionUUID->"e7ac1f83-8845-4b60-8573-969eb9dfdab3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../datasets\>\""}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.691734476002453*^9, 3.6917345147064342`*^9}},
+ CellLabel->
+  "In[395]:=",ExpressionUUID->"da0a3c17-bc38-40e4-9033-c6bfe3e3110b"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 
+  3.5656818754713144`*^9}},ExpressionUUID->"1d11650e-2d23-467c-9993-\
+8dcbd5a6301b"],
+
+Cell[CellGroupData[{
+
+Cell["Structures", "Subsection",
+ CellChangeTimes->{{3.691479608595085*^9, 3.691479646427558*^9}, {
+  3.7163700139062366`*^9, 3.716370019092781*^9}, {3.7163703433568296`*^9, 
+  3.7163703437043962`*^9}},ExpressionUUID->"4b4708bd-a983-4113-995e-\
+0cf6a5e0079c"],
+
+Cell["Read fcc structure datafile", "Text",
+ CellChangeTimes->{{3.691734521576867*^9, 
+  3.691734531442913*^9}},ExpressionUUID->"788d1b7c-bfae-46a8-a24b-\
+a57225ea698d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GTLoadStructures", "[", "\"\<GTPack\>\"", "]"}], ";", 
+  RowBox[{"GTAllStructures", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6917345343136997`*^9, 3.691734605800817*^9}, 
+   3.6917346538849707`*^9, 3.6917347009411783`*^9, {3.6917348260287952`*^9, 
+   3.691734845423633*^9}},
+ CellLabel->
+  "In[396]:=",ExpressionUUID->"39604fa5-33cb-4ca1-998e-37325c9a539b"],
+
+Cell["Cu is the prototype for a fcc metal (space group #225)", "Text",
+ CellChangeTimes->{{3.716369909133128*^9, 
+  3.7163699341203547`*^9}},ExpressionUUID->"6eb91869-08d6-4dcd-afb5-\
+76de3b60a829"],
+
+Cell[BoxData[
+ RowBox[{"fcc", "=", 
+  RowBox[{"GTGetStructure", "[", "\"\<Cu\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.691734713237041*^9, 3.691734758675865*^9}, {
+  3.7163698975350122`*^9, 3.716369897940208*^9}},
+ CellLabel->
+  "In[397]:=",ExpressionUUID->"d6654f02-ac82-4e6e-a290-f1db5ee56b1e"],
+
+Cell["W is the prototype for a bcc metal (space group #229)", "Text",
+ CellChangeTimes->{{3.71636997671292*^9, 
+  3.7163699947814493`*^9}},ExpressionUUID->"19d8b1ec-e5bd-46ff-a791-\
+17e4b5bd7f00"],
+
+Cell[BoxData[
+ RowBox[{"bcc", "=", 
+  RowBox[{"GTGetStructure", "[", "\"\<W\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.691734650529316*^9, {3.691734928314571*^9, 3.691735033221755*^9}, {
+   3.716369945938609*^9, 3.716369959388562*^9}},
+ CellLabel->
+  "In[398]:=",ExpressionUUID->"7d148ad3-d8a2-410c-9ea1-daee779f32c0"],
+
+Cell["\<\
+Only the fcc case will be considered here. The bcc case will follow the same \
+line\
+\>", "Text",
+ CellChangeTimes->{{3.716370225894019*^9, 
+  3.716370246562193*^9}},ExpressionUUID->"8643ca3a-cbaf-4c54-88e2-\
+e75f40c645de"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["fcc structure", "Subsection"]], "Subsubsection",
+ CellChangeTimes->{{3.691479678562785*^9, 3.691479683570772*^9}, {
+  3.71637003224404*^9, 
+  3.7163700376106043`*^9}},ExpressionUUID->"da2d7d93-9321-4136-a8e8-\
+910e943962c2"],
+
+Cell["\<\
+The free electron band structures may be generated via the plane-wave \
+representation.\
+\>", "Text",
+ CellChangeTimes->{{3.691734871086706*^9, 3.6917349031589518`*^9}, 
+   3.7163700418288918`*^9, 
+   3.716370103031044*^9},ExpressionUUID->"3bf7a96b-a7dc-4a78-86c4-\
+9f3980caae01"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"hop", "=", 
+   RowBox[{
+    RowBox[{"GTPwHamiltonian", "[", 
+     RowBox[{"fcc", ",", "2", ",", 
+      RowBox[{"{", "\"\<EmptyLattice\>\"", "}"}], ",", 
+      RowBox[{"GOLattice", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"a", "\[Rule]", "1"}], "}"}]}]}], "]"}], "//", "N"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6917349161458397`*^9, 3.6917349229931507`*^9}, {
+  3.691735055935491*^9, 3.691735085680932*^9}, {3.691735922007011*^9, 
+  3.691735937035284*^9}, {3.691736616814398*^9, 3.691736616913775*^9}, {
+  3.6917491637542458`*^9, 3.691749164325986*^9}, {3.691781589624056*^9, 
+  3.691781590663245*^9}, {3.71637004963689*^9, 3.716370050302197*^9}, {
+  3.716370361930188*^9, 3.716370362109672*^9}, {3.716370526678791*^9, 
+  3.71637054365401*^9}, {3.7163706748885937`*^9, 3.716370675472785*^9}, {
+  3.716370727845183*^9, 3.716370748575747*^9}, {3.716371425918399*^9, 
+  3.7163714358486853`*^9}, {3.71637150144046*^9, 3.7163715019557247`*^9}, {
+  3.7163717257356253`*^9, 3.7163717481795*^9}},
+ CellLabel->
+  "In[399]:=",ExpressionUUID->"a7cdedd6-9968-494a-9a67-7e38dfd3b654"],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.691735089354474*^9, 3.6917351746405153`*^9}, 
+   3.6917353152869663`*^9, {3.716370119051503*^9, 3.71637011967157*^9}, {
+   3.716371756966691*^9, 3.7163717629694853`*^9}, {3.716371803381186*^9, 
+   3.716371809219248*^9}},ExpressionUUID->"e327a54f-c23f-4427-99ef-\
+d30626987df9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kp", "=", 
+   RowBox[{"GTBZPath", "[", "\"\<fcc\>\"", "]"}]}], ";", 
+  RowBox[{"bands", "=", 
+   RowBox[{"GTBandStructure", "[", 
+    RowBox[{"hop", ",", "kp", ",", "30", ",", "15", ",", 
+     RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "4.49"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.", ",", "10"}], "}"}]}], "}"}]}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.691735178045294*^9, 3.691735183388669*^9}, {
+  3.691735320494176*^9, 3.69173535237602*^9}, {3.7163701304929247`*^9, 
+  3.7163701311452007`*^9}, {3.7163709680271387`*^9, 3.716370994290905*^9}, {
+  3.716371765222954*^9, 3.7163717943019953`*^9}, {3.716373459398353*^9, 
+  3.716373460564884*^9}},
+ CellLabel->
+  "In[400]:=",ExpressionUUID->"ea435272-8999-4e59-a88e-e588cc5b55fe"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fermi energies", "Subsubsection",
+ CellChangeTimes->{{3.691479688674388*^9, 
+  3.69147969113859*^9}},ExpressionUUID->"0f13139c-272a-4f31-a5ca-\
+0809bf02947c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.716371836833276*^9, 3.716371859080594*^9}},
+ CellLabel->
+  "In[401]:=",ExpressionUUID->"3b73d82a-b81e-4dd2-aa8c-da3b748a4f81"],
+
+Cell["At first we calculate the DOS", "Text",
+ CellChangeTimes->{{3.7163701440285797`*^9, 3.716370204329632*^9}, {
+  3.716371821380121*^9, 
+  3.716371828873456*^9}},ExpressionUUID->"4de1a407-67ea-4e2e-8f98-\
+cbb0685f2657"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dosp", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "7", ",", "1.", ",", "0.", ",", "8.", ",", "801", ",", "0.03", ",", "1"}],
+     "}"}]}], ";", 
+  RowBox[{"kdos", "=", 
+   RowBox[{"GTDensityOfStates", "[", 
+    RowBox[{"hop", ",", "\"\<fcc\>\"", ",", "dosp", ",", 
+     RowBox[{"GOPlotDos", "\[Rule]", "\"\<ALL\>\""}], ",", 
+     RowBox[{"GOStore", "\[Rule]", "\"\<dos_pw.dat\>\""}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", "Blue"}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "8"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "8"}], "}"}]}], "}"}]}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.691735377284875*^9, 3.691735382245892*^9}, 
+   3.69173542190061*^9, {3.691735460323928*^9, 3.691735540683414*^9}, {
+   3.6917355715438547`*^9, 3.691735571709593*^9}, {3.69173585749756*^9, 
+   3.691735857609214*^9}, 3.691735962046723*^9, {3.691736310163275*^9, 
+   3.6917363107302094`*^9}, {3.691736343650469*^9, 3.6917363969631*^9}, {
+   3.691736564874462*^9, 3.6917365681334343`*^9}, {3.691794119752207*^9, 
+   3.691794121042077*^9}, {3.716370791451556*^9, 3.7163707918069983`*^9}, 
+   3.716371041789497*^9, {3.7163713962156687`*^9, 3.716371406395525*^9}, {
+   3.716371465069792*^9, 3.7163714653800592`*^9}, 3.716371529946205*^9, {
+   3.716371687474554*^9, 3.7163716919358273`*^9}, {3.7163718167121983`*^9, 
+   3.716371817026444*^9}, {3.716371864738521*^9, 3.716371875966625*^9}, {
+   3.716372024000688*^9, 3.716372042513665*^9}, {3.716372411456574*^9, 
+   3.716372419270906*^9}, {3.716372997691803*^9, 3.716373058022305*^9}, {
+   3.716373089470858*^9, 3.7163731369306507`*^9}},
+ CellLabel->
+  "In[402]:=",ExpressionUUID->"ccb1106c-55c9-43ee-87b6-2bffa0baea3f"],
+
+Cell["\<\
+Having the density of states we get the Fermi energy for the different number \
+of valence electrons easily.\
+\>", "Text",
+ CellChangeTimes->{{3.7163719243203297`*^9, 
+  3.716371972143652*^9}},ExpressionUUID->"2652a293-44b6-4f1a-9942-\
+806f9e17da2c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"dos", ",", "idos"}], "}"}], "=", 
+   RowBox[{"GTReadFromFile", "[", "\"\<dos_pw.dat\>\"", "]"}]}], ";", 
+  RowBox[{"ipol", "=", 
+   RowBox[{"Interpolation", "[", "idos", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716371979178932*^9, 3.716372004241531*^9}, {
+   3.716372302944674*^9, 3.716372308400259*^9}, 3.716373432426567*^9},
+ CellLabel->
+  "In[403]:=",ExpressionUUID->"cb55d0c7-241a-4fd5-a04e-dfc5eab0419e"],
+
+Cell["\<\
+We have to take into account the spin degeneracy. Each band can be occupied \
+by two electron (spin up and down), thus we look for occupation numbers \
+1/2,1,3/2,2.\
+\>", "Text",
+ CellChangeTimes->{{3.716373327891363*^9, 
+  3.7163733830060997`*^9}},ExpressionUUID->"18482e57-97ac-4190-a766-\
+f92744c5cf64"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"efv", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"efn", "=", 
+      RowBox[{"FindRoot", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ipol", "[", "x", "]"}], "\[Equal]", "i"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", ".5"}], "}"}]}], "]"}]}], ";", 
+     RowBox[{"efv", "=", 
+      RowBox[{"Append", "[", 
+       RowBox[{"efv", ",", 
+        RowBox[{"x", "/.", "efn"}]}], "]"}]}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "0.5", ",", "2.0", ",", ".5"}], "}"}]}], "]"}], ";", 
+  "efv"}]], "Input",
+ CellChangeTimes->{{3.716372078236833*^9, 3.716372168662768*^9}, {
+  3.716372322914032*^9, 3.7163723348167458`*^9}, {3.7163725736137953`*^9, 
+  3.7163725772458363`*^9}, {3.7163729468928213`*^9, 3.716372976728696*^9}},
+ CellLabel->
+  "In[404]:=",ExpressionUUID->"6468da16-8a19-46db-902b-63cb2579abad"],
+
+Cell["Create a graphics object for the different Fermi levels.", "Text",
+ CellChangeTimes->{{3.716373396021594*^9, 
+  3.71637341329125*^9}},ExpressionUUID->"192a5ad5-e361-444a-89ad-\
+7a8cb52e93b3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"efl", "=", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Red", ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Line", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "#"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"8", ",", "#"}], "}"}]}], "}"}], "]"}], "&"}], "/@", 
+       "efv"}]}], "}"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716373227037323*^9, 3.71637329144071*^9}, 
+   3.716373452893182*^9},
+ CellLabel->
+  "In[405]:=",ExpressionUUID->"1734a32a-3b95-4ba2-ac50-8636a646e0ad"],
+
+Cell["Now we see how many bands contribute to the Fermi surface", "Text",
+ CellChangeTimes->{{3.716373495575042*^9, 
+  3.716373513901411*^9}},ExpressionUUID->"31fde711-a85f-4b88-9ac2-\
+593dda72a019"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bands1", "=", 
+   RowBox[{"GTBandStructure", "[", 
+    RowBox[{"hop", ",", "kp", ",", "30", ",", "15", ",", 
+     RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "4.49"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.", ",", "4"}], "}"}]}], "}"}]}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.745560939425078*^9, 3.745560947181889*^9}},
+ CellLabel->
+  "In[406]:=",ExpressionUUID->"feda3056-a010-4037-aaa9-8a93c4f7f6c4"],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"bands1", ",", "efl"}], "]"}]], "Input",
+ CellChangeTimes->{{3.716373468591487*^9, 3.716373475167241*^9}, 
+   3.745560950687015*^9},
+ CellLabel->
+  "In[407]:=",ExpressionUUID->"840b951c-3a89-420e-aaca-4bb2b78893ec"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Fermi surfaces", "Subsubsection",
+ CellChangeTimes->{{3.691479696962142*^9, 
+  3.6914796995547657`*^9}},ExpressionUUID->"5b9724fd-8ce4-46d0-bf3d-\
+fbbe7e34ee4f"],
+
+Cell["The Fermi surface can be generated ", "Text",
+ CellChangeTimes->{{3.716372266549437*^9, 3.716372275268982*^9}, 
+   3.745560846158244*^9},ExpressionUUID->"94b381a2-84d3-48cc-92a9-\
+4fb52e1182de"],
+
+Cell[BoxData[
+ RowBox[{"efv", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.745561313112368*^9, 3.745561316860639*^9}},
+ CellLabel->
+  "In[408]:=",ExpressionUUID->"943b0bf5-7b02-4144-9328-b299e9f9aa5f"],
+
+Cell[BoxData[
+ RowBox[{"GTFermiSurface", "[", 
+  RowBox[{"hop", ",", 
+   RowBox[{"efv", "[", 
+    RowBox[{"[", "1", "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", "15", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{"-", "1."}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "2", ",", "4"}], "}"}], ",", "kp"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6917366957910633`*^9, 3.691736715623619*^9}, {
+   3.691736754293787*^9, 3.691736757677865*^9}, 3.691737006056303*^9, {
+   3.716373547494776*^9, 3.716373547685808*^9}, {3.716373598136569*^9, 
+   3.716373606558051*^9}},
+ CellLabel->
+  "In[409]:=",ExpressionUUID->"6f5d580d-9fe0-42b1-ac91-39d6e407bd2b"],
+
+Cell["\<\
+The contribution comes exclusively from the first band. We restrict the \
+presentation to the first Brillouin zone.\
+\>", "Text",
+ CellChangeTimes->{{3.716373617360694*^9, 3.716373646586914*^9}, {
+  3.745561452437114*^9, 
+  3.745561472427679*^9}},ExpressionUUID->"f6e6ebac-4c6a-47d2-9a74-\
+1e30bd180366"],
+
+Cell[BoxData[
+ RowBox[{"GTFermiSurface", "[", 
+  RowBox[{"hop", ",", 
+   RowBox[{"efv", "[", 
+    RowBox[{"[", "1", "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", "15", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{"-", "1."}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "2", ",", "4"}], "}"}], ",", "kp", ",", 
+   RowBox[{"GORegionFunction", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.745561430415604*^9, 3.745561438824484*^9}},
+ CellLabel->
+  "In[410]:=",ExpressionUUID->"d39fba4c-1f07-4984-99c0-6d847fe69f34"],
+
+Cell[BoxData[
+ RowBox[{"efv", "[", 
+  RowBox[{"[", "2", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.745561313112368*^9, 3.745561316860639*^9}, {
+  3.74556149684687*^9, 3.7455614970310163`*^9}},
+ CellLabel->
+  "In[411]:=",ExpressionUUID->"a0efa81e-165a-411f-a03c-a7ebff2d97eb"],
+
+Cell[BoxData[
+ RowBox[{"GTFermiSurface", "[", 
+  RowBox[{"hop", ",", 
+   RowBox[{"efv", "[", 
+    RowBox[{"[", "2", "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", "15", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{"-", "1."}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "2", ",", "4"}], "}"}], ",", "kp", ",", 
+   RowBox[{"GORegionFunction", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7163736570944033`*^9, 3.716373657194138*^9}, {
+  3.745561594535253*^9, 3.7455615954691067`*^9}},
+ CellLabel->
+  "In[412]:=",ExpressionUUID->"e4f90d93-c5be-45a1-88b9-443ecea9ffb6"],
+
+Cell["", "Text",ExpressionUUID->"5ade070a-b361-4811-9490-f81c134b12b2"],
+
+Cell["Higher resolution gives better results.", "Text",
+ CellChangeTimes->{{3.716374588742424*^9, 3.7163746019947443`*^9}, {
+  3.745560863956416*^9, 
+  3.7455608647141542`*^9}},ExpressionUUID->"1a26425a-77fa-4f17-983f-\
+c698d16b6c6b"],
+
+Cell[BoxData[
+ RowBox[{"GTFermiSurface", "[", 
+  RowBox[{"hop", ",", 
+   RowBox[{"efv", "[", 
+    RowBox[{"[", "2", "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2"}], "}"}], ",", "30", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{"-", "1."}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "2", ",", "4"}], "}"}], ",", "kp", ",", 
+   RowBox[{"GORegionFunction", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7163736570944033`*^9, 3.716373657194138*^9}, {
+  3.7163744110811033`*^9, 3.716374436527672*^9}, {3.7455618078914013`*^9, 
+  3.745561820014826*^9}},
+ CellLabel->
+  "In[413]:=",ExpressionUUID->"71b70129-387f-4472-81c8-7cdac781e174"],
+
+Cell[BoxData[
+ RowBox[{"efv", "[", 
+  RowBox[{"[", "3", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7455618400822783`*^9, 3.745561840649523*^9}},
+ CellLabel->
+  "In[414]:=",ExpressionUUID->"25267914-bcb2-4845-a0fb-d69ff4039cf6"],
+
+Cell[BoxData[
+ RowBox[{"GTFermiSurface", "[", 
+  RowBox[{"hop", ",", 
+   RowBox[{"efv", "[", 
+    RowBox[{"[", "3", "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2", ",", "3", ",", "4"}], "}"}], ",", "15", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{"-", "1."}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "2", ",", "4"}], "}"}], ",", "kp", ",", 
+   RowBox[{"GORegionFunction", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.716373703838621*^9, 3.71637372793572*^9}, {
+   3.716373922804266*^9, 3.716373923722494*^9}, {3.7455618572310457`*^9, 
+   3.745561862103281*^9}, 3.74556220465943*^9},
+ CellLabel->
+  "In[415]:=",ExpressionUUID->"bba32d4b-4fc8-444a-b5ba-7ea6fd0bebab"],
+
+Cell["The contributions are in the second and third band.", "Text",
+ CellChangeTimes->{{3.716373738170868*^9, 
+  3.7163737657587137`*^9}},ExpressionUUID->"d919f30a-63bb-41e7-8f6b-\
+33b67b179f35"],
+
+Cell[BoxData[
+ RowBox[{"efv", "[", 
+  RowBox[{"[", "4", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.745561848774085*^9, 3.745561848902892*^9}},
+ CellLabel->
+  "In[416]:=",ExpressionUUID->"b1bc38ef-fec0-4226-bb1a-24bc3e048f2c"],
+
+Cell[BoxData[
+ RowBox[{"GTFermiSurface", "[", 
+  RowBox[{"hop", ",", 
+   RowBox[{"efv", "[", 
+    RowBox[{"[", "4", "]"}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "2", ",", "3", ",", "4", ",", "5"}], "}"}], ",", "20", 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{"-", "1."}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"8", ",", "2", ",", "4"}], "}"}], ",", "kp", ",", 
+   RowBox[{"GORegionFunction", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.691736772064715*^9, 3.691736776789871*^9}, 
+   3.6917369091389313`*^9, 3.6917370092986803`*^9, {3.691737107366094*^9, 
+   3.6917371325874434`*^9}, {3.691749045468289*^9, 3.6917490516445436`*^9}, {
+   3.6917928564064093`*^9, 3.691792867912157*^9}, {3.6917955775682697`*^9, 
+   3.6917955796059103`*^9}, {3.7163737741973124`*^9, 3.716373798200617*^9}, {
+   3.745561865261518*^9, 3.7455618698415623`*^9}, 3.745562209622716*^9},
+ CellLabel->
+  "In[417]:=",ExpressionUUID->"fe6ab8b3-4c77-4292-9db7-9323f755bbc8"],
+
+Cell["\<\
+Contributions to the Fermi surface come from the second third and fourth band.\
+\>", "Text",
+ CellChangeTimes->{{3.7163738129374857`*^9, 
+  3.716373846433662*^9}},ExpressionUUID->"6fde2995-d429-4e35-bc57-\
+a2eabe2cf7d2"],
+
+Cell[TextData[{
+ "Also the command ",
+ StyleBox["GTFermiSurfaceXSF ",
+  FontWeight->"Bold"],
+ "can be used to create data  for XCrySDen."
+}], "Text",
+ CellChangeTimes->{{3.716374184097505*^9, 
+  3.71637429027518*^9}},ExpressionUUID->"77614040-7af9-4913-8e75-\
+495975b2b85a"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1122, 881},
+WindowMargins->{{81, Automatic}, {Automatic, 44}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"8c3b86ff-cb38-46f4-af0a-c8920ea99f7b"],
+Cell[801, 32, 537, 8, 53, "Subtitle",ExpressionUUID->"1959b214-ddf9-4954-9007-528af30f0a91"],
+Cell[1341, 42, 250, 7, 83, "Author",ExpressionUUID->"7ac1bd62-cc43-4dba-ae18-64c9bc676a1d"],
+Cell[CellGroupData[{
+Cell[1616, 53, 298, 5, 67, "Section",ExpressionUUID->"d2cbb07c-2b96-4ac8-8d79-4a5d238effc6"],
+Cell[1917, 60, 311, 5, 35, "Text",ExpressionUUID->"9ce82568-c10f-4c01-b055-1a7d9b962c49"],
+Cell[2231, 67, 370, 7, 35, "Text",ExpressionUUID->"012a7680-98f0-49fa-9519-001a819b9989"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2638, 79, 161, 3, 53, "Section",ExpressionUUID->"7adea212-d170-489e-936b-7a2c45cac25e"],
+Cell[2802, 84, 225, 4, 30, "Input",ExpressionUUID->"e7ac1f83-8845-4b60-8573-969eb9dfdab3"],
+Cell[3030, 90, 322, 8, 30, "Input",ExpressionUUID->"da0a3c17-bc38-40e4-9033-c6bfe3e3110b"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3389, 103, 155, 3, 53, "Section",ExpressionUUID->"1d11650e-2d23-467c-9993-8dcbd5a6301b"],
+Cell[CellGroupData[{
+Cell[3569, 110, 259, 4, 54, "Subsection",ExpressionUUID->"4b4708bd-a983-4113-995e-0cf6a5e0079c"],
+Cell[3831, 116, 169, 3, 35, "Text",ExpressionUUID->"788d1b7c-bfae-46a8-a24b-a57225ea698d"],
+Cell[4003, 121, 397, 8, 30, "Input",ExpressionUUID->"39604fa5-33cb-4ca1-998e-37325c9a539b"],
+Cell[4403, 131, 198, 3, 35, "Text",ExpressionUUID->"6eb91869-08d6-4dcd-afb5-76de3b60a829"],
+Cell[4604, 136, 301, 6, 30, "Input",ExpressionUUID->"d6654f02-ac82-4e6e-a290-f1db5ee56b1e"],
+Cell[4908, 144, 196, 3, 35, "Text",ExpressionUUID->"19d8b1ec-e5bd-46ff-a791-17e4b5bd7f00"],
+Cell[5107, 149, 324, 7, 30, "Input",ExpressionUUID->"7d148ad3-d8a2-410c-9ea1-daee779f32c0"],
+Cell[5434, 158, 233, 6, 35, "Text",ExpressionUUID->"8643ca3a-cbaf-4c54-88e2-e75f40c645de"],
+Cell[CellGroupData[{
+Cell[5692, 168, 248, 4, 46, "Subsubsection",ExpressionUUID->"da2d7d93-9321-4136-a8e8-910e943962c2"],
+Cell[5943, 174, 290, 7, 35, "Text",ExpressionUUID->"3bf7a96b-a7dc-4a78-86c4-9f3980caae01"],
+Cell[6236, 183, 1122, 22, 30, "Input",ExpressionUUID->"a7cdedd6-9968-494a-9a67-7e38dfd3b654"],
+Cell[7361, 207, 316, 5, 35, "Text",ExpressionUUID->"e327a54f-c23f-4427-99ef-d30626987df9"],
+Cell[7680, 214, 915, 21, 30, "Input",ExpressionUUID->"ea435272-8999-4e59-a88e-e588cc5b55fe"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8632, 240, 164, 3, 45, "Subsubsection",ExpressionUUID->"0f13139c-272a-4f31-a5ca-0809bf02947c"],
+Cell[8799, 245, 272, 6, 30, "Input",ExpressionUUID->"3b73d82a-b81e-4dd2-aa8c-da3b748a4f81"],
+Cell[9074, 253, 222, 4, 35, "Text",ExpressionUUID->"4de1a407-67ea-4e2e-8f98-cbb0685f2657"],
+Cell[9299, 259, 1858, 37, 73, "Input",ExpressionUUID->"ccb1106c-55c9-43ee-87b6-2bffa0baea3f"],
+Cell[11160, 298, 260, 6, 35, "Text",ExpressionUUID->"2652a293-44b6-4f1a-9942-806f9e17da2c"],
+Cell[11423, 306, 481, 11, 30, "Input",ExpressionUUID->"cb55d0c7-241a-4fd5-a04e-dfc5eab0419e"],
+Cell[11907, 319, 316, 7, 58, "Text",ExpressionUUID->"18482e57-97ac-4190-a766-f92744c5cf64"],
+Cell[12226, 328, 919, 25, 30, "Input",ExpressionUUID->"6468da16-8a19-46db-902b-63cb2579abad"],
+Cell[13148, 355, 197, 3, 35, "Text",ExpressionUUID->"192a5ad5-e361-444a-89ad-7a8cb52e93b3"],
+Cell[13348, 360, 621, 19, 30, "Input",ExpressionUUID->"1734a32a-3b95-4ba2-ac50-8636a646e0ad"],
+Cell[13972, 381, 199, 3, 35, "Text",ExpressionUUID->"31fde711-a85f-4b88-9ac2-593dda72a019"],
+Cell[14174, 386, 594, 16, 30, "Input",ExpressionUUID->"feda3056-a010-4037-aaa9-8a93c4f7f6c4"],
+Cell[14771, 404, 262, 6, 30, "Input",ExpressionUUID->"840b951c-3a89-420e-aaca-4bb2b78893ec"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15070, 415, 167, 3, 45, "Subsubsection",ExpressionUUID->"5b9724fd-8ce4-46d0-bf3d-fbbe7e34ee4f"],
+Cell[15240, 420, 200, 3, 35, "Text",ExpressionUUID->"94b381a2-84d3-48cc-92a9-4fb52e1182de"],
+Cell[15443, 425, 228, 5, 30, "Input",ExpressionUUID->"943b0bf5-7b02-4144-9328-b299e9f9aa5f"],
+Cell[15674, 432, 949, 25, 30, "Input",ExpressionUUID->"6f5d580d-9fe0-42b1-ac91-39d6e407bd2b"],
+Cell[16626, 459, 314, 7, 35, "Text",ExpressionUUID->"f6e6ebac-4c6a-47d2-9a74-1e30bd180366"],
+Cell[16943, 468, 833, 23, 30, "Input",ExpressionUUID->"d39fba4c-1f07-4984-99c0-6d847fe69f34"],
+Cell[17779, 493, 278, 6, 30, "Input",ExpressionUUID->"a0efa81e-165a-411f-a03c-a7ebff2d97eb"],
+Cell[18060, 501, 886, 24, 30, "Input",ExpressionUUID->"e4f90d93-c5be-45a1-88b9-443ecea9ffb6"],
+Cell[18949, 527, 71, 0, 35, "Text",ExpressionUUID->"5ade070a-b361-4811-9490-f81c134b12b2"],
+Cell[19023, 529, 234, 4, 35, "Text",ExpressionUUID->"1a26425a-77fa-4f17-983f-c698d16b6c6b"],
+Cell[19260, 535, 937, 25, 30, "Input",ExpressionUUID->"71b70129-387f-4472-81c8-7cdac781e174"],
+Cell[20200, 562, 230, 5, 30, "Input",ExpressionUUID->"25267914-bcb2-4845-a0fb-d69ff4039cf6"],
+Cell[20433, 569, 975, 25, 52, "Input",ExpressionUUID->"bba32d4b-4fc8-444a-b5ba-7ea6fd0bebab"],
+Cell[21411, 596, 195, 3, 35, "Text",ExpressionUUID->"d919f30a-63bb-41e7-8f6b-33b67b179f35"],
+Cell[21609, 601, 228, 5, 30, "Input",ExpressionUUID->"b1bc38ef-fec0-4226-bb1a-24bc3e048f2c"],
+Cell[21840, 608, 1247, 29, 52, "Input",ExpressionUUID->"fe6ab8b3-4c77-4292-9db7-9323f755bbc8"],
+Cell[23090, 639, 230, 5, 35, "Text",ExpressionUUID->"6fde2995-d429-4e35-bc57-a2eabe2cf7d2"],
+Cell[23323, 646, 274, 8, 35, "Text",ExpressionUUID->"77614040-7af9-4913-8e75-495975b2b85a"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

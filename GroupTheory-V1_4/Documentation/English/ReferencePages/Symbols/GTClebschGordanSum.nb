@@ -1,0 +1,1479 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     53202,       1469]
+NotebookOptionsPosition[     43779,       1277]
+NotebookOutlinePosition[     46007,       1333]
+CellTagsIndexPosition[     45921,       1328]
+WindowTitle->GTClebschGordanSum
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "9fecebaa-4f5f-4995-9ae2-b292f56ae99c"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "d9834b61-e591-4736-b08d-cc2f168cfe5b"],
+        Background->RGBColor[0.490196, 0.576471, 0.690196],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "4f24b79d-e045-4f6f-9378-0c37e3ef9f2b"]
+         }],ExpressionUUID->"f7236d17-1861-4a6e-95f0-c61f3bf77036"],
+         StripOnInput->False], {"\<\"GTAngularMomentumRep\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTAngularMomentumRep"], \
+"\<\"GTClebschGordanCoefficients\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTClebschGordanCoefficients"], \
+"\<\"GTClebschGordanTable\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTClebschGordanTable"], \
+"\<\"GTDirectProductRep\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTDirectProductRep"], "\<\"GTgmat\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTgmat"], "\<\"GTNumberOfIreps\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/GTNumberOfIreps"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "db73fc74-e345-4c9c-b042-3bbd57c493f5"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "9cef54e8-9cfd-41d1-9aad-f64fb3a8349c"]
+         }],ExpressionUUID->"833fcd6c-80f6-421e-b9be-5b0d528e9edc"],
+         StripOnInput->False], {"\<\"Representation Theory\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/guide/RepresentationTheory"], "\<\"The \
+Mathematica Group Theory Package GTPack, V 1.4\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/guide/GroupTheory"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "9486e17f-4e82-4b8f-aaf4-9b4d061bfe74"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "23212ef4-d056-466a-8537-3833236c995f"]
+         }],ExpressionUUID->"32d74e7e-e922-44c2-8cf4-f72acbc47fdc"],
+         StripOnInput->False], {"\<\"GroupTheory/ref/GTClebschGordanSum\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/ref/GTClebschGordanSum"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/ref/\
+GTClebschGordanSum.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$103770], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/ref/GTClebschGordanSum" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "5bb6320c-e1da-419d-8e51-574f669131c6"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "4d8f4b84-10a6-42bf-81a6-1648bc5d09d5"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"b03ae561-6a33-467c-b625-0d8787d42f2c"],
+
+Cell["GroupTheory`", "ContextNameCell",ExpressionUUID->"9ecf0583-43d0-43db-8d53-d76a87d34dcd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "GTClebschGordanSum", "ObjectName",ExpressionUUID->
+      "5e07039b-405c-44c2-acb4-ef0ae22e0be0"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"986b9187-1482-44c3-a989-0051b501ec74"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "b7fcd24a-def0-477d-a356-da2927d327de"]
+    }],ExpressionUUID->"bbd4468b-9607-4d21-86d4-093109d03895"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"8d7ba6ed-61d9-4ce0-a5e2-\
+3ad149c521ac"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{
+         Cell[
+          TextData["GTClebschGordanSum"]], 
+         "paclet:GroupTheory/ref/GTClebschGordanSum", 
+         "GroupTheory Package Symbol"},
+        "PackageLink",
+        BaseStyle->"InlineFormula"], "[", 
+       StyleBox[
+        RowBox[{"rep1", ",", "rep2"}], "TI",
+        FontSlant->"Italic"], "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "351b6c81-c6b1-40b4-881c-cf3745d92f02"],
+     "\[LineSeparator]gives the direct sum of two representations",
+     StyleBox[" ",
+      FontSlant->"Italic"],
+     StyleBox["rep1", "TI",
+      FontSlant->"Italic"],
+     " and ",
+     StyleBox["rep2.", "TI",
+      FontSlant->"Italic"]
+    }],ExpressionUUID->"4a31cafe-db79-4d3a-b683-896a991a97cf"]}
+  }]], "Usage",
+ CellID->982511436,ExpressionUUID->"669b84cd-9d84-47fc-9af8-7cca0b7b4d22"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    DynamicBox[ToBoxes[
+      If[
+       MatchQ[
+        CurrentValue[
+         EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, 
+         Closed], 
+        Alternatives[Open, True]], 
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], 
+       Rotate[
+        Style[
+         Graphics[{
+           Thickness[0.18], 
+           RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+           Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+          PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+         0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+     ImageSizeCache->{
+      13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+    ExpressionUUID->"d1a05cf2-c5e2-4102-b929-5da840bb1000"],
+   Cell[BoxData[
+    TemplateBox[{1},
+     "Spacer1"]],ExpressionUUID->"ce2ded3a-dd70-41bd-9544-3aae546f946d"],
+   "Details and Options"
+  }], "NotesFrameText",ExpressionUUID->"3ea34079-fa68-44aa-91ef-659ea1fb742e"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->
+   "Preemptive"]],ExpressionUUID->"8fc86315-056d-4ea6-8a61-8777f80a27b8"]], \
+"NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->684987885,ExpressionUUID->"1ff804f3-9835-4176-b723-d9d6f6438ea7"],
+
+Cell[TextData[{
+ "Considering two arbitrary matrix representations ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["\[CapitalGamma]", "1"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"604ebd87-5986-4a4b-aa2e-dcdff5e3f3fa"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["\[CapitalGamma]", "2"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"dd82bc4b-52be-40fb-ba74-022d8c172327"],
+ " of the same group. The Clebsch-Gordan sum gives a matrix representation of \
+the form ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SuperscriptBox["\[CapitalGamma]", "1"], "\[CirclePlus]", " ", 
+     SuperscriptBox["\[CapitalGamma]", "2"]}], "=", 
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        SuperscriptBox["\[CapitalGamma]", "1"], "0"},
+       {"0", 
+        SuperscriptBox["\[CapitalGamma]", "2"]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}]}], 
+   TraditionalForm]], "InlineMath",ExpressionUUID->
+  "83d833f8-56d5-4239-8b84-412bfff8f663"],
+ "."
+}], "Notes",
+ CellID->1659007777,ExpressionUUID->"a1ab6dac-ba5b-4810-b8a6-91db23f7e1f2"],
+
+Cell[TextData[{
+ "Alternatively, the symbol ",
+ Cell[BoxData[
+  FormBox["\[CirclePlus]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "a28e1418-ba3a-4496-86e7-58a0844093bc"],
+ " can be used instead of the command ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTClebschGordanSum"]], 
+    "paclet:GroupTheory/ref/GTClebschGordanSum", "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "78e64189-3960-4d3d-8a8f-0b66f805c39c"],
+ "."
+}], "Notes",
+ Deletable->True,
+ CellID->2005958323,ExpressionUUID->"6ed3917b-d693-4afa-8d29-32b97bd7355a"],
+
+Cell["The following option can be given:", "Notes",
+ CellID->729515642,ExpressionUUID->"ea2eeac6-5cca-45d0-a2e3-6600365a4d1f"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "1b00f0d5-d1a7-4401-8d70-d5dd0cf5dea3"], 
+    RowBox[{
+     TemplateBox[{
+       Cell[
+        TextData["GOFast"]], "paclet:GroupTheory/ref/GOFast", 
+       "GroupTheory Package Symbol"},
+      "PackageLink",
+      BaseStyle->"3ColumnTableMod"], " ", 
+     TemplateBox[{168475934},
+      "ExampleJumpLink"]}], 
+    TemplateBox[{
+      Cell[
+       TextData["GOFastValue"]], "paclet:GroupTheory/ref/GOFastValue", 
+      "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->"3ColumnTableMod"], Cell[TextData[Cell[
+    "Skips the input validation ", "TableText",ExpressionUUID->
+     "e9659bda-014d-4c1b-8b30-35a07366e70c"]], "TableText",ExpressionUUID->
+     "6bf60658-eaf9-4007-9cdf-753e879f6da3"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{"Columns" -> {{None}}, "Rows" -> {{None}}},
+ GridBoxDividers->{"Rows" -> {{True, True}}}},
+ CellID->52044944,ExpressionUUID->"dbd98128-fd90-4180-84dc-bf0775e3b431"],
+
+Cell[TextData[{
+ "See: W. Hergert, M. Geilhufe, ",
+ StyleBox["Group Theory in Solid State Physics and Photonics. Problem Solving \
+with Mathematica,",
+  FontSlant->"Italic"],
+ " chapter 5.2."
+}], "Notes",
+ CellID->345586946,ExpressionUUID->"2586f898-5390-4f35-9ea9-c2b33272fc5e"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"7d9431b1-e37b-4050-a257-e75bb8c341e1"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"ea508235-b95b-49e9-a850-4fa40159ddf6"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(4)", "ExampleCount",ExpressionUUID->
+  "1c5cc17e-f116-4084-b45c-3de17715a16f"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellTags->"PrimaryExamplesSection",
+ CellID->395058272,ExpressionUUID->"160595d8-65ed-4a64-947f-12ca8dda49af"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"3dfcbad5-acf2-4ae5-b0d3-dd4840e3af62"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"dfa10ebf-0c10-40d2-b011-96a1bb1e0bc9"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "ee4f6d2d-e980-4f99-aae2-8b90224060f4"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->1515284332,ExpressionUUID->"acd19ea8-379f-48f2-a292-bb391e15ccf7"],
+
+Cell["First, load the package:", "ExampleText",
+ CellID->10029131,ExpressionUUID->"18af8b7b-737c-438a-a2a8-b58f6124c740"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->700278011,ExpressionUUID->"1e4f4be3-10d4-4c63-a2a5-461c1753991f"],
+
+Cell[TextData[{
+ "During the example we calculate the Clebsch-Gordan sum of the \
+representation given by rotation matrices and of the angular momentum \
+representation with l=1 for the point group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", "3"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "563cedf6-5cba-49e5-83a2-c7219c39d41b"],
+ ". "
+}], "ExampleText",
+ CellID->57049781,ExpressionUUID->"241a5d61-b2d9-4c77-96b6-da162caf9421"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"c3matrix", "=", 
+  RowBox[{
+   RowBox[{"GTInstallGroup", "[", "C3", "]"}], "//", 
+   "GTGetMatrix"}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->346722557,ExpressionUUID->"f180d397-bd4b-475c-a73b-f3d0aabf2f97"],
+
+Cell[BoxData["\<\"The standard representation has changed to O(3)\"\>"], \
+"Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->1922975228,ExpressionUUID->"77b3775f-f27e-43c7-82fb-898f98ccc228"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", 
+       RowBox[{"-", 
+        FractionBox[
+         SqrtBox["3"], "2"]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox[
+        SqrtBox["3"], "2"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", 
+       FractionBox[
+        SqrtBox["3"], "2"], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         SqrtBox["3"], "2"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->837200542,ExpressionUUID->"e9c897db-2214-49fb-b74b-b5cd6937adda"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"c3angularmom", "=", 
+  RowBox[{"GTAngularMomentumRep", "[", 
+   RowBox[{"c3", ",", "1"}], "]"}]}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1840257654,ExpressionUUID->"7a987694-ec1e-4ee9-98ea-faafe054e216"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"-", "1"}], ")"}], 
+         RowBox[{"1", "/", "3"}]]}], ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"-", "1"}], ")"}], 
+        RowBox[{"2", "/", "3"}]]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"-", "1"}], ")"}], 
+        RowBox[{"2", "/", "3"}]], ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       RowBox[{"-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"-", "1"}], ")"}], 
+         RowBox[{"1", "/", "3"}]]}]}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1699853525,ExpressionUUID->"ec84ff00-2b7b-4eda-8ebb-42e6fa9df248"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Map", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"MatrixForm", "[", "#", "]"}], "&"}], ",", 
+   RowBox[{"GTClebschGordanSum", "[", 
+    RowBox[{"c3matrix", ",", "c3angularmom"}], "]"}]}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->714919567,ExpressionUUID->"cf52a229-de8d-4136-b049-3925c3df68d7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "0", "0", "0", "0", "0"},
+       {"0", "1", "0", "0", "0", "0"},
+       {"0", "0", "1", "0", "0", "0"},
+       {"0", "0", "0", "1", "0", "0"},
+       {"0", "0", "0", "0", "1", "0"},
+       {"0", "0", "0", "0", "0", "1"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], 
+        RowBox[{"-", 
+         FractionBox[
+          SqrtBox["3"], "2"]}], "0", "0", "0", "0"},
+       {
+        FractionBox[
+         SqrtBox["3"], "2"], 
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], "0", "0", "0", "0"},
+       {"0", "0", "1", "0", "0", "0"},
+       {"0", "0", "0", 
+        RowBox[{"-", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"-", "1"}], ")"}], 
+          RowBox[{"1", "/", "3"}]]}], "0", "0"},
+       {"0", "0", "0", "0", "1", "0"},
+       {"0", "0", "0", "0", "0", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"-", "1"}], ")"}], 
+         RowBox[{"2", "/", "3"}]]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], 
+        FractionBox[
+         SqrtBox["3"], "2"], "0", "0", "0", "0"},
+       {
+        RowBox[{"-", 
+         FractionBox[
+          SqrtBox["3"], "2"]}], 
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], "0", "0", "0", "0"},
+       {"0", "0", "1", "0", "0", "0"},
+       {"0", "0", "0", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"-", "1"}], ")"}], 
+         RowBox[{"2", "/", "3"}]], "0", "0"},
+       {"0", "0", "0", "0", "1", "0"},
+       {"0", "0", "0", "0", "0", 
+        RowBox[{"-", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"-", "1"}], ")"}], 
+          RowBox[{"1", "/", "3"}]]}]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}], "}"}]], "Output",
+ CellLabel->"Out[4]=",
+ CellID->1518260792,ExpressionUUID->"f1307dfc-3f84-426d-aa88-8068bc79db22"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Map", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"MatrixForm", "[", "#", "]"}], "&"}], ",", 
+   RowBox[{"c3matrix", "\[CirclePlus]", "c3angularmom"}]}], "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->271617854,ExpressionUUID->"06179dd9-4969-4118-91d8-65e084353521"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {"1", "0", "0", "0", "0", "0"},
+       {"0", "1", "0", "0", "0", "0"},
+       {"0", "0", "1", "0", "0", "0"},
+       {"0", "0", "0", "1", "0", "0"},
+       {"0", "0", "0", "0", "1", "0"},
+       {"0", "0", "0", "0", "0", "1"}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], 
+        RowBox[{"-", 
+         FractionBox[
+          SqrtBox["3"], "2"]}], "0", "0", "0", "0"},
+       {
+        FractionBox[
+         SqrtBox["3"], "2"], 
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], "0", "0", "0", "0"},
+       {"0", "0", "1", "0", "0", "0"},
+       {"0", "0", "0", 
+        RowBox[{"-", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"-", "1"}], ")"}], 
+          RowBox[{"1", "/", "3"}]]}], "0", "0"},
+       {"0", "0", "0", "0", "1", "0"},
+       {"0", "0", "0", "0", "0", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"-", "1"}], ")"}], 
+         RowBox[{"2", "/", "3"}]]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]], ",", 
+   TagBox[
+    RowBox[{"(", "\[NoBreak]", GridBox[{
+       {
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], 
+        FractionBox[
+         SqrtBox["3"], "2"], "0", "0", "0", "0"},
+       {
+        RowBox[{"-", 
+         FractionBox[
+          SqrtBox["3"], "2"]}], 
+        RowBox[{"-", 
+         FractionBox["1", "2"]}], "0", "0", "0", "0"},
+       {"0", "0", "1", "0", "0", "0"},
+       {"0", "0", "0", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"-", "1"}], ")"}], 
+         RowBox[{"2", "/", "3"}]], "0", "0"},
+       {"0", "0", "0", "0", "1", "0"},
+       {"0", "0", "0", "0", "0", 
+        RowBox[{"-", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"-", "1"}], ")"}], 
+          RowBox[{"1", "/", "3"}]]}]}
+      },
+      GridBoxAlignment->{
+       "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, 
+        "Rows" -> {{Baseline}}, "RowsIndexed" -> {}},
+      GridBoxSpacings->{"Columns" -> {
+          Offset[0.27999999999999997`], {
+           Offset[0.7]}, 
+          Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+          Offset[0.2], {
+           Offset[0.4]}, 
+          Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+    Function[BoxForm`e$, 
+     MatrixForm[BoxForm`e$]]]}], "}"}]], "Output",
+ CellLabel->"Out[5]=",
+ CellID->824128354,ExpressionUUID->"1b61b463-3479-465d-9521-bb1ee1c6c08d"]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, 
+  Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "1"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+  ExpressionUUID->"ebc5081f-96a5-49bf-88c5-17ba6b1e3277"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"762144e9-a5b8-45a8-82ab-3901896f4814"],
+ "Options",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(3)", "ExampleCount",ExpressionUUID->
+  "16895305-8af5-46d6-84fc-aae0c9e3699b"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->2061341341,ExpressionUUID->"169cfc23-87f0-4ecd-a757-cf38f6c13f0a"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "ExampleSubsection", "0"}, Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+  ExpressionUUID->"405c83b2-f5b8-410b-8e43-fa164fcbf3a5"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"b2649872-21a3-4369-b39d-8a3b64a4b950"],
+ "GOFast",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(3)", "ExampleCount",ExpressionUUID->
+  "0716f75c-245a-4731-94ec-b8d05690f67e"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->168475934,ExpressionUUID->"1a0dfcd1-fdf3-41f4-b04b-73e838a02a64"],
+
+Cell["First, load the package:", "ExampleText",
+ CellID->435184156,ExpressionUUID->"3d86707d-1869-4b7c-84be-bb5aefd0c1a8"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->30805625,ExpressionUUID->"a2782fa1-2e4e-4480-99a4-c6fa07d75316"],
+
+Cell["Then run the examples:", "ExampleText",
+ CellID->107691765,ExpressionUUID->"e6f80cd5-675e-4e86-8182-4b375d2e37dd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"oh", "=", 
+   RowBox[{
+    RowBox[{"GTInstallGroup", "[", "Oh", "]"}], "//", "GTGetMatrix"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->156965885,ExpressionUUID->"a13c95e5-ee5e-4eae-ad08-8ca9005394db"],
+
+Cell[BoxData["\<\"The standard representation has changed to O(3)\"\>"], \
+"Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->1489715490,ExpressionUUID->"6e9967a4-2c97-4ac4-b86c-35776d52ea45"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ohAm", "=", 
+   RowBox[{"GTAngularMomentumRep", "[", 
+    RowBox[{"oh", ",", "5"}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->481637530,ExpressionUUID->"813f67e0-4d99-4407-9b69-7c11d07bacb5"],
+
+Cell[TextData[{
+ "The evaluation time can be decreased, using ",
+ ButtonBox["GOFast",
+  BaseStyle->"Link",
+  ButtonData->"paclet:GroupTheory/ref/GOFast"],
+ "\[Rule]",
+ ButtonBox["True",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/True"],
+ "."
+}], "ExampleText",
+ CellID->1936364349,ExpressionUUID->"7de9a493-a6f4-4a41-aee4-22ca63e25e95"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AbsoluteTiming", "[", 
+   RowBox[{"GTClebschGordanSum", "[", 
+    RowBox[{"oh", ",", "ohAm", ",", 
+     RowBox[{"GOFast", "\[Rule]", " ", "True"}]}], "]"}], "]"}], "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->786722795,ExpressionUUID->"16235fbb-420b-43ce-99c4-94ec34caf0ab"],
+
+Cell[BoxData["0.003284`"], "Output",
+ CellLabel->"Out[4]=",
+ CellID->1291044957,ExpressionUUID->"5a3ea795-6aea-4a0d-ab88-ee5eb93bcae5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AbsoluteTiming", "[", 
+   RowBox[{"GTClebschGordanSum", "[", 
+    RowBox[{"oh", ",", "ohAm", ",", 
+     RowBox[{"GOFast", "\[Rule]", " ", "False"}]}], "]"}], "]"}], "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->710269229,ExpressionUUID->"d36330fc-8053-4bd3-95ac-7d461465a3d4"],
+
+Cell[BoxData["25.251068`"], "Output",
+ CellLabel->"Out[5]=",
+ CellID->1693369186,ExpressionUUID->"23cfd34c-fb51-4c3f-8e74-8b7025737e80"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "74d066ca-5f15-4478-bda8-926f5e6d69ec"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1584672630,ExpressionUUID->"766382f7-dc08-4050-99ed-c9d5b10f4625"],
+
+Cell[TextData[{
+ "If ",
+ ButtonBox["GOFast",
+  BaseStyle->"Link",
+  ButtonData->"paclet:GroupTheory/ref/GOFast"],
+ "\[Rule]",
+ ButtonBox["False",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/False"],
+ " is used, it will be checked if the input is a group."
+}], "ExampleText",
+ CellID->1697292234,ExpressionUUID->"371a9a04-5bd8-4481-8195-b166c55d1a37"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTClebschGordanSum", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"I", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "I"}], "}"}]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", "1", "}"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"{", "1", "}"}], "}"}]}], "}"}], ",", 
+   RowBox[{"GOFast", "\[Rule]", " ", "False"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1841808856,ExpressionUUID->"79bebdbe-2973-4a4b-8a8e-a1b35c803724"],
+
+Cell[BoxData["\<\"Error: first representation is not a group\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->771760149,ExpressionUUID->"3af3aa7b-30dd-4289-b109-b08ee3fa37a4"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellLabel->"Out[1]=",
+ CellID->2065197167,ExpressionUUID->"ec12cdbe-8d6e-4745-aa2b-8ade7f9d3c68"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTClebschGordanSum", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], "}"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", "I", "}"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"{", "1", "}"}], "}"}]}], "}"}], ",", 
+   RowBox[{"GOFast", "\[Rule]", " ", "False"}]}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1033676503,ExpressionUUID->"108d3e8a-435b-461a-a77d-d832bafcb337"],
+
+Cell[BoxData["\<\"Error: second representation is not a group\"\>"], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->153708414,ExpressionUUID->"185cd6cc-4162-40d6-98b0-471e788d97e1"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellLabel->"Out[2]=",
+ CellID->780661702,ExpressionUUID->"366fa7dd-3ba1-4c4a-a6c0-c5ecae54a303"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "e31fd037-983c-4fcf-b26f-5801e231d0c5"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->274618001,ExpressionUUID->"58ff26e1-9d92-48dc-87c7-52f727444a57"],
+
+Cell[TextData[{
+ "If ",
+ ButtonBox["GOFast",
+  BaseStyle->"Link",
+  ButtonData->"paclet:GroupTheory/ref/GOFast"],
+ "\[Rule]",
+ ButtonBox["False",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/False"],
+ " is used, it will be checked if the group order of the irreducible \
+representations is equal to each other."
+}], "ExampleText",
+ CellID->906710115,ExpressionUUID->"77ad432c-1bdb-4272-a9f7-ec699554730e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTClebschGordanSum", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], "}"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"{", "1", "}"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"{", "1", "}"}], "}"}]}], "}"}], ",", 
+   RowBox[{"GOFast", "\[Rule]", " ", "False"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1790943055,ExpressionUUID->"a06151ee-03f1-4f69-afbf-fbec5e59ed1e"],
+
+Cell[BoxData["\<\"Error: group order of representation 1 is not equal to \
+group order of representation 2\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->1788510841,ExpressionUUID->"22f25000-c81e-41c6-be53-4121607b9c42"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellLabel->"Out[1]=",
+ CellID->89545270,ExpressionUUID->"da9f2a90-60a2-4f7d-ac50-70e385d4e231"]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSubsection", "0"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "1"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, 
+  Closed]]]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTAngularMomentumRep"]], 
+           "paclet:GroupTheory/ref/GTAngularMomentumRep", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "72cae51c-dbfe-4f00-8e02-35154fbbead1"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTClebschGordanCoefficients"]], 
+           "paclet:GroupTheory/ref/GTClebschGordanCoefficients", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "54c84f54-31a1-4062-992e-e4abe5eea777"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTClebschGordanTable"]], 
+           "paclet:GroupTheory/ref/GTClebschGordanTable", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "dbd5ca13-1f66-4bbf-86e9-7508e69b4ec6"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTDirectProductRep"]], 
+           "paclet:GroupTheory/ref/GTDirectProductRep", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "2a056059-5192-4c53-9257-563b2005dfc2"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTgmat"]], "paclet:GroupTheory/ref/GTgmat", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "ab539490-eb17-4a7a-8cd6-c2aa59f2c166"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTNumberOfIreps"]], 
+           "paclet:GroupTheory/ref/GTNumberOfIreps", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "f0996b00-5754-4a54-a612-dac0511bc428"]
+       }], "SeeAlso",ExpressionUUID->"dd959b4b-e84b-4c72-8435-ced0fd10fdbd"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"a6412133-1dd0-4352-ab80-\
+535c12439cc7"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Representation Theory"]], 
+           "paclet:GroupTheory/guide/RepresentationTheory"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "ad23fc12-5ecd-4264-a27c-dac7a6daec96"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["The Mathematica Group Theory Package GTPack, V 1.4"]], 
+           "paclet:GroupTheory/guide/GroupTheory"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "789f1a65-8c57-4710-be2f-9524ee28c461"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"9357120d-fd0b-4db2-9cfd-\
+2c7299ef3fe3"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"d3e2f369-142a-4a53-95eb-71c873bfeef1"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"GTClebschGordanSum",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "HasOptions" -> True, "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, 
+    "ExampleSection" -> {"0" -> Open, "1" -> Closed}, "NotesSection" -> 
+    Closed, "ExampleSubsection" -> {"0" -> Closed}}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 53, 6.247092}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Symbol", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "GTClebschGordanSum[rep1, rep2] gives the direct sum of two \
+representations rep1 and rep2.", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "GTClebschGordanSum", "titlemodifier" -> "", "metadescription" -> "", 
+    "windowtitle" -> "GTClebschGordanSum", "type" -> "Symbol", "uri" -> 
+    "GroupTheory/ref/GTClebschGordanSum"}},
+CellContext->"Global`",
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"ca39bcc8-4744-449b-aefc-e40a7c748b1d"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[13788, 365, 1420, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"160595d8-65ed-4a64-947f-12ca8dda49af",
+   CellTags->"PrimaryExamplesSection",
+   CellID->395058272]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 45721, 1321}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[590, 21, 5929, 137, 56, "AnchorBarGrid",ExpressionUUID->"b03ae561-6a33-467c-b625-0d8787d42f2c",
+ CellID->1],
+Cell[6522, 160, 94, 0, 24, "ContextNameCell",ExpressionUUID->"9ecf0583-43d0-43db-8d53-d76a87d34dcd"],
+Cell[CellGroupData[{
+Cell[6641, 164, 561, 14, 59, "ObjectNameGrid",ExpressionUUID->"8d7ba6ed-61d9-4ce0-a5e2-3ad149c521ac"],
+Cell[7205, 180, 934, 26, 110, "Usage",ExpressionUUID->"669b84cd-9d84-47fc-9af8-7cca0b7b4d22",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8176, 211, 1919, 48, 37, "NotesSection",ExpressionUUID->"1ff804f3-9835-4176-b723-d9d6f6438ea7",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->684987885],
+Cell[10098, 261, 1472, 39, 70, "Notes",ExpressionUUID->"a1ab6dac-ba5b-4810-b8a6-91db23f7e1f2",
+ CellID->1659007777],
+Cell[11573, 302, 653, 18, 70, "Notes",ExpressionUUID->"6ed3917b-d693-4afa-8d29-32b97bd7355a",
+ CellID->2005958323],
+Cell[12229, 322, 126, 1, 70, "Notes",ExpressionUUID->"ea2eeac6-5cca-45d0-a2e3-6600365a4d1f",
+ CellID->729515642],
+Cell[12358, 325, 1021, 25, 70, "3ColumnTableMod",ExpressionUUID->"dbd98128-fd90-4180-84dc-bf0775e3b431",
+ CellID->52044944],
+Cell[13382, 352, 279, 7, 70, "Notes",ExpressionUUID->"2586f898-5390-4f35-9ea9-c2b33272fc5e",
+ CellID->345586946]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[13788, 365, 1420, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"160595d8-65ed-4a64-947f-12ca8dda49af",
+ CellTags->"PrimaryExamplesSection",
+ CellID->395058272],
+Cell[CellGroupData[{
+Cell[15233, 406, 1399, 36, 30, "ExampleSection",ExpressionUUID->"acd19ea8-379f-48f2-a292-bb391e15ccf7",
+ CellID->1515284332],
+Cell[16635, 444, 121, 1, 38, "ExampleText",ExpressionUUID->"18af8b7b-737c-438a-a2a8-b58f6124c740",
+ CellID->10029131],
+Cell[16759, 447, 175, 3, 27, "Input",ExpressionUUID->"1e4f4be3-10d4-4c63-a2a5-461c1753991f",
+ CellID->700278011],
+Cell[16937, 452, 444, 10, 57, "ExampleText",ExpressionUUID->"241a5d61-b2d9-4c77-96b6-da162caf9421",
+ CellID->57049781],
+Cell[CellGroupData[{
+Cell[17406, 466, 235, 6, 27, "Input",ExpressionUUID->"f180d397-bd4b-475c-a73b-f3d0aabf2f97",
+ CellID->346722557],
+Cell[17644, 474, 203, 3, 25, "Print",ExpressionUUID->"77b3775f-f27e-43c7-82fb-898f98ccc228",
+ CellID->1922975228],
+Cell[17850, 479, 1351, 46, 77, "Output",ExpressionUUID->"e9c897db-2214-49fb-b74b-b5cd6937adda",
+ CellID->837200542]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19238, 530, 231, 5, 27, "Input",ExpressionUUID->"7a987694-ec1e-4ee9-98ea-faafe054e216",
+ CellID->1840257654],
+Cell[19472, 537, 1428, 46, 57, "Output",ExpressionUUID->"ec84ff00-2b7b-4eda-8ebb-42e6fa9df248",
+ CellID->1699853525]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20937, 588, 324, 8, 27, "Input",ExpressionUUID->"cf52a229-de8d-4136-b049-3925c3df68d7",
+ CellID->714919567],
+Cell[21264, 598, 3507, 103, 143, "Output",ExpressionUUID->"f1307dfc-3f84-426d-aa88-8068bc79db22",
+ CellID->1518260792]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24808, 706, 289, 7, 70, "Input",ExpressionUUID->"06179dd9-4969-4118-91d8-65e084353521",
+ CellID->271617854],
+Cell[25100, 715, 3506, 103, 143, "Output",ExpressionUUID->"1b61b463-3479-465d-9521-bb1ee1c6c08d",
+ CellID->824128354]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[28755, 826, 1415, 37, 70, "ExampleSection",ExpressionUUID->"169cfc23-87f0-4ecd-a757-cf38f6c13f0a",
+ CellID->2061341341],
+Cell[CellGroupData[{
+Cell[30195, 867, 1422, 37, 70, "ExampleSubsection",ExpressionUUID->"1a0dfcd1-fdf3-41f4-b04b-73e838a02a64",
+ CellID->168475934],
+Cell[31620, 906, 122, 1, 70, "ExampleText",ExpressionUUID->"3d86707d-1869-4b7c-84be-bb5aefd0c1a8",
+ CellID->435184156],
+Cell[31745, 909, 174, 3, 70, "Input",ExpressionUUID->"a2782fa1-2e4e-4480-99a4-c6fa07d75316",
+ CellID->30805625],
+Cell[31922, 914, 120, 1, 70, "ExampleText",ExpressionUUID->"e6f80cd5-675e-4e86-8182-4b375d2e37dd",
+ CellID->107691765],
+Cell[CellGroupData[{
+Cell[32067, 919, 248, 7, 70, "Input",ExpressionUUID->"a13c95e5-ee5e-4eae-ad08-8ca9005394db",
+ CellID->156965885],
+Cell[32318, 928, 203, 3, 70, "Print",ExpressionUUID->"6e9967a4-2c97-4ac4-b86c-35776d52ea45",
+ CellID->1489715490]
+}, Open  ]],
+Cell[32536, 934, 242, 6, 70, "Input",ExpressionUUID->"813f67e0-4d99-4407-9b69-7c11d07bacb5",
+ CellID->481637530],
+Cell[32781, 942, 340, 11, 70, "ExampleText",ExpressionUUID->"7de9a493-a6f4-4a41-aee4-22ca63e25e95",
+ CellID->1936364349],
+Cell[CellGroupData[{
+Cell[33146, 957, 346, 8, 70, "Input",ExpressionUUID->"16235fbb-420b-43ce-99c4-94ec34caf0ab",
+ CellID->786722795],
+Cell[33495, 967, 135, 2, 36, "Output",ExpressionUUID->"5a3ea795-6aea-4a0d-ab88-ee5eb93bcae5",
+ CellID->1291044957]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33667, 974, 347, 8, 70, "Input",ExpressionUUID->"d36330fc-8053-4bd3-95ac-7d461465a3d4",
+ CellID->710269229],
+Cell[34017, 984, 136, 2, 36, "Output",ExpressionUUID->"23cfd34c-fb51-4c3f-8e74-8b7025737e80",
+ CellID->1693369186]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34190, 991, 243, 5, 70, "ExampleDelimiter",ExpressionUUID->"766382f7-dc08-4050-99ed-c9d5b10f4625",
+ CellID->1584672630],
+Cell[34436, 998, 353, 11, 70, "ExampleText",ExpressionUUID->"371a9a04-5bd8-4481-8195-b166c55d1a37",
+ CellID->1697292234],
+Cell[CellGroupData[{
+Cell[34814, 1013, 785, 25, 70, "Input",ExpressionUUID->"79bebdbe-2973-4a4b-8a8e-a1b35c803724",
+ CellID->1841808856],
+Cell[35602, 1040, 195, 2, 70, "Print",ExpressionUUID->"3af3aa7b-30dd-4289-b109-b08ee3fa37a4",
+ CellID->771760149],
+Cell[35800, 1044, 134, 2, 36, "Output",ExpressionUUID->"ec12cdbe-8d6e-4745-aa2b-8ade7f9d3c68",
+ CellID->2065197167]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35971, 1051, 587, 18, 70, "Input",ExpressionUUID->"108d3e8a-435b-461a-a77d-d832bafcb337",
+ CellID->1033676503],
+Cell[36561, 1071, 196, 2, 70, "Print",ExpressionUUID->"185cd6cc-4162-40d6-98b0-471e788d97e1",
+ CellID->153708414],
+Cell[36760, 1075, 133, 2, 36, "Output",ExpressionUUID->"366fa7dd-3ba1-4c4a-a6c0-c5ecae54a303",
+ CellID->780661702]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36942, 1083, 242, 5, 70, "ExampleDelimiter",ExpressionUUID->"58ff26e1-9d92-48dc-87c7-52f727444a57",
+ CellID->274618001],
+Cell[37187, 1090, 407, 12, 70, "ExampleText",ExpressionUUID->"77ad432c-1bdb-4272-a9f7-ec699554730e",
+ CellID->906710115],
+Cell[CellGroupData[{
+Cell[37619, 1106, 587, 18, 70, "Input",ExpressionUUID->"a06151ee-03f1-4f69-afbf-fbec5e59ed1e",
+ CellID->1790943055],
+Cell[38209, 1126, 242, 3, 70, "Print",ExpressionUUID->"22f25000-c81e-41c6-be53-4121607b9c42",
+ CellID->1788510841],
+Cell[38454, 1131, 132, 2, 36, "Output",ExpressionUUID->"da9f2a90-60a2-4f7d-ac50-70e385d4e231",
+ CellID->89545270]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSubsection", "0"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "1"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, Closed]]]],
+Cell[38955, 1146, 3615, 97, 70, "SeeAlsoSection",ExpressionUUID->"a6412133-1dd0-4352-ab80-535c12439cc7"],
+Cell[42573, 1245, 1121, 28, 70, "MoreAboutSection",ExpressionUUID->"9357120d-fd0b-4db2-9cfd-2c7299ef3fe3"],
+Cell[43697, 1275, 78, 0, 70, "FooterCell",ExpressionUUID->"d3e2f369-142a-4a53-95eb-71c873bfeef1"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

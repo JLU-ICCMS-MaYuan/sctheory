@@ -1,0 +1,930 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     35503,        920]
+NotebookOptionsPosition[     29939,        808]
+NotebookOutlinePosition[     32116,        863]
+CellTagsIndexPosition[     32031,        858]
+WindowTitle->GTLoadWyckoff
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "716729e4-bcec-4c10-afed-c27135604e55"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "1e31305b-0a46-4a9c-ad2b-71699b86b08a"],
+        Background->RGBColor[0.490196, 0.576471, 0.690196],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "dcd1642f-16d8-4faa-9cc7-de002cc38c56"]
+         }],ExpressionUUID->"e0005b4c-8b66-43df-b0db-08db6ee2e7c7"],
+         StripOnInput->False], {"\<\"GTClearWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTClearWyckoff"], "\<\"GTGetWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTGetWyckoff"], "\<\"GTInstallWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTInstallWyckoff"], "\<\"GTSaveWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTSaveWyckoff"], "\<\"GTAllWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTAllWyckoff"], "\<\"GTCoordFromWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCoordFromWyckoff"], \
+"\<\"GTGetStructure\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTGetStructure"], "\<\"GTAllStructures\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTAllStructures"], \
+"\<\"GTInstallStructure\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTInstallStructure"], "\<\"GTLoadStructures\"\
+\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTLoadStructures"], \
+"\<\"GTSaveStructures\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTSaveStructures"], \
+"\<\"GTClearStructures\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTClearStructures"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "5440665f-2d60-42d9-8b4c-4ede1bb1af0f"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "1a1c0ef1-97af-4452-b894-71c9b15b8f04"]
+         }],ExpressionUUID->"e6f01f88-d7f2-4f53-9ec7-15b089b18460"],
+         StripOnInput->False], {"\<\"Wyckoff positions\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/guide/WyckoffPositions"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "c4e5ede4-3a5f-42b1-80c3-8ecec71711bd"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "7513a7e8-facf-470f-aaa0-9abd27c28fce"]
+         }],ExpressionUUID->"d28c5b40-b1ce-420e-8f57-b3c368bc6d9b"],
+         StripOnInput->False], {"\<\"Working with crystal structures\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/SpaceGroups"], "\<\"Wyckoff \
+positions\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/WyckoffPositions"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "9845a9bc-3cf6-4543-9218-c89e97469293"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "a01285b6-d7cb-4c75-b641-42c0a6f09dc8"]
+         }],ExpressionUUID->"0e6d20e1-6544-4b0a-8d1d-107b38ff48c7"],
+         StripOnInput->False], {"\<\"GroupTheory/ref/GTLoadWyckoff\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/ref/GTLoadWyckoff"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/ref/\
+GTLoadWyckoff.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$153741], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/ref/GTLoadWyckoff" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "91a0921f-b282-477d-a8fb-4e94ec64fbf2"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "befb0da7-b205-444f-ac98-1ab4dc7a14fa"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"568e9b37-34eb-4dae-b3f3-2cee308ad577"],
+
+Cell["GroupTheory`Wyckoff`", "ContextNameCell",ExpressionUUID->"2ecf2769-67d0-490b-ac57-33f395d47276"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "GTLoadWyckoff", "ObjectName",ExpressionUUID->
+      "8f8fb274-e469-4af0-8353-f173b7b8d12c"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"9230cbcc-a923-4048-a544-5ccd4a684095"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "6a0eee89-0244-41ef-8b41-74a05981b8c1"]
+    }],ExpressionUUID->"e21f4c25-18bf-4f64-bd83-e6167537e096"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"647acf1d-f378-42ac-80e2-\
+a60adee8be46"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{
+         Cell[
+          TextData["GTLoadWyckoff"]], 
+         "paclet:GroupTheory/ref/GTLoadStructures", 
+         "GroupTheory Package Symbol"},
+        "PackageLink",
+        BaseStyle->"InlineFormula"], "[", 
+       StyleBox["database", "TI",
+        FontFamily->"Times New Roman",
+        FontSlant->"Italic"], "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "45601d9b-f58b-4929-89bb-50755377df60"],
+     "\[LineSeparator] loads a list of installed space groups with Wyckoff \
+positions from a ",
+     StyleBox["database.", "TI",
+      FontFamily->"Times New Roman",
+      FontSize->12,
+      FontSlant->"Italic"]
+    }],ExpressionUUID->"e7beef9c-f0c1-46fd-8e04-fd691efb21c8"]}
+  }]], "Usage",
+ CellID->982511436,ExpressionUUID->"5a435b82-b2d0-490b-873e-d90dea11b53a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    DynamicBox[ToBoxes[
+      If[
+       MatchQ[
+        CurrentValue[
+         EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, 
+         Closed], 
+        Alternatives[Open, True]], 
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], 
+       Rotate[
+        Style[
+         Graphics[{
+           Thickness[0.18], 
+           RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+           Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+          PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+         0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+     ImageSizeCache->{
+      13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+    ExpressionUUID->"4a0664c4-422b-497c-8dc2-5c935b1ecdfd"],
+   Cell[BoxData[
+    TemplateBox[{1},
+     "Spacer1"]],ExpressionUUID->"cec5a993-b545-41d3-8765-4b9c836ec3d2"],
+   "Details and Options"
+  }], "NotesFrameText",ExpressionUUID->"87096ab4-e457-4cf9-8329-dfda4865e28d"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->
+   "Preemptive"]],ExpressionUUID->"f431e9dd-0ec3-457e-9495-51b918a69d6c"]], \
+"NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->1495081571,ExpressionUUID->"7504b0fd-82b3-413c-a385-2aefcea56b50"],
+
+Cell[TextData[{
+ "All installed space groups and Wyckoff positions are saved during a ",
+ StyleBox["GTPack ",
+  FontWeight->"Bold"],
+ "session in the global variable ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["wyckoff"]], "paclet:GroupTheory/ref/wyckoff", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "a46ecf27-8ea1-4e07-aa60-dd3e52d9ce71"],
+ ". With the help of ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTLoadWyckoff"]], "paclet:GroupTheory/ref/GTLoadWyckoff", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "10125e88-5bd8-45a5-bba2-d5891fb6b35c"],
+ " space groups and the corresponding Wyckoff positions from an external file \
+can be loaded into ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["wyckoff"]], "paclet:GroupTheory/ref/wyckoff", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "bf2d358a-4492-40af-a18e-dd0e50b2f0c3"],
+ ". "
+}], "Notes",
+ CellID->1788423322,ExpressionUUID->"f24a3953-9f00-4a17-b92f-27e3b914a267"],
+
+Cell[TextData[{
+ StyleBox["GTPack ",
+  FontWeight->"Bold"],
+ "provides a list of space groups and their Wyckoff positions in ",
+ StyleBox["GTPack.wyck.",
+  FontSlant->"Italic"],
+ " "
+}], "Notes",
+ CellID->729914098,ExpressionUUID->"76dd9c5e-23f4-4b7a-bcc7-731e0671cb89"],
+
+Cell[TextData[{
+ "To save structures to an external file ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTSaveWyckoff"]], "paclet:GroupTheory/ref/GTSaveWyckoff", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "e0602189-88a2-46b9-8f45-bde2075e5bd6"],
+ " can be used."
+}], "Notes",
+ CellID->444022095,ExpressionUUID->"a9e68664-88e2-4b83-9d10-466edb84bf22"],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["database", "TI"],
+ " must have the extension \"",
+ StyleBox[".wyck", "TI"],
+ "\". This extension will be automatically added."
+}], "Notes",
+ CellID->1663975429,ExpressionUUID->"4416c107-9753-412d-8550-afb67c8403e5"],
+
+Cell["This command is not explained in:", "Notes",
+ CellID->1100268187,ExpressionUUID->"19f6ecfb-182c-420f-810c-672218de4a16"],
+
+Cell[TextData[{
+ "See: W. Hergert, M. Geilhufe, ",
+ StyleBox["Group Theory in Solid State Physics and Photonics. Problem Solving \
+with Mathematica, ",
+  FontSlant->"Italic"],
+ "chapter 9.4"
+}], "Notes",
+ CellID->600256983,ExpressionUUID->"c646f334-e136-4b1a-a4fd-c8258f3381fa"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"f8d0ec3b-1be2-4c7d-a8ce-54a09c05dabb"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"a622726f-e2c2-4029-925e-8f8dfff6ffec"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "d7443671-5814-4cd6-a012-7feea4d54d5f"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellTags->"PrimaryExamplesSection",
+ CellID->1359430271,ExpressionUUID->"5ab35e4f-11f6-472b-a247-4d29334e5ede"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"bfa644e3-116a-4313-a96d-999a7b062d6f"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"5581cef6-92c7-401e-9c4a-e0fb55ea81eb"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "40121740-27b2-4284-9e2e-de5248e29649"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->390967299,ExpressionUUID->"85748db2-cb88-4169-9067-dbcb738e193e"],
+
+Cell["First, load the package:", "ExampleText",
+ CellID->10029131,ExpressionUUID->"5421ab4a-21dc-44f2-9519-eb48abf8b87e"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->700278011,ExpressionUUID->"e5a2de6d-6bca-4216-877f-63bb4d7b8c22"],
+
+Cell["Set the directory accordingly:", "ExampleText",
+ CellID->57049781,ExpressionUUID->"ef205b26-efbe-47f4-bff8-f3c903676d8d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<datasets\>\""}], 
+   "]"}], ";"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1191439651,ExpressionUUID->"c51ee685-168b-427f-bd91-9cb712b88395"],
+
+Cell[TextData[{
+ "Load the database ",
+ StyleBox["GTPack.wyck", "TI"]
+}], "ExampleText",
+ CellID->1060463678,ExpressionUUID->"8c23e7fd-6560-42ff-a717-72037dd6eff8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTLoadWyckoff", "[", "\"\<GTPack\>\"", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->18381166,ExpressionUUID->"ff9b9834-96a1-4728-9178-d9c5cf69f8a9"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Wyckoff positions of \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\" space groups implemented in wyckoff.\"\>"}],
+  SequenceForm[
+  "Wyckoff positions of ", 6, " space groups implemented in wyckoff."],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[31]:=",
+ CellID->21069660,ExpressionUUID->"2108b68b-47a1-4720-8eb3-3d44dbd3a8f9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTAllWyckoff", "[", "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->910926839,ExpressionUUID->"d3c073af-9238-4477-a627-035dc60c96fb"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Space group\"\>", "\<\"Setting\"\>", "\<\"Wyckoff positions\"\>"},
+    {"38", "\<\" \"\>", 
+     RowBox[{"{", 
+      RowBox[{"\<\"2a\"\>", ",", "\<\"2b\"\>", ",", "\<\"4c\"\>", 
+       ",", "\<\"4d\"\>", ",", "\<\"4e\"\>", ",", "\<\"8f\"\>"}], "}"}]},
+    {"88", "\<\" \"\>", 
+     RowBox[{"{", 
+      RowBox[{"\<\"4a\"\>", ",", "\<\"4b\"\>", ",", "\<\"8c\"\>", 
+       ",", "\<\"8d\"\>", ",", "\<\"8e\"\>", ",", "\<\"16f\"\>"}], "}"}]},
+    {"99", "\<\" \"\>", 
+     RowBox[{"{", 
+      RowBox[{"\<\"1a\"\>", ",", "\<\"1b\"\>", ",", "\<\"2c\"\>", 
+       ",", "\<\"4d\"\>", ",", "\<\"4e\"\>", ",", "\<\"4f\"\>", 
+       ",", "\<\"8g\"\>"}], "}"}]},
+    {"144", "\<\" \"\>", 
+     RowBox[{"{", 
+      RowBox[{"\<\"1a\"\>", ",", "\<\"1b\"\>", ",", "\<\"2c\"\>", 
+       ",", "\<\"4d\"\>", ",", "\<\"4e\"\>", ",", "\<\"4f\"\>", 
+       ",", "\<\"8g\"\>"}], "}"}]},
+    {"160", "\<\"rhombohedral\"\>", 
+     RowBox[{"{", 
+      RowBox[{"\<\"1a\"\>", ",", "\<\"3b\"\>", ",", "\<\"6c\"\>"}], "}"}]},
+    {"221", "\<\" \"\>", 
+     RowBox[{"{", 
+      RowBox[{"\<\"1a\"\>", ",", "\<\"1b\"\>", ",", "\<\"3c\"\>", 
+       ",", "\<\"3d\"\>", ",", "\<\"6e\"\>", ",", "\<\"6f\"\>", 
+       ",", "\<\"8g\"\>", ",", "\<\"12h\"\>", ",", "\<\"12i\"\>", 
+       ",", "\<\"12j\"\>", ",", "\<\"24k\"\>", ",", "\<\"24l\"\>", 
+       ",", "\<\"24m\"\>", ",", "\<\"48n\"\>"}], "}"}]}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{
+    "Columns" -> {{None}}, "RowsIndexed" -> {1 -> RGBColor[1, 0.5, 0.5]}},
+   GridBoxDividers->{
+    "ColumnsIndexed" -> {3 -> RGBColor[1, 0, 0]}, 
+     "RowsIndexed" -> {2 -> RGBColor[0, 0, 1]}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Print",
+ CellLabel->"During evaluation of In[32]:=",
+ CellID->500019671,ExpressionUUID->"b2400802-b26d-4186-bfa0-05ecbaa4f6e3"]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, 
+  Closed]]]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTClearWyckoff"]], 
+           "paclet:GroupTheory/ref/GTClearWyckoff", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "dcc0ce5f-f1f0-4b8c-b13a-c3cecb20ba59"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTGetWyckoff"]], "paclet:GroupTheory/ref/GTGetWyckoff", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "de08c3b6-d497-41ea-b741-017cf75b61b9"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTInstallWyckoff"]], 
+           "paclet:GroupTheory/ref/GTInstallWyckoff", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "3aa356f2-2d6e-485e-a198-e546b8d9c17b"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTSaveWyckoff"]], 
+           "paclet:GroupTheory/ref/GTSaveWyckoff", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "68bd1cc0-2d86-4875-9aee-e599c0ce7f17"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTAllWyckoff"]], "paclet:GroupTheory/ref/GTAllWyckoff", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "601edc2c-11e9-475d-b117-fc3178ed5e17"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTCoordFromWyckoff"]], 
+           "paclet:GroupTheory/ref/GTCoordFromWyckoff", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "e60bbe3d-653b-41fb-b69f-f4c28f1ca185"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTGetStructure"]], 
+           "paclet:GroupTheory/ref/GTGetStructure", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "8ad1bc4c-c12f-47e4-8256-2ab122f4e41b"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTAllStructures"]], 
+           "paclet:GroupTheory/ref/GTAllStructures", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "4b469bf3-00e0-4352-a165-2a87d52c668f"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTInstallStructure"]], 
+           "paclet:GroupTheory/ref/GTInstallStructure", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "3fa358a9-9276-4939-9afd-e6e5c654a4b5"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTLoadStructures"]], 
+           "paclet:GroupTheory/ref/GTLoadStructures", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "9bfc6afb-601f-42f4-84ba-f9ef51ea50fd"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTSaveStructures"]], 
+           "paclet:GroupTheory/ref/GTSaveStructures", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "2151f60c-b6a6-4a5d-8acd-4fce840c29e3"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTClearStructures"]], 
+           "paclet:GroupTheory/ref/GTClearStructures", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "f6b8424f-d3ae-4383-ade6-6775501067d2"]
+       }], "SeeAlso",ExpressionUUID->"696e409e-d11e-45a8-8d57-02eb942a0d18"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"a53ef884-7e53-4bbf-ac6c-\
+6b5a1dce64db"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox["Tutorials", "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Working with crystal structures"]], 
+           "paclet:GroupTheory/tutorial/SpaceGroups"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "ac6336e2-864e-4d09-93b7-7cb41baddf9e"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Wyckoff positions"]], 
+           "paclet:GroupTheory/tutorial/WyckoffPositions"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "525583f0-b283-4068-b3f1-90c3fc8ec338"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"a701822a-8d6b-497a-a5e0-\
+baeb0faedbd5"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Wyckoff positions"]], 
+           "paclet:GroupTheory/guide/WyckoffPositions"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "f136126b-b006-4b26-b3db-c518d9f47938"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"8a37a25e-d430-473e-88ef-\
+02ead813b30c"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"b6a400ed-20f7-4364-a5fa-aa9c9baf02cd"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{55.5, Automatic}, {Automatic, 20.25}},
+WindowTitle->"GTLoadWyckoff",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "HasOptions" -> True, "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "NotesSection" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 54, 56.042470}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`Wyckoff`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Symbol", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "GTLoadWyckoff[database] loads a list of installed space groups with \
+Wyckoff positions from a database.", "synonyms" -> {}, "tabletags" -> {}, 
+    "title" -> "GTLoadWyckoff", "titlemodifier" -> "", "metadescription" -> 
+    "", "windowtitle" -> "GTLoadWyckoff", "type" -> "Symbol", "uri" -> 
+    "GroupTheory/ref/GTLoadWyckoff"}},
+CellContext->"Global`",
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"79b3f054-7935-47fc-8f14-f25b0bbcd7d7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[14490, 386, 1421, 37, 70, "PrimaryExamplesSection",ExpressionUUID->"5ab35e4f-11f6-472b-a247-4d29334e5ede",
+   CellTags->"PrimaryExamplesSection",
+   CellID->1359430271]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 31830, 851}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[585, 21, 7509, 175, 70, "AnchorBarGrid",ExpressionUUID->"568e9b37-34eb-4dae-b3f3-2cee308ad577",
+ CellID->1],
+Cell[8097, 198, 102, 0, 70, "ContextNameCell",ExpressionUUID->"2ecf2769-67d0-490b-ac57-33f395d47276"],
+Cell[CellGroupData[{
+Cell[8224, 202, 556, 14, 70, "ObjectNameGrid",ExpressionUUID->"647acf1d-f378-42ac-80e2-a60adee8be46"],
+Cell[8783, 218, 911, 24, 70, "Usage",ExpressionUUID->"5a435b82-b2d0-490b-873e-d90dea11b53a",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9731, 247, 1920, 48, 70, "NotesSection",ExpressionUUID->"7504b0fd-82b3-413c-a385-2aefcea56b50",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->1495081571],
+Cell[11654, 297, 1295, 37, 70, "Notes",ExpressionUUID->"f24a3953-9f00-4a17-b92f-27e3b914a267",
+ CellID->1788423322],
+Cell[12952, 336, 270, 8, 70, "Notes",ExpressionUUID->"76dd9c5e-23f4-4b7a-bcc7-731e0671cb89",
+ CellID->729914098],
+Cell[13225, 346, 474, 13, 70, "Notes",ExpressionUUID->"a9e68664-88e2-4b83-9d10-466edb84bf22",
+ CellID->444022095],
+Cell[13702, 361, 251, 7, 70, "Notes",ExpressionUUID->"4416c107-9753-412d-8550-afb67c8403e5",
+ CellID->1663975429],
+Cell[13956, 370, 126, 1, 70, "Notes",ExpressionUUID->"19f6ecfb-182c-420f-810c-672218de4a16",
+ CellID->1100268187],
+Cell[14085, 373, 278, 7, 70, "Notes",ExpressionUUID->"c646f334-e136-4b1a-a4fd-c8258f3381fa",
+ CellID->600256983]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[14490, 386, 1421, 37, 70, "PrimaryExamplesSection",ExpressionUUID->"5ab35e4f-11f6-472b-a247-4d29334e5ede",
+ CellTags->"PrimaryExamplesSection",
+ CellID->1359430271],
+Cell[CellGroupData[{
+Cell[15936, 427, 1398, 36, 70, "ExampleSection",ExpressionUUID->"85748db2-cb88-4169-9067-dbcb738e193e",
+ CellID->390967299],
+Cell[17337, 465, 121, 1, 70, "ExampleText",ExpressionUUID->"5421ab4a-21dc-44f2-9519-eb48abf8b87e",
+ CellID->10029131],
+Cell[17461, 468, 175, 3, 70, "Input",ExpressionUUID->"e5a2de6d-6bca-4216-877f-63bb4d7b8c22",
+ CellID->700278011],
+Cell[17639, 473, 127, 1, 70, "ExampleText",ExpressionUUID->"ef205b26-efbe-47f4-bff8-f3c903676d8d",
+ CellID->57049781],
+Cell[17769, 476, 267, 7, 70, "Input",ExpressionUUID->"c51ee685-168b-427f-bd91-9cb712b88395",
+ CellID->1191439651],
+Cell[18039, 485, 164, 4, 70, "ExampleText",ExpressionUUID->"8c23e7fd-6560-42ff-a717-72037dd6eff8",
+ CellID->1060463678],
+Cell[CellGroupData[{
+Cell[18228, 493, 176, 3, 70, "Input",ExpressionUUID->"ff9b9834-96a1-4728-9178-d9c5cf69f8a9",
+ CellID->18381166],
+Cell[18407, 498, 415, 8, 70, "Print",ExpressionUUID->"2108b68b-47a1-4720-8eb3-3d44dbd3a8f9",
+ CellID->21069660]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18859, 511, 158, 3, 70, "Input",ExpressionUUID->"d3c073af-9238-4477-a627-035dc60c96fb",
+ CellID->910926839],
+Cell[19020, 516, 1932, 42, 70, "Print",ExpressionUUID->"b2400802-b26d-4186-bfa0-05ecbaa4f6e3",
+ CellID->500019671]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, Closed]]]],
+Cell[21194, 567, 6843, 186, 70, "SeeAlsoSection",ExpressionUUID->"a53ef884-7e53-4bbf-ac6c-6b5a1dce64db"],
+Cell[28040, 755, 1079, 28, 70, "TutorialsSection",ExpressionUUID->"a701822a-8d6b-497a-a5e0-baeb0faedbd5"],
+Cell[29122, 785, 732, 19, 70, "MoreAboutSection",ExpressionUUID->"8a37a25e-d430-473e-88ef-02ead813b30c"],
+Cell[29857, 806, 78, 0, 70, "FooterCell",ExpressionUUID->"b6a400ed-20f7-4364-a5fa-aa9c9baf02cd"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,468 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     17325,        460]
+NotebookOptionsPosition[     14170,        406]
+NotebookOutlinePosition[     14661,        425]
+CellTagsIndexPosition[     14618,        422]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"169cba06-10b6-4832-bca3-\
+1f4d8e612b45"],
+
+Cell["Task_36: Permittivity from pixel maps", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+   3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+   3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, 
+   3.6510653858085613`*^9, {3.651065421088859*^9, 3.651065421366317*^9}, {
+   3.6510687045818653`*^9, 3.651068710545953*^9}, {3.698590274583303*^9, 
+   3.6985902766031446`*^9}, {3.715676225518305*^9, 3.715676245048991*^9}, {
+   3.715755292106161*^9, 3.715755292520115*^9}, {3.715758251670918*^9, 
+   3.715758274686324*^9}, {3.7157611881702137`*^9, 3.715761209296259*^9}, {
+   3.716393208414521*^9, 3.716393219278688*^9}, {3.745569831836136*^9, 
+   3.7455698328296556`*^9}},ExpressionUUID->"094bde2f-de50-4675-b2a2-\
+e85da60e0286"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"8902cf5c-1fab-4d04-83e3-\
+b220a71c5491"],
+
+Cell[CellGroupData[{
+
+Cell["Task 36", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, 
+   3.6510654285215063`*^9, {3.698590282115162*^9, 3.698590283315255*^9}, {
+   3.71567624900875*^9, 3.7156762495600367`*^9}, {3.715755448158073*^9, 
+   3.715755448639861*^9}, {3.7157582840802937`*^9, 3.715758284687776*^9}, 
+   3.715761214043702*^9, 3.716018313470381*^9, {3.716393223778817*^9, 
+   3.7163932241388474`*^9}},ExpressionUUID->"11cce2f6-5a92-4f4c-9ed1-\
+9d864eb99074"],
+
+Cell["see : Chapter 10, section 10.4, p. 266.", "Text",
+ CellChangeTimes->{
+  3.745498263586955*^9, {3.7454982950104713`*^9, 3.745498304161786*^9}, {
+   3.7454988429457417`*^9, 3.745498864534718*^9}, {3.7455037802338257`*^9, 
+   3.7455038056602087`*^9}, {3.7455602369676933`*^9, 
+   3.7455602482008343`*^9}, {3.7455695401051683`*^9, 
+   3.745569551812634*^9}},ExpressionUUID->"f1999e00-373e-4dd9-ad73-\
+f8fe4c511b7f"],
+
+Cell[TextData[{
+ "In Figure 10.4 it is show how pixel maps can be used to represent arbitrary \
+structures in a two-dimensional cell. Analytical expression for the \
+permittivity \[Epsilon](",
+ StyleBox["r",
+  FontWeight->"Bold"],
+ ") are implemented for elliptic rods and prismatic rods. Generate elliptic \
+and prismatic rods from pixel maps and depict the structures by means of ",
+ StyleBox["GTPhPixelStructure.",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.5656816415621853`*^9, 3.565681860239293*^9}, {
+   3.635786170800764*^9, 3.635786173860598*^9}, {3.651065436926057*^9, 
+   3.651065635578711*^9}, {3.651068560289382*^9, 3.6510686003385973`*^9}, {
+   3.698590315173243*^9, 3.698590316986977*^9}, {3.698590659653771*^9, 
+   3.698590660901269*^9}, {3.715676257064826*^9, 3.715676287709859*^9}, {
+   3.7157582892011023`*^9, 3.715758394670127*^9}, {3.7157612456348457`*^9, 
+   3.715761334275275*^9}, {3.715761702901366*^9, 3.715761703563676*^9}, 
+   3.716393429117737*^9, {3.7163934687746964`*^9, 3.7163934904441557`*^9}, {
+   3.716393557032181*^9, 
+   3.71639358547091*^9}},ExpressionUUID->"625dd242-e4ca-4f9b-94cd-\
+c62fa1000c98"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 3.5656818754713144`*^9}, {
+  3.651068604062579*^9, 3.6510686054795933`*^9}, {3.715758402017662*^9, 
+  3.7157584036702013`*^9}},ExpressionUUID->"dfcd80bf-1d44-4cb9-8d7f-\
+13e4847a8d3b"],
+
+Cell["GTPack will used.", "Text",
+ CellChangeTimes->{{3.6510687190694857`*^9, 
+  3.6510687427760773`*^9}},ExpressionUUID->"d0bd2ae7-4214-4a8d-ab70-\
+11bbca93b68f"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.565681889253334*^9, 3.5656819493414183`*^9}, {
+  3.635786193501388*^9, 3.635786195193049*^9}, {3.6510687481027937`*^9, 
+  3.651068762513336*^9}, {3.651068796080668*^9, 3.6510687983863363`*^9}},
+ CellLabel->
+  "In[437]:=",ExpressionUUID->"352c489b-376b-4a53-bc8d-b6ad184fac37"],
+
+Cell[CellGroupData[{
+
+Cell["Prismatic rod", "Subsection",
+ CellChangeTimes->{{3.7163954458413467`*^9, 3.7163954489127207`*^9}, {
+  3.745569575975465*^9, 
+  3.745569576718246*^9}},ExpressionUUID->"609a1ecb-96b7-4de1-9ba1-\
+b406879266d9"],
+
+Cell["\<\
+We define an arbitrary prismatic rod in the unit square as a polygon. A \
+polygon can be defined as follows. \
+\>", "Text",
+ CellChangeTimes->{{3.716394093325932*^9, 3.716394146256731*^9}, 
+   3.716394254888275*^9, {3.716394329229312*^9, 3.716394350942135*^9}, {
+   3.716394754374103*^9, 3.7163947785832853`*^9}, 3.716394864457076*^9, 
+   3.745569586027381*^9},ExpressionUUID->"e8918b6a-b8bb-498e-ba71-\
+f199fca06404"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"p1", "=", 
+   RowBox[{"{", 
+    RowBox[{".3", ",", ".3"}], "}"}]}], ";", 
+  RowBox[{"p2", "=", 
+   RowBox[{"{", 
+    RowBox[{".6", ",", ".4"}], "}"}]}], ";", 
+  RowBox[{"p4", "=", 
+   RowBox[{"{", 
+    RowBox[{".4", ",", ".6"}], "}"}]}], ";", 
+  RowBox[{"p3", "=", 
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{"p2", "-", "p1"}], ")"}], "+", "p4"}]}]}]], "Input",
+ CellChangeTimes->{{3.716394285287821*^9, 3.716394311398171*^9}, {
+  3.7163943583124247`*^9, 3.716394392039184*^9}, {3.716394424059018*^9, 
+  3.7163945093442373`*^9}, {3.716394592394998*^9, 3.7163946607606*^9}},
+ CellLabel->
+  "In[438]:=",ExpressionUUID->"78be2cb2-a458-47fa-bf87-5c6478f92448"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pol", "=", 
+   RowBox[{"{", 
+    RowBox[{"p1", ",", "p2", ",", "p3", ",", "p4", ",", "p1"}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{3.716394884875635*^9},
+ CellLabel->
+  "In[439]:=",ExpressionUUID->"1d05f417-1310-444d-b8b2-d6a0d82dad76"],
+
+Cell[BoxData[
+ RowBox[{"ListLinePlot", "[", 
+  RowBox[{"pol", ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"AspectRatio", "\[Rule]", "1"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.716394805178738*^9, 3.716394853634521*^9}},
+ CellLabel->
+  "In[440]:=",ExpressionUUID->"9e776762-a776-409f-96b7-fe010382a1ce"],
+
+Cell["A graphics object Polygon.", "Text",
+ CellChangeTimes->{{3.716394904957427*^9, 
+  3.716394914935236*^9}},ExpressionUUID->"ddbbd555-b860-409c-b8df-\
+10a3522f3515"],
+
+Cell[TextData[{
+ "Now ",
+ StyleBox["RegionMember ",
+  FontWeight->"Bold"],
+ "can be used to decide whether a point is inside or outside the polygon"
+}], "Text",
+ CellChangeTimes->{{3.716394924824895*^9, 
+  3.7163949661010933`*^9}},ExpressionUUID->"bf04a99d-90d2-4d9a-a2a6-\
+58d5590d2105"],
+
+Cell[BoxData[{
+ RowBox[{"RegionMember", "[", 
+  RowBox[{
+   RowBox[{"Polygon", "[", "pol", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{".5", ",", ".5"}], "}"}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"RegionMember", "[", 
+  RowBox[{
+   RowBox[{"Polygon", "[", "pol", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{".8", ",", ".2"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.716394396486225*^9, 3.716394416339718*^9}, {
+  3.7163947091485157`*^9, 3.716394736114408*^9}, {3.716394980603812*^9, 
+  3.716394993878023*^9}},
+ CellLabel->
+  "In[441]:=",ExpressionUUID->"3d351aaf-e520-4b29-a4c7-bd7ccb609f94"],
+
+Cell[TextData[{
+ StyleBox["RegionPlot ",
+  FontWeight->"Bold"],
+ " plots the result."
+}], "Text",
+ CellChangeTimes->{{3.716395709558497*^9, 3.716395721483034*^9}, {
+  3.74556961768734*^9, 
+  3.745569619936603*^9}},ExpressionUUID->"8fab8fbc-4027-4697-859d-\
+e0e64295fce1"],
+
+Cell[BoxData[
+ RowBox[{"rp", "=", 
+  RowBox[{"RegionPlot", "[", 
+   RowBox[{
+    RowBox[{"RegionMember", "[", 
+     RowBox[{
+      RowBox[{"Polygon", "[", "pol", "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"x", ",", "y"}], "}"}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"y", ",", "0", ",", "1"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.716395640990098*^9, 3.716395668888277*^9}, {
+  3.745569655937007*^9, 3.745569657453908*^9}},
+ CellLabel->
+  "In[443]:=",ExpressionUUID->"9d6ecfa2-aa8a-488a-955d-355181cb5c4c"],
+
+Cell["Now the pixel map is created.", "Text",
+ CellChangeTimes->{{3.716395738010417*^9, 
+  3.716395748067232*^9}},ExpressionUUID->"5260263c-c690-4ad8-a2da-\
+7c89db1822a7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pixelmap", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "=", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"i", "-", "1"}], ")"}], "/", "40."}]}], ";", 
+      RowBox[{"y", "=", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"j", "-", "1"}], ")"}], "/", "40."}]}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"RegionMember", "[", 
+         RowBox[{
+          RowBox[{"Polygon", "[", "pol", "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "y"}], "}"}]}], "]"}], ",", "15", ",", "1"}], 
+       "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "41"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "1", ",", "41"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716395086355468*^9, 3.716395147229257*^9}, {
+  3.716395278082045*^9, 3.716395322675454*^9}, {3.716395393461714*^9, 
+  3.716395401842844*^9}},
+ CellLabel->
+  "In[444]:=",ExpressionUUID->"d6e4d780-f35e-4dbb-84a4-0a5d5582406f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"struct", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1", ",", 
+     RowBox[{"\[Pi]", "/", "2"}]}], "}"}]}], ";", 
+  RowBox[{"gpixel", "=", 
+   RowBox[{"GTPhPixelStructure", "[", 
+    RowBox[{"pixelmap", ",", 
+     RowBox[{"{", "}"}], ",", "struct", ",", 
+     RowBox[{"GOColorScheme", "\[Rule]", "\"\<SolarColors\>\""}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{3.716395351217157*^9},
+ CellLabel->
+  "In[445]:=",ExpressionUUID->"fc44524b-8ac9-4c86-865c-3ac0cf18d2c2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Elliptic rod", "Subsection",
+ CellChangeTimes->{{3.7157595853155537`*^9, 3.715759588577599*^9}, {
+  3.716395461254055*^9, 
+  3.7163954881644278`*^9}},ExpressionUUID->"47261a97-83c6-4514-9d58-\
+a0ff5dd7204c"],
+
+Cell["In the same manner an elliptic rod can be formed.", "Text",
+ CellChangeTimes->{{3.7163955284765873`*^9, 3.716395531612591*^9}, {
+  3.7163957560900087`*^9, 
+  3.71639576591009*^9}},ExpressionUUID->"3a7da507-384f-4848-b811-\
+b2523554a0a2"],
+
+Cell[BoxData[
+ RowBox[{"RegionMember", "[", 
+  RowBox[{
+   RowBox[{"Disk", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{".5", ",", ".5"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{".4", ",", ".2"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{".2", ",", ".6"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.716395943112484*^9, 3.716396004964839*^9}, {
+  3.716396063692643*^9, 3.71639606468083*^9}},
+ CellLabel->
+  "In[446]:=",ExpressionUUID->"f5343046-d663-4db3-be6d-8f796ec431cf"],
+
+Cell[BoxData[
+ RowBox[{"RegionPlot", "[", 
+  RowBox[{
+   RowBox[{"RegionMember", "[", 
+    RowBox[{
+     RowBox[{"Disk", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{".5", ",", ".5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{".4", ",", ".2"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"x", ",", "y"}], "}"}]}], "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"y", ",", "0", ",", "1"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.716396033557089*^9, 3.716396043093707*^9}},
+ CellLabel->
+  "In[447]:=",ExpressionUUID->"0b8c1aaa-87a3-45d2-b78d-4d83baf70e6c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pixelmap", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"x", "=", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"i", "-", "1"}], ")"}], "/", "40."}]}], ";", 
+      RowBox[{"y", "=", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"j", "-", "1"}], ")"}], "/", "40."}]}], ";", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"RegionMember", "[", 
+         RowBox[{
+          RowBox[{"Disk", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{".5", ",", ".5"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{".4", ",", ".2"}], "}"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"x", ",", "y"}], "}"}]}], "]"}], ",", "15", ",", "1"}], 
+       "]"}]}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "41"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "1", ",", "41"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716395086355468*^9, 3.716395147229257*^9}, {
+  3.716395278082045*^9, 3.716395322675454*^9}, {3.716395393461714*^9, 
+  3.716395401842844*^9}, {3.7163960949496803`*^9, 3.7163961105140057`*^9}, {
+  3.716396159723742*^9, 3.716396174865745*^9}},
+ CellLabel->
+  "In[448]:=",ExpressionUUID->"f32d552f-34d7-4e15-884e-3f0c1d7a5576"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"struct", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1", ",", 
+     RowBox[{"\[Pi]", "/", "2"}]}], "}"}]}], ";", 
+  RowBox[{"gpixel", "=", 
+   RowBox[{"GTPhPixelStructure", "[", 
+    RowBox[{"pixelmap", ",", 
+     RowBox[{"{", "}"}], ",", "struct", ",", 
+     RowBox[{"GOColorScheme", "\[Rule]", "\"\<SolarColors\>\""}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{3.716395351217157*^9},
+ CellLabel->
+  "In[449]:=",ExpressionUUID->"cf127a4d-74df-425e-b976-01447446fb90"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1155, 905},
+WindowMargins->{{113, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"169cba06-10b6-4832-bca3-1f4d8e612b45"],
+Cell[801, 32, 805, 11, 53, "Subtitle",ExpressionUUID->"094bde2f-de50-4675-b2a2-e85da60e0286"],
+Cell[1609, 45, 250, 7, 83, "Author",ExpressionUUID->"8902cf5c-1fab-4d04-83e3-b220a71c5491"],
+Cell[CellGroupData[{
+Cell[1884, 56, 474, 7, 67, "Section",ExpressionUUID->"11cce2f6-5a92-4f4c-9ed1-9d864eb99074"],
+Cell[2361, 65, 417, 7, 35, "Text",ExpressionUUID->"f1999e00-373e-4dd9-ad73-f8fe4c511b7f"],
+Cell[2781, 74, 1149, 21, 58, "Text",ExpressionUUID->"625dd242-e4ca-4f9b-94cd-c62fa1000c98"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3967, 100, 254, 4, 53, "Section",ExpressionUUID->"dfcd80bf-1d44-4cb9-8d7f-13e4847a8d3b"],
+Cell[4224, 106, 163, 3, 35, "Text",ExpressionUUID->"d0bd2ae7-4214-4a8d-ab70-11bbca93b68f"],
+Cell[4390, 111, 376, 6, 30, "Input",ExpressionUUID->"352c489b-376b-4a53-bc8d-b6ad184fac37"],
+Cell[CellGroupData[{
+Cell[4791, 121, 214, 4, 54, "Subsection",ExpressionUUID->"609a1ecb-96b7-4de1-9ba1-b406879266d9"],
+Cell[5008, 127, 428, 8, 35, "Text",ExpressionUUID->"e8918b6a-b8bb-498e-ba71-f199fca06404"],
+Cell[5439, 137, 691, 19, 30, "Input",ExpressionUUID->"78be2cb2-a458-47fa-bf87-5c6478f92448"],
+Cell[6133, 158, 281, 8, 30, "Input",ExpressionUUID->"1d05f417-1310-444d-b8b2-d6a0d82dad76"],
+Cell[6417, 168, 535, 14, 30, "Input",ExpressionUUID->"9e776762-a776-409f-96b7-fe010382a1ce"],
+Cell[6955, 184, 168, 3, 35, "Text",ExpressionUUID->"ddbbd555-b860-409c-b8df-10a3522f3515"],
+Cell[7126, 189, 288, 8, 35, "Text",ExpressionUUID->"bf04a99d-90d2-4d9a-a2a6-58d5590d2105"],
+Cell[7417, 199, 604, 15, 52, "Input",ExpressionUUID->"3d351aaf-e520-4b29-a4c7-bd7ccb609f94"],
+Cell[8024, 216, 271, 8, 35, "Text",ExpressionUUID->"8fab8fbc-4027-4697-859d-e0e64295fce1"],
+Cell[8298, 226, 603, 16, 30, "Input",ExpressionUUID->"9d6ecfa2-aa8a-488a-955d-355181cb5c4c"],
+Cell[8904, 244, 171, 3, 35, "Text",ExpressionUUID->"5260263c-c690-4ad8-a2da-7c89db1822a7"],
+Cell[9078, 249, 1047, 30, 73, "Input",ExpressionUUID->"d6e4d780-f35e-4dbb-84a4-0a5d5582406f"],
+Cell[10128, 281, 510, 14, 30, "Input",ExpressionUUID->"fc44524b-8ac9-4c86-865c-3ac0cf18d2c2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10675, 300, 213, 4, 54, "Subsection",ExpressionUUID->"47261a97-83c6-4514-9d58-a0ff5dd7204c"],
+Cell[10891, 306, 243, 4, 35, "Text",ExpressionUUID->"3a7da507-384f-4848-b811-b2523554a0a2"],
+Cell[11137, 312, 503, 14, 30, "Input",ExpressionUUID->"f5343046-d663-4db3-be6d-8f796ec431cf"],
+Cell[11643, 328, 660, 19, 30, "Input",ExpressionUUID->"0b8c1aaa-87a3-45d2-b78d-4d83baf70e6c"],
+Cell[12306, 349, 1311, 36, 73, "Input",ExpressionUUID->"f32d552f-34d7-4e15-884e-3f0c1d7a5576"],
+Cell[13620, 387, 510, 14, 30, "Input",ExpressionUUID->"cf127a4d-74df-425e-b976-01447446fb90"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

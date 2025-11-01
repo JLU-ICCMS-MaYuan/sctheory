@@ -1,0 +1,1455 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     72527,       1445]
+NotebookOptionsPosition[     65630,       1307]
+NotebookOutlinePosition[     67850,       1363]
+CellTagsIndexPosition[     67764,       1358]
+WindowTitle->GTTbSpinOrbit
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "32166dea-07cd-4276-af1c-9a7def04d8e3"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "5919e1fd-3091-4365-8232-24a4515241ee"],
+        Background->RGBColor[0.490196, 0.576471, 0.690196],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "5a386362-5f54-497a-a5d0-b8e0e088db80"]
+         }],ExpressionUUID->"489fd8a1-538c-4cad-8141-201ddfac4ebd"],
+         StripOnInput->False], {"\<\"GTTbHamiltonian\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTTbHamiltonian"], "\<\"GTTbSpinMatrix\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTTbSpinMatrix"], "\<\"GTHamiltonianPlot\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/GTHamiltonianPlot"]},
+        
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "4688d2db-64f9-4729-b1d9-1aaa55180711"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "37c73d0f-1a02-4ac4-962b-0676e376e0af"]
+         }],ExpressionUUID->"c7ea9f3b-7abf-44df-9065-e1353b4cb46e"],
+         StripOnInput->False], {"\<\"Tight Binding\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/guide/TightBinding"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "f26c1906-d30d-4b2d-ab74-f5898ba706f0"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "3358bb83-e7a0-4097-84f5-a1c08cfb0aef"]
+         }],ExpressionUUID->"154d0f52-fc6c-4b19-9e6c-154f1a527fc5"],
+         StripOnInput->False], {"\<\"Electronic structure\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/ElectronicStructure"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "57c662e0-1dbb-402d-a9c9-6553361b8e24"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "0426d1ba-9f5b-443c-a03b-9b6d8f694057"]
+         }],ExpressionUUID->"d86e5f46-61d1-4167-bbc0-41aabe3f8b0a"],
+         StripOnInput->False], {"\<\"GroupTheory/ref/GTTbSpinOrbit\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/ref/GTTbSpinOrbit"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/ref/\
+GTTbSpinOrbit.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$234550], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/ref/GTTbSpinOrbit" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "bc389a6f-971b-42f9-a87b-b27073ab9f6c"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "9eec7efd-fd70-46b7-81ab-8be8000bcb19"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"41ea8402-5e3d-421a-987f-e47ad4ed1960"],
+
+Cell["GroupTheory`", "ContextNameCell",ExpressionUUID->"727f7316-c97d-4a3c-aa1b-ce04df339bfe"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "GTTbSpinOrbit", "ObjectName",ExpressionUUID->
+      "74a6f9a3-a8f7-42c0-8f3b-2984d75c3b37"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"36b42869-b952-46b2-84db-d082f6569997"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "7e7c497a-f82a-4357-8301-51bb9cf7b82b"]
+    }],ExpressionUUID->"e15f0a22-08a6-4212-b849-899d986b2f94"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"f3373bbf-56bd-4faa-bc92-\
+d97e2285116e"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{
+         Cell[
+          TextData["GTTbSpinOrbit"]], "paclet:GroupTheory/ref/GTTbSpinOrbit", 
+         "GroupTheory Package Symbol"},
+        "PackageLink",
+        BaseStyle->"InlineFormula"], "[", 
+       StyleBox[
+        RowBox[{"hamiltonian", ",", 
+         RowBox[{"spin", "-", 
+          RowBox[{"orbit", " ", "interaction"}]}]}], "TI"], "]"}]], 
+      "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "dc06a94c-b649-4f51-92db-29d7c1848d49"],
+     " \[LineSeparator]adds spin-orbit coupling to a given tight-binding ",
+     StyleBox["Hamiltonian ", "TI"],
+     "due to a specified ",
+     StyleBox["spin-orbit interaction.", "TI"]
+    }],ExpressionUUID->"cd9cffdb-f7b4-4f28-91fd-0466657f5b84"]}
+  }]], "Usage",
+ CellID->982511436,ExpressionUUID->"10ed8d6a-6565-41ac-9fda-fca604bbca2b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    DynamicBox[ToBoxes[
+      If[
+       MatchQ[
+        CurrentValue[
+         EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, 
+         Closed], 
+        Alternatives[Open, True]], 
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], 
+       Rotate[
+        Style[
+         Graphics[{
+           Thickness[0.18], 
+           RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+           Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+          PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+         0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+     ImageSizeCache->{
+      13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+    ExpressionUUID->"6aa38e44-052a-43dd-b9b4-c5364bf76f72"],
+   Cell[BoxData[
+    TemplateBox[{1},
+     "Spacer1"]],ExpressionUUID->"6c5ad543-35eb-4fc5-9e57-1a6a77ca6ea0"],
+   "Details and Options"
+  }], "NotesFrameText",ExpressionUUID->"146a8e83-6c1f-4e03-ade3-bd74dc964372"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->
+   "Preemptive"]],ExpressionUUID->"425a13ce-3ac4-4fab-b0c6-68650d78915a"]], \
+"NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->173841625,ExpressionUUID->"f0eaa456-e32a-4ab3-9a4e-ad35f5399ba0"],
+
+Cell[TextData[{
+ "A Hamiltonian with spin-orbit coupling (SOC) is constructed in two steps. \
+First, the Hamiltonian without SOC is needed, and second ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTTbSpinOrbit"]], "paclet:GroupTheory/ref/GTTbSpinOrbit", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "f1abe1f3-5a8d-45c4-9563-5335932b5e4a"],
+ " can be used to add SOC.  "
+}], "Notes",
+ CellID->1067943069,ExpressionUUID->"d1c43deb-c22b-4162-b0b1-d6c4e3e0ffa1"],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["spin-orbit interaction ", "TI"],
+ "is specified by a vector of the following form:"
+}], "Notes",
+ CellID->1730057011,ExpressionUUID->"7f319f0b-2d7b-4750-8ee0-f9c085aa6ec8"],
+
+Cell[TextData[{
+ StyleBox["spin-orbit interaction = ", "TI"],
+ "{",
+ StyleBox["atom1", "TI"],
+ ",",
+ StyleBox["atom2", "TI"],
+ ",...};\[LineSeparator]",
+ StyleBox["atom1", "TI"],
+ "={",
+ StyleBox["bdim,l,pos,\[Xi]", "TI"],
+ "}"
+}], "Notes",
+ CellID->1364370340,ExpressionUUID->"c0470ef9-dec7-4086-90b9-24a74c992f4e"],
+
+Cell[TextData[{
+ "The dimension of the block corresponding to ",
+ StyleBox["atom1", "TI"],
+ " in the Hamiltonian ",
+ StyleBox["hamiltonian", "TI"],
+ " is given by ",
+ StyleBox["bdim", "TI"],
+ ". The position of the block with angular momentum ",
+ StyleBox["l", "TI"],
+ " for inclusion of SOC is determined by ",
+ StyleBox["pos", "TI"],
+ ". ",
+ StyleBox["\[Xi]", "TI"],
+ " is the strength of SOC."
+}], "Notes",
+ Deletable->True,
+ CellID->139603497,ExpressionUUID->"c473e246-f225-4bae-beee-5e177079994d"],
+
+Cell[TextData[{
+ "The Hamiltonian without SOC can be calculated using ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTTbHamiltonian"]], "paclet:GroupTheory/ref/GTTbHamiltonian", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "91a74543-931d-4b0d-acd2-ce885d19b945"],
+ "."
+}], "Notes",
+ CellID->923117820,ExpressionUUID->"0e5cdb32-e81d-4f93-837f-01b8b0530145"],
+
+Cell["The following option canb e used:", "Notes",
+ CellID->1669526821,ExpressionUUID->"a2eb03a9-0e13-47f4-aacf-e0ad7d7597b7"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "2d435776-2eb8-4307-b4a2-1363e0ac6e48"], 
+    TemplateBox[{
+      Cell[
+       TextData["GOVerbose"]], "paclet:GroupTheory/ref/GOVerbose", 
+      "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->"3ColumnTableMod"], 
+    TemplateBox[{
+      Cell[
+       TextData["False"]], "paclet:ref/False"},
+     "RefLink",
+     BaseStyle->{"3ColumnTableMod"}], Cell[TextData[Cell[
+    "Controls the output of additional information", "TableText",
+     ExpressionUUID->"a0ff394a-3de9-4f06-993f-0df38263cfb2"]], "TableText",
+     ExpressionUUID->"6fc3df0c-33df-4cce-b72b-9f2a72511b4d"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{"Columns" -> {{None}}, "Rows" -> {{None}}},
+ GridBoxDividers->{"Rows" -> {{True, True}}}},
+ CellID->1117603469,ExpressionUUID->"bb1bc944-c1cf-4aa3-9fc3-7c11ecc4b35f"],
+
+Cell[TextData[{
+ "See: W. Hergert, M. Geilhufe, ",
+ StyleBox["Group Theory in Solid State Physics and Photonics. Problem Solving \
+with Mathematica",
+  FontSlant->"Italic"]
+}], "Notes",
+ CellID->1036215562,ExpressionUUID->"818bc92f-1cab-4b62-91ed-98735104d4ec"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"4643a070-7b20-4306-8657-5980c08b969f"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"22c778e6-bb9a-4e8b-90d1-867b3ec901c5"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "ee134948-eb97-4876-abcc-2ab10fd3267b"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellTags->"PrimaryExamplesSection",
+ CellID->1888998316,ExpressionUUID->"89c7803e-c93a-4285-b687-bd569c407923"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"e7e90adb-4f13-49c0-8bd5-f6689f173172"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"737f3b15-2e31-4a9b-9e20-28b91e7c2f21"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "0fa3e4a9-d215-4b57-827b-92a9d5e0721b"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->2051528459,ExpressionUUID->"4d2d8009-b9ac-4a2d-8e48-674596d06ce1"],
+
+Cell["First load the package:", "ExampleText",
+ CellID->270448840,ExpressionUUID->"4ece5d6f-f645-4142-bfe7-36b356d64051"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->30377612,ExpressionUUID->"2b460c56-1aab-441e-a17c-4b23fd1a012c"],
+
+Cell["\<\
+The Hamiltonian for the fcc structure is already constructed and will be read \
+from file:\
+\>", "ExampleText",
+ CellID->620961062,ExpressionUUID->"8091e911-bf41-4533-a834-e8b5acecfa1c"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<datasets\>\""}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"hfcc", "=", 
+   RowBox[{"GTReadFromFile", "[", "\"\<fcc_spd.ham\>\"", "]"}]}], 
+  ";"}]}], "Input",
+ CellLabel->"In[2]:=",
+ CellID->886229130,ExpressionUUID->"90580061-2317-422e-85a1-7fd0ccc0f0fb"],
+
+Cell["\<\
+We assume that the Hamiltonian for Au will be constructed. At first, the \
+structure of the standard fcc-Hamiltonian is shown.\
+\>", "ExampleText",
+ CellID->1046868386,ExpressionUUID->"3ebb22ab-66a7-4501-85f8-5b407f7c0e1a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"basis", "=", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Au\>\"", ",", "1", ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<s\>\"", ",", "\"\<p\>\"", ",", "\"\<d\>\""}], "}"}]}], 
+     "}"}], "}"}]}], ";", 
+  RowBox[{"GTHamiltonianPlot", "[", 
+   RowBox[{"hfcc", ",", "basis"}], "]"}]}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1676626691,ExpressionUUID->"8928c97d-c7fe-4aad-93fe-326320f0c842"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\" \"\>", "\<\"s\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \
+\\(y\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\"\
+\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),           \
+          \\(2\\)]\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\
+\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>"},
+    {"\<\"s\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),      \
+               \\(2\\)]\\)]\\)\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\
+\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"}
+   },
+   AutoDelete->False,
+   ColumnsEqual->True,
+   GridBoxBackground->{
+    "Columns" -> {{None}}, "Rows" -> {{None}}, 
+     "ItemsIndexed" -> {{2, 2} -> RGBColor[1, 0.5, 0.5], {2, 3} -> 
+       RGBColor[1, 0.5, 0.5], {2, 4} -> RGBColor[1, 0.5, 0.5], {2, 5} -> 
+       RGBColor[1, 0.5, 0.5], {2, 6} -> RGBColor[1, 0.5, 0.5], {2, 7} -> 
+       RGBColor[1, 0.5, 0.5], {2, 8} -> RGBColor[1, 0.5, 0.5], {2, 9} -> 
+       RGBColor[1, 0.5, 0.5], {2, 10} -> RGBColor[1, 0.5, 0.5], {3, 2} -> 
+       RGBColor[1, 0.5, 0.5], {3, 3} -> RGBColor[1, 0.5, 0.5], {3, 4} -> 
+       RGBColor[1, 0.5, 0.5], {3, 5} -> RGBColor[1, 0.5, 0.5], {3, 6} -> 
+       RGBColor[1, 0.5, 0.5], {3, 7} -> RGBColor[1, 0.5, 0.5], {3, 8} -> 
+       RGBColor[1, 0.5, 0.5], {3, 10} -> RGBColor[1, 0.5, 0.5], {4, 2} -> 
+       RGBColor[1, 0.5, 0.5], {4, 3} -> RGBColor[1, 0.5, 0.5], {4, 4} -> 
+       RGBColor[1, 0.5, 0.5], {4, 5} -> RGBColor[1, 0.5, 0.5], {4, 7} -> 
+       RGBColor[1, 0.5, 0.5], {4, 8} -> RGBColor[1, 0.5, 0.5], {4, 9} -> 
+       RGBColor[1, 0.5, 0.5], {4, 10} -> RGBColor[1, 0.5, 0.5], {5, 2} -> 
+       RGBColor[1, 0.5, 0.5], {5, 3} -> RGBColor[1, 0.5, 0.5], {5, 4} -> 
+       RGBColor[1, 0.5, 0.5], {5, 5} -> RGBColor[1, 0.5, 0.5], {5, 6} -> 
+       RGBColor[1, 0.5, 0.5], {5, 8} -> RGBColor[1, 0.5, 0.5], {5, 9} -> 
+       RGBColor[1, 0.5, 0.5], {5, 10} -> RGBColor[1, 0.5, 0.5], {6, 2} -> 
+       RGBColor[1, 0.5, 0.5], {6, 3} -> RGBColor[1, 0.5, 0.5], {6, 5} -> 
+       RGBColor[1, 0.5, 0.5], {6, 6} -> RGBColor[1, 0.5, 0.5], {6, 7} -> 
+       RGBColor[1, 0.5, 0.5], {6, 8} -> RGBColor[1, 0.5, 0.5], {6, 9} -> 
+       RGBColor[1, 0.5, 0.5], {7, 2} -> RGBColor[1, 0.5, 0.5], {7, 3} -> 
+       RGBColor[1, 0.5, 0.5], {7, 4} -> RGBColor[1, 0.5, 0.5], {7, 6} -> 
+       RGBColor[1, 0.5, 0.5], {7, 7} -> RGBColor[1, 0.5, 0.5], {7, 8} -> 
+       RGBColor[1, 0.5, 0.5], {7, 9} -> RGBColor[1, 0.5, 0.5], {7, 10} -> 
+       RGBColor[1, 0.5, 0.5], {8, 2} -> RGBColor[1, 0.5, 0.5], {8, 3} -> 
+       RGBColor[1, 0.5, 0.5], {8, 4} -> RGBColor[1, 0.5, 0.5], {8, 5} -> 
+       RGBColor[1, 0.5, 0.5], {8, 6} -> RGBColor[1, 0.5, 0.5], {8, 7} -> 
+       RGBColor[1, 0.5, 0.5], {8, 8} -> RGBColor[1, 0.5, 0.5], {8, 9} -> 
+       RGBColor[1, 0.5, 0.5], {8, 10} -> RGBColor[1, 0.5, 0.5], {9, 2} -> 
+       RGBColor[1, 0.5, 0.5], {9, 4} -> RGBColor[1, 0.5, 0.5], {9, 5} -> 
+       RGBColor[1, 0.5, 0.5], {9, 6} -> RGBColor[1, 0.5, 0.5], {9, 7} -> 
+       RGBColor[1, 0.5, 0.5], {9, 8} -> RGBColor[1, 0.5, 0.5], {9, 9} -> 
+       RGBColor[1, 0.5, 0.5], {9, 10} -> RGBColor[1, 0.5, 0.5], {10, 2} -> 
+       RGBColor[1, 0.5, 0.5], {10, 3} -> RGBColor[1, 0.5, 0.5], {10, 4} -> 
+       RGBColor[1, 0.5, 0.5], {10, 5} -> RGBColor[1, 0.5, 0.5], {10, 7} -> 
+       RGBColor[1, 0.5, 0.5], {10, 8} -> RGBColor[1, 0.5, 0.5], {10, 9} -> 
+       RGBColor[1, 0.5, 0.5], {10, 10} -> RGBColor[1, 0.5, 0.5]}},
+   GridBoxDividers->{
+    "ColumnsIndexed" -> {2 -> RGBColor[1, 0, 0]}, 
+     "RowsIndexed" -> {2 -> RGBColor[1, 0, 0]}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{},
+   RowsEqual->True],
+  "Grid"]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1190043979,ExpressionUUID->"ff0d98ee-0ccc-4c7c-b6b6-9452d6dc4861"]
+}, Open  ]],
+
+Cell["\<\
+The fcc Hamiltonian will be doubled. It represents the up and down spin \
+directions without SOC.\
+\>", "ExampleText",
+ CellID->1043302406,ExpressionUUID->"93e9142d-ac90-4757-b78a-bf0647b80e0e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"hfcc2", "=", 
+   RowBox[{"IdentityMatrix", "[", "18", "]"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"Do", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"hfcc2", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "j"}], "]"}], "]"}], "=", 
+        RowBox[{"hfcc", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "j"}], "]"}], "]"}]}], ";", 
+       RowBox[{
+        RowBox[{"hfcc2", "[", 
+         RowBox[{"[", 
+          RowBox[{
+           RowBox[{"i", "+", "9"}], ",", 
+           RowBox[{"j", "+", "9"}]}], "]"}], "]"}], "=", 
+        RowBox[{"hfcc", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "j"}], "]"}], "]"}]}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", "9"}], "}"}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"j", ",", "1", ",", "9"}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basis2", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<Au\>\"", ",", "1", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<s\>\"", ",", "\"\<p\>\"", ",", "\"\<d\>\""}], "}"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Au\>\"", ",", "1", ",", 
+       RowBox[{"{", 
+        RowBox[{"\"\<s\>\"", ",", "\"\<p\>\"", ",", "\"\<d\>\""}], "}"}]}], 
+      "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"GTHamiltonianPlot", "[", 
+  RowBox[{"hfcc2", ",", "basis2"}], "]"}]}], "Input",
+ CellLabel->"In[4]:=",
+ CellID->1013303133,ExpressionUUID->"01e937bb-8372-4660-9baf-587a65d7b7a3"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\" \"\>", "\<\"s\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \
+\\(y\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\"\
+\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),           \
+          \\(2\\)]\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\
+\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>", "\<\"s\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\
+\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),           \
+          \\(2\\)]\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\
+\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>"},
+    {"\<\"s\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),      \
+               \\(2\\)]\\)]\\)\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\
+\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"},
+    {"\<\"s\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),      \
+               \\(2\\)]\\)]\\)\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\
+\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"}
+   },
+   AutoDelete->False,
+   ColumnsEqual->True,
+   GridBoxBackground->{
+    "Columns" -> {{None}}, "Rows" -> {{None}}, 
+     "ItemsIndexed" -> {{2, 2} -> RGBColor[1, 0.5, 0.5], {2, 3} -> 
+       RGBColor[1, 0.5, 0.5], {2, 4} -> RGBColor[1, 0.5, 0.5], {2, 5} -> 
+       RGBColor[1, 0.5, 0.5], {2, 6} -> RGBColor[1, 0.5, 0.5], {2, 7} -> 
+       RGBColor[1, 0.5, 0.5], {2, 8} -> RGBColor[1, 0.5, 0.5], {2, 9} -> 
+       RGBColor[1, 0.5, 0.5], {2, 10} -> RGBColor[1, 0.5, 0.5], {3, 2} -> 
+       RGBColor[1, 0.5, 0.5], {3, 3} -> RGBColor[1, 0.5, 0.5], {3, 4} -> 
+       RGBColor[1, 0.5, 0.5], {3, 5} -> RGBColor[1, 0.5, 0.5], {3, 6} -> 
+       RGBColor[1, 0.5, 0.5], {3, 7} -> RGBColor[1, 0.5, 0.5], {3, 8} -> 
+       RGBColor[1, 0.5, 0.5], {3, 10} -> RGBColor[1, 0.5, 0.5], {4, 2} -> 
+       RGBColor[1, 0.5, 0.5], {4, 3} -> RGBColor[1, 0.5, 0.5], {4, 4} -> 
+       RGBColor[1, 0.5, 0.5], {4, 5} -> RGBColor[1, 0.5, 0.5], {4, 7} -> 
+       RGBColor[1, 0.5, 0.5], {4, 8} -> RGBColor[1, 0.5, 0.5], {4, 9} -> 
+       RGBColor[1, 0.5, 0.5], {4, 10} -> RGBColor[1, 0.5, 0.5], {5, 2} -> 
+       RGBColor[1, 0.5, 0.5], {5, 3} -> RGBColor[1, 0.5, 0.5], {5, 4} -> 
+       RGBColor[1, 0.5, 0.5], {5, 5} -> RGBColor[1, 0.5, 0.5], {5, 6} -> 
+       RGBColor[1, 0.5, 0.5], {5, 8} -> RGBColor[1, 0.5, 0.5], {5, 9} -> 
+       RGBColor[1, 0.5, 0.5], {5, 10} -> RGBColor[1, 0.5, 0.5], {6, 2} -> 
+       RGBColor[1, 0.5, 0.5], {6, 3} -> RGBColor[1, 0.5, 0.5], {6, 5} -> 
+       RGBColor[1, 0.5, 0.5], {6, 6} -> RGBColor[1, 0.5, 0.5], {6, 7} -> 
+       RGBColor[1, 0.5, 0.5], {6, 8} -> RGBColor[1, 0.5, 0.5], {6, 9} -> 
+       RGBColor[1, 0.5, 0.5], {7, 2} -> RGBColor[1, 0.5, 0.5], {7, 3} -> 
+       RGBColor[1, 0.5, 0.5], {7, 4} -> RGBColor[1, 0.5, 0.5], {7, 6} -> 
+       RGBColor[1, 0.5, 0.5], {7, 7} -> RGBColor[1, 0.5, 0.5], {7, 8} -> 
+       RGBColor[1, 0.5, 0.5], {7, 9} -> RGBColor[1, 0.5, 0.5], {7, 10} -> 
+       RGBColor[1, 0.5, 0.5], {8, 2} -> RGBColor[1, 0.5, 0.5], {8, 3} -> 
+       RGBColor[1, 0.5, 0.5], {8, 4} -> RGBColor[1, 0.5, 0.5], {8, 5} -> 
+       RGBColor[1, 0.5, 0.5], {8, 6} -> RGBColor[1, 0.5, 0.5], {8, 7} -> 
+       RGBColor[1, 0.5, 0.5], {8, 8} -> RGBColor[1, 0.5, 0.5], {8, 9} -> 
+       RGBColor[1, 0.5, 0.5], {8, 10} -> RGBColor[1, 0.5, 0.5], {9, 2} -> 
+       RGBColor[1, 0.5, 0.5], {9, 4} -> RGBColor[1, 0.5, 0.5], {9, 5} -> 
+       RGBColor[1, 0.5, 0.5], {9, 6} -> RGBColor[1, 0.5, 0.5], {9, 7} -> 
+       RGBColor[1, 0.5, 0.5], {9, 8} -> RGBColor[1, 0.5, 0.5], {9, 9} -> 
+       RGBColor[1, 0.5, 0.5], {9, 10} -> RGBColor[1, 0.5, 0.5], {10, 2} -> 
+       RGBColor[1, 0.5, 0.5], {10, 3} -> RGBColor[1, 0.5, 0.5], {10, 4} -> 
+       RGBColor[1, 0.5, 0.5], {10, 5} -> RGBColor[1, 0.5, 0.5], {10, 7} -> 
+       RGBColor[1, 0.5, 0.5], {10, 8} -> RGBColor[1, 0.5, 0.5], {10, 9} -> 
+       RGBColor[1, 0.5, 0.5], {10, 10} -> RGBColor[1, 0.5, 0.5], {11, 11} -> 
+       RGBColor[1, 0.5, 0.5], {11, 12} -> RGBColor[1, 0.5, 0.5], {11, 13} -> 
+       RGBColor[1, 0.5, 0.5], {11, 14} -> RGBColor[1, 0.5, 0.5], {11, 15} -> 
+       RGBColor[1, 0.5, 0.5], {11, 16} -> RGBColor[1, 0.5, 0.5], {11, 17} -> 
+       RGBColor[1, 0.5, 0.5], {11, 18} -> RGBColor[1, 0.5, 0.5], {11, 19} -> 
+       RGBColor[1, 0.5, 0.5], {12, 11} -> RGBColor[1, 0.5, 0.5], {12, 12} -> 
+       RGBColor[1, 0.5, 0.5], {12, 13} -> RGBColor[1, 0.5, 0.5], {12, 14} -> 
+       RGBColor[1, 0.5, 0.5], {12, 15} -> RGBColor[1, 0.5, 0.5], {12, 16} -> 
+       RGBColor[1, 0.5, 0.5], {12, 17} -> RGBColor[1, 0.5, 0.5], {12, 19} -> 
+       RGBColor[1, 0.5, 0.5], {13, 11} -> RGBColor[1, 0.5, 0.5], {13, 12} -> 
+       RGBColor[1, 0.5, 0.5], {13, 13} -> RGBColor[1, 0.5, 0.5], {13, 14} -> 
+       RGBColor[1, 0.5, 0.5], {13, 16} -> RGBColor[1, 0.5, 0.5], {13, 17} -> 
+       RGBColor[1, 0.5, 0.5], {13, 18} -> RGBColor[1, 0.5, 0.5], {13, 19} -> 
+       RGBColor[1, 0.5, 0.5], {14, 11} -> RGBColor[1, 0.5, 0.5], {14, 12} -> 
+       RGBColor[1, 0.5, 0.5], {14, 13} -> RGBColor[1, 0.5, 0.5], {14, 14} -> 
+       RGBColor[1, 0.5, 0.5], {14, 15} -> RGBColor[1, 0.5, 0.5], {14, 17} -> 
+       RGBColor[1, 0.5, 0.5], {14, 18} -> RGBColor[1, 0.5, 0.5], {14, 19} -> 
+       RGBColor[1, 0.5, 0.5], {15, 11} -> RGBColor[1, 0.5, 0.5], {15, 12} -> 
+       RGBColor[1, 0.5, 0.5], {15, 14} -> RGBColor[1, 0.5, 0.5], {15, 15} -> 
+       RGBColor[1, 0.5, 0.5], {15, 16} -> RGBColor[1, 0.5, 0.5], {15, 17} -> 
+       RGBColor[1, 0.5, 0.5], {15, 18} -> RGBColor[1, 0.5, 0.5], {16, 11} -> 
+       RGBColor[1, 0.5, 0.5], {16, 12} -> RGBColor[1, 0.5, 0.5], {16, 13} -> 
+       RGBColor[1, 0.5, 0.5], {16, 15} -> RGBColor[1, 0.5, 0.5], {16, 16} -> 
+       RGBColor[1, 0.5, 0.5], {16, 17} -> RGBColor[1, 0.5, 0.5], {16, 18} -> 
+       RGBColor[1, 0.5, 0.5], {16, 19} -> RGBColor[1, 0.5, 0.5], {17, 11} -> 
+       RGBColor[1, 0.5, 0.5], {17, 12} -> RGBColor[1, 0.5, 0.5], {17, 13} -> 
+       RGBColor[1, 0.5, 0.5], {17, 14} -> RGBColor[1, 0.5, 0.5], {17, 15} -> 
+       RGBColor[1, 0.5, 0.5], {17, 16} -> RGBColor[1, 0.5, 0.5], {17, 17} -> 
+       RGBColor[1, 0.5, 0.5], {17, 18} -> RGBColor[1, 0.5, 0.5], {17, 19} -> 
+       RGBColor[1, 0.5, 0.5], {18, 11} -> RGBColor[1, 0.5, 0.5], {18, 13} -> 
+       RGBColor[1, 0.5, 0.5], {18, 14} -> RGBColor[1, 0.5, 0.5], {18, 15} -> 
+       RGBColor[1, 0.5, 0.5], {18, 16} -> RGBColor[1, 0.5, 0.5], {18, 17} -> 
+       RGBColor[1, 0.5, 0.5], {18, 18} -> RGBColor[1, 0.5, 0.5], {18, 19} -> 
+       RGBColor[1, 0.5, 0.5], {19, 11} -> RGBColor[1, 0.5, 0.5], {19, 12} -> 
+       RGBColor[1, 0.5, 0.5], {19, 13} -> RGBColor[1, 0.5, 0.5], {19, 14} -> 
+       RGBColor[1, 0.5, 0.5], {19, 16} -> RGBColor[1, 0.5, 0.5], {19, 17} -> 
+       RGBColor[1, 0.5, 0.5], {19, 18} -> RGBColor[1, 0.5, 0.5], {19, 19} -> 
+       RGBColor[1, 0.5, 0.5]}},
+   GridBoxDividers->{
+    "ColumnsIndexed" -> {2 -> RGBColor[1, 0, 0]}, 
+     "RowsIndexed" -> {2 -> RGBColor[1, 0, 0]}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{},
+   RowsEqual->True],
+  "Grid"]], "Output",
+ CellLabel->"Out[4]=",
+ CellID->538586074,ExpressionUUID->"b133f5af-4cd0-4193-8583-38f3e06ece57"]
+}, Open  ]],
+
+Cell[TextData[{
+ "The SOC will be introduced for the ",
+ StyleBox["d",
+  FontSlant->"Italic"],
+ " electrons."
+}], "ExampleText",
+ CellID->74362226,ExpressionUUID->"9d62211b-5d72-4a0a-86d7-dad16545112c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"soi", "=", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Au\>\"", ",", 
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{"2", ",", "5", ",", "0.05"}], "}"}], "}"}]}], "}"}], "}"}]}], 
+  ";", 
+  RowBox[{"hsoc", "=", 
+   RowBox[{"GTTbSpinOrbit", "[", 
+    RowBox[{
+     RowBox[{"{", "hfcc", "}"}], ",", "soi"}], "]"}]}], ";", 
+  RowBox[{"GTHamiltonianPlot", "[", 
+   RowBox[{"hsoc", ",", "basis2"}], "]"}]}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->602563059,ExpressionUUID->"4c160cc6-3ee9-479c-8402-d2f58e003260"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\" \"\>", "\<\"s\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \
+\\(y\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\"\
+\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),           \
+          \\(2\\)]\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\
+\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>", "\<\"s\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\
+\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),           \
+          \\(2\\)]\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\
+\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>"},
+    {"\<\"s\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),      \
+               \\(2\\)]\\)]\\)\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\
+\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"},
+    {"\<\"s\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),      \
+               \\(2\\)]\\)]\\)\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\
+\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"}
+   },
+   AutoDelete->False,
+   ColumnsEqual->True,
+   GridBoxBackground->{
+    "Columns" -> {{None}}, "Rows" -> {{None}}, 
+     "ItemsIndexed" -> {{2, 2} -> RGBColor[1, 0.5, 0.5], {2, 3} -> 
+       RGBColor[1, 0.5, 0.5], {2, 4} -> RGBColor[1, 0.5, 0.5], {2, 5} -> 
+       RGBColor[1, 0.5, 0.5], {2, 6} -> RGBColor[1, 0.5, 0.5], {2, 7} -> 
+       RGBColor[1, 0.5, 0.5], {2, 8} -> RGBColor[1, 0.5, 0.5], {2, 9} -> 
+       RGBColor[1, 0.5, 0.5], {2, 10} -> RGBColor[1, 0.5, 0.5], {3, 2} -> 
+       RGBColor[1, 0.5, 0.5], {3, 3} -> RGBColor[1, 0.5, 0.5], {3, 4} -> 
+       RGBColor[1, 0.5, 0.5], {3, 5} -> RGBColor[1, 0.5, 0.5], {3, 6} -> 
+       RGBColor[1, 0.5, 0.5], {3, 7} -> RGBColor[1, 0.5, 0.5], {3, 8} -> 
+       RGBColor[1, 0.5, 0.5], {3, 10} -> RGBColor[1, 0.5, 0.5], {4, 2} -> 
+       RGBColor[1, 0.5, 0.5], {4, 3} -> RGBColor[1, 0.5, 0.5], {4, 4} -> 
+       RGBColor[1, 0.5, 0.5], {4, 5} -> RGBColor[1, 0.5, 0.5], {4, 7} -> 
+       RGBColor[1, 0.5, 0.5], {4, 8} -> RGBColor[1, 0.5, 0.5], {4, 9} -> 
+       RGBColor[1, 0.5, 0.5], {4, 10} -> RGBColor[1, 0.5, 0.5], {5, 2} -> 
+       RGBColor[1, 0.5, 0.5], {5, 3} -> RGBColor[1, 0.5, 0.5], {5, 4} -> 
+       RGBColor[1, 0.5, 0.5], {5, 5} -> RGBColor[1, 0.5, 0.5], {5, 6} -> 
+       RGBColor[1, 0.5, 0.5], {5, 8} -> RGBColor[1, 0.5, 0.5], {5, 9} -> 
+       RGBColor[1, 0.5, 0.5], {5, 10} -> RGBColor[1, 0.5, 0.5], {6, 2} -> 
+       RGBColor[1, 0.5, 0.5], {6, 3} -> RGBColor[1, 0.5, 0.5], {6, 5} -> 
+       RGBColor[1, 0.5, 0.5], {6, 6} -> RGBColor[1, 0.5, 0.5], {6, 7} -> 
+       RGBColor[1, 0.5, 0.5], {6, 8} -> RGBColor[1, 0.5, 0.5], {6, 9} -> 
+       RGBColor[1, 0.5, 0.5], {6, 10} -> RGBColor[1, 0.5, 0.5], {6, 16} -> 
+       RGBColor[1, 0.5, 0.5], {6, 18} -> RGBColor[1, 0.5, 0.5], {7, 2} -> 
+       RGBColor[1, 0.5, 0.5], {7, 3} -> RGBColor[1, 0.5, 0.5], {7, 4} -> 
+       RGBColor[1, 0.5, 0.5], {7, 6} -> RGBColor[1, 0.5, 0.5], {7, 7} -> 
+       RGBColor[1, 0.5, 0.5], {7, 8} -> RGBColor[1, 0.5, 0.5], {7, 9} -> 
+       RGBColor[1, 0.5, 0.5], {7, 10} -> RGBColor[1, 0.5, 0.5], {7, 15} -> 
+       RGBColor[1, 0.5, 0.5], {7, 17} -> RGBColor[1, 0.5, 0.5], {7, 19} -> 
+       RGBColor[1, 0.5, 0.5], {8, 2} -> RGBColor[1, 0.5, 0.5], {8, 3} -> 
+       RGBColor[1, 0.5, 0.5], {8, 4} -> RGBColor[1, 0.5, 0.5], {8, 5} -> 
+       RGBColor[1, 0.5, 0.5], {8, 6} -> RGBColor[1, 0.5, 0.5], {8, 7} -> 
+       RGBColor[1, 0.5, 0.5], {8, 8} -> RGBColor[1, 0.5, 0.5], {8, 9} -> 
+       RGBColor[1, 0.5, 0.5], {8, 10} -> RGBColor[1, 0.5, 0.5], {8, 16} -> 
+       RGBColor[1, 0.5, 0.5], {8, 18} -> RGBColor[1, 0.5, 0.5], {9, 2} -> 
+       RGBColor[1, 0.5, 0.5], {9, 4} -> RGBColor[1, 0.5, 0.5], {9, 5} -> 
+       RGBColor[1, 0.5, 0.5], {9, 6} -> RGBColor[1, 0.5, 0.5], {9, 7} -> 
+       RGBColor[1, 0.5, 0.5], {9, 8} -> RGBColor[1, 0.5, 0.5], {9, 9} -> 
+       RGBColor[1, 0.5, 0.5], {9, 10} -> RGBColor[1, 0.5, 0.5], {9, 15} -> 
+       RGBColor[1, 0.5, 0.5], {9, 17} -> RGBColor[1, 0.5, 0.5], {9, 19} -> 
+       RGBColor[1, 0.5, 0.5], {10, 2} -> RGBColor[1, 0.5, 0.5], {10, 3} -> 
+       RGBColor[1, 0.5, 0.5], {10, 4} -> RGBColor[1, 0.5, 0.5], {10, 5} -> 
+       RGBColor[1, 0.5, 0.5], {10, 6} -> RGBColor[1, 0.5, 0.5], {10, 7} -> 
+       RGBColor[1, 0.5, 0.5], {10, 8} -> RGBColor[1, 0.5, 0.5], {10, 9} -> 
+       RGBColor[1, 0.5, 0.5], {10, 10} -> RGBColor[1, 0.5, 0.5], {10, 16} -> 
+       RGBColor[1, 0.5, 0.5], {10, 18} -> RGBColor[1, 0.5, 0.5], {11, 11} -> 
+       RGBColor[1, 0.5, 0.5], {11, 12} -> RGBColor[1, 0.5, 0.5], {11, 13} -> 
+       RGBColor[1, 0.5, 0.5], {11, 14} -> RGBColor[1, 0.5, 0.5], {11, 15} -> 
+       RGBColor[1, 0.5, 0.5], {11, 16} -> RGBColor[1, 0.5, 0.5], {11, 17} -> 
+       RGBColor[1, 0.5, 0.5], {11, 18} -> RGBColor[1, 0.5, 0.5], {11, 19} -> 
+       RGBColor[1, 0.5, 0.5], {12, 11} -> RGBColor[1, 0.5, 0.5], {12, 12} -> 
+       RGBColor[1, 0.5, 0.5], {12, 13} -> RGBColor[1, 0.5, 0.5], {12, 14} -> 
+       RGBColor[1, 0.5, 0.5], {12, 15} -> RGBColor[1, 0.5, 0.5], {12, 16} -> 
+       RGBColor[1, 0.5, 0.5], {12, 17} -> RGBColor[1, 0.5, 0.5], {12, 19} -> 
+       RGBColor[1, 0.5, 0.5], {13, 11} -> RGBColor[1, 0.5, 0.5], {13, 12} -> 
+       RGBColor[1, 0.5, 0.5], {13, 13} -> RGBColor[1, 0.5, 0.5], {13, 14} -> 
+       RGBColor[1, 0.5, 0.5], {13, 16} -> RGBColor[1, 0.5, 0.5], {13, 17} -> 
+       RGBColor[1, 0.5, 0.5], {13, 18} -> RGBColor[1, 0.5, 0.5], {13, 19} -> 
+       RGBColor[1, 0.5, 0.5], {14, 11} -> RGBColor[1, 0.5, 0.5], {14, 12} -> 
+       RGBColor[1, 0.5, 0.5], {14, 13} -> RGBColor[1, 0.5, 0.5], {14, 14} -> 
+       RGBColor[1, 0.5, 0.5], {14, 15} -> RGBColor[1, 0.5, 0.5], {14, 17} -> 
+       RGBColor[1, 0.5, 0.5], {14, 18} -> RGBColor[1, 0.5, 0.5], {14, 19} -> 
+       RGBColor[1, 0.5, 0.5], {15, 7} -> RGBColor[1, 0.5, 0.5], {15, 9} -> 
+       RGBColor[1, 0.5, 0.5], {15, 11} -> RGBColor[1, 0.5, 0.5], {15, 12} -> 
+       RGBColor[1, 0.5, 0.5], {15, 14} -> RGBColor[1, 0.5, 0.5], {15, 15} -> 
+       RGBColor[1, 0.5, 0.5], {15, 16} -> RGBColor[1, 0.5, 0.5], {15, 17} -> 
+       RGBColor[1, 0.5, 0.5], {15, 18} -> RGBColor[1, 0.5, 0.5], {15, 19} -> 
+       RGBColor[1, 0.5, 0.5], {16, 6} -> RGBColor[1, 0.5, 0.5], {16, 8} -> 
+       RGBColor[1, 0.5, 0.5], {16, 10} -> RGBColor[1, 0.5, 0.5], {16, 11} -> 
+       RGBColor[1, 0.5, 0.5], {16, 12} -> RGBColor[1, 0.5, 0.5], {16, 13} -> 
+       RGBColor[1, 0.5, 0.5], {16, 15} -> RGBColor[1, 0.5, 0.5], {16, 16} -> 
+       RGBColor[1, 0.5, 0.5], {16, 17} -> RGBColor[1, 0.5, 0.5], {16, 18} -> 
+       RGBColor[1, 0.5, 0.5], {16, 19} -> RGBColor[1, 0.5, 0.5], {17, 7} -> 
+       RGBColor[1, 0.5, 0.5], {17, 9} -> RGBColor[1, 0.5, 0.5], {17, 11} -> 
+       RGBColor[1, 0.5, 0.5], {17, 12} -> RGBColor[1, 0.5, 0.5], {17, 13} -> 
+       RGBColor[1, 0.5, 0.5], {17, 14} -> RGBColor[1, 0.5, 0.5], {17, 15} -> 
+       RGBColor[1, 0.5, 0.5], {17, 16} -> RGBColor[1, 0.5, 0.5], {17, 17} -> 
+       RGBColor[1, 0.5, 0.5], {17, 18} -> RGBColor[1, 0.5, 0.5], {17, 19} -> 
+       RGBColor[1, 0.5, 0.5], {18, 6} -> RGBColor[1, 0.5, 0.5], {18, 8} -> 
+       RGBColor[1, 0.5, 0.5], {18, 10} -> RGBColor[1, 0.5, 0.5], {18, 11} -> 
+       RGBColor[1, 0.5, 0.5], {18, 13} -> RGBColor[1, 0.5, 0.5], {18, 14} -> 
+       RGBColor[1, 0.5, 0.5], {18, 15} -> RGBColor[1, 0.5, 0.5], {18, 16} -> 
+       RGBColor[1, 0.5, 0.5], {18, 17} -> RGBColor[1, 0.5, 0.5], {18, 18} -> 
+       RGBColor[1, 0.5, 0.5], {18, 19} -> RGBColor[1, 0.5, 0.5], {19, 7} -> 
+       RGBColor[1, 0.5, 0.5], {19, 9} -> RGBColor[1, 0.5, 0.5], {19, 11} -> 
+       RGBColor[1, 0.5, 0.5], {19, 12} -> RGBColor[1, 0.5, 0.5], {19, 13} -> 
+       RGBColor[1, 0.5, 0.5], {19, 14} -> RGBColor[1, 0.5, 0.5], {19, 15} -> 
+       RGBColor[1, 0.5, 0.5], {19, 16} -> RGBColor[1, 0.5, 0.5], {19, 17} -> 
+       RGBColor[1, 0.5, 0.5], {19, 18} -> RGBColor[1, 0.5, 0.5], {19, 19} -> 
+       RGBColor[1, 0.5, 0.5]}},
+   GridBoxDividers->{
+    "ColumnsIndexed" -> {2 -> RGBColor[1, 0, 0]}, 
+     "RowsIndexed" -> {2 -> RGBColor[1, 0, 0]}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{},
+   RowsEqual->True],
+  "Grid"]], "Output",
+ CellLabel->"Out[5]=",
+ CellID->1290094948,ExpressionUUID->"4cff4b4e-a564-4883-b6ee-f3530084b175"]
+}, Open  ]],
+
+Cell["\<\
+The difference of the two Hamiltonians demonstrates, which matrix elements \
+mediate the SOC.\
+\>", "ExampleText",
+ CellID->414904513,ExpressionUUID->"c49e4119-0503-444e-867d-931cc5a54e24"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"diff", "=", 
+   RowBox[{
+    RowBox[{"hfcc2", "-", "hsoc"}], "//", "FullSimplify"}]}], ";", 
+  RowBox[{"GTHamiltonianPlot", "[", 
+   RowBox[{"diff", ",", "basis2"}], "]"}]}]], "Input",
+ CellLabel->"In[6]:=",
+ CellID->1133214914,ExpressionUUID->"e1fa8e3d-1a1c-4268-bda4-b33224e76ce0"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\" \"\>", "\<\"s\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \
+\\(y\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\"\
+\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),           \
+          \\(2\\)]\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\
+\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>", "\<\"s\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\
+\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),           \
+          \\(2\\)]\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\
+\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>"},
+    {"\<\"s\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),      \
+               \\(2\\)]\\)]\\)\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\
+\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"},
+    {"\<\"s\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xy\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(yz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(3 \\*SuperscriptBox[\\(z\\),      \
+               \\(2\\)]\\)]\\)\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\
+\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(xz\\)]\\)\"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", \
+"\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(d\\), \\(\\*SuperscriptBox[\\(x\\), \
+\\(2\\)] -                         \\*SuperscriptBox[\\(y\\), \\(2\\)]\\)]\\)\
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"}
+   },
+   AutoDelete->False,
+   ColumnsEqual->True,
+   GridBoxBackground->{
+    "Columns" -> {{None}}, "Rows" -> {{None}}, 
+     "ItemsIndexed" -> {{6, 10} -> RGBColor[1, 0.5, 0.5], {6, 16} -> 
+       RGBColor[1, 0.5, 0.5], {6, 18} -> RGBColor[1, 0.5, 0.5], {7, 9} -> 
+       RGBColor[1, 0.5, 0.5], {7, 15} -> RGBColor[1, 0.5, 0.5], {7, 17} -> 
+       RGBColor[1, 0.5, 0.5], {7, 19} -> RGBColor[1, 0.5, 0.5], {8, 16} -> 
+       RGBColor[1, 0.5, 0.5], {8, 18} -> RGBColor[1, 0.5, 0.5], {9, 7} -> 
+       RGBColor[1, 0.5, 0.5], {9, 15} -> RGBColor[1, 0.5, 0.5], {9, 17} -> 
+       RGBColor[1, 0.5, 0.5], {9, 19} -> RGBColor[1, 0.5, 0.5], {10, 6} -> 
+       RGBColor[1, 0.5, 0.5], {10, 16} -> RGBColor[1, 0.5, 0.5], {10, 18} -> 
+       RGBColor[1, 0.5, 0.5], {15, 7} -> RGBColor[1, 0.5, 0.5], {15, 9} -> 
+       RGBColor[1, 0.5, 0.5], {15, 19} -> RGBColor[1, 0.5, 0.5], {16, 6} -> 
+       RGBColor[1, 0.5, 0.5], {16, 8} -> RGBColor[1, 0.5, 0.5], {16, 10} -> 
+       RGBColor[1, 0.5, 0.5], {16, 18} -> RGBColor[1, 0.5, 0.5], {17, 7} -> 
+       RGBColor[1, 0.5, 0.5], {17, 9} -> RGBColor[1, 0.5, 0.5], {18, 6} -> 
+       RGBColor[1, 0.5, 0.5], {18, 8} -> RGBColor[1, 0.5, 0.5], {18, 10} -> 
+       RGBColor[1, 0.5, 0.5], {18, 16} -> RGBColor[1, 0.5, 0.5], {19, 7} -> 
+       RGBColor[1, 0.5, 0.5], {19, 9} -> RGBColor[1, 0.5, 0.5], {19, 15} -> 
+       RGBColor[1, 0.5, 0.5]}},
+   GridBoxDividers->{
+    "ColumnsIndexed" -> {2 -> RGBColor[1, 0, 0]}, 
+     "RowsIndexed" -> {2 -> RGBColor[1, 0, 0]}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{},
+   RowsEqual->True],
+  "Grid"]], "Output",
+ CellLabel->"Out[6]=",
+ CellID->2048473736,ExpressionUUID->"7cf91ce8-bed8-437e-8b04-ee2f6d9351d9"]
+}, Open  ]],
+
+Cell[TextData[{
+ "This can be compared with the structure of the matrices given by  ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTTbSpinMatrix"]], "paclet:GroupTheory/ref/GTTbSpinMatrix", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "3409dcac-b94f-47de-b30b-12a38347f13d"],
+ " ."
+}], "Notes",
+ CellID->240252248,ExpressionUUID->"73b3553b-a0d3-4282-bf9b-db577e3bdc95"],
+
+Cell[BoxData[Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData[""]], "paclet:ref/"},
+   "RefLink",
+   BaseStyle->{"InlineFormula"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "94f3c680-9a1e-40e6-abec-7b99e5ec1e5b"]], "SeeAlso",
+ CellID->1669780581,ExpressionUUID->"1774f3e6-f842-4514-89f3-5f0ca5d0d343"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, 
+  Closed]]]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox["Tutorials", "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Electronic structure"]], 
+           "paclet:GroupTheory/tutorial/ElectronicStructure"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "ff293160-1cc0-4b45-962c-330e95884666"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"1f1fa014-63e8-4a4a-b402-\
+3654f8bfa81c"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Tight Binding"]], 
+           "paclet:GroupTheory/guide/TightBinding"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "ab1fc6ea-38e3-47b5-a70f-94b94f78d142"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"850ec480-bc7e-4c48-ab6d-\
+57aa8bc2c9a9"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"da5c0c0b-287c-4b8d-980d-8cfbf2adc6c5"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"GTTbSpinOrbit",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "HasOptions" -> True, "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "NotesSection" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 58, 26.016727}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Symbol", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "GTTbSpinOrbit[hamiltonian, spin - orbit interaction] adds spin-orbit \
+coupling to a given tight-binding Hamiltonian due to a specified spin-orbit \
+interaction.", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "GTTbSpinOrbit", "titlemodifier" -> "", "metadescription" -> "", 
+    "windowtitle" -> "GTTbSpinOrbit", "type" -> "Symbol", "uri" -> 
+    "GroupTheory/ref/GTTbSpinOrbit"}},
+CellContext->"Global`",
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"8571e1d6-a38c-4216-aac8-3a9cd8c98c2c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[14071, 384, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"89c7803e-c93a-4285-b687-bd569c407923",
+   CellTags->"PrimaryExamplesSection",
+   CellID->1888998316]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 67563, 1351}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[585, 21, 6402, 155, 56, "AnchorBarGrid",ExpressionUUID->"41ea8402-5e3d-421a-987f-e47ad4ed1960",
+ CellID->1],
+Cell[6990, 178, 94, 0, 24, "ContextNameCell",ExpressionUUID->"727f7316-c97d-4a3c-aa1b-ce04df339bfe"],
+Cell[CellGroupData[{
+Cell[7109, 182, 556, 14, 59, "ObjectNameGrid",ExpressionUUID->"f3373bbf-56bd-4faa-bc92-d97e2285116e"],
+Cell[7668, 198, 921, 23, 110, "Usage",ExpressionUUID->"10ed8d6a-6565-41ac-9fda-fca604bbca2b",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8626, 226, 1919, 48, 37, "NotesSection",ExpressionUUID->"f0eaa456-e32a-4ab3-9a4e-ad35f5399ba0",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->173841625],
+Cell[10548, 276, 582, 14, 70, "Notes",ExpressionUUID->"d1c43deb-c22b-4162-b0b1-d6c4e3e0ffa1",
+ CellID->1067943069],
+Cell[11133, 292, 208, 5, 70, "Notes",ExpressionUUID->"7f319f0b-2d7b-4750-8ee0-f9c085aa6ec8",
+ CellID->1730057011],
+Cell[11344, 299, 316, 12, 70, "Notes",ExpressionUUID->"c0470ef9-dec7-4086-90b9-24a74c992f4e",
+ CellID->1364370340],
+Cell[11663, 313, 502, 16, 70, "Notes",ExpressionUUID->"c473e246-f225-4bae-beee-5e177079994d",
+ CellID->139603497],
+Cell[12168, 331, 479, 13, 70, "Notes",ExpressionUUID->"0e5cdb32-e81d-4f93-837f-01b8b0530145",
+ CellID->923117820],
+Cell[12650, 346, 126, 1, 70, "Notes",ExpressionUUID->"a2eb03a9-0e13-47f4-aacf-e0ad7d7597b7",
+ CellID->1669526821],
+Cell[12779, 349, 901, 21, 70, "3ColumnTableMod",ExpressionUUID->"bb1bc944-c1cf-4aa3-9fc3-7c11ecc4b35f",
+ CellID->1117603469],
+Cell[13683, 372, 261, 6, 70, "Notes",ExpressionUUID->"818bc92f-1cab-4b62-91ed-98735104d4ec",
+ CellID->1036215562]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[14071, 384, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"89c7803e-c93a-4285-b687-bd569c407923",
+ CellTags->"PrimaryExamplesSection",
+ CellID->1888998316],
+Cell[CellGroupData[{
+Cell[15517, 425, 1399, 36, 30, "ExampleSection",ExpressionUUID->"4d2d8009-b9ac-4a2d-8e48-674596d06ce1",
+ CellID->2051528459],
+Cell[16919, 463, 121, 1, 38, "ExampleText",ExpressionUUID->"4ece5d6f-f645-4142-bfe7-36b356d64051",
+ CellID->270448840],
+Cell[17043, 466, 174, 3, 27, "Input",ExpressionUUID->"2b460c56-1aab-441e-a17c-4b23fd1a012c",
+ CellID->30377612],
+Cell[17220, 471, 196, 4, 38, "ExampleText",ExpressionUUID->"8091e911-bf41-4533-a834-e8b5acecfa1c",
+ CellID->620961062],
+Cell[17419, 477, 402, 11, 45, "Input",ExpressionUUID->"90580061-2317-422e-85a1-7fd0ccc0f0fb",
+ CellID->886229130],
+Cell[17824, 490, 233, 4, 38, "ExampleText",ExpressionUUID->"3ebb22ab-66a7-4501-85f8-5b407f7c0e1a",
+ CellID->1046868386],
+Cell[CellGroupData[{
+Cell[18082, 498, 439, 12, 27, "Input",ExpressionUUID->"8928c97d-c7fe-4aad-93fe-326320f0c842",
+ CellID->1676626691],
+Cell[18524, 512, 5622, 89, 282, "Output",ExpressionUUID->"ff0d98ee-0ccc-4c7c-b6b6-9452d6dc4861",
+ CellID->1190043979]
+}, Open  ]],
+Cell[24161, 604, 204, 4, 70, "ExampleText",ExpressionUUID->"93e9142d-ac90-4757-b78a-bf0647b80e0e",
+ CellID->1043302406],
+Cell[CellGroupData[{
+Cell[24390, 612, 1570, 47, 70, "Input",ExpressionUUID->"01e937bb-8372-4660-9baf-587a65d7b7a3",
+ CellID->1013303133],
+Cell[25963, 661, 12987, 186, 514, "Output",ExpressionUUID->"b133f5af-4cd0-4193-8583-38f3e06ece57",
+ CellID->538586074]
+}, Open  ]],
+Cell[38965, 850, 202, 6, 70, "ExampleText",ExpressionUUID->"9d62211b-5d72-4a0a-86d7-dad16545112c",
+ CellID->74362226],
+Cell[CellGroupData[{
+Cell[39192, 860, 565, 17, 70, "Input",ExpressionUUID->"4c160cc6-3ee9-479c-8402-d2f58e003260",
+ CellID->602563059],
+Cell[39760, 879, 14058, 200, 514, "Output",ExpressionUUID->"4cff4b4e-a564-4883-b6ee-f3530084b175",
+ CellID->1290094948]
+}, Open  ]],
+Cell[53833, 1082, 199, 4, 70, "ExampleText",ExpressionUUID->"c49e4119-0503-444e-867d-931cc5a54e24",
+ CellID->414904513],
+Cell[CellGroupData[{
+Cell[54057, 1090, 318, 8, 70, "Input",ExpressionUUID->"e1fa8e3d-1a1c-4268-bda4-b33224e76ce0",
+ CellID->1133214914],
+Cell[54378, 1100, 8646, 129, 514, "Output",ExpressionUUID->"7cf91ce8-bed8-437e-8b04-ee2f6d9351d9",
+ CellID->2048473736]
+}, Open  ]],
+Cell[63039, 1232, 492, 13, 70, "Notes",ExpressionUUID->"73b3553b-a0d3-4282-bf9b-db577e3bdc95",
+ CellID->240252248],
+Cell[63534, 1247, 334, 8, 70, "SeeAlso",ExpressionUUID->"1774f3e6-f842-4514-89f3-5f0ca5d0d343",
+ CellID->1669780581]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, Closed]]]],
+Cell[64098, 1263, 720, 19, 70, "TutorialsSection",ExpressionUUID->"1f1fa014-63e8-4a4a-b402-3654f8bfa81c"],
+Cell[64821, 1284, 724, 19, 70, "MoreAboutSection",ExpressionUUID->"850ec480-bc7e-4c48-ab6d-57aa8bc2c9a9"],
+Cell[65548, 1305, 78, 0, 70, "FooterCell",ExpressionUUID->"da5c0c0b-287c-4b8d-980d-8cfbf2adc6c5"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

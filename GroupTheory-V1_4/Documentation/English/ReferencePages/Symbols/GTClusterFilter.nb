@@ -1,0 +1,977 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     36599,        967]
+NotebookOptionsPosition[     29659,        825]
+NotebookOutlinePosition[     31816,        880]
+CellTagsIndexPosition[     31731,        875]
+WindowTitle->GTClusterFilter
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "445cf07c-1677-4a5c-aba6-137d19632eff"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "7750558f-ae39-44f9-8c5b-520d3576caa8"],
+        Background->RGBColor[0.490196, 0.576471, 0.690196],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "edd6a4bf-53bf-4741-8c0c-1b008668e52a"]
+         }],ExpressionUUID->"ed2e2386-4598-49bb-8fe6-ff33a914964c"],
+         StripOnInput->False], {"\<\"GTAdjacencyMatrix\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTAdjacencyMatrix"], "\<\"GTCluster\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCluster"], "\<\"GTTbHamiltonianRS\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTTbHamiltonianRS"], "\<\"GTClusterManipulate\
+\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTClusterManipulate"], \
+"\<\"GTAtomsInCell\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTAtomsInCell"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "9def92ea-531f-467d-a633-4f4b92110ed8"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "5217d815-687d-4c1f-95b8-77aef950d95b"]
+         }],ExpressionUUID->"d305ef46-4122-493b-8d3a-7507ca32fd7d"],
+         StripOnInput->False], {"\<\"Auxiliary\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/guide/Auxiliary"], "\<\"The Mathematica Group \
+Theory Package GTPack, V 1.4\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/guide/GroupTheory"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "07a27fd3-93f9-45b3-9590-67279ecee60e"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "b265ea60-1547-4c42-a7e0-31e26b07ba2a"]
+         }],ExpressionUUID->"20211f5b-23d3-4de9-9be7-884caf401c40"],
+         StripOnInput->False], {"\<\"The tight-binding method\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/TheTight-bindingMethod"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "d5a3462f-205b-4084-8e19-31d38b521c7f"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "96060f20-5062-4b22-a06a-ee7a0a9a1819"]
+         }],ExpressionUUID->"5c41de57-db7a-4c8d-bbea-8ba98da92516"],
+         StripOnInput->False], {"\<\"GroupTheory/ref/GTClusterFilter\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/ref/GTClusterFilter"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/ref/\
+GTClusterFilter.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$104827], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/ref/GTClusterFilter" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "36d58be7-862a-4ef0-b4e5-41605ca64da4"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "cb52ed00-ce66-4a1a-8aea-7f03def0cf84"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"7652394c-54a3-4078-ac0d-e7b3f8922a19"],
+
+Cell["GroupTheory`", "ContextNameCell",ExpressionUUID->"dd8e3eea-3fee-48b4-b373-438988e268b5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "GTClusterFilter", "ObjectName",ExpressionUUID->
+      "ca8bac7f-38db-4ffb-97d7-a85f956d0a7c"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"57244fdf-ae9e-4a82-8de9-b23d4082833a"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "10601718-0858-4925-bb74-f0e5b918f96c"]
+    }],ExpressionUUID->"55be8aad-0927-4d01-9297-c21a5799be4e"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"6f6a7a94-f686-420c-902a-\
+641e9fb2288b"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{
+         Cell[
+          TextData["GTClusterFilter"]], 
+         "paclet:GroupTheory/ref/GTClusterFilter", 
+         "GroupTheory Package Symbol"},
+        "PackageLink",
+        BaseStyle->"InlineFormula"], "[", 
+       StyleBox[
+        RowBox[{"cluster", ",", "types"}], "TI"], "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "7c831362-5412-462e-bddd-00acd42f2d9e"],
+     " \[LineSeparator]removes certain ",
+     StyleBox["types", "TI"],
+     " of atoms from a given ",
+     StyleBox["cluster", "TI"],
+     "."
+    }],ExpressionUUID->"52592506-66ef-4434-9d9b-8a225dd745d5"]}
+  }]], "Usage",
+ CellID->982511436,ExpressionUUID->"48f6e1cc-aebe-435a-91e7-e27facac1640"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    DynamicBox[ToBoxes[
+      If[
+       MatchQ[
+        CurrentValue[
+         EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, 
+         Closed], 
+        Alternatives[Open, True]], 
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], 
+       Rotate[
+        Style[
+         Graphics[{
+           Thickness[0.18], 
+           RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+           Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+          PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+         0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+     ImageSizeCache->{
+      13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+    ExpressionUUID->"b10b3f5f-ad76-44f0-a145-cd17ec133142"],
+   Cell[BoxData[
+    TemplateBox[{1},
+     "Spacer1"]],ExpressionUUID->"c986e127-0f71-46ec-91ab-2df346d25e47"],
+   "Details and Options"
+  }], "NotesFrameText",ExpressionUUID->"428a3edf-2afc-4a27-8f62-7575bac9bfaa"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->
+   "Preemptive"]],ExpressionUUID->"cafd9be5-06fc-498d-a771-acec2b70dcb7"]], \
+"NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->1803259006,ExpressionUUID->"afd7688a-c6e2-41a0-94cc-ed2721ea879d"],
+
+Cell[TextData[{
+ "If a ",
+ StyleBox["cluster", "TI"],
+ " is constructed with ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCluster"]], "paclet:GroupTheory/ref/GTCluster", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "a3835941-1208-4481-a071-91e4fbb0e2b3"],
+ ", it might be, that not all ",
+ StyleBox["types", "TI"],
+ " of atoms are necessary in the construction of tight-binding Hamiltonians. ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCluster"]], "paclet:GroupTheory/ref/GTCluster", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "97bc244e-1fc4-4be3-a175-1a23babd1bea"],
+ " can be used to remove that are not necessary."
+}], "Notes",
+ CellID->1768891580,ExpressionUUID->"428c73bc-cb16-49a7-8450-de5a066ced74"],
+
+Cell[TextData[{
+ "See: W. Hergert, M. Geilhufe, ",
+ StyleBox["Group Theory in Solid State Physics and Photonics. Problem Solving \
+with Mathematica, ",
+  FontSlant->"Italic"],
+ " Chapter 9.4"
+}], "Notes",
+ CellID->591147130,ExpressionUUID->"09b256ed-b880-4d61-a4b8-f3d1b62f8ac8"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"f299ccc3-1e19-4844-adbf-ea4cc41f403c"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"0dc49347-ee5e-4009-925b-3a57b6ba5cdb"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "6c670327-aa24-4892-a092-42212dc2e483"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellTags->"PrimaryExamplesSection",
+ CellID->184376643,ExpressionUUID->"03280d83-8bb4-42e5-9acf-b0318ad4a607"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"f466a08d-36b8-4144-b7b2-19316230280a"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"7f4ba636-55c7-4a99-9850-849028d8729a"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "28a87bfe-2aea-44b5-8115-339f096f61b0"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->1142145606,ExpressionUUID->"e5f62e02-a7ab-4c58-acda-1f7c3df36cda"],
+
+Cell["First load the package:", "Notes",
+ CellID->2119014938,ExpressionUUID->"aabe79bf-2cb7-4b48-8b76-62d05d1e55e0"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->424311526,ExpressionUUID->"82fb40c8-eb23-4bb5-99f4-602bd51ee37b"],
+
+Cell["\<\
+Choose the corresponding structure from the structure data file.\
+\>", "ExampleText",
+ CellID->1914220608,ExpressionUUID->"26258d83-6327-43bb-bfc2-e3452f3c80d9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<datasets\>\""}], 
+   "]"}], ";", 
+  RowBox[{"GTLoadStructures", "[", "\"\<GTPack\>\"", "]"}], ";", 
+  RowBox[{"znse", "=", 
+   RowBox[{"GTGetStructure", "[", "\"\<ZnSe\>\"", "]"}]}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->2050061230,ExpressionUUID->"37cf66c8-dfbb-4c91-9ff1-05269e71c8af"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"In spcgrp are \"\>", "\[InvisibleSpace]", "6", 
+   "\[InvisibleSpace]", "\<\" structures implemented.\"\>"}],
+  SequenceForm["In spcgrp are ", 6, " structures implemented."],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->1988942523,ExpressionUUID->"1fb669fe-693f-4fc0-b7c2-4237319129f1"],
+
+Cell[BoxData["\<\"--------------------------------\"\>"], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->223883321,ExpressionUUID->"0f479166-32e1-4401-9964-6e7082d86956"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Prototype         : \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"\<\"ZnSe\"\>", ",", "\<\"Zinc Blend\"\>"}], "}"}]}],
+  SequenceForm["Prototype         : ", {"ZnSe", "Zinc Blend"}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->532055930,ExpressionUUID->"89849678-78db-4d6e-9105-7b660999dd24"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Pearson Symbol    : \"\>", "\[InvisibleSpace]", "\<\"cF8\"\>"}],
+  SequenceForm["Pearson Symbol    : ", "cF8"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->808950033,ExpressionUUID->"33582885-c325-4412-bb30-dd6f4d29a677"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Strukturbericht   : \"\>", "\[InvisibleSpace]", "\<\"B3\"\>"}],
+  
+  SequenceForm["Strukturbericht   : ", "B3"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->1591054049,ExpressionUUID->"b444b212-2c2f-480a-b697-e511af478ee0"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Space Group       : \"\>", 
+   "\[InvisibleSpace]", "\<\"F\\!\\(\\*OverscriptBox[\\(43\\), \\(_\\)]\\)m\"\
+\>"}],
+  SequenceForm[
+  "Space Group       : ", "F\!\(\*OverscriptBox[\(43\), \(_\)]\)m"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->140288247,ExpressionUUID->"f43d3046-97a5-4b26-b07a-459cdc2e47b1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Number            : \"\>", "\[InvisibleSpace]", "208"}],
+  SequenceForm["Number            : ", 208],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->797519661,ExpressionUUID->"ec6a9a21-5547-41d0-b84a-49813fe9af20"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Lattice Vectors   : \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       FractionBox["a", "2"], ",", 
+       FractionBox["a", "2"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["a", "2"], ",", "0", ",", 
+       FractionBox["a", "2"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["a", "2"], ",", 
+       FractionBox["a", "2"], ",", "0"}], "}"}]}], "}"}]}],
+  SequenceForm[
+  "Lattice Vectors   : ", {{
+    0, Rational[1, 2] GroupTheory`CrystalStructure`a, Rational[1, 2] 
+     GroupTheory`CrystalStructure`a}, {
+    Rational[1, 2] GroupTheory`CrystalStructure`a, 0, Rational[1, 2] 
+     GroupTheory`CrystalStructure`a}, {
+    Rational[1, 2] GroupTheory`CrystalStructure`a, Rational[1, 2] 
+     GroupTheory`CrystalStructure`a, 0}}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->1860975937,ExpressionUUID->"2fd961e9-5fd1-4d90-9b97-6924ce836357"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Basis Vectors     : \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox["a", "4"], ",", 
+         FractionBox["a", "4"], ",", 
+         FractionBox["a", "4"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}]}], "}"}]}],
+  SequenceForm[
+  "Basis Vectors     : ", {{{0, 0, 0}, "Zn"}, {{
+     Rational[1, 4] GroupTheory`CrystalStructure`a, Rational[1, 4] 
+      GroupTheory`CrystalStructure`a, Rational[1, 4] 
+      GroupTheory`CrystalStructure`a}, "Se"}}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->404104249,ExpressionUUID->"7377c76a-e77d-484a-804e-a0812321ec55"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Lattice Constants : \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"a", "\[Rule]", "566.8`"}], "}"}]}],
+  SequenceForm[
+  "Lattice Constants : ", {GroupTheory`CrystalStructure`a -> 566.8}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->588215778,ExpressionUUID->"35f09325-e39b-41d4-8fad-36e74e2cf441"],
+
+Cell[BoxData["\<\"--------------------------------\"\>"], "Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->98296940,ExpressionUUID->"d9ada409-ef5b-4b86-a56b-118093c3db0c"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"ZnSe\"\>", ",", "\<\"Zinc Blend\"\>"}], "}"}], 
+   ",", "\<\"cF8\"\>", ",", "\<\"B3\"\>", 
+   ",", "\<\"F\\!\\(\\*OverscriptBox[\\(43\\), \\(_\\)]\\)m\"\>", ",", "208", 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       FractionBox["a", "2"], ",", 
+       FractionBox["a", "2"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["a", "2"], ",", "0", ",", 
+       FractionBox["a", "2"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["a", "2"], ",", 
+       FractionBox["a", "2"], ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox["a", "4"], ",", 
+         FractionBox["a", "4"], ",", 
+         FractionBox["a", "4"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"a", "\[Rule]", "566.8`"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->953008532,ExpressionUUID->"a2a06648-7647-4d07-bab2-baca3a1826d0"]
+}, Open  ]],
+
+Cell["Construct a cluster", "ExampleText",
+ CellID->570690174,ExpressionUUID->"77a02a67-7bae-41e8-82ca-edf9eb0cf724"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cl", "=", 
+   RowBox[{"GTCluster", "[", 
+    RowBox[{"znse", ",", "4", ",", 
+     RowBox[{"GOLattice", "->", 
+      RowBox[{"{", 
+       RowBox[{"a", "\[Rule]", "1"}], "}"}]}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->127357170,ExpressionUUID->"13fb722f-07f0-46c1-80bf-8c65af1f10d8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"2149", "\[InvisibleSpace]", "\<\" atoms\"\>"}],
+  SequenceForm[2149, " atoms"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->862122580,ExpressionUUID->"aa9b8513-ae62-4c74-be9b-62759d9fcc46"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Atoms in cluster : \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"Se\"\>", ",", "1088"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"Zn\"\>", ",", "1061"}], "}"}]}], "}"}]}],
+  SequenceForm["Atoms in cluster : ", {{"Se", 1088}, {"Zn", 1061}}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[3]:=",
+ CellID->2114013736,ExpressionUUID->"c65275e0-d28b-4d5e-9679-67adb912c652"]
+}, Open  ]]
+}, Open  ]],
+
+Cell["Remove all Zn atoms from the cluster:", "ExampleText",
+ CellID->343633912,ExpressionUUID->"e94f4048-2052-43f1-a782-9e59215539d0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"se", "=", 
+   RowBox[{"GTClusterFilter", "[", 
+    RowBox[{"cl", ",", 
+     RowBox[{"{", "\"\<Zn\>\"", "}"}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->386661280,ExpressionUUID->"766241b5-69f5-4b78-be37-90b6652a663e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"1088", "\[InvisibleSpace]", "\<\" atoms\"\>"}],
+  SequenceForm[1088, " atoms"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[4]:=",
+ CellID->260428628,ExpressionUUID->"31599e10-fc62-4597-9209-d6a80e7ed5ab"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Atoms in cluster : \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"\<\"Se\"\>", ",", "1088"}], "}"}], "}"}]}],
+  SequenceForm["Atoms in cluster : ", {{"Se", 1088}}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[4]:=",
+ CellID->2074040227,ExpressionUUID->"86d09c1e-08ca-4103-8c7a-4a71a348714b"]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, 
+  Closed]]]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTAdjacencyMatrix"]], 
+           "paclet:GroupTheory/ref/GTAdjacencyMatrix", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "27da75bd-c87b-429b-be91-88314dbab250"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTCluster"]], "paclet:GroupTheory/ref/GTCluster", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "157285ce-7aa6-4c1b-b1a6-4b75ed66a86f"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTTbHamiltonianRS"]], 
+           "paclet:GroupTheory/ref/GTTbHamiltonianRS", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "33f9b142-c1f7-44a8-a0fa-835d93e0cec3"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTClusterManipulate"]], 
+           "paclet:GroupTheory/ref/GTClusterManipulate", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "f099c790-0039-440b-ba92-04dbd75de50d"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTAtomsInCell"]], 
+           "paclet:GroupTheory/ref/GTAtomsInCell", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "f88119d1-e45b-4f93-a690-6631f8c01bc9"]
+       }], "SeeAlso",ExpressionUUID->"25f09bc5-202f-4853-9684-d628c1d450e0"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"8d5a0ab2-12fe-4c31-b235-\
+442a15a2f40d"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox["Tutorials", "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["The tight-binding method"]], 
+           "paclet:GroupTheory/tutorial/TheTight-bindingMethod"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "83d2c9bc-e36d-4e27-b788-7a9d54951b8d"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"890fffd2-976a-48c6-8d27-\
+7ccd36274367"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Auxiliary"]], "paclet:GroupTheory/guide/Auxiliary"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "81559b30-faeb-4753-93cf-323bff8c25d7"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["The Mathematica Group Theory Package GTPack, V 1.4"]], 
+           "paclet:GroupTheory/guide/GroupTheory"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "f84ac716-cf45-41c6-a7ab-4907eb0b6e1d"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"78e0a0d0-d753-4d50-b183-\
+c2e2bd769499"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"4e37573b-d368-4ad9-a326-80b97868e967"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{55.5, Automatic}, {Automatic, 20.25}},
+WindowTitle->"GTClusterFilter",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "HasOptions" -> True, "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "NotesSection" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 53, 8.375287}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Symbol", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "GTClusterFilter[cluster, types] removes certain types of atoms from a \
+given cluster.", "synonyms" -> {}, "tabletags" -> {}, "title" -> 
+    "GTClusterFilter", "titlemodifier" -> "", "metadescription" -> "", 
+    "windowtitle" -> "GTClusterFilter", "type" -> "Symbol", "uri" -> 
+    "GroupTheory/ref/GTClusterFilter"}},
+CellContext->"Global`",
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"d5cfe783-7af6-42f2-a051-0dddc6641803"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[12166, 323, 1420, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"03280d83-8bb4-42e5-9acf-b0318ad4a607",
+   CellTags->"PrimaryExamplesSection",
+   CellID->184376643]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 31531, 868}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[587, 21, 6759, 161, 56, "AnchorBarGrid",ExpressionUUID->"7652394c-54a3-4078-ac0d-e7b3f8922a19",
+ CellID->1],
+Cell[7349, 184, 94, 0, 24, "ContextNameCell",ExpressionUUID->"dd8e3eea-3fee-48b4-b373-438988e268b5"],
+Cell[CellGroupData[{
+Cell[7468, 188, 558, 14, 59, "ObjectNameGrid",ExpressionUUID->"6f6a7a94-f686-420c-902a-641e9fb2288b"],
+Cell[8029, 204, 807, 22, 110, "Usage",ExpressionUUID->"48f6e1cc-aebe-435a-91e7-e27facac1640",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8873, 231, 1920, 48, 37, "NotesSection",ExpressionUUID->"afd7688a-c6e2-41a0-94cc-ed2721ea879d",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->1803259006],
+Cell[10796, 281, 961, 27, 70, "Notes",ExpressionUUID->"428c73bc-cb16-49a7-8450-de5a066ced74",
+ CellID->1768891580],
+Cell[11760, 310, 279, 7, 70, "Notes",ExpressionUUID->"09b256ed-b880-4d61-a4b8-f3d1b62f8ac8",
+ CellID->591147130]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[12166, 323, 1420, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"03280d83-8bb4-42e5-9acf-b0318ad4a607",
+ CellTags->"PrimaryExamplesSection",
+ CellID->184376643],
+Cell[CellGroupData[{
+Cell[13611, 364, 1399, 36, 30, "ExampleSection",ExpressionUUID->"e5f62e02-a7ab-4c58-acda-1f7c3df36cda",
+ CellID->1142145606],
+Cell[15013, 402, 116, 1, 36, "Notes",ExpressionUUID->"aabe79bf-2cb7-4b48-8b76-62d05d1e55e0",
+ CellID->2119014938],
+Cell[15132, 405, 175, 3, 27, "Input",ExpressionUUID->"82fb40c8-eb23-4bb5-99f4-602bd51ee37b",
+ CellID->424311526],
+Cell[15310, 410, 171, 3, 38, "ExampleText",ExpressionUUID->"26258d83-6327-43bb-bfc2-e3452f3c80d9",
+ CellID->1914220608],
+Cell[CellGroupData[{
+Cell[15506, 417, 417, 10, 27, "Input",ExpressionUUID->"37cf66c8-dfbb-4c91-9ff1-05269e71c8af",
+ CellID->2050061230],
+Cell[CellGroupData[{
+Cell[15948, 431, 373, 7, 25, "Print",ExpressionUUID->"1fb669fe-693f-4fc0-b7c2-4237319129f1",
+ CellID->1988942523],
+Cell[16324, 440, 185, 2, 23, "Print",ExpressionUUID->"0f479166-32e1-4401-9964-6e7082d86956",
+ CellID->223883321],
+Cell[16512, 444, 393, 8, 25, "Print",ExpressionUUID->"89849678-78db-4d6e-9105-7b660999dd24",
+ CellID->532055930],
+Cell[16908, 454, 309, 6, 25, "Print",ExpressionUUID->"33582885-c325-4412-bb30-dd6f4d29a677",
+ CellID->808950033],
+Cell[17220, 462, 311, 7, 25, "Print",ExpressionUUID->"b444b212-2c2f-480a-b697-e511af478ee0",
+ CellID->1591054049],
+Cell[17534, 471, 396, 9, 25, "Print",ExpressionUUID->"f43d3046-97a5-4b26-b07a-459cdc2e47b1",
+ CellID->140288247],
+Cell[17933, 482, 299, 6, 25, "Print",ExpressionUUID->"ec6a9a21-5547-41d0-b84a-49813fe9af20",
+ CellID->797519661],
+Cell[18235, 490, 1032, 27, 36, "Print",ExpressionUUID->"2fd961e9-5fd1-4d90-9b97-6924ce836357",
+ CellID->1860975937],
+Cell[19270, 519, 884, 24, 36, "Print",ExpressionUUID->"7377c76a-e77d-484a-804e-a0812321ec55",
+ CellID->404104249],
+Cell[20157, 545, 398, 9, 25, "Print",ExpressionUUID->"35f09325-e39b-41d4-8fad-36e74e2cf441",
+ CellID->588215778],
+Cell[20558, 556, 184, 2, 23, "Print",ExpressionUUID->"d9ada409-ef5b-4b86-a56b-118093c3db0c",
+ CellID->98296940]
+}, Open  ]],
+Cell[20757, 561, 1259, 40, 71, "Output",ExpressionUUID->"a2a06648-7647-4d07-bab2-baca3a1826d0",
+ CellID->953008532]
+}, Open  ]],
+Cell[22031, 604, 117, 1, 70, "ExampleText",ExpressionUUID->"77a02a67-7bae-41e8-82ca-edf9eb0cf724",
+ CellID->570690174],
+Cell[CellGroupData[{
+Cell[22173, 609, 337, 9, 70, "Input",ExpressionUUID->"13fb722f-07f0-46c1-80bf-8c65af1f10d8",
+ CellID->127357170],
+Cell[CellGroupData[{
+Cell[22535, 622, 273, 6, 70, "Print",ExpressionUUID->"aa9b8513-ae62-4c74-be9b-62759d9fcc46",
+ CellID->862122580],
+Cell[22811, 630, 500, 12, 70, "Print",ExpressionUUID->"c65275e0-d28b-4d5e-9679-67adb912c652",
+ CellID->2114013736]
+}, Open  ]]
+}, Open  ]],
+Cell[23338, 646, 135, 1, 70, "ExampleText",ExpressionUUID->"e94f4048-2052-43f1-a782-9e59215539d0",
+ CellID->343633912],
+Cell[CellGroupData[{
+Cell[23498, 651, 270, 7, 70, "Input",ExpressionUUID->"766241b5-69f5-4b78-be37-90b6652a663e",
+ CellID->386661280],
+Cell[CellGroupData[{
+Cell[23793, 662, 273, 6, 70, "Print",ExpressionUUID->"31599e10-fc62-4597-9209-d6a80e7ed5ab",
+ CellID->260428628],
+Cell[24069, 670, 394, 9, 70, "Print",ExpressionUUID->"86d09c1e-08ca-4103-8c7a-4a71a348714b",
+ CellID->2074040227]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, Closed]]]],
+Cell[24717, 689, 3038, 82, 70, "SeeAlsoSection",ExpressionUUID->"8d5a0ab2-12fe-4c31-b235-442a15a2f40d"],
+Cell[27758, 773, 727, 19, 70, "TutorialsSection",ExpressionUUID->"890fffd2-976a-48c6-8d27-7ccd36274367"],
+Cell[28488, 794, 1086, 27, 70, "MoreAboutSection",ExpressionUUID->"78e0a0d0-d753-4d50-b183-c2e2bd769499"],
+Cell[29577, 823, 78, 0, 70, "FooterCell",ExpressionUUID->"4e37573b-d368-4ad9-a326-80b97868e967"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

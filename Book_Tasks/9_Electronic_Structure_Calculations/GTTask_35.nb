@@ -1,0 +1,708 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     25876,        700]
+NotebookOptionsPosition[     21439,        629]
+NotebookOutlinePosition[     21875,        646]
+CellTagsIndexPosition[     21832,        643]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"b739224a-b949-4ae4-87ec-\
+9092a5fa675f"],
+
+Cell["Task_35: Surface projected band structure", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+  3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+  3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, {
+  3.691479359047338*^9, 3.6914793596013803`*^9}, {3.691479396236004*^9, 
+  3.691479413192193*^9}, {3.716369745750106*^9, 3.716369746872714*^9}, {
+  3.716381752669551*^9, 3.716381759012546*^9}, {3.7163849194121227`*^9, 
+  3.7163849194643593`*^9}, {3.745560147581388*^9, 
+  3.745560151293853*^9}},ExpressionUUID->"fdfbf21c-2749-4ad6-ab6e-\
+83a7bc901996"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"da54990a-a3fa-4336-b01d-\
+96b47511255f"],
+
+Cell[CellGroupData[{
+
+Cell["Task 35", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, {
+  3.691479419663885*^9, 3.691479420096105*^9}, {3.716369752283184*^9, 
+  3.716369752418913*^9}, {3.716485788708857*^9, 3.716485789381475*^9}, {
+  3.745560153747471*^9, 
+  3.7455601574775143`*^9}},ExpressionUUID->"fd46a670-d60d-4013-b86b-\
+a50275b1c7d1"],
+
+Cell["see : Chapter 9, section 9.7.3, p. 244.", "Text",
+ CellChangeTimes->{
+  3.745498263586955*^9, {3.7454982950104713`*^9, 3.745498304161786*^9}, {
+   3.7454988429457417`*^9, 3.745498864534718*^9}, {3.7455037802338257`*^9, 
+   3.7455038056602087`*^9}, {3.7455602369676933`*^9, 
+   3.7455602482008343`*^9}},ExpressionUUID->"69daa47e-3924-4fab-940e-\
+65e44186c086"],
+
+Cell[TextData[{
+ "To discuss the appearance of surface states in dependence on relaxations or \
+reconstructions of the surfaces it is helpful to calculate the so called \
+surface projected band structure. Thus, the whole bulk band structure, \
+dependent on ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox["k",
+     FontWeight->"Bold"], "=", 
+    StyleBox[
+     SubscriptBox[
+      StyleBox["k",
+       FontWeight->"Bold"], "||"],
+     FontWeight->"Bold"]}], TraditionalForm]],ExpressionUUID->
+  "69bf0043-8563-47d1-9c9e-b36c84a2a508"],
+ " + ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    SubscriptBox["k", "\[UpTee]"],
+    FontWeight->"Bold"], TraditionalForm]],ExpressionUUID->
+  "a94a2e0d-7a63-4d90-b979-3d8128d1fdb2"],
+ " (components parallel and perpendicular to the surface) is projected into \
+the surface Brillouin zone\n\t\nProject the GaAs band structure (without \
+spin-orbit coupling) to the (100) surface. Use a ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "-space TB-Hamiltonian with  a ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"s", " ", 
+    SuperscriptBox["p", "3"], " ", 
+    SuperscriptBox["d", "5"], 
+    SuperscriptBox["s", "*"]}], TraditionalForm]],ExpressionUUID->
+  "bb7398e0-8791-4758-8243-8c2f3ad458fb"],
+ " basis. Parameter sets are given in ",
+ StyleBox["TB_Semiconductors.parm",
+  FontWeight->"Bold"],
+ ". Compare your results with T. Strasser ",
+ StyleBox["et al.",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["One-step photoemission calculations for ideal GaAs(001) and \
+AlAs(001) surfaces and ",
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     RowBox[{"(", "GaAs", ")"}], "m"], 
+    SubscriptBox[
+     RowBox[{"(", "AlAs", ")"}], "n"]}], TraditionalForm]],ExpressionUUID->
+  "a2c81f31-05e0-4899-9e5e-2409b9af71e2"],
+ " ",
+ StyleBox["superlattices",
+  FontSlant->"Italic"],
+ ", Phys. Rev. B ",
+ StyleBox["63",
+  FontWeight->"Bold"],
+ ", 195321 (2001). "
+}], "Text",
+ CellChangeTimes->{{3.6914794396887083`*^9, 3.691479453623493*^9}, {
+  3.691479563429913*^9, 3.69147957524474*^9}, {3.6917339710565977`*^9, 
+  3.691733973481421*^9}, {3.7163891344328413`*^9, 3.7163891534712477`*^9}, {
+  3.716389231331891*^9, 3.716389239459494*^9}, {3.716389530367114*^9, 
+  3.7163895644436617`*^9}, {3.7163896761013393`*^9, 3.716389782346822*^9}, {
+  3.716389831117844*^9, 3.716389836606353*^9}, {3.7163898674108*^9, 
+  3.716390057548162*^9}},ExpressionUUID->"a86c6bd0-69ab-4cad-b987-\
+42fa4e53e3b6"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Inititialization", "Section",
+ CellChangeTimes->{{3.691734447733213*^9, 
+  3.691734454132409*^9}},ExpressionUUID->"418ce435-3632-4f0d-a5c2-\
+6cd64ecd6354"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.691734460157167*^9, 3.69173447312252*^9}},
+ CellLabel->
+  "In[418]:=",ExpressionUUID->"45030501-a365-49fb-9ee9-7a08e7ea91a1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../datasets\>\""}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.691734476002453*^9, 3.6917345147064342`*^9}},
+ CellLabel->
+  "In[419]:=",ExpressionUUID->"c06de66b-ff2c-48bd-9b9b-9b9717835d10"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.716384932178845*^9, 
+  3.7163849340128613`*^9}},ExpressionUUID->"f30e073c-6978-434c-a86f-\
+fb68290edf90"],
+
+Cell["\<\
+At first the structural information for the zinc blend structure is loaded.\
+\>", "Text",
+ CellChangeTimes->{{3.7163849493814363`*^9, 
+  3.716384971734577*^9}},ExpressionUUID->"d0ed7f89-7204-4e47-b660-\
+73c1f8a3b222"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GTLoadStructures", "[", "\"\<GTPack\>\"", "]"}], ";", 
+  RowBox[{"spcGaAs", "=", 
+   RowBox[{"GTGetStructure", "[", "\"\<ZnSe\>\"", "]"}]}]}]], "Input",
+ CellLabel->
+  "In[420]:=",ExpressionUUID->"ad929da3-de5a-4510-943d-dc3eb499cdb1"],
+
+Cell["The prototype structure is changed to fit to the GaAs case.", "Text",
+ CellChangeTimes->{{3.716384982164625*^9, 
+  3.7163850165551023`*^9}},ExpressionUUID->"a54186ba-8f5e-4f92-9518-\
+f2669fc9252d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"spcGaAs", "[", 
+    RowBox[{"[", 
+     RowBox[{"7", ",", "1", ",", "2"}], "]"}], "]"}], "=", "\"\<Ga\>\""}], 
+  ";", 
+  RowBox[{
+   RowBox[{"spcGaAs", "[", 
+    RowBox[{"[", 
+     RowBox[{"7", ",", "2", ",", "2"}], "]"}], "]"}], "=", "\"\<As\>\""}], 
+  ";", 
+  RowBox[{
+   RowBox[{"spcGaAs", "[", 
+    RowBox[{"[", "8", "]"}], "]"}], "=", 
+   RowBox[{"{", 
+    RowBox[{"a", "\[Rule]", "563.3"}], "}"}]}], ";", "spcGaAs"}]], "Input",
+ CellLabel->
+  "In[421]:=",ExpressionUUID->"639c573a-65a3-4658-8a6a-c72973813d93"],
+
+Cell["\<\
+All structural information for the Hamiltonian construction will be prepared \
+now. \
+\>", "Text",
+ CellChangeTimes->{{3.7163850255887136`*^9, 
+  3.716385070387146*^9}},ExpressionUUID->"92ded260-8500-4542-ba3d-\
+5770707cb01a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"clk", "=", 
+   RowBox[{"GTCluster", "[", 
+    RowBox[{"spcGaAs", ",", "2", ",", 
+     RowBox[{"GOLattice", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"a", "->", "1"}], "}"}]}]}], "]"}]}], ";"}]], "Input",
+ CellLabel->
+  "In[422]:=",ExpressionUUID->"a41c416c-721d-4f87-b058-b802549b3280"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bask", "=", 
+   RowBox[{
+    RowBox[{"spcGaAs", "[", 
+     RowBox[{"[", "7", "]"}], "]"}], " ", "/.", 
+    RowBox[{"{", 
+     RowBox[{"a", "\[Rule]", "1"}], "}"}]}]}], ";", 
+  RowBox[{"shells", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "1"}], "}"}]}], ";", 
+  RowBox[{"shk", "=", 
+   RowBox[{"GTShells", "[", 
+    RowBox[{"clk", ",", "bask", ",", "shells", ",", 
+     RowBox[{"GOVerbose", "\[Rule]", "True"}], ",", 
+     RowBox[{"GOPosition", "\[Rule]", "\"\<Relative\>\""}], ",", 
+     RowBox[{"GOTbLattice", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<Ga,As\>\"", ",", 
+          RowBox[{"{", "1", "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\"\<Ga,Ga\>\"", ",", 
+          RowBox[{"{", "0", "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\"\<As,As\>\"", ",", 
+          RowBox[{"{", "0", "}"}]}], "}"}]}], "}"}]}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.716385080817378*^9, 3.716385090953842*^9}},
+ CellLabel->
+  "In[423]:=",ExpressionUUID->"200abaca-f93f-4a87-8c29-1ef816646848"],
+
+Cell[CellGroupData[{
+
+Cell["Construction of the Hamiltonian", "Subsection",
+ CellChangeTimes->{{3.716385104554852*^9, 
+  3.716385110966238*^9}},ExpressionUUID->"8e3480fd-e600-46cb-a326-\
+fa5910c80834"],
+
+Cell[TextData[{
+ StyleBox["We use an ",
+  FontSlant->"Plain"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["sp", "3"], 
+    SuperscriptBox["d", "5"], 
+    SuperscriptBox["s", "*"]}], TraditionalForm]],ExpressionUUID->
+  "43130403-4bbb-40ab-8333-2958f085943a"],
+ " ",
+ StyleBox["basis.",
+  FontSlant->"Plain"]
+}], "Text",
+ CellChangeTimes->{{3.716385133478031*^9, 3.716385220419497*^9}},
+ FontSlant->"Italic",ExpressionUUID->"18d07b92-e6bf-4a09-87c3-614609e69dae"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bas2", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<Ga\>\"", ",", "1", ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<s\>\"", ",", "\"\<p\>\"", ",", "\"\<d\>\"", ",", "\"\<s*\>\""}], 
+        "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<As\>\"", ",", "1", ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<s\>\"", ",", "\"\<p\>\"", ",", "\"\<d\>\"", ",", "\"\<s*\>\""}], 
+        "}"}]}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"ham", "=", 
+   RowBox[{"GTTbHamiltonian", "[", 
+    RowBox[{"bas2", ",", "shk"}], "]"}]}], ";"}]], "Input",
+ CellLabel->
+  "In[424]:=",ExpressionUUID->"eb65eb87-726c-4ba7-8a75-af3d02999d97"],
+
+Cell["The Hamiltonian is stored to a file for later use.", "Text",
+ CellChangeTimes->{{3.716385225391827*^9, 
+  3.71638523587703*^9}},ExpressionUUID->"69fc4afb-93eb-45ac-987f-\
+662d478ccbc0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";", 
+  RowBox[{"GTWriteToFile", "[", 
+   RowBox[{"ham", ",", "\"\<GaAs_own.ham\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.745560357133542*^9, 3.745560359661984*^9}},
+ CellLabel->
+  "In[425]:=",ExpressionUUID->"852b6ac7-4a42-4a68-8d17-d4d38d42572d"],
+
+Cell["\<\
+It also already prepared. Both Hamiltonians should be the same\
+\>", "Text",
+ CellChangeTimes->{{3.745560363454101*^9, 
+  3.745560390651157*^9}},ExpressionUUID->"f66a0134-cc6a-4099-904a-\
+0f6b05787e62"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ham1", "=", 
+   RowBox[{"GTReadFromFile", "[", "\"\<GaAs_spds.ham\>\"", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.7455603999080667`*^9, 3.745560428469837*^9}},
+ CellLabel->
+  "In[426]:=",ExpressionUUID->"f7eaec61-205a-4a8b-b860-c4402c9de36e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"ham", "-", "ham1"}], "//", "Flatten"}], "//", "Union"}]], "Input",
+ CellChangeTimes->{{3.745560432479203*^9, 3.745560451152194*^9}},
+ CellLabel->
+  "In[427]:=",ExpressionUUID->"3215e405-2a60-49e5-bd18-92d9962b2bde"],
+
+Cell[CellGroupData[{
+
+Cell["Parameterization of the Hamiltonian", "Subsubsection",
+ CellChangeTimes->{{3.71638525091882*^9, 
+  3.716385264487721*^9}},ExpressionUUID->"96af1d9d-3b00-462f-b91e-\
+559c10bacfed"],
+
+Cell["\<\
+We need an appropriate set of parameters for this Hamiltonian.\
+\>", "Text",
+ CellChangeTimes->{{3.716385276974906*^9, 
+  3.716385302286833*^9}},ExpressionUUID->"c8961b3e-32ff-400e-8ec3-\
+9427b875d8f9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../datasets\>\""}], 
+   "]"}], ";", 
+  RowBox[{"GTTbDatabaseInfo", "[", "\"\<TB_Semiconductors\>\"", "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.716382521273489*^9, 3.716382521913719*^9}},
+ CellLabel->
+  "In[428]:=",ExpressionUUID->"7cbc8948-bcea-4252-b0c2-fb2db87c3467"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"parms", "=", 
+   RowBox[{"GTTbDatabaseRetrieve", "[", 
+    RowBox[{"\"\<TB_Semiconductors\>\"", ",", "26"}], "]"}]}], ";", 
+  RowBox[{"GTTbPrintParmSet", "[", 
+   RowBox[{"\"\<TB_Semiconductors\>\"", ",", "26"}], "]"}]}]], "Input",
+ CellLabel->
+  "In[429]:=",ExpressionUUID->"097d33ce-7b6b-4127-bb8a-e63436e0dd98"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pham", "=", 
+   RowBox[{"ham", "/.", " ", 
+    RowBox[{"GTTbParmToRule", "[", "parms", "]"}]}]}], ";"}]], "Input",
+ CellLabel->
+  "In[430]:=",ExpressionUUID->"f1bd8efa-45e5-4f24-9936-260ee1e1bc17"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Band structure", "Subsection",
+ CellChangeTimes->{{3.7163853830974607`*^9, 
+  3.716385385470367*^9}},ExpressionUUID->"b5ebbfec-bf0c-45d8-975e-\
+550694205a43"],
+
+Cell[TextData[{
+ "The band structure is plotted along a line used in the literature. This is \
+not the standard path used usually in ",
+ StyleBox["GTPack",
+  FontWeight->"Bold"],
+ " for fcc structures."
+}], "Text",
+ CellChangeTimes->{{3.716385392895547*^9, 
+  3.716385448153907*^9}},ExpressionUUID->"4f357ee4-6da9-4188-a9b5-\
+3864c4483f88"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kpl", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"1", "/", "2"}], ",", 
+         RowBox[{"1", "/", "2"}], ",", 
+         RowBox[{"1", "/", "2"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"1", "/", "2"}], ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"3", "/", "4"}], ",", 
+         RowBox[{"3", "/", "4"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"1", "/", "2"}], ",", 
+         RowBox[{"1", "/", "2"}], ",", 
+         RowBox[{"1", "/", "2"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         RowBox[{"1", "/", "2"}], ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1", ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<L\>\"", ",", "\"\<\[CapitalGamma]\>\"", ",", "\"\<X\>\"", ",", 
+       "\"\<W\>\"", ",", "\"\<K\>\"", ",", "\"\<L\>\"", ",", "\"\<W\>\"", 
+       ",", "\"\<X\>\"", ",", "\"\<\[CapitalGamma]\>\""}], "}"}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellLabel->
+  "In[431]:=",ExpressionUUID->"cb76eb53-6eba-4df3-8c70-ca29a59c8ab5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GTBandStructure", "[", 
+   RowBox[{"pham", ",", "kpl", ",", "30", ",", "20", ",", 
+    RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+    RowBox[{"PlotLabel", "\[Rule]", "\"\<\>\""}], ",", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\"\< \>\"", ",", "\"\<Energie (eV)\>\""}], "}"}]}], ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "5.96"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "15"}], ",", "15"}], "}"}]}], "}"}]}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", "Blue"}], ",", 
+    RowBox[{"PlotLabel", "\[Rule]", "\"\<Band structure GaAs\>\""}]}], " ", 
+   "]"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.716382675095475*^9, 3.716382699479022*^9}, {
+  3.716385462184444*^9, 3.716385534307798*^9}},
+ CellLabel->
+  "In[432]:=",ExpressionUUID->"ff73aaee-89e4-4a62-81ea-306bd8c43581"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Projected band structure", "Subsection",
+ CellChangeTimes->{{3.71638273664697*^9, 3.716382739143269*^9}, {
+  3.7163828288801107`*^9, 3.71638283119592*^9}, {3.716385553771854*^9, 
+  3.71638555701027*^9}},ExpressionUUID->"e9801187-2911-4190-876e-\
+ec7669d727c6"],
+
+Cell[TextData[{
+ "We construct a path in the ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["k", "x"], "-", 
+    SubscriptBox["k", "y"]}], TraditionalForm]],ExpressionUUID->
+  "1c1fdd7a-6a9c-46c9-910f-776de779d896"],
+ "-plane of the fcc Brillouin zone that corresponds to the surface Brillouin \
+zone. This path will be moved upwards through the Brillouin zone changing \
+therefore the component ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["k", "z"], TraditionalForm]],ExpressionUUID->
+  "5368fcdc-96c8-422f-8dac-e224318ee783"],
+ ". The band structures  will be calculated and all the band structures \
+plotted together gives the surface projected band structure."
+}], "Text",
+ CellChangeTimes->{{3.7163871075019836`*^9, 3.716387201863192*^9}, {
+  3.716387288275769*^9, 3.716387399979001*^9}, {3.745560498343378*^9, 
+  3.745560499137446*^9}},ExpressionUUID->"f7833e1a-04c0-4f86-8f5a-\
+991a2c9de897"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nz", "=", "30"}], ";", 
+  RowBox[{"kpath", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", "nz", "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.71638632165768*^9, 3.716386348684696*^9}, {
+  3.7163864002445173`*^9, 3.716386403247974*^9}, {3.716386463977734*^9, 
+  3.716386467790132*^9}, {3.7163865386028137`*^9, 3.716386547070208*^9}, {
+  3.7163868909552307`*^9, 3.716386893192731*^9}},
+ CellLabel->
+  "In[433]:=",ExpressionUUID->"659a6c1a-e023-4394-8bf9-c465da602ff1"],
+
+Cell[BoxData[
+ RowBox[{"Do", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"z", "=", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"i", "-", "1."}], ")"}], "/", 
+      RowBox[{"(", 
+       RowBox[{"nz", "-", "1"}], ")"}]}]}], ";", 
+    RowBox[{
+     RowBox[{"kpath", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "z"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{".5", ",", 
+           RowBox[{"-", ".5"}], ",", "z"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "0", ",", "z"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{".5", ",", ".5", ",", "z"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "z"}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<\!\(\*OverscriptBox[\(\[CapitalGamma]\), \(_\)]\)\>\"", ",", 
+         "\"\<\!\(\*OverscriptBox[\(X\), SubscriptBox[\(\), \(_\)]]\)\>\"", 
+         ",", "\"\<\!\(\*OverscriptBox[\(M\), \(_\)]\)\>\"", ",", 
+         "\"\<\!\(\*OverscriptBox[\(X\), SubscriptBox[\(\), \(_\)]]\)\>\"", 
+         ",", "\"\<\!\(\*OverscriptBox[\(\[CapitalGamma]\), \(_\)]\)\>\""}], 
+        "}"}]}], "}"}]}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "nz"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.716385586995851*^9, 3.716385607703964*^9}, {
+   3.7163859542992*^9, 3.716386138048489*^9}, {3.7163863114372396`*^9, 
+   3.716386316285099*^9}, {3.716386355279522*^9, 3.716386442141255*^9}, {
+   3.7163864731016417`*^9, 3.716386503623014*^9}, 3.7163867936199017`*^9, 
+   3.7163870082717123`*^9, {3.716387210213105*^9, 3.71638722578796*^9}, 
+   3.716387282370606*^9, {3.716387659037217*^9, 3.7163876882425327`*^9}, 
+   3.7163878927931957`*^9},
+ CellLabel->
+  "In[434]:=",ExpressionUUID->"a904ed1a-982d-433a-8f88-645785057fcf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bands", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", "nz", "}"}]}], "]"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"bands", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "=", 
+     RowBox[{"GTBandStructure", "[", 
+      RowBox[{"pham", ",", 
+       RowBox[{"kpath", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], ",", "30", ",", "20", ",", 
+       RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+       RowBox[{"PlotLabel", "\[Rule]", "\"\<\>\""}], ",", 
+       RowBox[{"FrameLabel", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{"\"\< \>\"", ",", "\"\<Energie (eV)\>\""}], "}"}]}], ",", 
+       RowBox[{"PlotRange", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"0", ",", "2.83"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"-", "12"}], ",", "4"}], "}"}]}], "}"}]}], ",", 
+       RowBox[{"PlotStyle", "\[Rule]", "Black"}]}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "nz"}], "}"}]}], "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.716386638867013*^9, 3.716386768598577*^9}, {
+  3.716386877726425*^9, 3.71638694893771*^9}, {3.716387050190691*^9, 
+  3.716387050695489*^9}, {3.716387961816268*^9, 3.7163879841780376`*^9}},
+ CellLabel->
+  "In[435]:=",ExpressionUUID->"e089236e-2d94-49e7-b8a4-0c7fd0a671fc"],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", "bands", "]"}]], "Input",
+ CellChangeTimes->{{3.716386821706441*^9, 3.7163868375719757`*^9}},
+ CellLabel->
+  "In[436]:=",ExpressionUUID->"337ed3bb-657e-48b1-a8bc-de7ac4734301"],
+
+Cell["This corresponds perfectly to the paper.", "Text",
+ CellChangeTimes->{{3.716388034195031*^9, 
+  3.716388048134243*^9}},ExpressionUUID->"efa408c4-3758-4e79-9b54-\
+54d42e557b7e"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1330, 879},
+WindowMargins->{{7, Automatic}, {Automatic, 88}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"b739224a-b949-4ae4-87ec-9092a5fa675f"],
+Cell[801, 32, 630, 9, 53, "Subtitle",ExpressionUUID->"fdfbf21c-2749-4ad6-ab6e-83a7bc901996"],
+Cell[1434, 43, 250, 7, 83, "Author",ExpressionUUID->"da54990a-a3fa-4336-b01d-96b47511255f"],
+Cell[CellGroupData[{
+Cell[1709, 54, 349, 6, 67, "Section",ExpressionUUID->"fd46a670-d60d-4013-b86b-a50275b1c7d1"],
+Cell[2061, 62, 365, 6, 35, "Text",ExpressionUUID->"69daa47e-3924-4fab-940e-65e44186c086"],
+Cell[2429, 70, 2448, 69, 129, "Text",ExpressionUUID->"a86c6bd0-69ab-4cad-b987-42fa4e53e3b6"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4914, 144, 161, 3, 53, "Section",ExpressionUUID->"418ce435-3632-4f0d-a5c2-6cd64ecd6354"],
+Cell[5078, 149, 225, 4, 30, "Input",ExpressionUUID->"45030501-a365-49fb-9ee9-7a08e7ea91a1"],
+Cell[5306, 155, 322, 8, 30, "Input",ExpressionUUID->"c06de66b-ff2c-48bd-9b9b-9b9717835d10"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[5665, 168, 155, 3, 53, "Section",ExpressionUUID->"f30e073c-6978-434c-a86f-fb68290edf90"],
+Cell[5823, 173, 227, 5, 35, "Text",ExpressionUUID->"d0ed7f89-7204-4e47-b660-73c1f8a3b222"],
+Cell[6053, 180, 270, 6, 30, "Input",ExpressionUUID->"ad929da3-de5a-4510-943d-dc3eb499cdb1"],
+Cell[6326, 188, 203, 3, 35, "Text",ExpressionUUID->"a54186ba-8f5e-4f92-9518-f2669fc9252d"],
+Cell[6532, 193, 562, 18, 30, "Input",ExpressionUUID->"639c573a-65a3-4658-8a6a-c72973813d93"],
+Cell[7097, 213, 236, 6, 35, "Text",ExpressionUUID->"92ded260-8500-4542-ba3d-5770707cb01a"],
+Cell[7336, 221, 326, 9, 30, "Input",ExpressionUUID->"a41c416c-721d-4f87-b058-b802549b3280"],
+Cell[7665, 232, 1116, 31, 73, "Input",ExpressionUUID->"200abaca-f93f-4a87-8c29-1ef816646848"],
+Cell[CellGroupData[{
+Cell[8806, 267, 179, 3, 54, "Subsection",ExpressionUUID->"8e3480fd-e600-46cb-a326-fa5910c80834"],
+Cell[8988, 272, 476, 15, 35, "Text",ExpressionUUID->"18d07b92-e6bf-4a09-87c3-614609e69dae"],
+Cell[9467, 289, 710, 21, 30, "Input",ExpressionUUID->"eb65eb87-726c-4ba7-8a75-af3d02999d97"],
+Cell[10180, 312, 191, 3, 35, "Text",ExpressionUUID->"69fc4afb-93eb-45ac-987f-662d478ccbc0"],
+Cell[10374, 317, 362, 8, 30, "Input",ExpressionUUID->"852b6ac7-4a42-4a68-8d17-d4d38d42572d"],
+Cell[10739, 327, 212, 5, 35, "Text",ExpressionUUID->"f66a0134-cc6a-4099-904a-0f6b05787e62"],
+Cell[10954, 334, 286, 7, 30, "Input",ExpressionUUID->"f7eaec61-205a-4a8b-b860-c4402c9de36e"],
+Cell[11243, 343, 262, 6, 30, "Input",ExpressionUUID->"3215e405-2a60-49e5-bd18-92d9962b2bde"],
+Cell[CellGroupData[{
+Cell[11530, 353, 185, 3, 45, "Subsubsection",ExpressionUUID->"96af1d9d-3b00-462f-b91e-559c10bacfed"],
+Cell[11718, 358, 212, 5, 35, "Text",ExpressionUUID->"c8961b3e-32ff-400e-8ec3-9427b875d8f9"],
+Cell[11933, 365, 400, 10, 30, "Input",ExpressionUUID->"7cbc8948-bcea-4252-b0c2-fb2db87c3467"],
+Cell[12336, 377, 349, 8, 30, "Input",ExpressionUUID->"097d33ce-7b6b-4127-bb8a-e63436e0dd98"],
+Cell[12688, 387, 232, 6, 30, "Input",ExpressionUUID->"f1bd8efa-45e5-4f24-9936-260ee1e1bc17"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12969, 399, 164, 3, 54, "Subsection",ExpressionUUID->"b5ebbfec-bf0c-45d8-975e-550694205a43"],
+Cell[13136, 404, 340, 9, 35, "Text",ExpressionUUID->"4f357ee4-6da9-4188-a9b5-3864c4483f88"],
+Cell[13479, 415, 1476, 42, 52, "Input",ExpressionUUID->"cb76eb53-6eba-4df3-8c70-ca29a59c8ab5"],
+Cell[14958, 459, 970, 23, 73, "Input",ExpressionUUID->"ff73aaee-89e4-4a62-81ea-306bd8c43581"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[15965, 487, 266, 4, 54, "Subsection",ExpressionUUID->"e9801187-2911-4190-876e-ec7669d727c6"],
+Cell[16234, 493, 911, 21, 61, "Text",ExpressionUUID->"f7833e1a-04c0-4f86-8f5a-991a2c9de897"],
+Cell[17148, 516, 538, 12, 30, "Input",ExpressionUUID->"659a6c1a-e023-4394-8bf9-c465da602ff1"],
+Cell[17689, 530, 1907, 46, 70, "Input",ExpressionUUID->"a904ed1a-982d-433a-8f88-645785057fcf"],
+Cell[19599, 578, 1400, 35, 73, "Input",ExpressionUUID->"e089236e-2d94-49e7-b8a4-0c7fd0a671fc"],
+Cell[21002, 615, 212, 4, 30, "Input",ExpressionUUID->"337ed3bb-657e-48b1-a8bc-de7ac4734301"],
+Cell[21217, 621, 182, 3, 35, "Text",ExpressionUUID->"efa408c4-3758-4e79-9b54-54d42e557b7e"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

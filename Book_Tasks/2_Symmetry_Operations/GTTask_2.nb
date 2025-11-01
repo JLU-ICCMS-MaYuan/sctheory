@@ -1,0 +1,507 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     18911,        499]
+NotebookOptionsPosition[     15165,        440]
+NotebookOutlinePosition[     15601,        457]
+CellTagsIndexPosition[     15558,        454]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"9c3f7efd-5776-4fe9-a931-\
+2809fa5d7bfb"],
+
+Cell["Task_2: Binary rotation", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+  3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+  3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, {
+  3.698228355707979*^9, 
+  3.698228357328171*^9}},ExpressionUUID->"a1b4549c-3af7-4b14-97ba-\
+36f42be51076"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"8cb86756-2e93-4f0b-ac2e-\
+4d71f0209088"],
+
+Cell[CellGroupData[{
+
+Cell["Task 2", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 
+  3.6357861563109913`*^9}},ExpressionUUID->"0bbd8e99-1d24-470e-85e9-\
+4620ba90cc0e"],
+
+Cell["see: Chapter 2, section 2.1.3, p. 20.", "Text",
+ CellChangeTimes->{{3.7454683056321507`*^9, 3.745468322804677*^9}, {
+  3.745468368847745*^9, 
+  3.745468414310545*^9}},ExpressionUUID->"1b97192f-a1c8-4a5b-b2e7-\
+9ce85e536dfa"],
+
+Cell[TextData[{
+ "The matrix \n\nR= ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    RowBox[{GridBox[{
+       {
+        RowBox[{"cos", " ", "\[Phi]"}], 
+        RowBox[{"sin", " ", "\[Phi]"}]},
+       {
+        RowBox[{"sin", " ", "\[Phi]"}], 
+        RowBox[{
+         RowBox[{"-", "cos"}], " ", "\[Phi]"}]},
+       {"0", "0"}
+      }], GridBox[{
+       {"0"},
+       {"0"},
+       {
+        RowBox[{"-", "1"}]}
+      }]}], ")"}], TraditionalForm]],ExpressionUUID->
+  "331f314c-838c-431c-8350-66eae12c5f7e"],
+ "\n\ndefines a binary rotation. Find the rotation axis and proof that R \
+describes a rotation of \[Pi] around that axis. ( The rotation axis is given \
+by the eigenvector with eigenvalue +1.)"
+}], "Text",
+ CellChangeTimes->{{3.5656816415621853`*^9, 3.565681860239293*^9}, {
+   3.635786170800764*^9, 3.635786173860598*^9}, {3.712030559339693*^9, 
+   3.712030575250453*^9}, 3.7120368247611017`*^9, {3.745468417421319*^9, 
+   3.745468479499941*^9}, {3.747469201770287*^9, 
+   3.747469202253458*^9}},ExpressionUUID->"590ab4e5-6a07-44af-ba4b-\
+dcc13965deb5"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 
+  3.5656818754713144`*^9}},ExpressionUUID->"3e493abb-4e8a-43ce-af7d-\
+063ef5e3bb3a"],
+
+Cell["Definition of the matrix:", "Text",
+ CellChangeTimes->{{3.5656818798913207`*^9, 
+  3.5656818869633307`*^9}},ExpressionUUID->"a844722d-3044-48a2-a93d-\
+22879afde35f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"matrix", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Cos", "[", "\[Phi]", "]"}], ",", 
+       RowBox[{"Sin", "[", "\[Phi]", "]"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Sin", "[", "\[Phi]", "]"}], ",", 
+       RowBox[{"-", 
+        RowBox[{"Cos", "[", "\[Phi]", "]"}]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       RowBox[{"-", "1"}]}], "}"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.565681889253334*^9, 3.5656819493414183`*^9}, {
+  3.635786193501388*^9, 3.635786195193049*^9}, {3.7119864704426403`*^9, 
+  3.711986499343966*^9}, {3.711986899400642*^9, 3.71198690385325*^9}, {
+  3.7119871332923107`*^9, 3.7119871624958553`*^9}},
+ CellLabel->"In[61]:=",ExpressionUUID->"476d9b33-6540-4f03-b4d3-65e05f2564b9"],
+
+Cell[CellGroupData[{
+
+Cell["Special example", "Subsection",
+ CellChangeTimes->{{3.712031085071807*^9, 
+  3.7120310888317137`*^9}},ExpressionUUID->"2abcb4a6-b36e-40ff-820f-\
+407da218f3e6"],
+
+Cell["\<\
+We start with a simple example, assuming a specific value of \[Phi].\
+\>", "Text",
+ CellChangeTimes->{{3.712030605697898*^9, 3.7120306433531723`*^9}, {
+  3.747469220148798*^9, 
+  3.747469232967246*^9}},ExpressionUUID->"00a5faf9-654e-4ca4-9912-\
+2db01622ae75"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Phi]", "=", 
+   RowBox[{"\[Pi]", "/", "3"}]}], ";", 
+  RowBox[{"matrix", "//", "MatrixForm"}]}]], "Input",
+ CellChangeTimes->{{3.711985338396069*^9, 3.7119853441930647`*^9}, {
+  3.712030648897843*^9, 3.712030654190268*^9}},
+ CellLabel->"In[62]:=",ExpressionUUID->"c853aa12-d47b-48ce-9f19-51c1c7053569"],
+
+Cell[BoxData[
+ RowBox[{"Det", "[", "matrix", "]"}]], "Input",
+ CellChangeTimes->{{3.71198334448878*^9, 3.711983366104089*^9}, 
+   3.712030675004771*^9},
+ CellLabel->"In[63]:=",ExpressionUUID->"6b3a0ae8-902b-42ab-b23e-06811a4b76ef"],
+
+Cell["\<\
+The determinant of the matrix is +1, i.e. it is a proper rotation. The \
+eigenvector to the eigenvalue +1 defines the rotation axis.\
+\>", "Text",
+ CellChangeTimes->{{3.712030684480897*^9, 
+  3.712030737496278*^9}},ExpressionUUID->"80264ed9-862b-463e-b029-\
+967921a6ce58"],
+
+Cell[BoxData[
+ RowBox[{"es", "=", 
+  RowBox[{"Eigensystem", "[", "matrix", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7120307403485937`*^9, 3.712030754831582*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"b69c280d-5d0c-404d-a2ce-de5b5e8d2a3b"],
+
+Cell["The unit vector defining the rotation axis is given by", "Text",
+ CellChangeTimes->{{3.7120307502627687`*^9, 3.712030762086611*^9}, {
+  3.712031250870283*^9, 3.712031263036373*^9}, {3.712036538606018*^9, 
+  3.712036568107831*^9}, {3.747469266771078*^9, 
+  3.747469272362893*^9}},ExpressionUUID->"1fcddab2-3bff-42fa-b217-\
+4d56e8fa55a7"],
+
+Cell[BoxData[
+ RowBox[{"axis", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"es", "[", 
+    RowBox[{"[", 
+     RowBox[{"2", ",", " ", "3"}], "]"}], "]"}], "/", 
+   RowBox[{"Norm", "[", 
+    RowBox[{"es", "[", 
+     RowBox[{"[", 
+      RowBox[{"2", ",", " ", "3"}], "]"}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.71203654922336*^9, 3.712036549224964*^9}},
+ CellLabel->"In[65]:=",ExpressionUUID->"a727db6c-ef68-48f0-9dc4-1f701749de5a"],
+
+Cell[TextData[{
+ "Rotation matrices can be constructed in ",
+ StyleBox["Mathematica, ",
+  FontSlant->"Italic"],
+ " if the axis and the rotation angle are known. The corresponding command is \
+",
+ StyleBox["RotationMatrix",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.712030772695157*^9, 3.712030856951026*^9}, {
+  3.747469286797585*^9, 
+  3.747469292013886*^9}},ExpressionUUID->"d34393d5-b5d6-4bf6-86d6-\
+f505480bb4ec"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rotmat", "=", 
+   RowBox[{"RotationMatrix", "[", 
+    RowBox[{"\[Pi]", ",", "axis"}], "]"}]}], ";", 
+  RowBox[{"rotmat", "//", "MatrixForm"}]}]], "Input",
+ CellChangeTimes->{{3.711985894170042*^9, 3.711985899570732*^9}, {
+  3.711986722683302*^9, 3.711986722883129*^9}, {3.711986839820331*^9, 
+  3.711986891186034*^9}, {3.712030976565063*^9, 3.712031016633298*^9}},
+ CellLabel->"In[66]:=",ExpressionUUID->"ff1cc325-9a7d-4893-8124-36768aab5d00"],
+
+Cell[TextData[{
+ "We get the same rotation matrix. This proves that ",
+ Cell[BoxData[
+  RowBox[{"{", 
+   RowBox[{
+    FractionBox[
+     SqrtBox["3"], "2"], ",", 
+    FractionBox["1", "2"], ",", "0"}], "}"}]], "Output",
+  CellChangeTimes->{
+   3.712030763259322*^9, {3.712031264431944*^9, 3.712031271493105*^9}, {
+    3.712036463542734*^9, 3.712036473938489*^9}, 3.712036520099546*^9, 
+    3.712036571231492*^9, 3.747469274080759*^9},ExpressionUUID->
+  "4c733aa4-8fd8-4416-b4ab-aa139a854d3e"],
+ " is the correct rotation axis. The matrix describes a \[Pi]-rotation about ",
+ Cell[BoxData[
+  RowBox[{"{", 
+   RowBox[{
+    FractionBox[
+     SqrtBox["3"], "2"], ",", 
+    FractionBox["1", "2"], ",", "0"}], "}"}]], "Output",
+  CellChangeTimes->{
+   3.712030763259322*^9, {3.712031264431944*^9, 3.712031271493105*^9}, {
+    3.712036463542734*^9, 3.712036473938489*^9}, 3.712036520099546*^9, 
+    3.712036571231492*^9, 3.747469274080759*^9},ExpressionUUID->
+  "1fc62c13-fa47-4263-a613-0e9988d086a8"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.712031029505777*^9, 3.712031073744122*^9}, {
+  3.7474693078952713`*^9, 
+  3.747469327899385*^9}},ExpressionUUID->"e4db1887-f534-40ab-b291-\
+8c39e318ccdf"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["General solution", "Subsection",
+ CellChangeTimes->{{3.712031103943441*^9, 
+  3.712031108087232*^9}},ExpressionUUID->"e478f35d-32a7-4179-9304-\
+bcd530ba5d27"],
+
+Cell["\<\
+Now we want to find a general solution, where the rotational axis depends on \
+the angle \[Phi].\
+\>", "Text",
+ CellChangeTimes->{{3.71203111372717*^9, 3.7120311395746937`*^9}, {
+  3.747469345368081*^9, 
+  3.747469351776079*^9}},ExpressionUUID->"f8eb7ee2-24b8-400b-9cdf-\
+45aaa978b4f0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Clear", "[", "\[Phi]", "]"}], ";", 
+  RowBox[{"matrix", "//", "MatrixForm"}]}]], "Input",
+ CellChangeTimes->{{3.711985931212633*^9, 3.7119859382826633`*^9}, {
+  3.712031150542605*^9, 3.712031166598077*^9}},
+ CellLabel->"In[67]:=",ExpressionUUID->"802bc3ae-9c6d-49b0-832f-17d902134936"],
+
+Cell["Find the axis of rotation", "Text",
+ CellChangeTimes->{{3.712036609627043*^9, 
+  3.712036614251017*^9}},ExpressionUUID->"f224427e-5f78-4a07-8f55-\
+0eec89ae474a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"es", "=", 
+   RowBox[{"Eigensystem", "[", "matrix", "]"}]}], ";", 
+  RowBox[{"axis", "=", 
+   RowBox[{
+    RowBox[{"es", "[", 
+     RowBox[{"[", 
+      RowBox[{"2", ",", "3"}], "]"}], "]"}], "/", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"es", "[", 
+      RowBox[{"[", 
+       RowBox[{"2", ",", "3"}], "]"}], "]"}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.712031194526391*^9, 3.7120311953381863`*^9}, 
+   3.71203128950602*^9, 3.7120323121850224`*^9, {3.712032390795126*^9, 
+   3.71203239535012*^9}},
+ CellLabel->"In[68]:=",ExpressionUUID->"64fb7124-e7f9-498c-b2e2-1353e6139461"],
+
+Cell[BoxData[
+ RowBox[{"axis", "=", 
+  RowBox[{"axis", " ", "/.", " ", 
+   RowBox[{
+    RowBox[{"Abs", "[", 
+     RowBox[{
+      RowBox[{"Cot", "[", "\[Phi]", "]"}], "+", 
+      RowBox[{"Csc", "[", "\[Phi]", "]"}]}], "]"}], "\[Rule]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"Cot", "[", "\[Phi]", "]"}], "+", 
+      RowBox[{"Csc", "[", "\[Phi]", "]"}]}], ")"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.712032419892612*^9, 3.7120324548850718`*^9}},
+ CellLabel->"In[69]:=",ExpressionUUID->"75ca272b-08ae-4cbd-8723-8d3b3592d23f"],
+
+Cell["\<\
+Now, equation (2.25) in section 2.1.3  can be used to express the rotation \
+matrix.\
+\>", "Text",
+ CellChangeTimes->{{3.7120312346296253`*^9, 3.712031235061883*^9}, {
+  3.712031344811713*^9, 3.7120313715378*^9}, {3.712031571319779*^9, 
+  3.712031576389811*^9}},ExpressionUUID->"1e2c9801-15ad-456a-9517-\
+3131e9ae8acd"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"m", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "-", 
+        RowBox[{"2", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"ny", "^", "2"}], "+", 
+           RowBox[{"nz", "^", "2"}]}], ")"}], "c"}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "nx"}], " ", "s"}], "+", 
+        RowBox[{"2", "nx", " ", "ny", " ", "c"}]}], ",", 
+       RowBox[{
+        RowBox[{"ny", " ", "s"}], "+", 
+        RowBox[{"2", "nz", " ", "nx", " ", "c"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"nx", " ", "s"}], "+", 
+        RowBox[{"2", " ", "nx", " ", "ny", " ", "c"}]}], " ", ",", 
+       RowBox[{"1", "-", 
+        RowBox[{"2", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"nz", "^", "2"}], "+", 
+           RowBox[{"nx", "^", "2"}]}], ")"}], "c"}]}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "nx"}], " ", "s"}], " ", "+", 
+        RowBox[{"2", " ", "ny", " ", "nz", " ", "c"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", "ny"}], " ", "s"}], "+", 
+        RowBox[{"2", " ", "nz", " ", "nx", " ", "c"}]}], ",", 
+       RowBox[{
+        RowBox[{"nx", " ", "s"}], "+", 
+        RowBox[{"2", " ", "ny", " ", "nz", " ", "c"}]}], ",", 
+       RowBox[{"1", "-", 
+        RowBox[{"2", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"nx", "^", "2"}], "+", 
+           RowBox[{"ny", "^", "2"}]}], ")"}], "c"}]}]}], "}"}]}], "}"}]}], 
+  ";", 
+  RowBox[{"m", "//", "MatrixForm"}]}]], "Input",
+ CellChangeTimes->{{3.711987329457975*^9, 3.711987347719305*^9}, {
+  3.711987640675416*^9, 3.71198780438026*^9}, {3.712031645110236*^9, 
+  3.712031658468685*^9}, {3.7120317075806017`*^9, 3.7120318130090513`*^9}},
+ CellLabel->"In[70]:=",ExpressionUUID->"acf7475c-ed8c-415c-af58-cfd9ffece393"],
+
+Cell[BoxData[
+ RowBox[{"With", " "}]], "Input",
+ CellChangeTimes->{{3.712031828433835*^9, 3.712031833472616*^9}},
+ CellLabel->"In[71]:=",ExpressionUUID->"15651735-d88e-44eb-b573-b9eb913efff5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"\[Alpha]", "=", "\[Pi]"}], ";", 
+  RowBox[{"c", "=", 
+   RowBox[{
+    RowBox[{"Sin", "[", 
+     RowBox[{"\[Alpha]", "/", "2"}], "]"}], "^", "2"}]}], ";", 
+  RowBox[{"s", "=", 
+   RowBox[{"Sin", "[", "\[Alpha]", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.712031842673924*^9, 3.712031865336986*^9}, 
+   3.712031945089972*^9},
+ CellLabel->"In[72]:=",ExpressionUUID->"cb05f792-e62e-47d9-b6dd-b3117eabcde3"],
+
+Cell["and", "Text",
+ CellChangeTimes->{{3.712031869237677*^9, 3.712031870765174*^9}, 
+   3.7120320713121*^9, {3.712036668643062*^9, 
+   3.712036671641971*^9}},ExpressionUUID->"6c6edf3b-2b42-4e21-93f7-\
+d49396f56ba6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"nx", ",", "ny", ",", "nz"}], "}"}], "=", "axis"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.7120366857168913`*^9, 3.7120367179130707`*^9}},
+ CellLabel->"In[73]:=",ExpressionUUID->"22d067c3-0959-4b12-ba12-f0ab0de9b0d0"],
+
+Cell["we get", "Text",
+ CellChangeTimes->{{3.712036701826065*^9, 
+  3.712036703201358*^9}},ExpressionUUID->"7861d166-580f-4968-9aee-\
+b55ce8733c61"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"m", "//", "FullSimplify"}], "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.711987764630393*^9, 3.711987768477331*^9}, {
+  3.7119878154367237`*^9, 3.7119878322885227`*^9}, {3.7120319235117064`*^9, 
+  3.712031924727148*^9}, {3.712032057532693*^9, 3.712032060844013*^9}, {
+  3.712036707433826*^9, 3.7120367122419577`*^9}},
+ CellLabel->"In[74]:=",ExpressionUUID->"f296d070-bf1e-42f1-a0b0-fcb0b297c17f"],
+
+Cell["\<\
+Thus, we get back to the matrix we started with. This proves, that the found \
+eigenvector with eigenvalue 1 describes the rotation axis and the rotation \
+angle is \[Pi].\
+\>", "Text",
+ CellChangeTimes->{{3.712036739905306*^9, 3.712036809119103*^9}, {
+  3.7474693894602137`*^9, 
+  3.7474694226948137`*^9}},ExpressionUUID->"7234f5ce-cc49-4a9b-bf1e-\
+eca51d5fd2fb"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{2560, 1364},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"9c3f7efd-5776-4fe9-a931-2809fa5d7bfb"],
+Cell[801, 32, 367, 6, 53, "Subtitle",ExpressionUUID->"a1b4549c-3af7-4b14-97ba-36f42be51076"],
+Cell[1171, 40, 250, 7, 83, "Author",ExpressionUUID->"8cb86756-2e93-4f0b-ac2e-4d71f0209088"],
+Cell[CellGroupData[{
+Cell[1446, 51, 153, 3, 67, "Section",ExpressionUUID->"0bbd8e99-1d24-470e-85e9-4620ba90cc0e"],
+Cell[1602, 56, 230, 4, 35, "Text",ExpressionUUID->"1b97192f-a1c8-4a5b-b2e7-9ce85e536dfa"],
+Cell[1835, 62, 1066, 30, 165, "Text",ExpressionUUID->"590ab4e5-6a07-44af-ba4b-dcc13965deb5"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2938, 97, 155, 3, 53, "Section",ExpressionUUID->"3e493abb-4e8a-43ce-af7d-063ef5e3bb3a"],
+Cell[3096, 102, 171, 3, 35, "Text",ExpressionUUID->"a844722d-3044-48a2-a93d-22879afde35f"],
+Cell[3270, 107, 872, 21, 30, "Input",ExpressionUUID->"476d9b33-6540-4f03-b4d3-65e05f2564b9"],
+Cell[CellGroupData[{
+Cell[4167, 132, 165, 3, 54, "Subsection",ExpressionUUID->"2abcb4a6-b36e-40ff-820f-407da218f3e6"],
+Cell[4335, 137, 269, 6, 35, "Text",ExpressionUUID->"00a5faf9-654e-4ca4-9912-2db01622ae75"],
+Cell[4607, 145, 339, 7, 30, "Input",ExpressionUUID->"c853aa12-d47b-48ce-9f19-51c1c7053569"],
+Cell[4949, 154, 231, 4, 30, "Input",ExpressionUUID->"6b3a0ae8-902b-42ab-b23e-06811a4b76ef"],
+Cell[5183, 160, 282, 6, 35, "Text",ExpressionUUID->"80264ed9-862b-463e-b029-967921a6ce58"],
+Cell[5468, 168, 240, 4, 30, "Input",ExpressionUUID->"b69c280d-5d0c-404d-a2ce-de5b5e8d2a3b"],
+Cell[5711, 174, 342, 5, 35, "Text",ExpressionUUID->"1fcddab2-3bff-42fa-b217-4d56e8fa55a7"],
+Cell[6056, 181, 436, 11, 30, "Input",ExpressionUUID->"a727db6c-ef68-48f0-9dc4-1f701749de5a"],
+Cell[6495, 194, 431, 12, 35, "Text",ExpressionUUID->"d34393d5-b5d6-4bf6-86d6-f505480bb4ec"],
+Cell[6929, 208, 478, 9, 30, "Input",ExpressionUUID->"ff1cc325-9a7d-4893-8124-36768aab5d00"],
+Cell[7410, 219, 1188, 30, 41, "Text",ExpressionUUID->"e4db1887-f534-40ab-b291-8c39e318ccdf"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8635, 254, 164, 3, 54, "Subsection",ExpressionUUID->"e478f35d-32a7-4179-9304-bcd530ba5d27"],
+Cell[8802, 259, 296, 7, 35, "Text",ExpressionUUID->"f8eb7ee2-24b8-400b-9cdf-45aaa978b4f0"],
+Cell[9101, 268, 320, 6, 30, "Input",ExpressionUUID->"802bc3ae-9c6d-49b0-832f-17d902134936"],
+Cell[9424, 276, 167, 3, 35, "Text",ExpressionUUID->"f224427e-5f78-4a07-8f55-0eec89ae474a"],
+Cell[9594, 281, 616, 16, 30, "Input",ExpressionUUID->"64fb7124-e7f9-498c-b2e2-1353e6139461"],
+Cell[10213, 299, 531, 13, 30, "Input",ExpressionUUID->"75ca272b-08ae-4cbd-8723-8d3b3592d23f"],
+Cell[10747, 314, 329, 7, 35, "Text",ExpressionUUID->"1e2c9801-15ad-456a-9517-3131e9ae8acd"],
+Cell[11079, 323, 1929, 55, 30, "Input",ExpressionUUID->"acf7475c-ed8c-415c-af58-cfd9ffece393"],
+Cell[13011, 380, 192, 3, 30, "Input",ExpressionUUID->"15651735-d88e-44eb-b573-b9eb913efff5"],
+Cell[13206, 385, 442, 11, 30, "Input",ExpressionUUID->"cb05f792-e62e-47d9-b6dd-b3117eabcde3"],
+Cell[13651, 398, 216, 4, 35, "Text",ExpressionUUID->"6c6edf3b-2b42-4e21-93f7-d49396f56ba6"],
+Cell[13870, 404, 284, 7, 30, "Input",ExpressionUUID->"22d067c3-0959-4b12-ba12-f0ab0de9b0d0"],
+Cell[14157, 413, 148, 3, 35, "Text",ExpressionUUID->"7861d166-580f-4968-9aee-b55ce8733c61"],
+Cell[14308, 418, 440, 7, 30, "Input",ExpressionUUID->"f296d070-bf1e-42f1-a0b0-fcb0b297c17f"],
+Cell[14751, 427, 374, 8, 35, "Text",ExpressionUUID->"7234f5ce-cc49-4a9b-bf1e-eca51d5fd2fb"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

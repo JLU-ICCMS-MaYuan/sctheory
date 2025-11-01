@@ -1,0 +1,631 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     23169,        621]
+NotebookOptionsPosition[     17649,        510]
+NotebookOutlinePosition[     19161,        548]
+CellTagsIndexPosition[     19118,        545]
+WindowTitle->Lattice
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY GUIDE", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "ebeaed16-673e-4f52-af60-d733ed24c3e2"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "6d17564b-b440-4cb7-8412-17df26d8b7a9"],
+        Background->RGBColor[0.85098, 0.396078, 0],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Functions",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "9a30f7da-5ecc-431a-9e24-0d40f15113cf"]
+         }],ExpressionUUID->"74252659-3e19-493d-8aad-426521dec561"],
+         StripOnInput->False], {"\<\"GTAdjacencyMatrix\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTAdjacencyMatrix"], "\<\"GTBZLines\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBZLines"], "\<\"GTBZMPBPointMesh\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBZMPBPointMesh"], "\<\"GTBZPath\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBZPath"], "\<\"GTBZPointMesh\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBZPointMesh"], "\<\"GTCluster\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCluster"], "\<\"GTGroupGlp\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTGroupGlp"], "\<\"GTGroupOfK\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTGroupOfK"], "\<\"GTLatCluster\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTLatCluster"], "\<\"GTLatShells\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTLatShells"], "\<\"GTReciprocalBasis\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTReciprocalBasis"], "\<\"GTShells\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTShells"], "\<\"GTShellVectorsQlp\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTShellVectorsQlp"], "\<\"GTStarOfK\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTStarOfK"], "\<\"GTTransformToQlp\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTTransformToQlp"], "\<\"GTVoronoiCell\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/GTVoronoiCell"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"GuideFunction"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "2f65ee9d-ee23-4812-bf0b-040d11aef0eb"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "b4db0ae0-0768-4248-9317-22da668961b6"]
+         }],ExpressionUUID->"de79c4ea-3fa7-4f53-9303-c20c5f4aec79"],
+         StripOnInput->False], {"\<\"GroupTheory/guide/Lattice\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/guide/Lattice"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/guide/\
+Lattice.html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]}, 
+             Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$26086], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/guide/Lattice" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "6d07e232-328f-4d8f-8c8f-a06bb105674a"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "d7391fe9-4875-44ef-995e-8cd63d42a954"]}
+  }]], "AnchorBarGrid",
+ GridBoxOptions->{GridBoxItemSize->{"Columns" -> {
+     Scaled[0.65], {
+      Scaled[0.34]}}, "ColumnsIndexed" -> {}, "Rows" -> {{1.}}, 
+   "RowsIndexed" -> {}}},
+ CellID->1,ExpressionUUID->"9a8716d0-675e-4a3c-bba9-b44242695040"],
+
+Cell[CellGroupData[{
+
+Cell["Lattice", "GuideTitle",
+ CellID->942062912,ExpressionUUID->"0a15b3c3-aee8-4cbe-a915-a4c3c27aa02e"],
+
+Cell["\[NonBreakingSpace]", "GuideAbstract",
+ CellID->926106433,ExpressionUUID->"1858df99-34d0-482c-9fab-41bd04cbc628"],
+
+Cell["\t", "GuideDelimiterSubsection",ExpressionUUID->"9605ca3b-749c-4ab2-9e45-f2806ac49c0e"],
+
+Cell[CellGroupData[{
+
+Cell["Cluster construction and analysis", "GuideFunctionsSubsection",
+ CellID->354744695,ExpressionUUID->"3d791879-3301-484a-bc75-1b516ba6de56"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTAdjacencyMatrix"]], 
+    "paclet:GroupTheory/ref/GTAdjacencyMatrix", "GroupTheory Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "ab4db96f-2ab7-49aa-881d-e299d67c650c"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " constructs an adjacency matrix for a cluster."
+}], "GuideText",
+ CellID->181268896,ExpressionUUID->"b88d620e-9634-4bc8-9659-820953466aa1"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCluster"]], "paclet:GroupTheory/ref/GTCluster", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "561c6026-8bd7-4eae-b134-85667af9aae8"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " ",
+ "constructs a spherical cluster."
+}], "GuideText",
+ CellID->152356061,ExpressionUUID->"823a3596-a837-472a-a180-487f398d1b0e"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTShells"]], "paclet:GroupTheory/ref/GTShells", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "118b9f8c-bf46-436e-9b8e-816a0a2d8071"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives a cluster reordered into shells."
+}], "GuideText",
+ CellID->123797654,ExpressionUUID->"76bde373-50d8-4102-abb9-2ce833b1cd61"],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->474561112,ExpressionUUID->"369a1d00-990e-420b-be77-4ee0dbd8bd92"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Lattices in Real Space or Reciprocal Space", "GuideFunctionsSubsection",
+ CellID->593282144,ExpressionUUID->"00132698-2df5-4319-a78c-9480ac6fe789"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTLatCluster"]], "paclet:GroupTheory/ref/GTLatCluster", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "10912b78-5afc-4e72-8e29-0dd66973a6bb"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " constructs a spherical cluster of lattice points."
+}], "GuideText",
+ CellID->469974569,ExpressionUUID->"a0e9af61-b2fa-4db1-b968-a95ef27ef940"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTLatShells"]], "paclet:GroupTheory/ref/GTLatShells", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "24cc9d6b-e569-4a78-b152-9a6b1d6c9346"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " reorders a ",
+ "cluster",
+ " of lattice points in shells."
+}], "GuideText",
+ CellID->135667327,ExpressionUUID->"24a37561-9ac3-4e00-911b-a8209052f778"],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->141359235,ExpressionUUID->"5a780790-d974-43a4-b74a-b99cc421b2ce"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Symmetry Analysis of Real Structure Clusters", \
+"GuideFunctionsSubsection"]], "GuideFunctionsSubsection",
+ CellID->885469154,ExpressionUUID->"7b12b4f9-24b7-4906-84f7-02339fdcd2a8"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTGroupGlp"]], "paclet:GroupTheory/ref/GTGroupGlp", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "5e67e7c8-76fd-46d9-b35c-219152490ae8"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives the groups \[ScriptCapitalG]",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox["", "p", "l"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"4787b1dc-0985-4cd4-9668-d5a1fee07cbc"],
+ " of point group, leaving the ",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox["Q", "p", "l"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"c2d2417c-5a0e-4862-87fa-704bde92aa24"],
+ " invariant."
+}], "GuideText",
+ CellID->83793945,ExpressionUUID->"b48b97d7-9a58-4606-879d-f651c874ec38"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTShellVectorsQlp"]], 
+    "paclet:GroupTheory/ref/GTShellVectorsQlp", "GroupTheory Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "4e2cce9c-4c18-44f0-9556-0abca526c795"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives the vectors ",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox["Q", "p", "l"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"8bfc41dc-46bd-4a0a-9980-bcda5b3a8d54"],
+ " for the shells."
+}], "GuideText",
+ CellID->909415217,ExpressionUUID->"722f8332-9c6d-40e4-94bb-d7d127cbe0ad"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTTransformToQlp"]], "paclet:GroupTheory/ref/GTTransformToQlp",
+     "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "9230c910-6f7d-4c73-985a-a39a0d84b48c"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives the operations of point group transforming the shell vectors to ",
+ Cell[BoxData[
+  FormBox["qvec", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "508878d5-157d-4d58-b319-0a8641e582fa"],
+ "."
+}], "GuideText",
+ CellID->1045376902,ExpressionUUID->"0a0f8f32-afc7-4a04-b9c9-cea60865422a"],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->326598028,ExpressionUUID->"7e251df6-fa40-403b-8718-fc9786b2f424"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Reciprocal Lattice", "GuideFunctionsSubsection"]], \
+"GuideFunctionsSubsection",
+ CellID->190619489,ExpressionUUID->"4846a767-a69f-434c-b777-7b6df698a028"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTReciprocalBasis"]], 
+    "paclet:GroupTheory/ref/GTReciprocalBasis", "GroupTheory Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "891a7c7e-22a1-4e5b-9dd9-4c129516b78e"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives the reciprocal lattice vectors from a given list of ",
+ "lattice vectors",
+ "."
+}], "GuideText",
+ CellID->135700631,ExpressionUUID->"58da932d-dba1-454c-b0da-4730d77d9fd4"],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->278347924,ExpressionUUID->"129c6555-3fd0-4d54-a005-3dfdadb615dc"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Brillouin Zones", "GuideFunctionsSubsection"]], \
+"GuideFunctionsSubsection",
+ CellID->739614307,ExpressionUUID->"e0e82e4b-fd11-4b7f-93fe-5e456afff599"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBZLines"]], "paclet:GroupTheory/ref/GTBZLines", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "651d01ad-4e3f-40d5-9c36-95b9df8ffa58"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " generates ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "-points along a set of lines defined in the Brillouin zone."
+}], "GuideText",
+ CellID->156183095,ExpressionUUID->"d4738186-248b-4655-8814-5e363928e258"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBZPath"]], "paclet:GroupTheory/ref/GTBZPath", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "5c0fcce8-1237-481d-8b42-9faf01330623"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " generates a standard path in the Brillouin zone",
+ StyleBox[".", "TI",
+  FontSlant->"Italic"]
+}], "GuideText",
+ CellID->1463276848,ExpressionUUID->"38c98186-4a7d-4a1d-bd48-fddeb8580e71"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBZPointMesh"]], "paclet:GroupTheory/ref/GTBZPointMesh", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "4286e1aa-1263-41be-923a-4f2763e098df"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives a ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "-point mesh in the irreducible part of the Brillouin zone."
+}], "GuideText",
+ CellID->203374175,ExpressionUUID->"7e0ec8d6-93cb-471a-91d7-9d252d98edcc"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBZMPBPointMesh"]], "paclet:GroupTheory/ref/GTBZMPBPointMesh",
+     "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "7ad4d68f-1859-4e56-b7d3-70e17de5bb7b"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " ",
+ "exports a ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "-mesh for use in MPB input files."
+}], "GuideText",
+ CellID->1370430996,ExpressionUUID->"4fc3e9d8-022e-457e-aa42-309f3769b03c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTGroupOfK"]], "paclet:GroupTheory/ref/GTGroupOfK", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "86ab1d7c-9eb6-444b-9011-5a6f9041be04"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives the group of the wave-vector ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "."
+}], "GuideText",
+ CellID->412698995,ExpressionUUID->"8d9cb98e-964b-4695-8322-49049091d7e2"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTStarOfK"]], "paclet:GroupTheory/ref/GTStarOfK", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "798abe2e-2801-4722-a03c-c8add7cbbaee"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives the star of the wave-vector ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "."
+}], "GuideText",
+ CellID->5473371,ExpressionUUID->"dafbde45-d00f-4792-910c-87ef88ca44c3"],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->1121308680,ExpressionUUID->"117fdf91-efb4-446b-9bc7-db9dd1ba8fc2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Brillouin zones and Wigner-Seitz zones", "GuideFunctionsSubsection",
+ CellID->204500857,ExpressionUUID->"bfe9ea83-95b0-4463-aea8-180ec181fdea"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTVoronoiCell"]], "paclet:GroupTheory/ref/GTVoronoiCell", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "7db46bd1-e105-4cf7-87b6-80afea670bec"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " ",
+ "constructs a Voronoi cell to a lattice",
+ "."
+}], "GuideText",
+ CellID->9988911,ExpressionUUID->"854aefc5-367e-4465-9b52-da0ab5154d16"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell",ExpressionUUID->"8d943e50-dc09-4ddf-a344-bdf485a10295"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{55.5, Automatic}, {Automatic, 20.25}},
+WindowTitle->"Lattice",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {"1988", ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 50, 27.272419}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Guide", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> "", "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$26041, "title" -> 
+    "Lattice", "titlemodifier" -> "", "metadescription" -> "", "windowtitle" -> 
+    "Lattice", "type" -> "Guide", "uri" -> "GroupTheory/guide/Lattice"}},
+CacheGraphics->False,
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"147d0d4e-c224-423c-97e3-444587231760"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[579, 21, 5942, 133, 70, "AnchorBarGrid",ExpressionUUID->"9a8716d0-675e-4a3c-bba9-b44242695040",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[6546, 158, 104, 1, 70, "GuideTitle",ExpressionUUID->"0a15b3c3-aee8-4cbe-a915-a4c3c27aa02e",
+ CellID->942062912],
+Cell[6653, 161, 119, 1, 70, "GuideAbstract",ExpressionUUID->"1858df99-34d0-482c-9fab-41bd04cbc628",
+ CellID->926106433],
+Cell[6775, 164, 93, 0, 70, "GuideDelimiterSubsection",ExpressionUUID->"9605ca3b-749c-4ab2-9e45-f2806ac49c0e"],
+Cell[CellGroupData[{
+Cell[6893, 168, 144, 1, 70, "GuideFunctionsSubsection",ExpressionUUID->"3d791879-3301-484a-bc75-1b516ba6de56",
+ CellID->354744695],
+Cell[7040, 171, 503, 14, 70, "GuideText",ExpressionUUID->"b88d620e-9634-4bc8-9659-820953466aa1",
+ CellID->181268896],
+Cell[7546, 187, 474, 14, 70, "GuideText",ExpressionUUID->"823a3596-a837-472a-a180-487f398d1b0e",
+ CellID->152356061],
+Cell[8023, 203, 474, 13, 70, "GuideText",ExpressionUUID->"76bde373-50d8-4102-abb9-2ce833b1cd61",
+ CellID->123797654],
+Cell[8500, 218, 113, 1, 70, "GuideDelimiterSubsection",ExpressionUUID->"369a1d00-990e-420b-be77-4ee0dbd8bd92",
+ CellID->474561112]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8650, 224, 153, 1, 70, "GuideFunctionsSubsection",ExpressionUUID->"00132698-2df5-4319-a78c-9480ac6fe789",
+ CellID->593282144],
+Cell[8806, 227, 493, 13, 70, "GuideText",ExpressionUUID->"a0e9af61-b2fa-4db1-b968-a95ef27ef940",
+ CellID->469974569],
+Cell[9302, 242, 499, 15, 70, "GuideText",ExpressionUUID->"24a37561-9ac3-4e00-911b-a8209052f778",
+ CellID->135667327],
+Cell[9804, 259, 113, 1, 70, "GuideDelimiterSubsection",ExpressionUUID->"5a780790-d974-43a4-b74a-b99cc421b2ce",
+ CellID->141359235]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9954, 265, 205, 2, 70, "GuideFunctionsSubsection",ExpressionUUID->"7b12b4f9-24b7-4906-84f7-02339fdcd2a8",
+ CellID->885469154],
+Cell[10162, 269, 832, 23, 70, "GuideText",ExpressionUUID->"b48b97d7-9a58-4606-879d-f651c874ec38",
+ CellID->83793945],
+Cell[10997, 294, 652, 19, 70, "GuideText",ExpressionUUID->"722f8332-9c6d-40e4-94bb-d7d127cbe0ad",
+ CellID->909415217],
+Cell[11652, 315, 654, 17, 70, "GuideText",ExpressionUUID->"0a0f8f32-afc7-4a04-b9c9-cea60865422a",
+ CellID->1045376902],
+Cell[12309, 334, 113, 1, 70, "GuideDelimiterSubsection",ExpressionUUID->"7e251df6-fa40-403b-8718-fc9786b2f424",
+ CellID->326598028]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12459, 340, 179, 2, 70, "GuideFunctionsSubsection",ExpressionUUID->"4846a767-a69f-434c-b777-7b6df698a028",
+ CellID->190619489],
+Cell[12641, 344, 542, 16, 70, "GuideText",ExpressionUUID->"58da932d-dba1-454c-b0da-4730d77d9fd4",
+ CellID->135700631],
+Cell[13186, 362, 113, 1, 70, "GuideDelimiterSubsection",ExpressionUUID->"129c6555-3fd0-4d54-a005-3dfdadb615dc",
+ CellID->278347924]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13336, 368, 176, 2, 70, "GuideFunctionsSubsection",ExpressionUUID->"e0e82e4b-fd11-4b7f-93fe-5e456afff599",
+ CellID->739614307],
+Cell[13515, 372, 550, 16, 70, "GuideText",ExpressionUUID->"d4738186-248b-4655-8814-5e363928e258",
+ CellID->156183095],
+Cell[14068, 390, 529, 15, 70, "GuideText",ExpressionUUID->"38c98186-4a7d-4a1d-bd48-fddeb8580e71",
+ CellID->1463276848],
+Cell[14600, 407, 555, 16, 70, "GuideText",ExpressionUUID->"7e0ec8d6-93cb-471a-91d7-9d252d98edcc",
+ CellID->203374175],
+Cell[15158, 425, 544, 17, 70, "GuideText",ExpressionUUID->"4fc3e9d8-022e-457e-aa42-309f3769b03c",
+ CellID->1370430996],
+Cell[15705, 444, 519, 16, 70, "GuideText",ExpressionUUID->"8d9cb98e-964b-4695-8322-49049091d7e2",
+ CellID->412698995],
+Cell[16227, 462, 514, 16, 70, "GuideText",ExpressionUUID->"dafbde45-d00f-4792-910c-87ef88ca44c3",
+ CellID->5473371],
+Cell[16744, 480, 114, 1, 70, "GuideDelimiterSubsection",ExpressionUUID->"117fdf91-efb4-446b-9bc7-db9dd1ba8fc2",
+ CellID->1121308680]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16895, 486, 149, 1, 70, "GuideFunctionsSubsection",ExpressionUUID->"bfe9ea83-95b0-4463-aea8-180ec181fdea",
+ CellID->204500857],
+Cell[17047, 489, 493, 15, 70, "GuideText",ExpressionUUID->"854aefc5-367e-4465-9b52-da0ab5154d16",
+ CellID->9988911]
+}, Open  ]]
+}, Open  ]],
+Cell[17567, 508, 78, 0, 70, "FooterCell",ExpressionUUID->"8d943e50-dc09-4ddf-a344-bdf485a10295"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

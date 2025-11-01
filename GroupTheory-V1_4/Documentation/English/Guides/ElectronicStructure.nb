@@ -1,0 +1,559 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21094,        549]
+NotebookOptionsPosition[     16359,        454]
+NotebookOutlinePosition[     17920,        493]
+CellTagsIndexPosition[     17877,        490]
+WindowTitle->Electronic Structure
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY GUIDE", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "4375134c-f398-460d-b428-377eff56f443"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "5e656860-f482-4fe4-9e5a-83bdb0d5123a"],
+        Background->RGBColor[0.85098, 0.396078, 0],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Functions",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "740c5e63-f419-4970-9790-a14d6649a81b"]
+         }],ExpressionUUID->"8027aaad-12fc-4b60-bd21-41984cd24dce"],
+         StripOnInput->False], {"\<\"GTBands\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBands"], "\<\"GTBandsDOSPlot\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBandsDOSPlot"], "\<\"GTBandsPlot\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBandsPlot"], "\<\"GTBandsPlotImprove\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBandsPlotImprove"], \
+"\<\"GTBandStructure\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBandStructure"], "\<\"GTCompatibility\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCompatibility"], \
+"\<\"GTDensityOfStates\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTDensityOfStates"], \
+"\<\"GTDensityOfStatesPlot\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTDensityOfStatesPlot"], \
+"\<\"GTDensityOfStatesRS\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTDensityOfStatesRS"], \
+"\<\"GTFatBandsPlot\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTFatBandsPlot"], "\<\"GTFermiSurface\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTFermiSurface"], "\<\"GTFermiSurfaceCut\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTFermiSurfaceCut"], "\<\"GTPartialDOS\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/GTPartialDOS"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"GuideFunction"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "9424e8b8-84f4-4626-b9cd-d475a593f04c"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "4874f18c-2513-4ff0-8759-08a667b838fc"]
+         }],ExpressionUUID->"982e7fe9-487b-470f-83e8-1a803e150090"],
+         StripOnInput->
+          False], {"\<\"Tight-binding electronic structure of graphene\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/TightBindingGraphene"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"GuideTutorial"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "56ddcd17-1456-4fbe-9723-23076d9e8e54"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "98f7a285-dd86-47a5-b14c-375cbfc4ac7d"]
+         }],ExpressionUUID->"c73787ac-9a61-4f94-aef0-d4826b0a4fac"],
+         StripOnInput->
+          False], {"\<\"GroupTheory/guide/ElectronicStructure\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/guide/ElectronicStructure"]}, Visible -> 
+             False]]; SelectionMove[
+          DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/guide/\
+ElectronicStructure.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$21535], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/guide/ElectronicStructure" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "76371b05-a912-4d03-8e27-15ff690929c2"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "5e35674a-1b70-4eaf-b20b-3e2319f269b0"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"773f22eb-b61a-4683-b4c6-9c32e247bae0"],
+
+Cell[CellGroupData[{
+
+Cell["Electronic Structure", "GuideTitle",
+ CellID->942062912,ExpressionUUID->"2a1034d1-2015-41f6-98c6-bd29bad2d8a4"],
+
+Cell["\[NonBreakingSpace]", "GuideAbstract",
+ CellID->152537795,ExpressionUUID->"8390b555-2550-4e88-a722-810eff24252f"],
+
+Cell["\t", "GuideDelimiterSubsection",ExpressionUUID->"952f4d63-e922-49e5-8e98-5c492b9bcab5"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Calculations of Band Structures", \
+"GuideFunctionsSubsection"]], "GuideFunctionsSubsection",
+ CellID->293673691,ExpressionUUID->"06f359d9-f030-45fa-8809-e9ad3b5ca5bf"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBands"]], "paclet:GroupTheory/ref/GTBands", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "079c3594-7efc-4fd0-908b-7380262291d1"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates the band energies for a Hamiltonian at certain ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "-points",
+ StyleBox[".", "TI"]
+}], "GuideText",
+ CellID->687463286,ExpressionUUID->"82eef144-443d-41a5-b7e2-9d987b120a9c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBandsPlot"]], "paclet:GroupTheory/ref/GTBandsPlot", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "e46f68f7-3bba-43ea-af68-054e0272cd93"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " plots bands from a file."
+}], "GuideText",
+ CellID->103435894,ExpressionUUID->"db8f881c-214e-4cf9-8936-b2857f760ccc"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBandsPlotImprove"]], 
+    "paclet:GroupTheory/ref/GTBandsPlotImprove", "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "76967069-5196-42f7-9ef1-c14fee7fe064"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " improves the labeling with irreducible representations",
+ StyleBox[" ",
+  FontSlant->"Italic"],
+ "in a band structure plot."
+}], "GuideText",
+ CellID->637616604,ExpressionUUID->"dca3124e-9129-4dce-bb8b-21b3805c904d"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBandStructure"]], "paclet:GroupTheory/ref/GTBandStructure", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "f0637aa2-a46b-4896-8224-4c7beb9e62e8"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates and plots the band structure for a ",
+ "Hamiltonian."
+}], "GuideText",
+ CellID->203374175,ExpressionUUID->"e687ab1d-bf34-471b-9cd0-51122a76cd78"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTFatBandsPlot"]], "paclet:GroupTheory/ref/GTFatBandsPlot", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "668d4485-a654-4435-8f01-50fadc81f389"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " plots a band structure with fat bands (TB Hamiltonians):"
+}], "GuideText",
+ CellID->489889428,ExpressionUUID->"73b97808-6608-459f-9abb-1030bd7e0a4a"],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->311258892,ExpressionUUID->"a4d824f5-9363-4dd4-a9e7-decfcc254672"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Calculations of Density of States", \
+"GuideFunctionsSubsection"]], "GuideFunctionsSubsection",
+ CellID->287264693,ExpressionUUID->"e7bc2472-d8dc-4776-9161-fe9255414dcf"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTDensityOfStates"]], 
+    "paclet:GroupTheory/ref/GTDensityOfStates", "GroupTheory Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "834dca2a-9af1-4d14-a3cd-5ad8f60d64dc"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates and plots the density of states."
+}], "GuideText",
+ CellID->40256646,ExpressionUUID->"239755f9-fb14-453c-ac61-3fd12aec0089"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTDensityOfStatesPlot"]], 
+    "paclet:GroupTheory/ref/GTDensityOfStatesPlot", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "b55c0363-1150-491b-ba4e-10ae1a038cad"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates the DOS from a band structure."
+}], "GuideText",
+ CellID->1301509885,ExpressionUUID->"20899384-4f8c-4212-b341-840ca6a5ab56"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTDensityOfStatesRS"]], 
+    "paclet:GroupTheory/ref/GTDensityOfStatesRS", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "831ac869-ec32-4a7d-86d5-ce88a355afe7"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates the density of states of a real space ",
+ "Hamiltionian",
+ "."
+}], "GuideText",
+ CellID->360453831,ExpressionUUID->"af9f6783-9a46-48aa-b2bb-ebf01eb80110"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTFermiSurface"]], "paclet:GroupTheory/ref/GTFermiSurface", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "86259761-c3d2-4d26-bf4a-d73d0acc7d89"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates a Fermi surface."
+}], "GuideText",
+ CellID->2103547198,ExpressionUUID->"0d46ed40-4794-4d75-9171-dcc6eb85874d"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  RowBox[{
+   TemplateBox[{
+     Cell[
+      TextData["GTFermiSurfaceCut"]], 
+     "paclet:GroupTheory/ref/GTFermiSurfaceCut", "GroupTheory Package Symbol"},
+    "PackageLink",
+    BaseStyle->"InlineFunctionSans"], " "}]], "InlineFunctionSans",
+  ExpressionUUID->"b5787e9f-fff3-4a73-9286-04b428d5637b"],
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates a cut cut through the Fermi surface."
+}], "GuideText",
+ CellID->864858537,ExpressionUUID->"c2cb0a3c-eb2f-4a24-88f6-106fd43eb234"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTPartialDOS"]], "paclet:GroupTheory/ref/GTPartialDOS", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "78a83278-684f-496a-ad90-e0a2e8a8ac64"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates and plots DOS and partial DOS (TB Hamiltonians)."
+}], "GuideText",
+ CellID->1172235266,ExpressionUUID->"0a360a89-0eb4-43a8-8997-d3bafbb5a0b9"],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->113100377,ExpressionUUID->"05b22c64-f051-4230-a465-f0bef38d057f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Combined Plots", "GuideFunctionsSubsection"]], \
+"GuideFunctionsSubsection",
+ CellID->1137127066,ExpressionUUID->"c7561079-eaac-4569-b6b4-f57846552715"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBandsDOSPlot"]], "paclet:GroupTheory/ref/GTBandsDOSPlot", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "d46fb38f-1397-47e4-93a3-4818f95509b6"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates and plots the density of states."
+}], "GuideText",
+ CellID->1237623609,ExpressionUUID->"b2822bfe-4c86-4b4d-8410-26dea55c7e3c"],
+
+Cell["\t", "GuideDelimiterSubsection",
+ CellID->1781097857,ExpressionUUID->"a405fb95-7f72-4ef7-b05b-c6e65b86e810"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Group Theory and Band Structures", "GuideFunctionsSubsection",
+ CellID->469664654,ExpressionUUID->"48da7f2d-b86a-402b-b714-ef756b45f7b0"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCompatibility"]], "paclet:GroupTheory/ref/GTCompatibility", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "0f41fa71-05f9-49a8-919c-95bd877ebc81"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " ",
+ "calculates the compatibility relations of two point groups."
+}], "GuideText",
+ CellID->110089321,ExpressionUUID->"858dad78-b9f8-4f95-882a-2b40f719d084"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Tech", " ", "Notes"}], "GuideTutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Tight-binding electronic structure of graphene"]], 
+           "paclet:GroupTheory/tutorial/TightBindingGraphene"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "01ed2277-5545-4db4-b5d4-47e316c805f6"]}]}
+     }]}
+  }]], "GuideTutorialsSection",ExpressionUUID->"30399fd3-129c-4569-9b26-\
+a498cbbfa542"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"62562a2f-d26e-4da7-9c80-bfa8405a0e06"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"Electronic Structure",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {"1988", ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 50, 24.961114}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Guide", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> "", "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$21492, "title" -> 
+    "Electronic Structure", "titlemodifier" -> "", "metadescription" -> "", 
+    "windowtitle" -> "Electronic Structure", "type" -> "Guide", "uri" -> 
+    "GroupTheory/guide/ElectronicStructure"}},
+CacheGraphics->False,
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"efc529de-ba86-449f-a218-867cd1e8a943"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[592, 21, 6598, 151, 70, "AnchorBarGrid",ExpressionUUID->"773f22eb-b61a-4683-b4c6-9c32e247bae0",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[7215, 176, 117, 1, 70, "GuideTitle",ExpressionUUID->"2a1034d1-2015-41f6-98c6-bd29bad2d8a4",
+ CellID->942062912],
+Cell[7335, 179, 119, 1, 70, "GuideAbstract",ExpressionUUID->"8390b555-2550-4e88-a722-810eff24252f",
+ CellID->152537795],
+Cell[7457, 182, 93, 0, 70, "GuideDelimiterSubsection",ExpressionUUID->"952f4d63-e922-49e5-8e98-5c492b9bcab5"],
+Cell[CellGroupData[{
+Cell[7575, 186, 192, 2, 70, "GuideFunctionsSubsection",ExpressionUUID->"06f359d9-f030-45fa-8809-e9ad3b5ca5bf",
+ CellID->293673691],
+Cell[7770, 190, 564, 17, 70, "GuideText",ExpressionUUID->"82eef144-443d-41a5-b7e2-9d987b120a9c",
+ CellID->687463286],
+Cell[8337, 209, 466, 13, 70, "GuideText",ExpressionUUID->"db8f881c-214e-4cf9-8936-b2857f760ccc",
+ CellID->103435894],
+Cell[8806, 224, 579, 16, 70, "GuideText",ExpressionUUID->"dca3124e-9129-4dce-bb8b-21b3805c904d",
+ CellID->637616604],
+Cell[9388, 242, 513, 14, 70, "GuideText",ExpressionUUID->"e687ab1d-bf34-471b-9cd0-51122a76cd78",
+ CellID->203374175],
+Cell[9904, 258, 504, 13, 70, "GuideText",ExpressionUUID->"73b97808-6608-459f-9abb-1030bd7e0a4a",
+ CellID->489889428],
+Cell[10411, 273, 113, 1, 70, "GuideDelimiterSubsection",ExpressionUUID->"a4d824f5-9363-4dd4-a9e7-decfcc254672",
+ CellID->311258892]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10561, 279, 194, 2, 70, "GuideFunctionsSubsection",ExpressionUUID->"e7bc2472-d8dc-4776-9161-fe9255414dcf",
+ CellID->287264693],
+Cell[10758, 283, 500, 14, 70, "GuideText",ExpressionUUID->"239755f9-fb14-453c-ac61-3fd12aec0089",
+ CellID->40256646],
+Cell[11261, 299, 509, 14, 70, "GuideText",ExpressionUUID->"20899384-4f8c-4212-b341-840ca6a5ab56",
+ CellID->1301509885],
+Cell[11773, 315, 535, 16, 70, "GuideText",ExpressionUUID->"af9f6783-9a46-48aa-b2bb-ebf01eb80110",
+ CellID->360453831],
+Cell[12311, 333, 476, 13, 70, "GuideText",ExpressionUUID->"0d46ed40-4794-4d75-9171-dcc6eb85874d",
+ CellID->2103547198],
+Cell[12790, 348, 519, 13, 70, "GuideText",ExpressionUUID->"c2cb0a3c-eb2f-4a24-88f6-106fd43eb234",
+ CellID->864858537],
+Cell[13312, 363, 504, 13, 70, "GuideText",ExpressionUUID->"0a360a89-0eb4-43a8-8997-d3bafbb5a0b9",
+ CellID->1172235266],
+Cell[13819, 378, 113, 1, 70, "GuideDelimiterSubsection",ExpressionUUID->"05b22c64-f051-4230-a465-f0bef38d057f",
+ CellID->113100377]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13969, 384, 176, 2, 70, "GuideFunctionsSubsection",ExpressionUUID->"c7561079-eaac-4569-b6b4-f57846552715",
+ CellID->1137127066],
+Cell[14148, 388, 492, 13, 70, "GuideText",ExpressionUUID->"b2822bfe-4c86-4b4d-8410-26dea55c7e3c",
+ CellID->1237623609],
+Cell[14643, 403, 114, 1, 70, "GuideDelimiterSubsection",ExpressionUUID->"a405fb95-7f72-4ef7-b05b-c6e65b86e810",
+ CellID->1781097857]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14794, 409, 143, 1, 70, "GuideFunctionsSubsection",ExpressionUUID->"48da7f2d-b86a-402b-b714-ef756b45f7b0",
+ CellID->469664654],
+Cell[14940, 412, 514, 14, 70, "GuideText",ExpressionUUID->"858dad78-b9f8-4f95-882a-2b40f719d084",
+ CellID->110089321]
+}, Open  ]]
+}, Open  ]],
+Cell[15481, 430, 793, 20, 70, "GuideTutorialsSection",ExpressionUUID->"30399fd3-129c-4569-9b26-a498cbbfa542"],
+Cell[16277, 452, 78, 0, 70, "FooterCell",ExpressionUUID->"62562a2f-d26e-4da7-9c80-bfa8405a0e06"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

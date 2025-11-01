@@ -1,0 +1,2502 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     91435,       2492]
+NotebookOptionsPosition[     86868,       2398]
+NotebookOutlinePosition[     88992,       2453]
+CellTagsIndexPosition[     88906,       2448]
+WindowTitle->GTReadFromFile
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "ec5f7567-614d-4d52-a296-9d7cd338bbfb"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "e70c2629-379e-4029-9004-887948958fa5"],
+        Background->RGBColor[0.490196, 0.576471, 0.690196],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "46b47b24-17b8-47a6-ab8f-da920cec33f0"]
+         }],ExpressionUUID->"5ee90f65-413c-4270-88eb-ed65d05c411c"],
+         StripOnInput->False], {"\<\"GTBandsPlotImprove\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBandsPlotImprove"], "\<\"GTPhMPBBands\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTPhMPBBands"], "\<\"GTPhMPBFields\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTPhMPBFields"], "\<\"GTTbHamiltonian\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTTbHamiltonian"], "\<\"GTWriteToFile\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/GTWriteToFile"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "ac861abc-579e-4583-83f1-46d9e1707f06"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "01faa201-4b36-41f7-9efe-35640aebcb08"]
+         }],ExpressionUUID->"a7776455-1708-4021-a5a4-4e305c955c43"],
+         StripOnInput->False], {"\<\"Auxiliary\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/guide/Auxiliary"], "\<\"The Mathematica Group \
+Theory Package GTPack, V 1.4\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/guide/GroupTheory"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "27ce2970-033e-49a9-bdb4-44cb51732b84"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "2ff66229-469a-4e87-9608-66109e65a841"]
+         }],ExpressionUUID->"3ba62c2e-a192-4757-a5b9-1a90a39d0213"],
+         StripOnInput->False], {"\<\"The tight-binding method\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/TheTight-bindingMethod"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "efe29992-6275-4c73-a30b-76f733c62ee6"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "dcb27cd1-810b-463b-a10c-6fbe14d02b38"]
+         }],ExpressionUUID->"1dd339f7-2b8e-4182-a185-f898bc6e6c2b"],
+         StripOnInput->False], {"\<\"GroupTheory/ref/GTReadFromFile\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/ref/GTReadFromFile"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/ref/\
+GTReadFromFile.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$194259], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/ref/GTReadFromFile" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "fb29ffe4-f891-41da-8fb4-eafebf5aa31c"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "b10da880-438c-4c68-ace4-12addb7e82ca"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"35439c8f-f7a5-48fe-9303-7e5b6df2bdba"],
+
+Cell["GroupTheory`", "ContextNameCell",ExpressionUUID->"5404c20c-43ee-4f94-841f-98df0d398c54"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "GTReadFromFile", "ObjectName",ExpressionUUID->
+      "e3823a2d-fbbd-4ee7-9877-5a0fb3e5081c"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"923aeeaf-e96c-4085-b896-e50ddb90b055"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "0fbe6594-ee48-4fda-a927-e98385593da7"]
+    }],ExpressionUUID->"49b8a72e-2d13-4345-bc0f-f46e2989f1e4"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"9060a9a7-732d-4bc5-b19e-\
+b34818a75f03"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{
+         Cell[
+          TextData["GTReadFromFile"]], 
+         "paclet:GroupTheory/ref/GTReadFromFile", 
+         "GroupTheory Package Symbol"},
+        "PackageLink",
+        BaseStyle->"InlineFormula"], "[", 
+       StyleBox["name", "TI"], "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "0f4cf00c-ecbe-42d2-ae91-5a8e6c956a57"],
+     " \[LineSeparator]reads an object from the file ",
+     StyleBox["name", "TI"],
+     "."
+    }],ExpressionUUID->"81ab17d2-05e3-4d7d-8666-3c104724b451"]}
+  }]], "Usage",
+ CellID->982511436,ExpressionUUID->"b007af57-240e-420c-bc91-3d5c6483c03e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    DynamicBox[ToBoxes[
+      If[
+       MatchQ[
+        CurrentValue[
+         EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, 
+         Closed], 
+        Alternatives[Open, True]], 
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], 
+       Rotate[
+        Style[
+         Graphics[{
+           Thickness[0.18], 
+           RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+           Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+          PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+         0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+     ImageSizeCache->{
+      13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+    ExpressionUUID->"d5a19488-5858-478e-b9c1-6f2d39e031cc"],
+   Cell[BoxData[
+    TemplateBox[{1},
+     "Spacer1"]],ExpressionUUID->"c868beaf-8960-40c0-aa8e-2a276ad9bd45"],
+   "Details and Options"
+  }], "NotesFrameText",ExpressionUUID->"72976baf-30b6-4109-9938-44e5e21fcc68"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->
+   "Preemptive"]],ExpressionUUID->"a3540357-c2f4-4ba1-b42b-d6a3a19e5067"]], \
+"NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->908072975,ExpressionUUID->"840b16fc-bdf8-4366-9f7e-9c314a88ecb6"],
+
+Cell[TextData[{
+ "The command is used to read objects, related to ",
+ StyleBox["GTPack",
+  FontWeight->"Bold"],
+ " from a file.  It is used mainly to read lengthy Hamiltonians which are \
+stored to avoid the timeconsuming construction."
+}], "Notes",
+ CellID->1067943069,ExpressionUUID->"7921cfee-93f0-4727-a957-8a1343085dca"],
+
+Cell[TextData[{
+ "See: W. Hergert, M. Geilhufe, ",
+ StyleBox["Group Theory in Solid State Physics and Photonics. Problem Solving \
+with Mathematica, ",
+  FontSlant->"Italic"],
+ "chapter 9.4."
+}], "Notes",
+ CellID->1535571546,ExpressionUUID->"980c8e84-45ce-44a5-b31c-e411cfd2c385"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"78eccaff-3bca-4bc5-b0ad-0cd6fa97df02"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"c569cd89-2dd5-41c9-b17b-32dbeb12fe97"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "16bffc34-c92d-4141-9e69-f360a08177e3"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellTags->"PrimaryExamplesSection",
+ CellID->1775359332,ExpressionUUID->"16c7ba06-7d6f-4da5-8060-2dca20f4bc49"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"b6010748-3d06-4ac7-a033-3c2c2d2dccb2"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"357da518-814b-483a-8cfd-e4a0eeb1b209"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "261fcd8b-4902-4fd8-a019-8c681ef399b2"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->1996316810,ExpressionUUID->"b2120669-8576-40d0-bb97-e2c292e91a88"],
+
+Cell["First load the package:", "ExampleText",
+ CellID->270448840,ExpressionUUID->"579dc63e-f986-40b5-94b1-b32070ec7c01"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->30377612,ExpressionUUID->"466f3383-7c48-4cdd-8230-fba24a990284"],
+
+Cell["We read the hamiltonian from disc:", "ExampleText",
+ CellID->333847748,ExpressionUUID->"39f76529-5e4d-4ce5-93f5-ae941b5d8f6e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<datasets\>\""}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"GTReadFromFile", "[", "\"\<fcc.ham\>\"", "]"}]}], "Input",
+ CellLabel->"In[2]:=",
+ CellID->702886796,ExpressionUUID->"86f8055f-d548-4a4b-8761-957cc28174b2"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\<\"(ss0)\"\>", "+", 
+      RowBox[{"4", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], "+", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}]}]}], 
+        ")"}], " ", 
+       SubscriptBox["\<\"(ss\[Sigma])\"\>", "1"]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], "+", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], "+", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+       SubscriptBox["\<\"(ss\[Sigma])\"\>", "2"]}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       SqrtBox["2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], "+", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(sp\[Sigma])\"\>", "1"]}], "+", 
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+       SubscriptBox["\<\"(sp\[Sigma])\"\>", "2"]}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       SqrtBox["2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "+", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(sp\[Sigma])\"\>", "1"]}], "+", 
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], " ", 
+       SubscriptBox["\<\"(sp\[Sigma])\"\>", "2"]}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       SqrtBox["2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], "+", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}]}], ")"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(sp\[Sigma])\"\>", "1"]}], "+", 
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+       SubscriptBox["\<\"(sp\[Sigma])\"\>", "2"]}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "2"}], " ", 
+      SqrtBox["3"], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+      SubscriptBox["\<\"(sd\[Sigma])\"\>", "1"]}], ",", 
+     RowBox[{
+      RowBox[{"-", "2"}], " ", 
+      SqrtBox["3"], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+      SubscriptBox["\<\"(sd\[Sigma])\"\>", "1"]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "2"}], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], "+", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}]}]}], 
+        ")"}], " ", 
+       SubscriptBox["\<\"(sd\[Sigma])\"\>", "1"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}]}], "-", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], "-", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+       SubscriptBox["\<\"(sd\[Sigma])\"\>", "2"]}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "2"}], " ", 
+      SqrtBox["3"], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+      SubscriptBox["\<\"(sd\[Sigma])\"\>", "1"]}], ",", 
+     RowBox[{
+      RowBox[{
+       SqrtBox["3"], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}]}], "+", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+       SubscriptBox["\<\"(sd\[Sigma])\"\>", "1"]}], "+", 
+      RowBox[{
+       SqrtBox["3"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}]}], "+", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+       SubscriptBox["\<\"(sd\[Sigma])\"\>", "2"]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         SqrtBox["2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Cos", "[", 
+            FractionBox[
+             RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], "+", 
+           RowBox[{"Cos", "[", 
+            FractionBox[
+             RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+         SubscriptBox["\<\"(sp\[Sigma])\"\>", "1"]}], "+", 
+        RowBox[{"2", " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+         SubscriptBox["\<\"(sp\[Sigma])\"\>", "2"]}]}], ")"}]}], ",", 
+     RowBox[{"\<\"(pp0)\"\>", "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["\<\"(pp\[Pi])\"\>", "1"], "+", 
+         SubscriptBox["\<\"(pp\[Sigma])\"\>", "1"]}], ")"}]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pp\[Pi])\"\>", "1"]}], "+", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["\<\"(pp\[Pi])\"\>", "1"], "+", 
+            SubscriptBox["\<\"(pp\[Sigma])\"\>", "1"]}], ")"}]}]}], ")"}]}], 
+      "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+          SubscriptBox["\<\"(pp\[Pi])\"\>", "2"]}], "+", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+          SubscriptBox["\<\"(pp\[Sigma])\"\>", "2"]}]}], ")"}]}]}], ",", 
+     RowBox[{"2", " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\<\"(pp\[Pi])\"\>", "1"], "-", 
+        SubscriptBox["\<\"(pp\[Sigma])\"\>", "1"]}], ")"}]}], ",", 
+     RowBox[{"2", " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\<\"(pp\[Pi])\"\>", "1"], "-", 
+        SubscriptBox["\<\"(pp\[Sigma])\"\>", "1"]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+       SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       SqrtBox["2"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+         RowBox[{
+          SqrtBox["3"], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], " ", 
+       SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       SqrtBox["2"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+         RowBox[{
+          SqrtBox["3"], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{
+        FractionBox["1", 
+         SqrtBox["2"]], 
+        RowBox[{"\[ImaginaryI]", " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", 
+               SqrtBox["3"], " ", 
+               SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "-", 
+              SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}], ")"}]}], "+", 
+           RowBox[{"2", " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}]}], "-", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+       SubscriptBox["\<\"(pd\[Sigma])\"\>", "2"]}]}], ",", "0", ",", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{
+        FractionBox["1", 
+         SqrtBox["2"]], 
+        RowBox[{"\[ImaginaryI]", " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"4", " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", 
+               SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+              RowBox[{
+               SqrtBox["3"], " ", 
+               SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], 
+          ")"}]}]}]}], "-", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       SqrtBox["3"], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+       SubscriptBox["\<\"(pd\[Sigma])\"\>", "2"]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         SqrtBox["2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Cos", "[", 
+            FractionBox[
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "+", 
+           RowBox[{"Cos", "[", 
+            FractionBox[
+             RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+         SubscriptBox["\<\"(sp\[Sigma])\"\>", "1"]}], "+", 
+        RowBox[{"2", " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], " ", 
+         SubscriptBox["\<\"(sp\[Sigma])\"\>", "2"]}]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(pp\[Pi])\"\>", "1"]}], "-", 
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(pp\[Sigma])\"\>", "1"]}]}], ",", 
+     RowBox[{"\<\"(pp0)\"\>", "+", 
+      RowBox[{"4", " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(pp\[Pi])\"\>", "1"]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "+", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["\<\"(pp\[Pi])\"\>", "1"], "+", 
+         SubscriptBox["\<\"(pp\[Sigma])\"\>", "1"]}], ")"}]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+          SubscriptBox["\<\"(pp\[Pi])\"\>", "2"]}], "+", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], " ", 
+          SubscriptBox["\<\"(pp\[Sigma])\"\>", "2"]}]}], ")"}]}]}], ",", 
+     RowBox[{"2", " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\<\"(pp\[Pi])\"\>", "1"], "-", 
+        SubscriptBox["\<\"(pp\[Sigma])\"\>", "1"]}], ")"}]}], ",", "0", ",", 
+     RowBox[{
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+       SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       SqrtBox["2"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+         RowBox[{
+          SqrtBox["3"], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ",", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"\[ImaginaryI]", " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "+", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+        RowBox[{"Sin", "[", 
+         FractionBox[
+          RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"2", " ", 
+           SqrtBox["3"], " ", 
+           SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+          SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}], ")"}]}], 
+       SqrtBox["2"]], "+", 
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], " ", 
+       SubscriptBox["\<\"(pd\[Sigma])\"\>", "2"]}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+       SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       SqrtBox["2"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+         RowBox[{
+          SqrtBox["3"], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ",", 
+     FractionBox[
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "-", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "-", 
+         RowBox[{
+          SqrtBox["3"], " ", 
+          SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}], 
+      SqrtBox["2"]]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         SqrtBox["2"], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Cos", "[", 
+            FractionBox[
+             RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], "+", 
+           RowBox[{"Cos", "[", 
+            FractionBox[
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}]}], ")"}], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+         SubscriptBox["\<\"(sp\[Sigma])\"\>", "1"]}], "+", 
+        RowBox[{"2", " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+         SubscriptBox["\<\"(sp\[Sigma])\"\>", "2"]}]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(pp\[Pi])\"\>", "1"]}], "-", 
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(pp\[Sigma])\"\>", "1"]}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(pp\[Pi])\"\>", "1"]}], "-", 
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(pp\[Sigma])\"\>", "1"]}]}], ",", 
+     RowBox[{"\<\"(pp0)\"\>", "+", 
+      RowBox[{"4", " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(pp\[Pi])\"\>", "1"]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], "+", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}]}], ")"}], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["\<\"(pp\[Pi])\"\>", "1"], "+", 
+         SubscriptBox["\<\"(pp\[Sigma])\"\>", "1"]}], ")"}]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}]}], ")"}], " ", 
+          SubscriptBox["\<\"(pp\[Pi])\"\>", "2"]}], "+", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+          SubscriptBox["\<\"(pp\[Sigma])\"\>", "2"]}]}], ")"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+       SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       SqrtBox["2"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+         RowBox[{
+          SqrtBox["3"], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ",", "0", 
+     ",", 
+     RowBox[{
+      RowBox[{"-", 
+       RowBox[{
+        FractionBox["1", 
+         SqrtBox["2"]], 
+        RowBox[{"\[ImaginaryI]", " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"2", " ", 
+               SqrtBox["3"], " ", 
+               SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "-", 
+              SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}], ")"}]}], "+", 
+           RowBox[{"2", " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}]}], "-", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+       SubscriptBox["\<\"(pd\[Sigma])\"\>", "2"]}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", "\[ImaginaryI]", " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], " ", 
+       SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       SqrtBox["2"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+         RowBox[{
+          SqrtBox["3"], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+          SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ",", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"\[ImaginaryI]", " ", 
+        RowBox[{"Sin", "[", 
+         FractionBox[
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"4", " ", 
+           RowBox[{"Cos", "[", 
+            FractionBox[
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+           SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+          RowBox[{
+           RowBox[{"Cos", "[", 
+            FractionBox[
+             RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"2", " ", 
+              SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+             RowBox[{
+              SqrtBox["3"], " ", 
+              SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], 
+         ")"}]}], 
+       SqrtBox["2"]], "+", 
+      RowBox[{"\[ImaginaryI]", " ", 
+       SqrtBox["3"], " ", 
+       RowBox[{"Sin", "[", 
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+       SubscriptBox["\<\"(pd\[Sigma])\"\>", "2"]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "2"}], " ", 
+      SqrtBox["3"], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+      SubscriptBox["\<\"(sd\[Sigma])\"\>", "1"]}], ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+        RowBox[{
+         SqrtBox["2"], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+           RowBox[{
+            SqrtBox["3"], " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ")"}]}],
+      ",", "0", ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+        RowBox[{
+         SqrtBox["2"], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+           RowBox[{
+            SqrtBox["3"], " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ")"}]}],
+      ",", 
+     RowBox[{"\<\"(dd0)\"\>", "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "+", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "+", 
+         SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], ")"}]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], " ", 
+          SubscriptBox["\<\"(dd\[Delta])\"\>", "2"]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+          SubscriptBox["\<\"(dd\[Pi])\"\>", "2"]}]}], ")"}]}], "+", 
+      RowBox[{
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "+", 
+         RowBox[{"3", " ", 
+          SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ",", 
+     RowBox[{"2", " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "-", 
+        SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], ")"}]}], ",", 
+     RowBox[{
+      SqrtBox["3"], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "+", 
+        SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}], ")"}]}], ",", 
+     RowBox[{"2", " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "-", 
+        SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], ")"}]}], ",", "0"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "2"}], " ", 
+      SqrtBox["3"], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+      SubscriptBox["\<\"(sd\[Sigma])\"\>", "1"]}], ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+        RowBox[{
+         SqrtBox["2"], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+           RowBox[{
+            SqrtBox["3"], " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ")"}]}],
+      ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+        RowBox[{
+         SqrtBox["2"], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+           RowBox[{
+            SqrtBox["3"], " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ")"}]}],
+      ",", "0", ",", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "-", 
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}]}], ",", 
+     RowBox[{"\<\"(dd0)\"\>", "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], "+", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}]}], ")"}], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "+", 
+         SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], ")"}]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+          SubscriptBox["\<\"(dd\[Delta])\"\>", "2"]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}]}], ")"}], " ", 
+          SubscriptBox["\<\"(dd\[Pi])\"\>", "2"]}]}], ")"}]}], "+", 
+      RowBox[{
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "+", 
+         RowBox[{"3", " ", 
+          SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      SqrtBox["3"], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "-", 
+        SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}], ")"}]}], ",", 
+     RowBox[{"2", " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "-", 
+        SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], ")"}]}], ",", 
+     RowBox[{
+      FractionBox["3", "2"], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "+", 
+        SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"-", "2"}], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], "+", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}]}]}], 
+        ")"}], " ", 
+       SubscriptBox["\<\"(sd\[Sigma])\"\>", "1"]}], "+", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}]}], "-", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], "-", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+       SubscriptBox["\<\"(sd\[Sigma])\"\>", "2"]}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{
+          FractionBox["1", 
+           SqrtBox["2"]], 
+          RowBox[{
+           RowBox[{"Sin", "[", 
+            FractionBox[
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Cos", "[", 
+               FractionBox[
+                RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"2", " ", 
+                 SqrtBox["3"], " ", 
+                 SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "-", 
+                SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}], ")"}]}], "+", 
+             RowBox[{"2", " ", 
+              RowBox[{"Cos", "[", 
+               FractionBox[
+                RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+              SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}]}], "-", 
+        RowBox[{
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Sigma])\"\>", "2"]}]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+          RowBox[{"Sin", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", " ", 
+             SqrtBox["3"], " ", 
+             SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+            SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}], ")"}]}], 
+         SqrtBox["2"]], "+", 
+        RowBox[{"2", " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Sigma])\"\>", "2"]}]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{
+          FractionBox["1", 
+           SqrtBox["2"]], 
+          RowBox[{
+           RowBox[{"Sin", "[", 
+            FractionBox[
+             RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Cos", "[", 
+               FractionBox[
+                RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"2", " ", 
+                 SqrtBox["3"], " ", 
+                 SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "-", 
+                SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}], ")"}]}], "+", 
+             RowBox[{"2", " ", 
+              RowBox[{"Cos", "[", 
+               FractionBox[
+                RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+              SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}]}], "-", 
+        RowBox[{
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Sigma])\"\>", "2"]}]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SqrtBox["3"]}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "+", 
+      RowBox[{
+       SqrtBox["3"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox["3"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "-", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox["3"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}]}], ",", 
+     RowBox[{"\<\"(dd0)\"\>", "+", 
+      RowBox[{
+       FractionBox["1", "4"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "+", 
+            RowBox[{"12", " ", 
+             SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], "+", 
+            SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}], ")"}]}], "+", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"4", " ", 
+             RowBox[{"Cos", "[", 
+              FractionBox[
+               RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"3", " ", 
+                SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "+", 
+               SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}], ")"}]}], "+", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              FractionBox[
+               RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"3", " ", 
+                SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "+", 
+               RowBox[{"12", " ", 
+                SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], "+", 
+               SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}], ")"}]}]}], 
+           ")"}]}]}], ")"}]}], "+", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"4", " ", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], " ", 
+          SubscriptBox["\<\"(dd\[Sigma])\"\>", "2"]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"3", " ", 
+             SubscriptBox["\<\"(dd\[Delta])\"\>", "2"]}], "+", 
+            SubscriptBox["\<\"(dd\[Sigma])\"\>", "2"]}], ")"}]}]}], ")"}]}]}],
+      ",", 
+     RowBox[{
+      FractionBox["1", "2"], " ", 
+      SqrtBox["3"], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "-", 
+        SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "4"]}], " ", 
+       SqrtBox["3"], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "-", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"3", " ", 
+          SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "-", 
+         RowBox[{"4", " ", 
+          SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], "+", 
+         SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}], ")"}]}], "-", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox["3"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], "-", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["\<\"(dd\[Delta])\"\>", "2"], "-", 
+         SubscriptBox["\<\"(dd\[Sigma])\"\>", "2"]}], ")"}]}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"-", "2"}], " ", 
+      SqrtBox["3"], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+      SubscriptBox["\<\"(sd\[Sigma])\"\>", "1"]}], ",", "0", ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+        RowBox[{
+         SqrtBox["2"], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+           RowBox[{
+            SqrtBox["3"], " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ")"}]}],
+      ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"2", " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Pi])\"\>", "2"]}], "+", 
+        RowBox[{
+         SqrtBox["2"], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"2", " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+           RowBox[{
+            SqrtBox["3"], " ", 
+            RowBox[{"Cos", "[", 
+             FractionBox[
+              RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+            SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], ")"}]}],
+      ",", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "-", 
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}]}], ",", 
+     RowBox[{
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "-", 
+      RowBox[{"2", " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox["3"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "-", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox["3"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}]}], ",", 
+     RowBox[{"\<\"(dd0)\"\>", "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "+", 
+         SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], ")"}]}], "+", 
+      RowBox[{"2", " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+          SubscriptBox["\<\"(dd\[Delta])\"\>", "2"]}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+          SubscriptBox["\<\"(dd\[Pi])\"\>", "2"]}]}], ")"}]}], "+", 
+      RowBox[{
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "+", 
+            SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], ")"}]}], "+", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "+", 
+            RowBox[{"3", " ", 
+             SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], 
+        ")"}]}]}], ",", 
+     RowBox[{
+      FractionBox["3", "2"], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+      RowBox[{"Sin", "[", 
+       FractionBox[
+        RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        SubscriptBox["\<\"(dd\[Delta])\"\>", "1"], "-", 
+        SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}], ")"}]}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SqrtBox["3"], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}]}], "+", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+       SubscriptBox["\<\"(sd\[Sigma])\"\>", "1"]}], "+", 
+      RowBox[{
+       SqrtBox["3"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"Cos", "[", 
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}]}], "+", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+       SubscriptBox["\<\"(sd\[Sigma])\"\>", "2"]}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{
+          FractionBox["1", 
+           SqrtBox["2"]], 
+          RowBox[{
+           RowBox[{"Sin", "[", 
+            FractionBox[
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"4", " ", 
+              RowBox[{"Cos", "[", 
+               FractionBox[
+                RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+              SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+             RowBox[{
+              RowBox[{"Cos", "[", 
+               FractionBox[
+                RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"2", " ", 
+                 SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+                RowBox[{
+                 SqrtBox["3"], " ", 
+                 SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], 
+            ")"}]}]}]}], "-", 
+        RowBox[{
+         SqrtBox["3"], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Sigma])\"\>", "2"]}]}], ")"}]}], ",", 
+     RowBox[{"\[ImaginaryI]", " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          SqrtBox["2"]}], " ", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+        RowBox[{
+         SqrtBox["2"], " ", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+        RowBox[{
+         SqrtBox[
+          FractionBox["3", "2"]], " ", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}], "-", 
+        RowBox[{
+         SqrtBox[
+          FractionBox["3", "2"]], " ", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+         RowBox[{"Sin", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}], ",", 
+     RowBox[{
+      RowBox[{"-", "\[ImaginaryI]"}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          RowBox[{"Sin", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"4", " ", 
+             RowBox[{"Cos", "[", 
+              FractionBox[
+               RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+             SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              FractionBox[
+               RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"2", " ", 
+                SubscriptBox["\<\"(pd\[Pi])\"\>", "1"]}], "+", 
+               RowBox[{
+                SqrtBox["3"], " ", 
+                SubscriptBox["\<\"(pd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], 
+           ")"}]}], 
+         SqrtBox["2"]], "+", 
+        RowBox[{
+         SqrtBox["3"], " ", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}], " ", 
+         SubscriptBox["\<\"(pd\[Sigma])\"\>", "2"]}]}], ")"}]}], ",", "0", 
+     ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["3", "2"]}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "+", 
+      RowBox[{
+       FractionBox["3", "2"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "4"]}], " ", 
+       SqrtBox["3"], " ", 
+       RowBox[{"Cos", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], "-", 
+         RowBox[{"Cos", "[", 
+          FractionBox[
+           RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"3", " ", 
+          SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "-", 
+         RowBox[{"4", " ", 
+          SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], "+", 
+         SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}], ")"}]}], "-", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       SqrtBox["3"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], "-", 
+         RowBox[{"Cos", "[", 
+          RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["\<\"(dd\[Delta])\"\>", "2"], "-", 
+         SubscriptBox["\<\"(dd\[Sigma])\"\>", "2"]}], ")"}]}]}], ",", 
+     RowBox[{
+      RowBox[{
+       FractionBox["3", "2"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "-", 
+      RowBox[{
+       FractionBox["3", "2"], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+       RowBox[{"Sin", "[", 
+        FractionBox[
+         RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+       SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}]}], ",", 
+     RowBox[{"\<\"(dd0)\"\>", "+", 
+      RowBox[{
+       FractionBox["1", "4"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"9", " ", 
+             SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "+", 
+            RowBox[{"4", " ", 
+             SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], "+", 
+            RowBox[{"3", " ", 
+             SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}]}], ")"}]}], "+", 
+         RowBox[{
+          RowBox[{"Cos", "[", 
+           FractionBox[
+            RowBox[{"\[Pi]", " ", "\[Xi]"}], "2"], "]"}], " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"16", " ", 
+             RowBox[{"Cos", "[", 
+              FractionBox[
+               RowBox[{"\[Pi]", " ", "\[Eta]"}], "2"], "]"}], " ", 
+             SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], "+", 
+            RowBox[{
+             RowBox[{"Cos", "[", 
+              FractionBox[
+               RowBox[{"\[Pi]", " ", "\[Zeta]"}], "2"], "]"}], " ", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"9", " ", 
+                SubscriptBox["\<\"(dd\[Delta])\"\>", "1"]}], "+", 
+               RowBox[{"4", " ", 
+                SubscriptBox["\<\"(dd\[Pi])\"\>", "1"]}], "+", 
+               RowBox[{"3", " ", 
+                SubscriptBox["\<\"(dd\[Sigma])\"\>", "1"]}]}], ")"}]}]}], 
+           ")"}]}]}], ")"}]}], "+", 
+      RowBox[{
+       FractionBox["1", "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"4", " ", 
+             RowBox[{"Cos", "[", 
+              RowBox[{"\[Pi]", " ", "\[Zeta]"}], "]"}]}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+          SubscriptBox["\<\"(dd\[Delta])\"\>", "2"]}], "+", 
+         RowBox[{"3", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Eta]"}], "]"}], "+", 
+            RowBox[{"Cos", "[", 
+             RowBox[{"\[Pi]", " ", "\[Xi]"}], "]"}]}], ")"}], " ", 
+          SubscriptBox["\<\"(dd\[Sigma])\"\>", "2"]}]}], ")"}]}]}]}], "}"}]}],
+   "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1050234809,ExpressionUUID->"2f15509d-0ee7-475d-ac35-43b137d47e7e"]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, 
+  Closed]]]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTBandsPlotImprove"]], 
+           "paclet:GroupTheory/ref/GTBandsPlotImprove", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "1f06ba2b-1e11-4187-9d2c-737263c0b4ab"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTPhMPBBands"]], "paclet:GroupTheory/ref/GTPhMPBBands", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "9b8a162a-8bf2-4526-871f-c1780ef6be2a"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTPhMPBFields"]], 
+           "paclet:GroupTheory/ref/GTPhMPBFields", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "6dd21b56-e5cd-4244-80b3-5fc316728ae6"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTTbHamiltonian"]], 
+           "paclet:GroupTheory/ref/GTTbHamiltonian", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "e4ebce59-1ef1-41ca-9f98-ce68c260a2a9"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTWriteToFile"]], 
+           "paclet:GroupTheory/ref/GTWriteToFile", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "d52b873f-c7fd-4afe-8b72-0b6a7a2ea710"]
+       }], "SeeAlso",ExpressionUUID->"860a38c6-0bc9-436e-b0aa-95fbf3b06b85"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"ae6d6247-1b30-471f-ab93-\
+9e6ae293ffdf"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Tech", " ", "Notes"}], "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["The tight-binding method"]], 
+           "paclet:GroupTheory/tutorial/TheTight-bindingMethod"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "37252bd1-ab0d-4682-a496-f1a2693d8273"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"14191620-1ee0-4dc6-ba0d-\
+d37b5f273b75"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Auxiliary"]], "paclet:GroupTheory/guide/Auxiliary"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "f3cc4fc1-0b79-40b6-afe8-0b5ad2894f8e"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["The Mathematica Group Theory Package GTPack, V 1.4"]], 
+           "paclet:GroupTheory/guide/GroupTheory"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "0dcc3917-f85a-462c-a2c5-dc5db3c23286"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"8fd9632f-b5e6-4d03-9a80-\
+72abe117a75d"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"e6ca2d89-fe93-46ad-836a-e2542530cb6a"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"GTReadFromFile",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "HasOptions" -> True, "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "NotesSection" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 56, 51.822900}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Symbol", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "GTReadFromFile[name] reads an object from the file name.", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "GTReadFromFile", 
+    "titlemodifier" -> "", "metadescription" -> "", "windowtitle" -> 
+    "GTReadFromFile", "type" -> "Symbol", "uri" -> 
+    "GroupTheory/ref/GTReadFromFile"}},
+CellContext->"Global`",
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"569d7589-1bb6-4e05-b9a5-3be20285f330"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[11432, 299, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"16c7ba06-7d6f-4da5-8060-2dca20f4bc49",
+   CellTags->"PrimaryExamplesSection",
+   CellID->1775359332]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 88705, 2441}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[586, 21, 6752, 160, 56, "AnchorBarGrid",ExpressionUUID->"35439c8f-f7a5-48fe-9303-7e5b6df2bdba",
+ CellID->1],
+Cell[7341, 183, 94, 0, 24, "ContextNameCell",ExpressionUUID->"5404c20c-43ee-4f94-841f-98df0d398c54"],
+Cell[CellGroupData[{
+Cell[7460, 187, 557, 14, 59, "ObjectNameGrid",ExpressionUUID->"9060a9a7-732d-4bc5-b19e-b34818a75f03"],
+Cell[8020, 203, 718, 19, 110, "Usage",ExpressionUUID->"b007af57-240e-420c-bc91-3d5c6483c03e",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8775, 227, 1919, 48, 37, "NotesSection",ExpressionUUID->"840b16fc-bdf8-4366-9f7e-9c314a88ecb6",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->908072975],
+Cell[10697, 277, 325, 7, 70, "Notes",ExpressionUUID->"7921cfee-93f0-4727-a957-8a1343085dca",
+ CellID->1067943069],
+Cell[11025, 286, 280, 7, 70, "Notes",ExpressionUUID->"980c8e84-45ce-44a5-b31c-e411cfd2c385",
+ CellID->1535571546]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[11432, 299, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"16c7ba06-7d6f-4da5-8060-2dca20f4bc49",
+ CellTags->"PrimaryExamplesSection",
+ CellID->1775359332],
+Cell[CellGroupData[{
+Cell[12878, 340, 1399, 36, 30, "ExampleSection",ExpressionUUID->"b2120669-8576-40d0-bb97-e2c292e91a88",
+ CellID->1996316810],
+Cell[14280, 378, 121, 1, 38, "ExampleText",ExpressionUUID->"579dc63e-f986-40b5-94b1-b32070ec7c01",
+ CellID->270448840],
+Cell[14404, 381, 174, 3, 27, "Input",ExpressionUUID->"466f3383-7c48-4cdd-8230-fba24a990284",
+ CellID->30377612],
+Cell[14581, 386, 132, 1, 38, "ExampleText",ExpressionUUID->"39f76529-5e4d-4ce5-93f5-ae941b5d8f6e",
+ CellID->333847748],
+Cell[CellGroupData[{
+Cell[14738, 391, 350, 8, 45, "Input",ExpressionUUID->"86f8055f-d548-4a4b-8761-957cc28174b2",
+ CellID->702886796],
+Cell[15091, 401, 66573, 1851, 2973, "Output",ExpressionUUID->"2f15509d-0ee7-475d-ac35-43b137d47e7e",
+ CellID->1050234809]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, Closed]]]],
+Cell[81906, 2261, 3030, 82, 70, "SeeAlsoSection",ExpressionUUID->"ae6d6247-1b30-471f-ab93-9e6ae293ffdf"],
+Cell[84939, 2345, 755, 20, 70, "TutorialsSection",ExpressionUUID->"14191620-1ee0-4dc6-ba0d-d37b5f273b75"],
+Cell[85697, 2367, 1086, 27, 70, "MoreAboutSection",ExpressionUUID->"8fd9632f-b5e6-4d03-9a80-72abe117a75d"],
+Cell[86786, 2396, 78, 0, 70, "FooterCell",ExpressionUUID->"e6ca2d89-fe93-46ad-836a-e2542530cb6a"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

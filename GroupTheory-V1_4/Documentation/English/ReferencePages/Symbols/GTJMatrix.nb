@@ -1,0 +1,899 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     32559,        889]
+NotebookOptionsPosition[     27155,        777]
+NotebookOutlinePosition[     29321,        832]
+CellTagsIndexPosition[     29236,        827]
+WindowTitle->GTJMatrix
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "675e50ea-559f-486f-979f-fc8c82304544"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "43dbc46e-3431-4a25-a787-38f28d00eab2"],
+        Background->RGBColor[0.490196, 0.576471, 0.690196],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "b2cd084e-2393-40b2-af84-5eaf77db76f7"]
+         }],ExpressionUUID->"c3eb9486-a7ee-4c37-96b9-21463a5dceb2"],
+         StripOnInput->False], {"\<\"GTJTransform\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTJTransform"], \
+"\<\"GTAngularMomentumRep\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTAngularMomentumRep"], \
+"\<\"GTAngularMomentumChars\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTAngularMomentumChars"], "\<\"GTJminus\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTJminus"], "\<\"GTJplus\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTJplus"], "\<\"GTGetSU2Matrix\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/GTGetSU2Matrix"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "db975a90-07cf-4f19-8501-9bb90e2dfe2a"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "b243ebee-9778-4878-aef9-9d47fe4b046a"]
+         }],ExpressionUUID->"555cc7dc-5782-4534-b8a7-979323a679c3"],
+         StripOnInput->False], {"\<\"AngularMomentum\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/guide/AngularMomentum"]},
+        
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "c231a647-7a1c-4221-b3e9-1caa6dee69a3"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "81c59d89-3bfd-4a0a-91f3-6590c13329bd"]
+         }],ExpressionUUID->"e137bcd2-fd68-4c67-a1b2-c6d5cc0a7f1c"],
+         StripOnInput->False], {"\<\"Angular Momentum Operations\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/AngularMomentum"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "60d63f04-2ba7-49ba-8c38-33c50fbf8625"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "e7ef0154-0d55-4bad-8405-d59a649e017d"]
+         }],ExpressionUUID->"fd7006ab-902e-4009-bef9-3c0faf6e5ff2"],
+         StripOnInput->False], {"\<\"GroupTheory/ref/GTJMatrix\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/ref/GTJMatrix"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/ref/\
+GTJMatrix.html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]},
+              Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$146700], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/ref/GTJMatrix" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "9c60728e-c4f0-41b1-8242-d0fdb3b5d0e9"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "37c89d1a-984e-46cc-965a-0e2952f1ae15"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"d8ed3b18-b391-4954-a5d0-2767c03beed0"],
+
+Cell["GroupTheory`", "ContextNameCell",ExpressionUUID->"05576245-6480-447a-9a9c-3986e6826bbd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "GTJMatrix", "ObjectName",ExpressionUUID->
+      "574affbe-a0f6-4177-a613-c95a627e7568"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"044182fc-0c87-4539-8ad8-efe369836a2d"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "832a2c17-deda-44ec-9f6e-3f026efdd9cf"]
+    }],ExpressionUUID->"d11bc54b-7c9c-4540-ac18-cbe1d0e312b0"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"227a8031-2dff-4849-afb9-\
+e5601fab4fd4"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{
+         Cell[
+          TextData["GTJMatrix"]], "paclet:GroupTheory/ref/GTJy", 
+         "GroupTheory Package Symbol"},
+        "PackageLink",
+        BaseStyle->"InlineFormula"], "[", 
+       StyleBox[
+        RowBox[{"J", ",", "element"}], "TI"], "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "356f80ce-8bae-4917-b618-60e898c20a98"],
+     " \[LineSeparator]gives the y representationmatrix for an element of an \
+irreducible representation ",
+     StyleBox["J", "TI"],
+     " of O(3). "
+    }],ExpressionUUID->"6e52abed-7151-482f-8cdb-82d8551d16b8"]}
+  }]], "Usage",
+ CellID->1769672507,ExpressionUUID->"cb30edd9-9089-44e0-8b5d-e2a7ff5401c1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    DynamicBox[ToBoxes[
+      If[
+       MatchQ[
+        CurrentValue[
+         EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, 
+         Closed], 
+        Alternatives[Open, True]], 
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], 
+       Rotate[
+        Style[
+         Graphics[{
+           Thickness[0.18], 
+           RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+           Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+          PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+         0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+     ImageSizeCache->{
+      13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+    ExpressionUUID->"54b48cfc-ba71-47c4-80b2-9128c52fa287"],
+   Cell[BoxData[
+    TemplateBox[{1},
+     "Spacer1"]],ExpressionUUID->"072ecce8-696c-4107-9e54-77485ed9fd0c"],
+   "Details and Options"
+  }], "NotesFrameText",ExpressionUUID->"be091562-5c7f-40e5-b9ee-8b60284fbbdd"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->
+   "Preemptive"]],ExpressionUUID->"e5e55ada-9cf8-4577-b693-dba0d896c4a6"]], \
+"NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->191004947,ExpressionUUID->"5c39c540-189b-4636-95b1-54c61d524b5b"],
+
+Cell["\<\
+The formulation of irreducible representations of O(3) follows [1].\
+\>", "Notes",
+ CellID->785497368,ExpressionUUID->"7b7d0345-b01b-40e6-9177-882c12a6b999"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTJMatrix"]], "paclet:GroupTheory/ref/GTJMatrix", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "df06ccfc-bf70-4a7b-af70-799522b410b9"],
+ " is a GTPack command [2, 3]."
+}], "Notes",
+ CellID->1669274429,ExpressionUUID->"8e859a42-42fe-4bce-9b1b-1a30d41b5fc9"],
+
+Cell["The basis functions are denoted by Y[J,m].", "Notes",
+ CellID->1371543676,ExpressionUUID->"3d625fe0-0d71-4676-9b76-0e9f605bba6c"],
+
+Cell[TextData[{
+ "[1] Altman, S. L., ",
+ StyleBox["Rotations, quaternions, and double groups",
+  FontSlant->"Italic"],
+ ". Chapter 14. Clarendon, 1986\[LineSeparator][2] W. Hergert, R. M. \
+Geilhufe, ",
+ StyleBox["Group Theory in Solid State Physics and Photonics: Problem Solving \
+with Mathematica",
+  FontSlant->"Italic"],
+ ", Wiley-VCH, 2018\n[3] R. M. Geilhufe, W. Hergert, GTPack: A Mathematica \
+group theory package for applications in solid-state physics and photonics, \
+",
+ StyleBox["Frontiers in Physics",
+  FontSlant->"Italic"],
+ ", ",
+ StyleBox["6",
+  FontWeight->"Bold"],
+ ":86, 2018 "
+}], "Notes",
+ CellID->424061037,ExpressionUUID->"02f92ee7-f194-4b0c-b106-6c4cacdceece"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"0c89ed23-f821-424c-8ad2-5880510a13d3"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"0dd75114-8aa6-45a1-9ed6-8b245c06df22"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(2)", "ExampleCount",ExpressionUUID->
+  "c307b095-1566-49bf-9526-749966c0eebb"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellTags->"PrimaryExamplesSection",
+ CellID->1320395310,ExpressionUUID->"a8d4e8e4-269f-4ce6-bda2-e7fa192a8ecc"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"9f13bb05-7567-4b9b-b8ce-38423cc3564d"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"14fc9659-0f5a-4818-8cb8-3fdf2673dc57"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(2)", "ExampleCount",ExpressionUUID->
+  "9bf8c7c2-11b7-4e20-bf26-eec35f5f590e"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->1669195185,ExpressionUUID->"01f3d20f-577c-425e-ba87-4f425f97c779"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->759744441,ExpressionUUID->"e73ad8af-91c2-42fc-b5fb-089a358b37b1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GTJMatrix", "[", 
+   RowBox[{
+    RowBox[{"3", "/", "2"}], ",", "C3z"}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->2063800322,ExpressionUUID->"13ef5b9d-99eb-4d39-bb91-057b37ca17ac"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], "+", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SqrtBox["3"]}], "2"]}], ")"}], "3"], "0", "0", "0"},
+     {"0", 
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], "-", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SqrtBox["3"]}], "2"]}], ")"}], " ", 
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          FractionBox["1", "2"], "+", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SqrtBox["3"]}], "2"]}], ")"}], "2"]}], "0", "0"},
+     {"0", "0", 
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{
+          FractionBox["1", "2"], "-", 
+          FractionBox[
+           RowBox[{"\[ImaginaryI]", " ", 
+            SqrtBox["3"]}], "2"]}], ")"}], "2"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], "+", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SqrtBox["3"]}], "2"]}], ")"}]}], "0"},
+     {"0", "0", "0", 
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox["1", "2"], "-", 
+         FractionBox[
+          RowBox[{"\[ImaginaryI]", " ", 
+           SqrtBox["3"]}], "2"]}], ")"}], "3"]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellLabel->"Out[2]//MatrixForm=",
+ CellID->1846028311,ExpressionUUID->"6c9441f1-6fab-40bd-b35c-2fffb7d9b57f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "13c2fc2b-cf0e-4f2a-98f0-a520f1cbc393"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1674842661,ExpressionUUID->"7c485ac1-6fef-4f5b-a7de-bd99813689c1"],
+
+Cell[TextData[{
+ "For J=1/2 ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTJMatrix"]], "paclet:GroupTheory/ref/GTJMatrix", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "c9d7f3f9-c43b-4af6-8a00-3ec84e1467ef"],
+ " is equivalent to ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTGetSU2Matrix"]], "paclet:GroupTheory/ref/GTGetSU2Matrix", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "b3dda82b-71cb-4ed3-a313-cac03eac51bc"],
+ "."
+}], "ExampleText",
+ CellID->1480088208,ExpressionUUID->"f80b61ac-3886-4e38-8f5e-ce4e2a981674"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GTJMatrix", "[", 
+   RowBox[{
+    RowBox[{"1", "/", "2"}], ",", "C3d"}], "]"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->327100976,ExpressionUUID->"29fa9d31-5468-4ffc-89df-3bdaef3121d8"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       FractionBox["1", "2"], "+", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        SqrtBox[
+         FractionBox["3", "2"]]}]}], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+       SqrtBox[
+        FractionBox["3", "2"]]}]},
+     {
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+       SqrtBox[
+        FractionBox["3", "2"]]}], 
+      RowBox[{
+       FractionBox["1", "2"], "-", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        SqrtBox[
+         FractionBox["3", "2"]]}]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellLabel->"Out[1]//MatrixForm=",
+ CellID->317046487,ExpressionUUID->"a56b2857-995e-4fd9-9a30-b17a542e5e65"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GTGetSU2Matrix", "[", "C3d", "]"}], "//", "MatrixForm"}]], "Input",\
+
+ CellLabel->"In[2]:=",
+ CellID->1556418896,ExpressionUUID->"f23e6636-b821-409f-9ced-26b91909922c"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{
+       FractionBox["1", "2"], "+", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        SqrtBox[
+         FractionBox["3", "2"]]}]}], 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+       SqrtBox[
+        FractionBox["3", "2"]]}]},
+     {
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], " ", "\[ImaginaryI]", " ", 
+       SqrtBox[
+        FractionBox["3", "2"]]}], 
+      RowBox[{
+       FractionBox["1", "2"], "-", 
+       RowBox[{
+        FractionBox["1", "2"], " ", "\[ImaginaryI]", " ", 
+        SqrtBox[
+         FractionBox["3", "2"]]}]}]}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellLabel->"Out[2]//MatrixForm=",
+ CellID->1648544605,ExpressionUUID->"77f430b0-1f95-417a-b192-1cb99c3a7f84"]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, 
+  Closed]]]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTJTransform"]], "paclet:GroupTheory/ref/GTJTransform", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "82e35d7c-a89e-4313-87ec-3e0ddad61fbd"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTAngularMomentumRep"]], 
+           "paclet:GroupTheory/ref/GTAngularMomentumRep", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "9aaa89be-54ef-4904-97d5-cb878dde253b"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTAngularMomentumChars"]], 
+           "paclet:GroupTheory/ref/GTAngularMomentumChars", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "4821e4e2-3dd1-41d1-96ba-f0d920e487a7"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTJminus"]], "paclet:GroupTheory/ref/GTJminus", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "ba4f63f8-f99d-4acb-b198-5f4ec46c40be"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTJplus"]], "paclet:GroupTheory/ref/GTJplus", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "8beb5743-1a03-4e5c-9dce-2562ac5d41fb"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTGetSU2Matrix"]], 
+           "paclet:GroupTheory/ref/GTGetSU2Matrix", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "112663a9-c9e5-4fad-bc76-d896b509889a"]
+       }], "SeeAlso",ExpressionUUID->"84e8c3a4-6256-4f41-bc97-30a4a606b02f"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"7bf3c0ec-0224-42ea-a0b2-\
+d051014aa5a9"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox["Tutorials", "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Angular Momentum Operations"]], 
+           "paclet:GroupTheory/tutorial/AngularMomentum"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "84bca561-6fa0-46d1-9cb1-2ec5bc72e2b4"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"d06321c3-b413-4def-970d-\
+5bb2b551e673"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["AngularMomentum"]], 
+           "paclet:GroupTheory/guide/AngularMomentum"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "93d19214-8fb6-4a94-889a-42a3e29bb008"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"1960a39b-e7d6-4217-a351-\
+8ad7202e0820"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"507692fb-def5-4834-b88d-8dfe4716b5ce"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{55.5, Automatic}, {Automatic, 20.25}},
+WindowTitle->"GTJMatrix",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "HasOptions" -> True, "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "NotesSection" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 54, 41.636285}", 
+    "history" -> {"1.3", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Symbol", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "GTJMatrix[J, element] gives the y representationmatrix for an element of \
+an irreducible representation J of O (3). ", "synonyms" -> {}, 
+    "tabletags" -> {}, "title" -> "GTJMatrix", "titlemodifier" -> "", 
+    "metadescription" -> "", "windowtitle" -> "GTJMatrix", "type" -> "Symbol",
+     "uri" -> "GroupTheory/ref/GTJMatrix"}},
+CellContext->"Global`",
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"4efe3a95-698e-4b4b-9d8b-da7004d0e543"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[12267, 326, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"a8d4e8e4-269f-4ce6-bda2-e7fa192a8ecc",
+   CellTags->"PrimaryExamplesSection",
+   CellID->1320395310]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 29035, 820}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[581, 21, 6701, 161, 56, "AnchorBarGrid",ExpressionUUID->"d8ed3b18-b391-4954-a5d0-2767c03beed0",
+ CellID->1],
+Cell[7285, 184, 94, 0, 24, "ContextNameCell",ExpressionUUID->"05576245-6480-447a-9a9c-3986e6826bbd"],
+Cell[CellGroupData[{
+Cell[7404, 188, 552, 14, 59, "ObjectNameGrid",ExpressionUUID->"227a8031-2dff-4849-afb9-e5601fab4fd4"],
+Cell[7959, 204, 785, 20, 110, "Usage",ExpressionUUID->"cb30edd9-9089-44e0-8b5d-e2a7ff5401c1",
+ CellID->1769672507]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8781, 229, 1919, 48, 37, "NotesSection",ExpressionUUID->"5c39c540-189b-4636-95b1-54c61d524b5b",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->191004947],
+Cell[10703, 279, 167, 3, 70, "Notes",ExpressionUUID->"7b7d0345-b01b-40e6-9177-882c12a6b999",
+ CellID->785497368],
+Cell[10873, 284, 438, 12, 70, "Notes",ExpressionUUID->"8e859a42-42fe-4bce-9b1b-1a30d41b5fc9",
+ CellID->1669274429],
+Cell[11314, 298, 135, 1, 70, "Notes",ExpressionUUID->"3d625fe0-0d71-4676-9b76-0e9f605bba6c",
+ CellID->1371543676],
+Cell[11452, 301, 688, 19, 70, "Notes",ExpressionUUID->"02f92ee7-f194-4b0c-b106-6c4cacdceece",
+ CellID->424061037]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[12267, 326, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"a8d4e8e4-269f-4ce6-bda2-e7fa192a8ecc",
+ CellTags->"PrimaryExamplesSection",
+ CellID->1320395310],
+Cell[CellGroupData[{
+Cell[13713, 367, 1399, 36, 30, "ExampleSection",ExpressionUUID->"01f3d20f-577c-425e-ba87-4f425f97c779",
+ CellID->1669195185],
+Cell[15115, 405, 175, 3, 27, "Input",ExpressionUUID->"e73ad8af-91c2-42fc-b5fb-089a358b37b1",
+ CellID->759744441],
+Cell[CellGroupData[{
+Cell[15315, 412, 248, 7, 27, "Input",ExpressionUUID->"13ef5b9d-99eb-4d39-bb91-057b37ca17ac",
+ CellID->2063800322],
+Cell[15566, 421, 2012, 63, 155, "Output",ExpressionUUID->"6c9441f1-6fab-40bd-b35c-2fffb7d9b57f",
+ CellID->1846028311]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17615, 489, 243, 5, 12, "ExampleDelimiter",ExpressionUUID->"7c485ac1-6fef-4f5b-a7de-bd99813689c1",
+ CellID->1674842661],
+Cell[17861, 496, 767, 23, 40, "ExampleText",ExpressionUUID->"f80b61ac-3886-4e38-8f5e-ce4e2a981674",
+ CellID->1480088208],
+Cell[CellGroupData[{
+Cell[18653, 523, 247, 7, 27, "Input",ExpressionUUID->"29fa9d31-5468-4ffc-89df-3bdaef3121d8",
+ CellID->327100976],
+Cell[18903, 532, 1333, 41, 93, "Output",ExpressionUUID->"a56b2857-995e-4fd9-9a30-b17a542e5e65",
+ CellID->317046487]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20273, 578, 203, 5, 27, "Input",ExpressionUUID->"f23e6636-b821-409f-9ced-26b91909922c",
+ CellID->1556418896],
+Cell[20479, 585, 1334, 41, 93, "Output",ExpressionUUID->"77f430b0-1f95-417a-b192-1cb99c3a7f84",
+ CellID->1648544605]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, Closed]]]],
+Cell[22067, 636, 3545, 95, 70, "SeeAlsoSection",ExpressionUUID->"7bf3c0ec-0224-42ea-a0b2-d051014aa5a9"],
+Cell[25615, 733, 723, 19, 70, "TutorialsSection",ExpressionUUID->"d06321c3-b413-4def-970d-5bb2b551e673"],
+Cell[26341, 754, 729, 19, 70, "MoreAboutSection",ExpressionUUID->"1960a39b-e7d6-4217-a351-8ad7202e0820"],
+Cell[27073, 775, 78, 0, 70, "FooterCell",ExpressionUUID->"507692fb-def5-4834-b88d-8dfe4716b5ce"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

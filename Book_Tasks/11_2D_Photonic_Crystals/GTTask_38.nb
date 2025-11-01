@@ -1,0 +1,1014 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     41457,       1006]
+NotebookOptionsPosition[     34439,        906]
+NotebookOutlinePosition[     34929,        925]
+CellTagsIndexPosition[     34886,        922]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"169cba06-10b6-4832-bca3-\
+1f4d8e612b45"],
+
+Cell["Task_38: Calculation with MPB", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+   3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+   3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, 
+   3.6510653858085613`*^9, {3.651065421088859*^9, 3.651065421366317*^9}, {
+   3.6510687045818653`*^9, 3.651068710545953*^9}, {3.698590274583303*^9, 
+   3.6985902766031446`*^9}, {3.715676225518305*^9, 3.715676245048991*^9}, {
+   3.715755292106161*^9, 3.715755292520115*^9}, {3.715758251670918*^9, 
+   3.715758274686324*^9}, {3.7157611881702137`*^9, 3.715761209296259*^9}, {
+   3.716393208414521*^9, 3.716393219278688*^9}, 3.716401208375433*^9, {
+   3.716401240474943*^9, 3.7164012479897623`*^9}, 3.716522641989594*^9, {
+   3.7165426419507017`*^9, 3.7165426423976927`*^9}, {3.716542692922291*^9, 
+   3.716542697772799*^9}, {3.7455702536188507`*^9, 
+   3.745570254285305*^9}},ExpressionUUID->"22cfdc49-9cd8-4cb7-b8c4-\
+52afdf230a7b"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"8902cf5c-1fab-4d04-83e3-\
+b220a71c5491"],
+
+Cell[CellGroupData[{
+
+Cell["Task 38", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, 
+   3.6510654285215063`*^9, {3.698590282115162*^9, 3.698590283315255*^9}, {
+   3.71567624900875*^9, 3.7156762495600367`*^9}, {3.715755448158073*^9, 
+   3.715755448639861*^9}, {3.7157582840802937`*^9, 3.715758284687776*^9}, 
+   3.715761214043702*^9, 3.716018313470381*^9, {3.716393223778817*^9, 
+   3.7163932241388474`*^9}, 3.71640122728685*^9, {3.7165427011588078`*^9, 
+   3.716542701541177*^9}},ExpressionUUID->"10454b5e-43bb-4040-a61d-\
+da50890c8932"],
+
+Cell["see : Chapter 11, section 11.1.1, p. 271.", "Text",
+ CellChangeTimes->{
+  3.745498263586955*^9, {3.7454982950104713`*^9, 3.745498304161786*^9}, {
+   3.7454988429457417`*^9, 3.745498864534718*^9}, {3.7455037802338257`*^9, 
+   3.7455038056602087`*^9}, {3.7455602369676933`*^9, 
+   3.7455602482008343`*^9}, {3.7455695401051683`*^9, 3.745569551812634*^9}, {
+   3.745569914239709*^9, 3.745569914353972*^9}, {3.745570060331482*^9, 
+   3.745570068994796*^9}},ExpressionUUID->"465274e2-8066-46c9-bb0c-\
+3f8d35688d52"],
+
+Cell["\<\
+In Section 11.1.2 the calculations of photonic band structures by means of \
+MPB and GTPack are compared. Repeat the calculation with both methods . \
+Details of the application of MPB are given in Appendix C.1. Calculate also \
+the density of states using MPB in combination with GTPack. Formulate the \
+GTPack calculations as a background job, as discussed in section C.3
+\
+\>", "Text",
+ CellChangeTimes->{{3.5656816415621853`*^9, 3.565681860239293*^9}, {
+   3.635786170800764*^9, 3.635786173860598*^9}, {3.651065436926057*^9, 
+   3.651065635578711*^9}, {3.651068560289382*^9, 3.6510686003385973`*^9}, {
+   3.698590315173243*^9, 3.698590316986977*^9}, {3.698590659653771*^9, 
+   3.698590660901269*^9}, {3.715676257064826*^9, 3.715676287709859*^9}, {
+   3.7157582892011023`*^9, 3.715758394670127*^9}, {3.7157612456348457`*^9, 
+   3.715761334275275*^9}, {3.715761702901366*^9, 3.715761703563676*^9}, 
+   3.716393429117737*^9, {3.7163934687746964`*^9, 3.7163934904441557`*^9}, {
+   3.716393557032181*^9, 3.71639358547091*^9}, 3.716401230366062*^9, {
+   3.716401266101556*^9, 3.7164012772836103`*^9}, {3.716520259259513*^9, 
+   3.7165202594807367`*^9}, {3.716522623495709*^9, 3.716522624032591*^9}, 
+   3.71652266112589*^9, {3.716542705940421*^9, 3.71654286626753*^9}, {
+   3.745570276382608*^9, 
+   3.745570282258683*^9}},ExpressionUUID->"33745cfd-5050-4194-b34d-\
+8220f8c4753a"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 3.5656818754713144`*^9}, {
+  3.651068604062579*^9, 3.6510686054795933`*^9}, {3.715758402017662*^9, 
+  3.7157584036702013`*^9}},ExpressionUUID->"dfcd80bf-1d44-4cb9-8d7f-\
+13e4847a8d3b"],
+
+Cell["GTPack will used.", "Text",
+ CellChangeTimes->{{3.6510687190694857`*^9, 
+  3.6510687427760773`*^9}},ExpressionUUID->"d0bd2ae7-4214-4a8d-ab70-\
+11bbca93b68f"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.565681889253334*^9, 3.5656819493414183`*^9}, {
+  3.635786193501388*^9, 3.635786195193049*^9}, {3.6510687481027937`*^9, 
+  3.651068762513336*^9}, {3.651068796080668*^9, 3.6510687983863363`*^9}, {
+  3.716607921072784*^9, 3.716607923962434*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"434789ff-072e-443c-8449-39ce9a6e669d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<Task_38\>\""}], "]"}],
+   ";"}]], "Input",
+ CellChangeTimes->{{3.7166079260679626`*^9, 3.716607937259878*^9}, {
+  3.745584712609475*^9, 3.745584718157516*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"47f6e169-761b-42ba-a0ca-65ed529350fe"],
+
+Cell[CellGroupData[{
+
+Cell["Calculation with GTPack", "Subsection",
+ CellChangeTimes->{{3.7163954458413467`*^9, 3.7163954489127207`*^9}, {
+  3.7164012889573727`*^9, 3.7164012990483503`*^9}, {3.7164013550923634`*^9, 
+  3.716401357283856*^9}, {3.716523049997799*^9, 3.7165230505703783`*^9}, {
+  3.716542976397492*^9, 
+  3.716542982403356*^9}},ExpressionUUID->"fc0d9ade-0fb4-4b0c-9ff2-\
+827b51b298e8"],
+
+Cell["\<\
+All what is to be done can be found in Fig.11.4 what the GTPack calculation \
+concerns.\
+\>", "Text",
+ CellChangeTimes->{{3.7164013750518436`*^9, 3.716401413674672*^9}, {
+  3.7164732185723543`*^9, 3.716473237622109*^9}, {3.716543004116682*^9, 
+  3.716543034469521*^9}},ExpressionUUID->"1e6bbd55-6db0-4f5f-a41c-\
+95ea0178d7ee"],
+
+Cell["Definition of the structure as an object.", "Text",
+ CellChangeTimes->{{3.680924846769643*^9, 3.680924852118043*^9}, {
+  3.6809250558848553`*^9, 
+  3.6809250639479923`*^9}},ExpressionUUID->"2b05b3d9-a983-4cf2-9045-\
+bcd51638495d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ra", "=", "0.2"}], ";", 
+  RowBox[{"structure", "=", 
+   RowBox[{"{", 
+    RowBox[{"{", 
+     RowBox[{"\"\<CircularRod\>\"", ",", "8.9", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"\[Pi]", " ", 
+         RowBox[{"ra", "^", "2"}]}], ",", "ra", ",", "ra", ",", "0", ",", 
+        "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"basvec", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"eback", "=", "1"}], ";"}]}], "Input",
+ CellChangeTimes->{3.680924768647449*^9},
+ CellLabel->"In[3]:=",ExpressionUUID->"50f75021-d441-4889-b622-016c35b8d219"],
+
+Cell["\<\
+Definition of the reciprocal lattice and construction of the eigenvalue \
+problems for the two polarisations.\
+\>", "Text",
+ CellChangeTimes->{{3.680921254757082*^9, 3.680921289228994*^9}, {
+   3.680921408780048*^9, 3.680921409731125*^9}, 3.680921527300024*^9, {
+   3.680924931374202*^9, 3.680924941221323*^9}, {3.680924975365602*^9, 
+   3.680924982028801*^9}, {3.680925013564725*^9, 3.680925028548451*^9}, {
+   3.716543291571478*^9, 
+   3.716543302585106*^9}},ExpressionUUID->"fc4e0039-e3a6-4052-9551-\
+5173b4d831e7"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"clat", "=", 
+   RowBox[{"GTLatCluster", "[", 
+    RowBox[{"basvec", ",", "7"}], "]"}]}], ";", 
+  RowBox[{"gvec", "=", 
+   RowBox[{"GTLatShells", "[", 
+    RowBox[{"clat", ",", 
+     RowBox[{"GOSort", "\[Rule]", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"hmtm", "=", 
+   RowBox[{"GTPhMasterObjects", "[", 
+    RowBox[{"structure", ",", "eback", ",", "gvec", ",", 
+     RowBox[{"GOPhPol", "\[Rule]", "\"\<TM\>\""}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"hmte", "=", 
+   RowBox[{"GTPhMasterObjects", "[", 
+    RowBox[{"structure", ",", "eback", ",", "gvec", ",", 
+     RowBox[{"GOPhPol", "\[Rule]", "\"\<TE\>\""}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6809249705683813`*^9, 3.680924971449046*^9}, {
+  3.68092545330575*^9, 3.680925455160048*^9}, {3.680925811061359*^9, 
+  3.680925859867787*^9}, {3.6809263815523357`*^9, 3.680926388094132*^9}, {
+  3.716543267890539*^9, 3.71654328862399*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"06daf41d-f05c-4985-bbb3-f9768faffeb5"],
+
+Cell["\<\
+Define the path in the BZ  and calculate the photonic band structures\
+\>", "Text",
+ CellChangeTimes->{{3.680925084732388*^9, 3.680925110315435*^9}, {
+  3.681026202191738*^9, 3.6810262137025433`*^9}, {3.716543307242702*^9, 
+  3.716543307411107*^9}},ExpressionUUID->"4a63dd43-4f83-4d8b-a7c4-\
+8069b6c32cb2"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"kp", "=", 
+   RowBox[{"GTBZPath", "[", "\"\<SquareLattice\>\"", "]"}]}], ";", 
+  RowBox[{"kpts", "=", 
+   RowBox[{"GTBZLines", "[", 
+    RowBox[{"kp", ",", 
+     RowBox[{"{", 
+      RowBox[{"15", ",", "15", ",", "15"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bandsTM", "=", 
+   RowBox[{"GTBands", "[", 
+    RowBox[{"hmtm", ",", "kpts", ",", "10", ",", 
+     RowBox[{"GOPhotonic", "\[Rule]", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bandsTE", "=", 
+   RowBox[{"GTBands", "[", 
+    RowBox[{"hmte", ",", "kpts", ",", "10", ",", 
+     RowBox[{"GOPhotonic", "\[Rule]", "True"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{
+  3.6809206631244593`*^9, 3.680925079345723*^9, {3.681026226943434*^9, 
+   3.681026227522046*^9}, {3.68984466290744*^9, 3.689844664312471*^9}, {
+   3.716543333828495*^9, 3.716543368299358*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"9a8d3efd-b697-4b0e-9912-b6113bdd3832"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pltTM", "=", 
+   RowBox[{"GTBandsPlot", "[", 
+    RowBox[{"bandsTM", ",", "10", ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<\>\"", ",", "\"\<\[Omega] a/(2 \[Pi] c)\>\""}], "}"}]}], 
+     ",", "\[IndentingNewLine]", "             ", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<TM polarization\>\""}], ",", 
+     RowBox[{"Joined", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+     "             ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1.70711"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716543251605997*^9, 3.716543257337531*^9}, {
+  3.71654331736937*^9, 3.7165433218906593`*^9}, {3.716543376614069*^9, 
+  3.716543377344576*^9}, {3.716543413559169*^9, 3.716543414694189*^9}, {
+  3.716543455544718*^9, 3.716543461708702*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"26acbf52-4240-437f-b0c7-7aece01060e5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pltTE", "=", 
+   RowBox[{"GTBandsPlot", "[", 
+    RowBox[{"bandsTE", ",", "10", ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<\>\"", ",", "\"\<\[Omega] a/(2 \[Pi] c)\>\""}], "}"}]}], 
+     ",", "\[IndentingNewLine]", "             ", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<TM polarization\>\""}], ",", 
+     RowBox[{"Joined", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+     "             ", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1.70711"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Blue"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716543400318853*^9, 3.716543424909244*^9}, {
+  3.716543468189828*^9, 3.716543470990347*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"6718b895-b4fb-47b6-9487-bd24fdb4da0c"],
+
+Cell[BoxData[
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{"{", 
+   RowBox[{"{", 
+    RowBox[{"pltTM", ",", "pltTE"}], "}"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.716543427996153*^9, 3.716543444169612*^9}, {
+  3.7165434988806467`*^9, 3.7165435127971067`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"956c7494-21cb-4ede-89e0-27d92659201a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Calculation of band structure using MPB", "Subsection",
+ CellChangeTimes->{{3.7165435448822203`*^9, 3.716543557909238*^9}, {
+   3.7166095566531754`*^9, 3.716609572750279*^9}, 
+   3.7166096424810038`*^9},ExpressionUUID->"eff64bb0-5467-4016-b98d-\
+9fdc1ed6a445"],
+
+Cell["The calculation with MPB will be done in several steps.", "Text",
+ CellChangeTimes->{{3.716543575440559*^9, 
+  3.716543601841297*^9}},ExpressionUUID->"ed17d670-c399-426e-b73a-\
+194ba90476ce"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "The input file of MPB has to be prepared. A good starting point is the MPB \
+tutorial. The input file is given in this directory: ",
+ StyleBox["rod_bands.ctl",
+  FontSlant->"Italic"]
+}], "Item",
+ CellChangeTimes->{{3.716544455097913*^9, 3.716544455943253*^9}, {
+  3.716607698486055*^9, 3.716607736949429*^9}, {3.7166079529547653`*^9, 
+  3.716607981169449*^9}},ExpressionUUID->"336ae9ea-da62-4c7f-beb3-\
+99632e48b6c1"],
+
+Cell["MPB calculation of the photonic band structure. ", "Item",
+ CellChangeTimes->{{3.716544455097913*^9, 3.7165444559254017`*^9}, {
+   3.7166077478057547`*^9, 3.716607763162332*^9}, {3.716608025957855*^9, 
+   3.716608087596567*^9}, 
+   3.716608578425432*^9},ExpressionUUID->"28e3ada8-caf1-4f0b-8aff-\
+c3d38262c6cd"],
+
+Cell[TextData[{
+ "As discussed in C.1 the script ",
+ StyleBox["GSMPBBands2D",
+  FontWeight->"Bold"],
+ " extracts the bands for TM and TE polarization. "
+}], "Item",
+ CellChangeTimes->{{3.716544455097913*^9, 3.7165444559254017`*^9}, {
+   3.7166077478057547`*^9, 3.71660779169254*^9}, 
+   3.716608581914454*^9},ExpressionUUID->"0253f1a2-7874-4324-ac17-\
+2691ee429609"],
+
+Cell[TextData[{
+ "Read the data  with ",
+ StyleBox["GTPhMPBBands",
+  FontWeight->"Bold"],
+ " and compare with ",
+ StyleBox["GTPack",
+  FontWeight->"Bold"],
+ " calculation."
+}], "Item",
+ CellChangeTimes->{{3.716544455097913*^9, 3.7165444559254017`*^9}, {
+  3.7166077478057547`*^9, 3.716607798905507*^9}, {3.716607846324332*^9, 
+  3.716607854289493*^9}, {3.716608613871995*^9, 
+  3.716608626414888*^9}},ExpressionUUID->"a46e5eeb-b175-400b-8a55-\
+6eb6ea684115"]
+}, Open  ]],
+
+Cell["\<\
+We have to provide the special points along the path used in the MPB \
+calculation.\
+\>", "Text",
+ CellChangeTimes->{{3.716609186519444*^9, 
+  3.716609215577914*^9}},ExpressionUUID->"ea26923c-56c5-4f65-a4b3-\
+9ec14c5a4b5b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kpoints", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       "\"\<\[CapitalGamma]\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{".5", ",", "0", ",", "0"}], "}"}], ",", "\"\<X\>\""}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{".5", ",", ".5", ",", "0"}], "}"}], ",", "\"\<M\>\""}], 
+      "}"}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.745584814108886*^9, 3.7455848200507307`*^9}, {
+  3.745584887349299*^9, 3.745584897593947*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"25c8dff7-9963-4b3e-8db3-04464bedd113"],
+
+Cell["\<\
+The MPB  band structures are provided, in case you cannot do it by yourself.\
+\>", "Text",
+ CellChangeTimes->{{3.745570521300371*^9, 3.7455705307623167`*^9}, {
+  3.7455849090750713`*^9, 
+  3.745584928788301*^9}},ExpressionUUID->"8bdc2ff0-9a3a-4e7c-bf96-\
+196f03455d54"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tmbands", "=", 
+   RowBox[{"GTPhMPBBands", "[", 
+    RowBox[{"\"\<bands2D_TM\>\"", ",", "kpoints", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716608807291292*^9, 3.71660884196976*^9}, {
+  3.716608875889789*^9, 3.716608876125269*^9}, {3.716609023627523*^9, 
+  3.716609044079337*^9}, {3.716609124113864*^9, 3.7166091771812353`*^9}, {
+  3.716609298211913*^9, 3.716609299178204*^9}, {3.74557064502818*^9, 
+  3.745570823313835*^9}, {3.745570854492712*^9, 3.745570866263371*^9}, {
+  3.745584733871077*^9, 3.7455847424805593`*^9}, {3.7455848799898853`*^9, 
+  3.745584884403956*^9}, {3.745584939920258*^9, 3.745584949724573*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"4474f803-3a55-4aec-9ef3-a13b7e5e9e82"],
+
+Cell[BoxData[
+ RowBox[{"pltTM1", "=", 
+  RowBox[{"GTBandsPlot", "[", 
+   RowBox[{"tmbands", ",", "8", ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1.71"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<\>\"", ",", "\"\<\[Omega] a/(2 \[Pi] c)\>\""}], "}"}]}], 
+    ",", 
+    RowBox[{"PlotLabel", "\[Rule]", "\"\<Bands MPB\>\""}], ",", 
+    RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", "Dashed"}], "}"}], "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7166092374946823`*^9, 3.716609276127041*^9}, {
+  3.716609333268695*^9, 3.716609347094282*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"154f7450-1b1d-41dc-b6c1-27a83efce99d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tebands", "=", 
+   RowBox[{"GTPhMPBBands", "[", 
+    RowBox[{"\"\<bands2D_TE\>\"", ",", "kpoints", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716608807291292*^9, 3.71660884196976*^9}, {
+  3.716608875889789*^9, 3.716608876125269*^9}, {3.716609023627523*^9, 
+  3.716609044079337*^9}, {3.716609124113864*^9, 3.7166091771812353`*^9}, {
+  3.7166092916421633`*^9, 3.716609292405719*^9}, {3.74558496755439*^9, 
+  3.745584968030007*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"fff94a4e-1952-45e3-bdb9-7d2c4ca4ae64"],
+
+Cell[BoxData[
+ RowBox[{"pltTE1", "=", 
+  RowBox[{"GTBandsPlot", "[", 
+   RowBox[{"tebands", ",", "8", ",", 
+    RowBox[{"PlotRange", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1.71"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], ",", 
+    RowBox[{"FrameLabel", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<\>\"", ",", "\"\<\[Omega] a/(2 \[Pi] c)\>\""}], "}"}]}], 
+    ",", 
+    RowBox[{"PlotLabel", "\[Rule]", "\"\<Bands MPB\>\""}], ",", 
+    RowBox[{"Joined", "\[Rule]", "True"}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"{", 
+       RowBox[{"Black", ",", "Dashed"}], "}"}], "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7166092374946823`*^9, 3.716609276127041*^9}, {
+  3.716609315728956*^9, 3.716609315888982*^9}, {3.716609355308291*^9, 
+  3.7166093582196627`*^9}, {3.7166095216877813`*^9, 3.7166095218852987`*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"9aa8dc2f-6055-4f3c-8767-557987128b41"],
+
+Cell[BoxData[
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{"{", 
+   RowBox[{"{", 
+    RowBox[{"pltTM1", ",", "pltTE1"}], "}"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.716609375377008*^9, 3.716609376895713*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"40d605ba-1ac0-406d-bf02-c22978639565"],
+
+Cell["Now we can compare both calculations", "Text",
+ CellChangeTimes->{{3.716609385637206*^9, 3.716609407664357*^9}, {
+  3.745584991463962*^9, 
+  3.74558500105523*^9}},ExpressionUUID->"49384911-df1c-427f-98f1-\
+e89cdd1980ee"],
+
+Cell[BoxData[
+ RowBox[{"GraphicsGrid", "[", 
+  RowBox[{"{", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Show", "[", 
+      RowBox[{"pltTM", ",", "pltTM1"}], "]"}], ",", 
+     RowBox[{"Show", "[", 
+      RowBox[{"pltTE", ",", "pltTE1"}], "]"}]}], "}"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.716609444014607*^9, 3.716609476774551*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"a6594dbe-c831-4317-bd5e-cc553040ac59"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Calculation of the DOS using MPB", "Subsection",
+ CellChangeTimes->{{3.716609656295424*^9, 
+  3.716609664675829*^9}},ExpressionUUID->"818afdfd-62c5-428e-84f4-\
+bdd471bf35eb"],
+
+Cell[TextData[{
+ "The calculation of the DOS for photonic band structures in ",
+ StyleBox["GTPack ",
+  FontWeight->"Bold"],
+ "follows the same lines as DOS calculations in the electronic case. We have \
+to calculate the band structure at enough ",
+ StyleBox["k-",
+  FontWeight->"Bold"],
+ "points in the irreducible part of the BZ, followed by the DOS calculation. ",
+ StyleBox[" GTDensityOfStates ",
+  FontWeight->"Bold"],
+ "allows to do all in one step.",
+ StyleBox[" ",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.71660967926724*^9, 3.716609713017853*^9}, {
+  3.7166099291583843`*^9, 3.7166099442665043`*^9}, {3.716610041155167*^9, 
+  3.7166101794637938`*^9}, {3.7455854276563673`*^9, 
+  3.745585454885253*^9}},ExpressionUUID->"9e361318-ae39-49e8-a1f7-\
+6157e2d7f436"],
+
+Cell["We do the calculation for TM polarisation", "Text",
+ CellChangeTimes->{{3.716610210402499*^9, 
+  3.716610218980545*^9}},ExpressionUUID->"52b14cda-c6dd-4abd-a2e7-\
+fa02fea901ec"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kpts", "=", 
+   RowBox[{"GTBZPointMesh", "[", 
+    RowBox[{"30", ",", "1", ",", "\"\<square\>\""}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[21]:=",ExpressionUUID->"8ca0fc2f-75d9-4b32-95b4-1c1db2883e01"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bands", "=", 
+   RowBox[{"GTBands", "[", 
+    RowBox[{"hmtm", ",", "kpts", ",", "10", ",", 
+     RowBox[{"GOPhotonic", "\[Rule]", "True"}], ",", 
+     RowBox[{"GOPlotBands", "\[Rule]", "False"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716611143148198*^9, 3.7166111445417957`*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"e47ca4f3-c504-4e7d-86fe-a3882213c3e8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"parm", "=", 
+   RowBox[{"{", 
+    RowBox[{"0.", ",", "1.", ",", "501", ",", ".005", ",", "1"}], "}"}]}], 
+  ";", 
+  RowBox[{"dos", "=", 
+   RowBox[{"GTDensityOfStatesPlot", "[", 
+    RowBox[{"bands", ",", "parm"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7166111799819927`*^9, 3.7166111937101727`*^9}, {
+  3.7166132642849607`*^9, 3.716613264644288*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"60b78511-f345-4a33-9568-9445022eccbe"],
+
+Cell["\<\
+If MPB is used, the efficiency of MPB in calculating the photonic band \
+structure is exploited. The steps will be the following\
+\>", "Text",
+ CellChangeTimes->{{3.716610535196926*^9, 3.716610586013175*^9}, 
+   3.745570593519917*^9},ExpressionUUID->"719140ea-89b8-4a40-b929-\
+52ab7e1a075d"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "At first the ",
+ StyleBox["k ",
+  FontWeight->"Bold"],
+ "points are generated by means of ",
+ StyleBox["GTBZPointMesh",
+  FontWeight->"Bold"],
+ ". The data are exported."
+}], "Item",
+ CellChangeTimes->{{3.716544455097913*^9, 3.716544455943253*^9}, {
+  3.716607698486055*^9, 3.716607736949429*^9}, {3.7166079529547653`*^9, 
+  3.716607981169449*^9}, {3.71661061157373*^9, 3.7166106115773373`*^9}, {
+  3.716610644717181*^9, 3.716610648114513*^9}, {3.716610770471992*^9, 
+  3.716610845409574*^9}},ExpressionUUID->"867e1f3b-e9b0-4ca3-a97e-\
+7c1b1ae5ed6f"],
+
+Cell["\<\
+The input file of MPB has to be prepared.  Usually we have the head and the \
+tail already prepared. A concatenation of the files : head <>k_points<>tail \
+gives the input file.\
+\>", "Item",
+ CellChangeTimes->{{3.716544455097913*^9, 3.716544455943253*^9}, {
+   3.716607698486055*^9, 3.716607736949429*^9}, {3.7166079529547653`*^9, 
+   3.716607981169449*^9}, 3.71661061157373*^9, {3.716610855580201*^9, 
+   3.7166109238464317`*^9}, {3.7455855371818237`*^9, 
+   3.745585555142248*^9}},ExpressionUUID->"1c8e025e-daf8-4ea9-b84d-\
+eb4f9d66e89a"],
+
+Cell[TextData[{
+ "MPB calculation of the photonic band structure at the given ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "-points."
+}], "Item",
+ CellChangeTimes->{{3.716544455097913*^9, 3.7165444559254017`*^9}, {
+   3.7166077478057547`*^9, 3.716607763162332*^9}, {3.716608025957855*^9, 
+   3.716608087596567*^9}, 3.716608578425432*^9, {3.716610932587858*^9, 
+   3.716610944006653*^9}},ExpressionUUID->"c2c35622-6227-4ab1-9151-\
+6067077df8c3"],
+
+Cell["Read the data  and calculate the DOS.", "Item",
+ CellChangeTimes->{{3.716544455097913*^9, 3.7165444559254017`*^9}, {
+  3.7166077478057547`*^9, 3.716607798905507*^9}, {3.716607846324332*^9, 
+  3.716607854289493*^9}, {3.716608613871995*^9, 3.716608626414888*^9}, {
+  3.716610965360641*^9, 
+  3.716610970568329*^9}},ExpressionUUID->"f6269b9e-2827-49ac-b9ce-\
+9129211e2df8"]
+}, Open  ]],
+
+Cell[TextData[{
+ "We will take more ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ " points for the MPB calculation"
+}], "Text",
+ CellChangeTimes->{{3.7166112332405987`*^9, 3.716611238897408*^9}, {
+  3.716611466083778*^9, 3.716611487369698*^9}},
+ FontWeight->"Plain",ExpressionUUID->"b37c4eee-d386-4d7a-b35a-e09d324cda5a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kpts", "=", 
+   RowBox[{"GTBZPointMesh", "[", 
+    RowBox[{"60", ",", 
+     RowBox[{"1", "/", "2"}], ",", "\"\<square\>\""}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[24]:=",ExpressionUUID->"92b8053f-b731-4942-99f3-78eb0f843efc"],
+
+Cell[BoxData[
+ RowBox[{"GTBZMPBPointMesh", "[", 
+  RowBox[{"\"\<kpts.ctl\>\"", ",", "kpts"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7166122868032312`*^9, 3.716612287844904*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"1e94f01b-489c-4ed2-adb1-b941d448d6cb"],
+
+Cell[TextData[{
+ "After the MPB calculation the eigenvalues at the ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "-points are taken to calculate the DOS within ",
+ StyleBox["GTPack.",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.716612937995492*^9, 3.716612947028529*^9}, {
+  3.716613187896368*^9, 
+  3.716613227302107*^9}},ExpressionUUID->"dcf6761a-2a81-4504-810b-\
+dbd3cb89ce38"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kps1", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"1", "/", "2"}], ",", 
+         RowBox[{"1", "/", "2"}], ",", "0"}], "}"}], ",", "\"\<M\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       "\"\<\[CapitalGamma]\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox["1", "2"], ",", "0", ",", "0"}], "}"}], ",", 
+       "\"\<X\>\""}], "}"}]}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[26]:=",ExpressionUUID->"3a2f0031-a41c-45b6-b30d-e4baeb84c115"],
+
+Cell["Also here the band structure data are already calculated.", "Text",
+ CellChangeTimes->{{3.7455858786796618`*^9, 3.745585879265101*^9}, {
+  3.745585921583897*^9, 
+  3.745585939788632*^9}},ExpressionUUID->"7fd4a4aa-e942-47f5-bdea-\
+cc3d77951795"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bandsDOS", " ", "=", " ", 
+   RowBox[{"GTPhMPBBands", "[", 
+    RowBox[{"\"\<dos2D_TM\>\"", ",", " ", "kps1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "}"}], ",", " ", 
+     RowBox[{"GOPlotBands", " ", "->", " ", "False"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.745585884623323*^9, 3.74558590521515*^9}, {
+  3.745585951314858*^9, 3.745585961261312*^9}},
+ CellLabel->"In[27]:=",ExpressionUUID->"022092b9-2aec-4535-8b53-dc520c8e7c92"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"parm", "=", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0.8", ",", "501", ",", ".0", ",", "1"}], "}"}]}], ";", 
+  RowBox[{"dos1", "=", 
+   RowBox[{"GTDensityOfStatesPlot", "[", 
+    RowBox[{"bandsDOS", ",", "parm", ",", 
+     RowBox[{"PlotLabel", "\[Rule]", "\"\<\>\""}], ",", 
+     RowBox[{"FrameLabel", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<\[Omega]a/(2\[Pi]c)\>\"", ",", "\"\<DOS (arb. units)\>\""}], 
+       "}"}]}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Red"}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0.8"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"0.0", ",", "35."}], "}"}]}], "}"}]}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.71661315522605*^9, {3.716613252518969*^9, 3.7166132528880253`*^9}, {
+   3.74558585442381*^9, 3.745585864786788*^9}, 3.7455859724443913`*^9},
+ CellLabel->"In[28]:=",ExpressionUUID->"3e7e99bb-2f9d-4f81-8f35-2bb0955175ad"],
+
+Cell[TextData[StyleBox["Let' s compare the calculations.",
+ FontSlant->"Plain"]], "Text",
+ CellChangeTimes->{{3.716613358355342*^9, 3.716613397543085*^9}, {
+  3.745585981971547*^9, 3.745585986557886*^9}},
+ FontSlant->"Italic",ExpressionUUID->"5435b743-063b-41fc-9c62-0e6a85bf5567"],
+
+Cell[BoxData[
+ RowBox[{"plt0", "=", 
+  RowBox[{"Show", "[", 
+   RowBox[{"dos1", ",", "dos"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.71661340001153*^9, 3.716613424387351*^9}, {
+  3.745589384760562*^9, 3.745589386944672*^9}},
+ CellLabel->"In[29]:=",ExpressionUUID->"36d32b1b-4680-479a-91ab-e0a74a3a146d"],
+
+Cell[TextData[{
+ "Our simple calculation with only 149 reciprocal vectors and also much less ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "-points than the more sophisticated MPB calculation compare reasonably well \
+for lower frequencies.. An increase of the number of ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "-points will not help in the",
+ StyleBox[" ",
+  FontSlant->"Italic"],
+ StyleBox["GTPack ",
+  FontWeight->"Bold"],
+ "calculation. We have to increase the number of reciprocal lattice vectors, \
+i.e the number of plane waves."
+}], "Text",
+ CellChangeTimes->{{3.716613436361462*^9, 3.716613627666754*^9}, {
+  3.745586057908554*^9, 
+  3.745586127162581*^9}},ExpressionUUID->"8d24dd0d-ace3-4567-824a-\
+9537da670336"],
+
+Cell["This will take a while now.", "Text",
+ CellChangeTimes->{{3.7166137114143753`*^9, 
+  3.7166137411950073`*^9}},ExpressionUUID->"8859ad8d-ad15-40be-9ffb-\
+234fd241a526"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"clat", "=", 
+   RowBox[{"GTLatCluster", "[", 
+    RowBox[{"basvec", ",", "12"}], "]"}]}], ";", 
+  RowBox[{"gvec", "=", 
+   RowBox[{"GTLatShells", "[", 
+    RowBox[{"clat", ",", 
+     RowBox[{"GOSort", "\[Rule]", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"hmtm", "=", 
+   RowBox[{"GTPhMasterObjects", "[", 
+    RowBox[{"structure", ",", "eback", ",", "gvec", ",", 
+     RowBox[{"GOPhPol", "\[Rule]", "\"\<TM\>\""}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.7166136550057592`*^9, 3.716613655206663*^9}},
+ CellLabel->"In[30]:=",ExpressionUUID->"3fce6689-8caf-4d7a-ada6-4430f76bf0b3"],
+
+Cell[TextData[{
+ "Because we 3 times as much plane waves as before, the workload for the \
+calculation of the bands  increases by a factor of 3^3=27. We take less ",
+ StyleBox["k",
+  FontWeight->"Bold"],
+ "-vectors  so ithr increase ends up at a factor of 7 roughly. We want only \
+to see the tendency coming from more plane waves."
+}], "Text",
+ CellChangeTimes->{{3.745588070980133*^9, 3.745588071478136*^9}, {
+  3.745588122632749*^9, 3.745588193764628*^9}, {3.74558822820394*^9, 
+  3.745588257191206*^9}, {3.745588294694642*^9, 
+  3.74558833396266*^9}},ExpressionUUID->"9e1f4252-2fa3-44c3-a6fe-\
+6f44df8ecdc9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"kpts", "=", 
+   RowBox[{"GTBZPointMesh", "[", 
+    RowBox[{"15", ",", "1", ",", "\"\<square\>\""}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.745588051384952*^9, 3.745588065422243*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"89178b3b-cb97-4ba7-a187-26842b937a6f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bands", "=", 
+   RowBox[{"GTBands", "[", 
+    RowBox[{"hmtm", ",", "kpts", ",", "10", ",", 
+     RowBox[{"GOPhotonic", "\[Rule]", "True"}], ",", 
+     RowBox[{"GOPlotBands", "\[Rule]", "False"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716611143148198*^9, 3.7166111445417957`*^9}},
+ CellLabel->"In[33]:=",ExpressionUUID->"5c8c4e5d-22ef-4cc2-b14d-79625d8b7711"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"parm", "=", 
+   RowBox[{"{", 
+    RowBox[{"0.", ",", "1.", ",", "501", ",", ".005", ",", "1"}], "}"}]}], 
+  ";", 
+  RowBox[{"dos2", "=", 
+   RowBox[{"GTDensityOfStatesPlot", "[", 
+    RowBox[{"bands", ",", "parm", ",", 
+     RowBox[{"PlotStyle", "\[Rule]", "Cyan"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7166111799819927`*^9, 3.7166111937101727`*^9}, {
+   3.7166132642849607`*^9, 3.716613264644288*^9}, {3.716613772154139*^9, 
+   3.716613776461328*^9}, 3.716613809189633*^9, {3.7455861923497047`*^9, 
+   3.74558619532662*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"d95366c5-6ab8-4514-b52a-88dfc2f9f60a"],
+
+Cell[BoxData[
+ RowBox[{"plt2", "=", 
+  RowBox[{"Show", "[", 
+   RowBox[{"dos1", ",", "dos2"}], "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.716613830193688*^9, {3.745589329770191*^9, 3.745589331292981*^9}, {
+   3.745589365209656*^9, 3.745589373325191*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"fb67bf9d-fdcc-4b22-94a0-a375c84d4afc"],
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{"{", 
+   RowBox[{"{", 
+    RowBox[{"plt0", ",", "plt2"}], "}"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.745589398795197*^9, 3.745589422920479*^9}},
+ CellLabel->"In[36]:=",ExpressionUUID->"0295fe5b-4abe-4fdd-818f-2247e9f63d99"],
+
+Cell["\<\
+The increase of the number of plane waves increases the agreement with the \
+MPB calculation.\
+\>", "Text",
+ CellChangeTimes->{{3.74558944373213*^9, 
+  3.7455894802429037`*^9}},ExpressionUUID->"338a3dda-1a7e-4413-be45-\
+7eed58401b7f"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1318, 905},
+WindowMargins->{{11, Automatic}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"169cba06-10b6-4832-bca3-1f4d8e612b45"],
+Cell[801, 32, 997, 14, 53, "Subtitle",ExpressionUUID->"22cfdc49-9cd8-4cb7-b8c4-52afdf230a7b"],
+Cell[1801, 48, 250, 7, 83, "Author",ExpressionUUID->"8902cf5c-1fab-4d04-83e3-b220a71c5491"],
+Cell[CellGroupData[{
+Cell[2076, 59, 547, 8, 67, "Section",ExpressionUUID->"10454b5e-43bb-4040-a61d-da50890c8932"],
+Cell[2626, 69, 515, 8, 35, "Text",ExpressionUUID->"465274e2-8066-46c9-bb0c-3f8d35688d52"],
+Cell[3144, 79, 1388, 22, 81, "Text",ExpressionUUID->"33745cfd-5050-4194-b34d-8220f8c4753a"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4569, 106, 254, 4, 53, "Section",ExpressionUUID->"dfcd80bf-1d44-4cb9-8d7f-13e4847a8d3b"],
+Cell[4826, 112, 163, 3, 35, "Text",ExpressionUUID->"d0bd2ae7-4214-4a8d-ab70-11bbca93b68f"],
+Cell[4992, 117, 420, 6, 30, "Input",ExpressionUUID->"434789ff-072e-443c-8449-39ce9a6e669d"],
+Cell[5415, 125, 361, 8, 30, "Input",ExpressionUUID->"47f6e169-761b-42ba-a0ca-65ed529350fe"],
+Cell[CellGroupData[{
+Cell[5801, 137, 376, 6, 54, "Subsection",ExpressionUUID->"fc0d9ade-0fb4-4b0c-9ff2-827b51b298e8"],
+Cell[6180, 145, 336, 7, 35, "Text",ExpressionUUID->"1e6bbd55-6db0-4f5f-a41c-95ea0178d7ee"],
+Cell[6519, 154, 236, 4, 35, "Text",ExpressionUUID->"2b05b3d9-a983-4cf2-9045-bcd51638495d"],
+Cell[6758, 160, 841, 25, 52, "Input",ExpressionUUID->"50f75021-d441-4889-b622-016c35b8d219"],
+Cell[7602, 187, 528, 10, 35, "Text",ExpressionUUID->"fc4e0039-e3a6-4052-9551-5173b4d831e7"],
+Cell[8133, 199, 1076, 25, 73, "Input",ExpressionUUID->"06daf41d-f05c-4985-bbb3-f9768faffeb5"],
+Cell[9212, 226, 316, 6, 35, "Text",ExpressionUUID->"4a63dd43-4f83-4d8b-a7c4-8069b6c32cb2"],
+Cell[9531, 234, 999, 25, 73, "Input",ExpressionUUID->"9a8d3efd-b697-4b0e-9912-b6113bdd3832"],
+Cell[10533, 261, 1118, 24, 73, "Input",ExpressionUUID->"26acbf52-4240-437f-b0c7-7aece01060e5"],
+Cell[11654, 287, 974, 22, 73, "Input",ExpressionUUID->"6718b895-b4fb-47b6-9487-bd24fdb4da0c"],
+Cell[12631, 311, 343, 7, 30, "Input",ExpressionUUID->"956c7494-21cb-4ede-89e0-27d92659201a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13011, 323, 266, 4, 54, "Subsection",ExpressionUUID->"eff64bb0-5467-4016-b98d-9fdc1ed6a445"],
+Cell[13280, 329, 197, 3, 35, "Text",ExpressionUUID->"ed17d670-c399-426e-b73a-194ba90476ce"],
+Cell[CellGroupData[{
+Cell[13502, 336, 435, 9, 32, "Item",ExpressionUUID->"336ae9ea-da62-4c7f-beb3-99632e48b6c1"],
+Cell[13940, 347, 317, 5, 32, "Item",ExpressionUUID->"28e3ada8-caf1-4f0b-8aff-c3d38262c6cd"],
+Cell[14260, 354, 366, 9, 32, "Item",ExpressionUUID->"0253f1a2-7874-4324-ac17-2691ee429609"],
+Cell[14629, 365, 458, 13, 32, "Item",ExpressionUUID->"a46e5eeb-b175-400b-8a55-6eb6ea684115"]
+}, Open  ]],
+Cell[15102, 381, 233, 6, 35, "Text",ExpressionUUID->"ea26923c-56c5-4f65-a4b3-9ec14c5a4b5b"],
+Cell[15338, 389, 750, 22, 30, "Input",ExpressionUUID->"25c8dff7-9963-4b3e-8db3-04464bedd113"],
+Cell[16091, 413, 279, 6, 35, "Text",ExpressionUUID->"8bdc2ff0-9a3a-4e7c-bf96-196f03455d54"],
+Cell[16373, 421, 919, 18, 30, "Input",ExpressionUUID->"4474f803-3a55-4aec-9ef3-a13b7e5e9e82"],
+Cell[17295, 441, 934, 23, 52, "Input",ExpressionUUID->"154f7450-1b1d-41dc-b6c1-27a83efce99d"],
+Cell[18232, 466, 727, 16, 30, "Input",ExpressionUUID->"fff94a4e-1952-45e3-bdb9-7d2c4ca4ae64"],
+Cell[18962, 484, 1035, 24, 52, "Input",ExpressionUUID->"9aa8dc2f-6055-4f3c-8767-557987128b41"],
+Cell[20000, 510, 292, 6, 30, "Input",ExpressionUUID->"40d605ba-1ac0-406d-bf02-c22978639565"],
+Cell[20295, 518, 226, 4, 35, "Text",ExpressionUUID->"49384911-df1c-427f-98f1-e89cdd1980ee"],
+Cell[20524, 524, 422, 10, 30, "Input",ExpressionUUID->"a6594dbe-c831-4317-bd5e-cc553040ac59"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20983, 539, 180, 3, 54, "Subsection",ExpressionUUID->"818afdfd-62c5-428e-84f4-bdd471bf35eb"],
+Cell[21166, 544, 782, 19, 58, "Text",ExpressionUUID->"9e361318-ae39-49e8-a1f7-6157e2d7f436"],
+Cell[21951, 565, 183, 3, 35, "Text",ExpressionUUID->"52b14cda-c6dd-4abd-a2e7-fa02fea901ec"],
+Cell[22137, 570, 239, 5, 30, "Input",ExpressionUUID->"8ca0fc2f-75d9-4b32-95b4-1c1db2883e01"],
+Cell[22379, 577, 405, 8, 30, "Input",ExpressionUUID->"e47ca4f3-c504-4e7d-86fe-a3882213c3e8"],
+Cell[22787, 587, 470, 11, 30, "Input",ExpressionUUID->"60b78511-f345-4a33-9568-9445022eccbe"],
+Cell[23260, 600, 301, 6, 35, "Text",ExpressionUUID->"719140ea-89b8-4a40-b929-52ab7e1a075d"],
+Cell[CellGroupData[{
+Cell[23586, 610, 568, 14, 32, "Item",ExpressionUUID->"867e1f3b-e9b0-4ca3-a97e-7c1b1ae5ed6f"],
+Cell[24157, 626, 551, 10, 32, "Item",ExpressionUUID->"1c8e025e-daf8-4ea9-b84d-eb4f9d66e89a"],
+Cell[24711, 638, 441, 10, 32, "Item",ExpressionUUID->"c2c35622-6227-4ab1-9151-6067077df8c3"],
+Cell[25155, 650, 376, 6, 32, "Item",ExpressionUUID->"f6269b9e-2827-49ac-b9ce-9129211e2df8"]
+}, Open  ]],
+Cell[25546, 659, 317, 8, 35, "Text",ExpressionUUID->"b37c4eee-d386-4d7a-b35a-e09d324cda5a"],
+Cell[25866, 669, 268, 7, 30, "Input",ExpressionUUID->"92b8053f-b731-4942-99f3-78eb0f843efc"],
+Cell[26137, 678, 257, 4, 30, "Input",ExpressionUUID->"1e94f01b-489c-4ed2-adb1-b941d448d6cb"],
+Cell[26397, 684, 388, 11, 35, "Text",ExpressionUUID->"dcf6761a-2a81-4504-810b-dbd3cb89ce38"],
+Cell[26788, 697, 717, 23, 47, "Input",ExpressionUUID->"3a2f0031-a41c-45b6-b30d-e4baeb84c115"],
+Cell[27508, 722, 250, 4, 35, "Text",ExpressionUUID->"7fd4a4aa-e942-47f5-bdea-cc3d77951795"],
+Cell[27761, 728, 611, 15, 30, "Input",ExpressionUUID->"022092b9-2aec-4535-8b53-dc520c8e7c92"],
+Cell[28375, 745, 1022, 25, 73, "Input",ExpressionUUID->"3e7e99bb-2f9d-4f81-8f35-2bb0955175ad"],
+Cell[29400, 772, 281, 4, 35, "Text",ExpressionUUID->"5435b743-063b-41fc-9c62-0e6a85bf5567"],
+Cell[29684, 778, 305, 6, 30, "Input",ExpressionUUID->"36d32b1b-4680-479a-91ab-e0a74a3a146d"],
+Cell[29992, 786, 721, 19, 58, "Text",ExpressionUUID->"8d24dd0d-ace3-4567-824a-9537da670336"],
+Cell[30716, 807, 173, 3, 35, "Text",ExpressionUUID->"8859ad8d-ad15-40be-9ffb-234fd241a526"],
+Cell[30892, 812, 659, 16, 52, "Input",ExpressionUUID->"3fce6689-8caf-4d7a-ada6-4430f76bf0b3"],
+Cell[31554, 830, 612, 12, 58, "Text",ExpressionUUID->"9e1f4252-2fa3-44c3-a6fe-6f44df8ecdc9"],
+Cell[32169, 844, 305, 6, 30, "Input",ExpressionUUID->"89178b3b-cb97-4ba7-a187-26842b937a6f"],
+Cell[32477, 852, 405, 8, 30, "Input",ExpressionUUID->"5c8c4e5d-22ef-4cc2-b14d-79625d8b7711"],
+Cell[32885, 862, 648, 14, 30, "Input",ExpressionUUID->"d95366c5-6ab8-4514-b52a-88dfc2f9f60a"],
+Cell[33536, 878, 333, 7, 30, "Input",ExpressionUUID->"fb67bf9d-fdcc-4b22-94a0-a375c84d4afc"],
+Cell[33872, 887, 280, 6, 30, "Input",ExpressionUUID->"0295fe5b-4abe-4fdd-818f-2247e9f63d99"],
+Cell[34155, 895, 244, 6, 35, "Text",ExpressionUUID->"338a3dda-1a7e-4413-be45-7eed58401b7f"]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

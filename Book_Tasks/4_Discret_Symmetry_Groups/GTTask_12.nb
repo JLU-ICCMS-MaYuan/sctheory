@@ -1,0 +1,1470 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[     60312,       1469]
+NotebookOptionsPosition[     49852,       1332]
+NotebookOutlinePosition[     50211,       1348]
+CellTagsIndexPosition[     50168,       1345]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"22d64fce-4890-433f-8d0c-\
+cff1e9f47c56"],
+
+Cell["Task_12:  Symmetry of (3,3) nanotube", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+   3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+   3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, 
+   3.6510653858085613`*^9, {3.651065421088859*^9, 3.651065421366317*^9}, {
+   3.6510687045818653`*^9, 3.651068710545953*^9}, {3.698590274583303*^9, 
+   3.6985902766031446`*^9}, {3.698637754956313*^9, 3.6986377551911163`*^9}, {
+   3.698678908760442*^9, 3.6986789461792583`*^9}, {3.715417417333185*^9, 
+   3.715417418501032*^9}, {3.716019814619273*^9, 3.716019815009163*^9}, {
+   3.745481683246334*^9, 
+   3.7454816838761587`*^9}},ExpressionUUID->"da5a11bd-a05c-4556-b956-\
+e6f905acbf9f"],
+
+Cell["\<\
+W. Hergert, M. Geilhufe
+Institute of Physics 
+Martin Luther University Halle - Wittenberg\
+\>", "Author",
+ CellChangeTimes->{
+  3.47741203025*^9, {3.6357802741761217`*^9, 3.635780279125635*^9}, 
+   3.6589686785343018`*^9},ExpressionUUID->"dc1cae4c-eefb-436a-815f-\
+16cfcac34305"],
+
+Cell[CellGroupData[{
+
+Cell["Task 12", "Section",
+ CellChangeTimes->{{3.650733780303919*^9, 3.650733781879842*^9}, {
+  3.658968678534958*^9, 3.658968700078773*^9}, {3.673585584781094*^9, 
+  3.6735855862528343`*^9}, {3.698678957943935*^9, 3.6986789598214197`*^9}, {
+  3.71541742298982*^9, 3.7154174234845*^9}, {3.7160198185415277`*^9, 
+  3.716019818924172*^9}},ExpressionUUID->"4f0bfed1-9c48-42d7-a8d6-\
+3db4969178ca"],
+
+Cell["see : Chapter 4, section 4.4.1 , p. 77.", "Text",
+ CellChangeTimes->{
+  3.745479219005994*^9, {3.7454792559284163`*^9, 
+   3.745479265399131*^9}},ExpressionUUID->"f472f54d-84e1-4d90-b0db-\
+cca5aebf5d11"],
+
+Cell[TextData[{
+ "Construct a (3,3)-nanotube. Implement the group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", "3"], TraditionalForm]],ExpressionUUID->
+  "0263f9f9-c8c6-415c-973c-870f07ddb1df"],
+ ". Cut out of the nanotube a representative part and show, that the nanotube \
+is invariant under symmetry elements of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", "3"], TraditionalForm]],ExpressionUUID->
+  "c8d5bf1f-061c-4825-903b-43850f2e3014"],
+ ". Is the direct product  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["D", "3"], "\[Times]", 
+    SubscriptBox["C", "i"], " ", "also", " ", "a", " ", "symmetry", " ", 
+    "group", " ", "of", " ", "the", " ", 
+    RowBox[{"nanotube", " ", "?"}]}], TraditionalForm]],ExpressionUUID->
+  "e49f4ebf-ca29-4ce3-b4a0-87b6a15ae68d"],
+ " (use ",
+ StyleBox["GTSymmetryElementQ",
+  FontWeight->"Bold"],
+ "). \nHINT: The nanotube appears after construction not in a normal position \
+such, that the appropriate symmetry elements are directly applicable. A \
+rotation is necessary first."
+}], "Text",
+ CellChangeTimes->{{3.6735855987966127`*^9, 3.673585673371707*^9}, {
+   3.698679024708378*^9, 3.698679229813533*^9}, {3.6987205612246513`*^9, 
+   3.698720618721489*^9}, 3.6987282742614527`*^9, {3.7154174834826612`*^9, 
+   3.7154176140632563`*^9}, {3.715433945066965*^9, 3.7154339586990147`*^9}, {
+   3.715434050614674*^9, 
+   3.715434114140238*^9}},ExpressionUUID->"4e68b260-2a02-40b2-8665-\
+4d4853328007"],
+
+Cell[TextData[{
+ "see also Saito, et al. ",
+ StyleBox["Physical Properties of Carbon Nanotubes",
+  FontSlant->"Italic"],
+ ", Imperial College Press"
+}], "Text",
+ CellChangeTimes->{{3.650733796727775*^9, 3.6507338428225937`*^9}, 
+   3.658968678535212*^9, {3.673585593036694*^9, 3.6735855941085873`*^9}, {
+   3.715417622219986*^9, 
+   3.715417624424584*^9}},ExpressionUUID->"15af89cf-38ec-4994-96e2-\
+be4ecda83521"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Initialisation", "Section",
+ CellChangeTimes->{{3.650815729542482*^9, 3.6508157325241737`*^9}, {
+  3.6589686785354567`*^9, 
+  3.658968706377884*^9}},ExpressionUUID->"23fb44d6-b901-487e-9c5b-\
+d8fc3b8e591c"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{
+  3.658968678535756*^9, {3.658969046533195*^9, 3.658969063031311*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"4dde5bf4-eb68-46df-b131-ebc5da92a244"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ";"}]], "Input",
+ CellLabel->"In[35]:=",ExpressionUUID->"b066cf94-30c6-4fd4-a6e3-eb62bd730f84"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", "3"], TraditionalForm]],ExpressionUUID->
+  "d83363aa-fa33-4f77-a742-e03bdd1e40ea"]
+}], "Section",
+ CellChangeTimes->{{3.650815787930079*^9, 3.650815813547626*^9}, 
+   3.658968678535981*^9, {3.658968720272377*^9, 3.658968723961103*^9}, {
+   3.698679332525317*^9, 
+   3.698679336944724*^9}},ExpressionUUID->"18278d2e-7f0c-49b0-9439-\
+3e68e8e97d5a"],
+
+Cell[TextData[{
+ "The group ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["D", 
+     RowBox[{"3", " "}]], "is", " ", "installed", " ", "from", " ", 
+    "generators", " ", "as", " "}], TraditionalForm]],ExpressionUUID->
+  "9c24cd35-8ea0-4cc8-bb98-ba2d97154206"],
+ "demonstrated in Fig. 4.20 "
+}], "Text",
+ CellChangeTimes->{{3.673585689219294*^9, 3.673585701371271*^9}, {
+  3.698679341516958*^9, 3.698679393603869*^9}, {3.7154177002635183`*^9, 
+  3.715417704098713*^9}},ExpressionUUID->"38588d9f-afc1-4303-81af-\
+741f246243b9"],
+
+Cell[BoxData[
+ RowBox[{"gens", "=", 
+  RowBox[{"{", 
+   RowBox[{"C3z", ",", "C2x"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.698679406006592*^9, 3.698679418143956*^9}, {
+  3.698728039223298*^9, 3.698728039458055*^9}},
+ CellLabel->"In[36]:=",ExpressionUUID->"6214932d-579a-4ac7-b6d9-bdc966b5c92c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", "3"], TraditionalForm]],ExpressionUUID->
+  "5eb688c8-1ef3-433e-816e-d179e49d73c8"],
+ " is a crystallographic point group, i.e the symbolic form of the group \
+elements is possible."
+}], "Text",
+ CellChangeTimes->{{3.698679475896837*^9, 3.698679496024633*^9}, 
+   3.715417772851672*^9, {3.7154179139273653`*^9, 
+   3.715417988841537*^9}},ExpressionUUID->"36d34229-dec3-49a6-bed8-\
+50c1119049f7"],
+
+Cell[BoxData[
+ RowBox[{"d3", "=", 
+  RowBox[{"GTGroupFromGenerators", "[", "gens", "]"}]}]], "Input",
+ CellChangeTimes->{{3.715417765435924*^9, 3.715417768127994*^9}, {
+  3.7154179303308372`*^9, 3.715417931307795*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"5f358a44-1f15-4b5f-baba-f7ed42bc57b7"],
+
+Cell["\<\
+The same result can be achieved using the usual installation procedure for \
+point groups.\
+\>", "Text",
+ CellChangeTimes->{{3.7154180209504013`*^9, 
+  3.715418050785103*^9}},ExpressionUUID->"fb59602e-8284-43a7-a213-\
+d7d124a7bdc0"],
+
+Cell[BoxData[
+ RowBox[{"GTInstallGroup", "[", "D3", "]"}]], "Input",
+ CellChangeTimes->{{3.715417996403343*^9, 3.715418008495604*^9}},
+ CellLabel->"In[38]:=",ExpressionUUID->"d1c94eb0-66c2-4e35-a9c0-f7bf98299d2b"],
+
+Cell["\<\
+For later use the matrix representation of the group elements are calculated.\
+\
+\>", "Text",
+ CellChangeTimes->{{3.715417774765493*^9, 3.715417774766843*^9}, {
+  3.715418080836876*^9, 
+  3.715418110940442*^9}},ExpressionUUID->"8bbe5619-3c1b-4dd0-84ba-\
+cdd39aade1b2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"d3m", "=", 
+   RowBox[{"GTGetMatrix", "[", "d3", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.698679450038774*^9, 3.6986794697323837`*^9}, {
+  3.7154181198839684`*^9, 3.715418137581046*^9}},
+ CellLabel->"In[39]:=",ExpressionUUID->"e2c092f5-a7c0-4a15-b175-cf6db710936d"],
+
+Cell["To be sure ....", "Text",
+ CellChangeTimes->{{3.715418145174282*^9, 3.715418158989357*^9}, 
+   3.715434159659903*^9, {3.7154343383158216`*^9, 
+   3.715434342825973*^9}},ExpressionUUID->"8ab8511c-9540-460a-ad9b-\
+9e7dc29b4abb"],
+
+Cell[BoxData[
+ RowBox[{"GTGroupQ", "[", "d3", "]"}]], "Input",
+ CellChangeTimes->{{3.698728146085081*^9, 3.698728153671239*^9}},
+ CellLabel->"In[40]:=",ExpressionUUID->"eae4e340-7703-4c37-a785-87a9d4cdaa72"],
+
+Cell[BoxData[
+ RowBox[{"GTGroupOrder", "[", "d3", "]"}]], "Input",
+ CellChangeTimes->{{3.698679525916394*^9, 3.6986795319145527`*^9}},
+ CellLabel->"In[41]:=",ExpressionUUID->"017df301-1103-4c69-9a25-15501f863d47"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Construction of the nanotube", "Section",
+ CellChangeTimes->{{3.698679877713731*^9, 3.69867988607937*^9}, 
+   3.7154181734913483`*^9},ExpressionUUID->"732cfe8e-a7dc-4129-b591-\
+4424246fbbc4"],
+
+Cell["We need structural information about the honeycomb lattice.", "Text",
+ CellChangeTimes->{{3.6986799396511707`*^9, 
+  3.698679965003109*^9}},ExpressionUUID->"bba406e2-304a-42f7-94ae-\
+d2023f4ae2f8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../datasets\>\""}], 
+   "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.698679968172659*^9, 3.698680001772583*^9}, {
+   3.698681360580842*^9, 3.698681376400646*^9}, 3.698681806406651*^9, 
+   3.6987206624756613`*^9},
+ CellLabel->"In[42]:=",ExpressionUUID->"6d27d699-caf6-4b48-a4d5-35f8e6b02ed1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GTLoadStructures", "[", "\"\<GTPack\>\"", "]"}], ";", 
+  RowBox[{"GTAllStructures", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6986801104510098`*^9, 3.698680136169993*^9}, 
+   3.698681155284349*^9},
+ CellLabel->"In[43]:=",ExpressionUUID->"a18b0946-6e6e-4d75-b398-16a25ac0b2b7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"str", "=", 
+   RowBox[{"GTGetStructure", "[", "\"\<Honeycomb\>\"", "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.698680161234098*^9, 3.698680177239175*^9}, {
+  3.698681189148768*^9, 3.698681222425095*^9}},
+ CellLabel->"In[44]:=",ExpressionUUID->"482886a3-c06f-43e3-8b2f-1de81d1727b5"],
+
+Cell["Generate a plot of the honeycomb lattice.", "Text",
+ CellChangeTimes->{{3.715419369738255*^9, 
+  3.715419423244356*^9}},ExpressionUUID->"78c0550c-a9e1-4647-acab-\
+c65ab29c4913"],
+
+Cell[BoxData[
+ RowBox[{"ga", "=", 
+  RowBox[{"GTPlotStructure2D", "[", 
+   RowBox[{"str", ",", "8", ",", 
+    RowBox[{"GOLattice", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"a", "\[Rule]", "1"}], "}"}]}], ",", 
+    RowBox[{"PlotLabel", "\[Rule]", "\"\<Honeycomb Lattice\>\""}], ",", 
+    RowBox[{"PlotStyle", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"Blue", ",", 
+         RowBox[{"PointSize", "[", "Large", "]"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"Red", ",", 
+         RowBox[{"PointSize", "[", "Large", "]"}]}], "}"}]}], "}"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.650816726982081*^9, 3.65081672843302*^9}, {
+   3.6508669981280813`*^9, 3.650866998302701*^9}, 3.658968678536862*^9, {
+   3.6589710127162857`*^9, 3.658971013172933*^9}, {3.698681388026226*^9, 
+   3.698681390074222*^9}},
+ CellLabel->"In[45]:=",ExpressionUUID->"c8b59d81-a407-492e-9f20-4a4fb788e8c2"],
+
+Cell["\<\
+Already here it is clear that the cut leading to the (3,3) nanotube will not \
+provide a tube in a symmetric position with respect to the definition of the \
+symmetry elements.\
+\>", "Text",
+ CellChangeTimes->{{3.673499680625154*^9, 3.67349970605945*^9}, {
+  3.673585756610588*^9, 3.673585785026119*^9}, {3.6986818482088327`*^9, 
+  3.6986819089677963`*^9}, {3.6987206992473593`*^9, 
+  3.698720699797052*^9}},ExpressionUUID->"a54339df-4ee0-4898-9be6-\
+486b4befecd1"],
+
+Cell["Construct a larger cluster to get finally  the nanotube", "Text",
+ CellChangeTimes->{{3.658969298168755*^9, 3.658969307652032*^9}, {
+  3.6735857173392353`*^9, 3.673585728922922*^9}, {3.69868191645481*^9, 
+  3.698681930375142*^9}, {3.7154194426172667`*^9, 
+  3.7154194486363087`*^9}},ExpressionUUID->"61707268-38f5-4b0a-aed0-\
+497665f90f93"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"cl", "=", 
+   RowBox[{"GTCluster", "[", 
+    RowBox[{"str", ",", "10", ",", 
+     RowBox[{"GOLattice", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"a", "->", "1."}], "}"}]}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6589698214910603`*^9, 3.658969841655281*^9}, {
+  3.6589709228361883`*^9, 3.658970923242116*^9}, {3.698720729800063*^9, 
+  3.698720730561448*^9}, {3.715419472711993*^9, 3.7154194731962957`*^9}},
+ CellLabel->"In[46]:=",ExpressionUUID->"a06a242e-114a-4654-883d-e25bc15ce9dc"],
+
+Cell["Now the nanotube is constructed:", "Text",
+ CellChangeTimes->{{3.69868194435855*^9, 3.698681964492293*^9}, {
+  3.698681995319429*^9, 
+  3.698682000731122*^9}},ExpressionUUID->"c068fdf2-3e4f-4349-b763-\
+3252b99711f7"],
+
+Cell[BoxData[
+ RowBox[{"?", "GTTubeStructure"}]], "Input",
+ CellChangeTimes->{{3.7154428044748487`*^9, 3.715442808471265*^9}},
+ CellLabel->"In[47]:=",ExpressionUUID->"ff4a4022-9e21-435e-a578-fe4285cf57de"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tube", "=", 
+   RowBox[{"GTTubeStructure", "[", 
+    RowBox[{"3", ",", "3", ",", "cl", ",", "4", ",", "2"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.673498213772925*^9, 3.6734982511125917`*^9}, {
+  3.673498292907436*^9, 3.673498298139534*^9}, {3.673498335580153*^9, 
+  3.6734983383357487`*^9}, {3.673498589519438*^9, 3.6734986221547537`*^9}, {
+  3.6735064147810373`*^9, 3.673506414900168*^9}, {3.673585830411687*^9, 
+  3.673585833316134*^9}, {3.67358612125561*^9, 3.6735861396947527`*^9}, {
+  3.698681981978101*^9, 3.698681985589821*^9}, {3.698720764476247*^9, 
+  3.69872078103664*^9}, {3.71543474920185*^9, 3.715434760855584*^9}, {
+  3.715442855430484*^9, 3.715442855651869*^9}},
+ CellLabel->"In[48]:=",ExpressionUUID->"0222c9c3-c145-4af4-a53d-abe100b237e1"],
+
+Cell["\<\
+Additionally a coordinate frame is used to show the orientation of the \
+nanotube\
+\>", "Text",
+ CellChangeTimes->{{3.6735858415381536`*^9, 3.673585852491948*^9}, {
+   3.673585912186472*^9, 3.6735859123772573`*^9}, 3.673586128667055*^9, {
+   3.69868200750305*^9, 
+   3.698682033242898*^9}},ExpressionUUID->"44161cd5-13ec-40a5-a815-\
+0189b5e1bb5e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"la", "=", "2"}], ";", 
+  RowBox[{"gcos", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"Red", ",", 
+       RowBox[{"Arrowheads", "[", "0.05", "]"}], ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"Tube", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"la", ",", "0", ",", "0"}], "}"}]}], "}"}], "]"}], 
+        "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Green", ",", 
+       RowBox[{"Arrowheads", "[", "0.05", "]"}], ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"Tube", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "la", ",", "0"}], "}"}]}], "}"}], "]"}], 
+        "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"Blue", ",", 
+       RowBox[{"Arrowheads", "[", "0.05", "]"}], ",", 
+       RowBox[{"Arrow", "[", 
+        RowBox[{"Tube", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "0", ",", "la"}], "}"}]}], "}"}], "]"}], 
+        "]"}]}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"cos", "=", 
+   RowBox[{"Graphics3D", "[", "gcos", "]"}]}], ";"}]], "Input",
+ CellLabel->"In[49]:=",ExpressionUUID->"8b763056-4645-411a-9535-d0147b0e33d6"],
+
+Cell["\<\
+Now it becomes clear that the tube has to be rotated.  Also a practical part \
+of the tube has to cut out for the symmetry analysis.\
+\>", "Text",
+ CellChangeTimes->{{3.6986820602113943`*^9, 3.6986820898486767`*^9}, {
+  3.698682141157913*^9, 
+  3.698682162061447*^9}},ExpressionUUID->"52a7fa87-1ea7-4677-98af-\
+65544dc089e4"],
+
+Cell[BoxData[
+ RowBox[{"Show", "[", 
+  RowBox[{"tube", ",", "cos"}], "]"}]], "Input",
+ CellChangeTimes->{{3.673585894861421*^9, 3.673585904393221*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"010e7d5a-98b6-46f8-bf24-8345b3a28c26"],
+
+Cell["Get the coordinates of the atoms in the tube.", "Text",
+ CellChangeTimes->{{3.673586156997958*^9, 3.67358618127717*^9}, 
+   3.6986821680611887`*^9, {3.698682205342298*^9, 
+   3.698682216268599*^9}},ExpressionUUID->"c2e5a56c-47a1-49e4-90a3-\
+5f5cc64b23c3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"out", "=", 
+   RowBox[{"GTTubeStructure", "[", 
+    RowBox[{"3", ",", "3", ",", "cl", ",", "4", ",", "2", ",", 
+     RowBox[{"GOPlot", "\[Rule]", "False"}]}], "]"}]}], ";", 
+  RowBox[{"coord", "=", 
+   RowBox[{"out", "[", 
+    RowBox[{"[", "1", "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.673498354334362*^9, 3.6734983685744*^9}, {
+   3.673498415197328*^9, 3.6734984199676533`*^9}, {3.6734985787241297`*^9, 
+   3.67349858560472*^9}, {3.673506037871119*^9, 3.673506038081992*^9}, {
+   3.673506544177184*^9, 3.673506546435814*^9}, 3.698682180358547*^9, 
+   3.715419588622878*^9, 3.71542147112437*^9, 3.715421511071506*^9, {
+   3.715442877102807*^9, 3.715442877300201*^9}},
+ CellLabel->"In[51]:=",ExpressionUUID->"eca2dae6-6f03-4145-990d-34bcca140a1a"],
+
+Cell["\<\
+Cut out one layer (z=1) to investigate the position of atoms in plane.\
+\>", "Text",
+ CellChangeTimes->{{3.673586204596861*^9, 3.6735862126848717`*^9}, {
+  3.698720811963234*^9, 
+  3.698720840111062*^9}},ExpressionUUID->"2d0700ea-42ba-4c33-869c-\
+3028ac05f582"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ct", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"coord", "[", 
+        RowBox[{"[", 
+         RowBox[{"i", ",", "3"}], "]"}], "]"}], "==", "1."}], ",", 
+      RowBox[{"ct", "=", 
+       RowBox[{"Append", "[", 
+        RowBox[{"ct", ",", 
+         RowBox[{"coord", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], ",", "None"}], "]"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"Length", "[", "coord", "]"}]}], "}"}]}], "]"}], ";", 
+  RowBox[{"ct", "=", 
+   RowBox[{"ct", "//", "Union"}]}]}]], "Input",
+ CellChangeTimes->{{3.6735075489928093`*^9, 3.67350756899334*^9}, {
+  3.673514896815426*^9, 3.673514906035684*^9}, {3.69872085357825*^9, 
+  3.6987208548581333`*^9}},
+ CellLabel->"In[52]:=",ExpressionUUID->"9caeae00-47d3-4212-a84b-5da3de6d9696"],
+
+Cell[BoxData[
+ RowBox[{"Union", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Norm", "[", "#", "]"}], "&"}], "/@", "ct"}], "]"}]], "Input",
+ CellChangeTimes->{{3.698720882430938*^9, 3.6987209019497957`*^9}, {
+  3.698721029215261*^9, 3.6987210615385838`*^9}, {3.698721117702752*^9, 
+  3.6987211226781187`*^9}},
+ CellLabel->"In[53]:=",ExpressionUUID->"284e2a40-1d89-4185-bf3b-746004f756b1"],
+
+Cell["\<\
+The atoms are located  on a circle around the z-axis. The positions are \
+plotted to find the rotation angle. Select the in plane coordinates first.\
+\>", "Text",
+ CellChangeTimes->{{3.67358623327645*^9, 3.673586247660186*^9}, {
+  3.698720918350463*^9, 3.698720956200441*^9}, {3.715419632566028*^9, 
+  3.715419688625887*^9}},ExpressionUUID->"a48c8e9a-73af-46c9-8612-\
+a0df1277559c"],
+
+Cell[BoxData[
+ RowBox[{"ct1", "=", 
+  RowBox[{
+   RowBox[{"Take", "[", 
+    RowBox[{
+     RowBox[{"Transpose", "[", "ct", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "2"}], "}"}]}], "]"}], "//", "Transpose"}]}]], "Input",\
+
+ CellChangeTimes->{{3.673506210678339*^9, 3.6735062108526993`*^9}, {
+  3.6735062457039127`*^9, 3.673506276304551*^9}},
+ CellLabel->"In[54]:=",ExpressionUUID->"cd21ad07-aa66-4089-8b99-151370af039e"],
+
+Cell["Graphical representation of atoms in the plane z=1.", "Text",
+ CellChangeTimes->{{3.715419703706373*^9, 
+  3.715419732749187*^9}},ExpressionUUID->"5deda2da-a404-4d44-81e4-\
+b8f2e0b5ded2"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"cc", "=", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"Circle", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0"}], "}"}], ",", 
+      RowBox[{"Norm", "[", 
+       RowBox[{"ct1", "[", 
+        RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "]"}], "]"}]}], ";", 
+  RowBox[{"gpl", "=", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"ct1", ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "0.05", "]"}], ",", "Red"}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"lines", "=", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Blue", ",", "Thick", ",", 
+      RowBox[{"Line", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}], ",", 
+         RowBox[{"ct1", "[", 
+          RowBox[{"[", "5", "]"}], "]"}]}], "}"}], "]"}], ",", 
+      RowBox[{"Line", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0"}], "}"}], ",", 
+         RowBox[{"ct1", "[", 
+          RowBox[{"[", "6", "]"}], "]"}]}], "}"}], "]"}]}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Show", "[", 
+  RowBox[{"gpl", ",", "cc", ",", "lines"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.673514956393819*^9, 3.673515047208256*^9}, {
+  3.6735153679631643`*^9, 3.673515400365233*^9}, {3.673586275525228*^9, 
+  3.67358629557473*^9}, {3.698721070376749*^9, 3.6987210824675827`*^9}, {
+  3.698721130492532*^9, 3.69872115781444*^9}, {3.715419748681731*^9, 
+  3.715419761944171*^9}, {3.715419880420895*^9, 3.715420021452992*^9}},
+ CellLabel->"In[55]:=",ExpressionUUID->"ae6e3070-2707-4289-9c7e-2dcb6c3a12d9"],
+
+Cell["\<\
+Calculation of rotation angle, rotation matrix and of the new coordinates. \
+The rotation angle is given by half of the angle enclosed by the blue lines. \
+\
+\>", "Text",
+ CellChangeTimes->{{3.673586309252125*^9, 3.6735863379390907`*^9}, {
+  3.698721171178047*^9, 3.69872119713764*^9}, {3.71541977469116*^9, 
+  3.715419866244337*^9}, {3.715420085500211*^9, 3.715420119441991*^9}, {
+  3.71543480259923*^9, 3.715434852816238*^9}, {3.715435193420513*^9, 
+  3.715435201494667*^9}},ExpressionUUID->"a268a743-b776-41d3-9c9f-\
+598cce4d304d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sp", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"ct1", "[", 
+       RowBox[{"[", "5", "]"}], "]"}], ".", 
+      RowBox[{"ct1", "[", 
+       RowBox[{"[", "6", "]"}], "]"}]}], "/", 
+     RowBox[{"Norm", "[", 
+      RowBox[{"ct1", "[", 
+       RowBox[{"[", "5", "]"}], "]"}], "]"}]}], "/", 
+    RowBox[{"Norm", "[", 
+     RowBox[{"ct1", "[", 
+      RowBox[{"[", "6", "]"}], "]"}], "]"}]}]}], ";", 
+  RowBox[{"\[Phi]", "=", 
+   RowBox[{
+    RowBox[{"ArcCos", "[", "sp", "]"}], "/", "2"}]}]}]], "Input",
+ CellChangeTimes->{{3.6734998273739033`*^9, 3.673499903878501*^9}, {
+  3.673507631398205*^9, 3.673507676691539*^9}, {3.673507751108858*^9, 
+  3.673507751782454*^9}, {3.673586326316761*^9, 3.673586326893283*^9}, {
+  3.715420032603278*^9, 3.7154200611095963`*^9}},
+ CellLabel->"In[58]:=",ExpressionUUID->"ccf11605-7bb3-4ae3-b813-85a6e3ead713"],
+
+Cell["\<\
+Thus a rotation by -\[Phi]/2  in mathematically negative sense is appropriate \
+if the atoms are place symmetrically to the x-axis.\
+\>", "Text",
+ CellChangeTimes->{{3.715435366726894*^9, 3.7154354576745462`*^9}, {
+  3.7154356447158327`*^9, 3.7154356453606052`*^9}, {3.7154366147886553`*^9, 
+  3.715436620872038*^9}, {3.71543670264816*^9, 3.7154367047671633`*^9}, {
+  3.715436887439672*^9, 3.715436915492465*^9}, {3.745479510753851*^9, 
+  3.745479519831614*^9}},ExpressionUUID->"73eb7bbf-57e9-445c-97c1-\
+153de6b69193"],
+
+Cell[BoxData[
+ RowBox[{"rmat", "=", 
+  RowBox[{"RotationMatrix", "[", 
+   RowBox[{"-", "\[Phi]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.69872131039474*^9, 3.698721311593027*^9}, {
+  3.715435466530307*^9, 3.715435475823924*^9}, {3.715435565326036*^9, 
+  3.715435572091456*^9}, {3.715435666224386*^9, 3.715435707461215*^9}, {
+  3.7154366268013973`*^9, 3.715436629724752*^9}, {3.7154367592329683`*^9, 
+  3.715436772124*^9}, {3.715436803445675*^9, 3.715436828023108*^9}},
+ CellLabel->"In[59]:=",ExpressionUUID->"d6e7d0e4-7bf7-4916-ba96-c474bcf25d88"],
+
+Cell["All points in the z=1 plane are rotated", "Text",
+ CellChangeTimes->{{3.715420182905017*^9, 3.7154201987223587`*^9}, 
+   3.715434912620235*^9},ExpressionUUID->"39920d4a-f852-4de4-a0cc-\
+70f3bde00717"],
+
+Cell[BoxData[
+ RowBox[{"c2", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"rmat", ".", "#"}], "&"}], "/@", "ct1"}], "//", 
+   "Chop"}]}]], "Input",
+ CellChangeTimes->{{3.6735146708667793`*^9, 3.673514713052141*^9}, {
+  3.673514769496724*^9, 3.673514770656201*^9}, {3.6987213165149317`*^9, 
+  3.698721317752906*^9}},
+ CellLabel->"In[60]:=",ExpressionUUID->"ad9dcb12-e1c8-458d-af74-23bb4a564666"],
+
+Cell["\<\
+Now the atoms are in a symmetric position with respect to the x-axis. This \
+corresponds to the definition of the symmetry elements.\
+\>", "Text",
+ CellChangeTimes->{{3.6987213320030537`*^9, 3.698721365890318*^9}, {
+   3.698722361824047*^9, 3.698722365896744*^9}, {3.715435488053602*^9, 
+   3.7154354902628593`*^9}, 
+   3.715436922321027*^9},ExpressionUUID->"5437ff36-3329-4b96-9444-\
+a2f6e6b387c9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"p1", "=", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"c2", ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "0.05", "]"}], ",", "Red"}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], ";", 
+  RowBox[{"Show", "[", 
+   RowBox[{"p1", ",", "cc"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6735147261138287`*^9, 3.6735147264401007`*^9}, {
+   3.67351482266313*^9, 3.673514823656765*^9}, {3.673515582361165*^9, 
+   3.6735155850782547`*^9}, {3.6735863709162197`*^9, 3.673586378419237*^9}, 
+   3.715420265224922*^9},
+ CellLabel->"In[61]:=",ExpressionUUID->"0b5e4946-36a9-4e75-8813-6797b511dd76"],
+
+Cell[TextData[{
+ "We add the z-component to the atom in the z=1 plane and test the invariance \
+against the twofold rotations in ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["D", 
+     RowBox[{"3", "d"}]], "."}], TraditionalForm]],ExpressionUUID->
+  "1ae79e83-12b3-47a5-af3e-08f97cb01e45"]
+}], "Text",
+ CellChangeTimes->{{3.715435820673772*^9, 3.715435870145165*^9}, 
+   3.715436843769794*^9, {3.715436933501018*^9, 3.71543693993537*^9}, 
+   3.715438582419119*^9},ExpressionUUID->"3217cb66-157d-4935-9c5c-\
+0e003dcd8db0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"z", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", "6", "}"}]}], "]"}]}], ";", 
+  RowBox[{"t0", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Append", "[", 
+      RowBox[{
+       RowBox[{"Transpose", "[", "c2", "]"}], ",", "z"}], "]"}], "//", 
+     "Transpose"}], "//", "Sort"}]}]}]], "Input",
+ CellChangeTimes->{{3.7154357681381283`*^9, 3.715435816720479*^9}, {
+  3.715436243173972*^9, 3.715436244480092*^9}, {3.715436953267096*^9, 
+  3.7154369535414886`*^9}},
+ CellLabel->"In[62]:=",ExpressionUUID->"53ed21b7-ba59-41bb-8026-947cb8dc4dee"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"GTGetMatrix", "[", "C2x", "]"}], ".", "#"}], "&"}], "/@", 
+   "t0"}], "//", "Sort"}]], "Input",
+ CellChangeTimes->{{3.715435882284792*^9, 3.715435970734621*^9}, {
+  3.7154360094192133`*^9, 3.715436017235303*^9}, {3.715436070833852*^9, 
+  3.715436074019508*^9}, {3.715436202885022*^9, 3.7154362043299103`*^9}, {
+  3.715436249397669*^9, 3.715436250588436*^9}, {3.715436959791914*^9, 
+  3.715436981118114*^9}},
+ CellLabel->"In[63]:=",ExpressionUUID->"a1ec9ff0-345d-41a5-a498-61706d9ad53b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"GTGetMatrix", "[", "C2A", "]"}], ".", "#"}], "&"}], "/@", 
+   "t0"}], "//", "Sort"}]], "Input",
+ CellChangeTimes->{{3.715436318376549*^9, 3.715436319926454*^9}, {
+  3.715437017396984*^9, 3.715437027772044*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"421b5b6b-c17a-4738-a18a-9652b123061e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"GTGetMatrix", "[", "C2B", "]"}], ".", "#"}], "&"}], "/@", 
+   "t0"}], "//", "Sort"}]], "Input",
+ CellChangeTimes->{{3.7154363478815403`*^9, 3.715436348545456*^9}, {
+  3.715437033341196*^9, 3.715437040180244*^9}},
+ CellLabel->"In[65]:=",ExpressionUUID->"4eac9522-d6f1-4690-b4e2-a9db79d8d141"],
+
+Cell["All atoms are transformed into themself by the twofold axes.", "Text",
+ CellChangeTimes->{{3.715436357103134*^9, 3.715436388957129*^9}, {
+  3.715437047328183*^9, 
+  3.715437064668241*^9}},ExpressionUUID->"36a28a0c-42c5-4ccc-9bc0-\
+91f036e1ec99"],
+
+Cell["\<\
+Construct the rotation matrix for the whole nanotube (rotation about z axis) \
+and transform the coordinates of atoms\
+\>", "Text",
+ CellChangeTimes->{{3.6735863855478373`*^9, 3.673586400434224*^9}, {
+  3.698722378284243*^9, 3.6987224353976316`*^9}, {3.7154202941252317`*^9, 
+  3.715420317130794*^9}},ExpressionUUID->"15a6dd8a-6968-4530-9188-\
+f8f11896b834"],
+
+Cell[BoxData[
+ RowBox[{"m", "=", 
+  RowBox[{"RotationMatrix", "[", 
+   RowBox[{
+    RowBox[{"-", "\[Phi]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.673515644472184*^9, 3.6735156621641703`*^9}, 
+   3.673516088363253*^9, {3.698722438485373*^9, 3.6987224408349752`*^9}, {
+   3.715436404556774*^9, 3.715436406630302*^9}, 3.715437073315667*^9},
+ CellLabel->"In[66]:=",ExpressionUUID->"bbe30ab9-b781-45ba-a235-39438b735972"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"coordr", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"m", ".", "#"}], "&"}], "/@", "coord"}], "//", "Chop"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6735156669944572`*^9, 3.6735157017183123`*^9}, 
+   3.715420324512681*^9},
+ CellLabel->"In[67]:=",ExpressionUUID->"e13f07f2-32d6-4b01-8894-7689f3a58c5d"],
+
+Cell[TextData[{
+ "The coordinates are used to construct a dataset for a 3d plot by means of \
+",
+ StyleBox["GTPlotCluster",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.6735864463303213`*^9, 3.673586463497295*^9}, {
+   3.6987224836740913`*^9, 3.698722532073043*^9}, 3.7154203579251757`*^9, {
+   3.715436415086801*^9, 
+   3.715436416559949*^9}},ExpressionUUID->"589ef12e-1534-4c7f-8b6d-\
+c8432f66e228"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"names", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"\"\<C\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"Length", "[", "coordr", "]"}], "}"}]}], "]"}]}], ";", 
+  RowBox[{"ctt", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"coordr", ",", "names"}], "}"}], "//", "Transpose"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.673515755233344*^9, 3.6735157804043627`*^9}, {
+   3.6735864251649714`*^9, 3.673586433787519*^9}, 3.673586471362267*^9, 
+   3.7154204391975107`*^9, {3.715442720070155*^9, 3.715442738002874*^9}, 
+   3.715443884639327*^9},
+ CellLabel->"In[68]:=",ExpressionUUID->"86520f6d-2344-4542-9f48-a0addcf3a0d0"],
+
+Cell[BoxData[
+ RowBox[{"GTPlotCluster", "[", 
+  RowBox[{"ctt", ",", 
+   RowBox[{"1", "/", 
+    RowBox[{"Sqrt", "[", "2", "]"}]}], ",", "4", ",", 
+   RowBox[{"GOSphere", "\[Rule]", "False"}], ",", 
+   RowBox[{"GOCoordinateSystem", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.673515868091044*^9, 3.673515914280492*^9}, {
+  3.673586488107051*^9, 3.6735864971535053`*^9}, {3.67358652720986*^9, 
+  3.673586528280918*^9}, {3.715443004965982*^9, 3.715443011359006*^9}},
+ CellLabel->"In[69]:=",ExpressionUUID->"33a97041-f5a8-4d4f-b32c-919a81c254e6"],
+
+Cell["Cut out a representative layer", "Text",
+ CellChangeTimes->{{3.673586561968752*^9, 3.6735865746316223`*^9}, {
+  3.6987225689125967`*^9, 
+  3.698722577785879*^9}},ExpressionUUID->"95c83c46-e4a1-4274-8dbe-\
+dd0e0a50d9da"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ct2", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"ctt", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "1", ",", "3"}], "]"}], "]"}], "\[GreaterEqual]", 
+        " ", "1."}], "&&", 
+       RowBox[{
+        RowBox[{"ctt", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "1", ",", "3"}], "]"}], "]"}], "\[LessEqual]", 
+        "3."}]}], ",", 
+      RowBox[{"ct2", "=", 
+       RowBox[{"Append", "[", 
+        RowBox[{"ct2", ",", 
+         RowBox[{"ctt", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], ",", "None"}], "]"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"Length", "[", "ctt", "]"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.673515950256938*^9, 3.673516020200035*^9}, {
+  3.715443044010051*^9, 3.715443044515194*^9}},
+ CellLabel->"In[70]:=",ExpressionUUID->"8d66f78e-63da-4463-a03b-6b05532d1c7b"],
+
+Cell[BoxData[
+ RowBox[{"GTPlotCluster", "[", 
+  RowBox[{"ct2", ",", 
+   RowBox[{"1", "/", 
+    RowBox[{"Sqrt", "[", "2", "]"}]}], ",", "1", ",", 
+   RowBox[{"GOSphere", "\[Rule]", "False"}], ",", 
+   RowBox[{"GOCoordinateSystem", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.673516042238584*^9, 3.673516042438781*^9}, {
+  3.6735865857207947`*^9, 3.67358665038546*^9}},
+ CellLabel->"In[71]:=",ExpressionUUID->"03dcae0f-87de-4544-bebf-aae47a96015d"],
+
+Cell["\<\
+Due to the construction of the tube atoms appear doubled. See\
+\>", "Text",
+ CellChangeTimes->{{3.673586682790059*^9, 3.673586700069932*^9}, {
+  3.6987227072388573`*^9, 3.698722749762434*^9}, {3.698723613307654*^9, 
+  3.6987236140806513`*^9}},ExpressionUUID->"57fa2b5b-410a-4609-8ab5-\
+19b5168c3438"],
+
+Cell[BoxData[
+ RowBox[{"ct2", "//", "Length"}]], "Input",
+ CellChangeTimes->{{3.673516186858674*^9, 3.673516191006878*^9}},
+ CellLabel->"In[72]:=",ExpressionUUID->"26f4e434-9bf4-468b-b9da-42006adc19f8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ct3", "=", 
+   RowBox[{"ct2", "//", "Union"}]}], ";", 
+  RowBox[{"Length", "[", "ct3", "]"}]}]], "Input",
+ CellChangeTimes->{{3.673516193081984*^9, 3.673516202946925*^9}, {
+  3.698723622432514*^9, 3.6987236354813633`*^9}},
+ CellLabel->"In[73]:=",ExpressionUUID->"1f0487bd-5921-4860-ad94-eb439acb31ed"],
+
+Cell["\<\
+Now the atoms are shifted  into a symmetric position with respect to the \
+origin. It is clearly to see, that the tube has been rotated.\
+\>", "Text",
+ CellChangeTimes->{{3.6987236514282417`*^9, 3.698723703468966*^9}, {
+   3.715420563848093*^9, 3.7154205649846487`*^9}, {3.7154364564890614`*^9, 
+   3.715436461917433*^9}, 
+   3.715437728625979*^9},ExpressionUUID->"2af2fa87-dd38-495e-ac3f-\
+89763a479aa5"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ct3", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "1", ",", "3"}], "]"}], "]"}], "=", 
+     RowBox[{
+      RowBox[{"ct3", "[", 
+       RowBox[{"[", 
+        RowBox[{"i", ",", "1", ",", "3"}], "]"}], "]"}], "-", "2"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"Length", "[", "ct3", "]"}]}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"GTPlotCluster", "[", 
+  RowBox[{"ct3", ",", 
+   RowBox[{"1", "/", 
+    RowBox[{"Sqrt", "[", "2", "]"}]}], ",", "1", ",", 
+   RowBox[{"GOSphere", "\[Rule]", "False"}], ",", 
+   RowBox[{"GOCoordinateSystem", "\[Rule]", "True"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6735163615691013`*^9, 3.67351642333221*^9}, {
+   3.673516459236376*^9, 3.673516460031233*^9}, {3.6987237086321373`*^9, 
+   3.6987237153644114`*^9}, 3.715443087487042*^9},
+ CellLabel->"In[74]:=",ExpressionUUID->"83146d09-f9de-4e78-a0cc-107cfe61c66c"],
+
+Cell[TextData[{
+ "Proof that ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", "3"], TraditionalForm]],ExpressionUUID->
+  "2eec0f92-4cf6-471f-8b72-a105a0c3265d"],
+ " is a symmetry group."
+}], "Text",
+ CellChangeTimes->{{3.698723817934038*^9, 3.698723839157411*^9}, {
+  3.698728575575631*^9, 3.6987285899859*^9}, {3.715436477870905*^9, 
+  3.715436479111066*^9}},ExpressionUUID->"f4c5379a-d11d-47a5-b374-\
+5ee5da8ba548"],
+
+Cell[BoxData[
+ RowBox[{"GTSymmetryElementQ", "[", 
+  RowBox[{"d3", ",", "ct3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6987281763090363`*^9, 3.698728207609585*^9}, {
+  3.698728340160479*^9, 3.698728346535533*^9}, {3.698728555788563*^9, 
+  3.698728560523837*^9}, {3.6987285991628847`*^9, 3.698728600874517*^9}},
+ CellLabel->"In[76]:=",ExpressionUUID->"a39ee8d1-ca22-490c-b6be-d37f08dc332c"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Symmetry with respect to the product group", "Section",
+ CellChangeTimes->{
+  3.715443840506988*^9, {3.715444028549995*^9, 
+   3.7154440429939137`*^9}},ExpressionUUID->"5d40e74f-6286-49f4-91e1-\
+8d1cc369ef56"],
+
+Cell["We construct the product group", "Text",
+ CellChangeTimes->{{3.715444092770811*^9, 3.715444097854142*^9}, {
+  3.7154441332285213`*^9, 
+  3.715444138128635*^9}},ExpressionUUID->"bc32c346-b4c5-4b79-bc35-\
+a86e524a3e54"],
+
+Cell[BoxData[
+ RowBox[{"ci", "=", 
+  RowBox[{"{", 
+   RowBox[{"Ee", ",", "IEe"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.745479737302408*^9, 3.7454797522257557`*^9}},
+ CellLabel->"In[77]:=",ExpressionUUID->"cd960b48-53fd-493f-8a47-90cdf4fe73a6"],
+
+Cell["Calculate the direct product group", "Text",
+ CellChangeTimes->{{3.715434441007751*^9, 
+  3.7154344478273373`*^9}},ExpressionUUID->"a77f3934-1bee-4056-86ea-\
+72afed2e3292"],
+
+Cell[BoxData[
+ RowBox[{"d3d", "=", 
+  RowBox[{"GTProductGroup", "[", 
+   RowBox[{"ci", ",", "d3"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.715434450481327*^9, 3.7154344758708563`*^9}, {
+  3.715435044867333*^9, 3.715435054075531*^9}},
+ CellLabel->"In[78]:=",ExpressionUUID->"49abac6e-44c3-4a7a-8dcb-5f73f2754061"],
+
+Cell[TextData[{
+ "The direct product results in the group ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["D", 
+     RowBox[{"3", "d"}]], "."}], TraditionalForm]],ExpressionUUID->
+  "fed1327d-32ef-4c69-a5a8-50edc86de319"]
+}], "Text",
+ CellChangeTimes->{{3.7154350959626503`*^9, 
+  3.71543514143701*^9}},ExpressionUUID->"bbbe6041-6f92-45b8-9332-\
+272496d11299"],
+
+Cell[BoxData[
+ RowBox[{"GTInstallGroup", "[", "D3d", "]"}]], "Input",
+ CellChangeTimes->{{3.715435057507147*^9, 3.715435072933916*^9}},
+ CellLabel->"In[79]:=",ExpressionUUID->"fab84a8f-a84f-428f-9cc5-142dcea9fe55"],
+
+Cell[TextData[{
+ "Let\[CloseCurlyQuote]s test the symmetry of our piece of the nanotube with \
+respect to ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", 
+    RowBox[{"3", "d"}]], TraditionalForm]],ExpressionUUID->
+  "aa955eeb-f113-4b50-bde3-349cfdfc70b0"]
+}], "Text",
+ CellChangeTimes->{{3.71544442319139*^9, 3.71544444837185*^9}, 
+   3.715444522538351*^9},ExpressionUUID->"be54f10d-d19d-4e5c-91d1-\
+fa6ff1a0f9ea"],
+
+Cell[BoxData[
+ RowBox[{"GTSymmetryElementQ", "[", 
+  RowBox[{"d3d", ",", "ct3"}], "]"}]], "Input",
+ CellChangeTimes->{3.71544313226826*^9, 3.7154445252418537`*^9, 
+  3.715444779315781*^9},
+ CellLabel->"In[80]:=",ExpressionUUID->"ad99fe4e-14ef-4417-8b94-a357a058ee0d"],
+
+Cell[TextData[{
+ "If symmetry operations transform the system into itself depends on the \
+coordinate system. In ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["D", 
+     RowBox[{"3", "d"}]], "  ", 
+    SubscriptBox["C", 
+     RowBox[{"2", "x", " "}]], " ", "as", " ", "well", " ", "as", " ", 
+    SubscriptBox["IC", 
+     RowBox[{"2", "x"}]]}], TraditionalForm]],ExpressionUUID->
+  "3dc513f1-28f5-4d48-a73b-da2a0eebbc64"],
+ " belong to to the group. The previously chosen position of the coordinate \
+system does not work in this case. Another orientation is used."
+}], "Text",
+ CellChangeTimes->{{3.715444796934436*^9, 
+  3.715444950492556*^9}},ExpressionUUID->"744c8997-67fc-4f0e-b98d-\
+e4b2f2ac1bc9"],
+
+Cell[BoxData[
+ RowBox[{"rmat", "=", 
+  RowBox[{"RotationMatrix", "[", 
+   RowBox[{
+    RowBox[{"\[Pi]", "/", "2"}], "-", "\[Phi]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.69872131039474*^9, 3.698721311593027*^9}, {
+  3.715435466530307*^9, 3.715435475823924*^9}, {3.715435565326036*^9, 
+  3.715435572091456*^9}, {3.715435666224386*^9, 3.715435707461215*^9}, {
+  3.7154366268013973`*^9, 3.715436629724752*^9}, {3.7154367592329683`*^9, 
+  3.715436772124*^9}, {3.715436803445675*^9, 3.715436828023108*^9}, {
+  3.715443363103858*^9, 3.715443368046362*^9}},
+ CellLabel->"In[81]:=",ExpressionUUID->"87003997-5307-4e81-93f4-a0588577bcf1"],
+
+Cell["All points in the z=1 plane are rotated", "Text",
+ CellChangeTimes->{{3.715420182905017*^9, 3.7154201987223587`*^9}, 
+   3.715434912620235*^9},ExpressionUUID->"9dc667cb-ce51-4c87-915f-\
+7ab6b2ae59c8"],
+
+Cell[BoxData[
+ RowBox[{"c5", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"rmat", ".", "#"}], "&"}], "/@", "ct1"}], "//", 
+   "Chop"}]}]], "Input",
+ CellChangeTimes->{{3.6735146708667793`*^9, 3.673514713052141*^9}, {
+  3.673514769496724*^9, 3.673514770656201*^9}, {3.6987213165149317`*^9, 
+  3.698721317752906*^9}, {3.715443374085774*^9, 3.715443374179968*^9}},
+ CellLabel->"In[82]:=",ExpressionUUID->"9fd276f7-0bb6-47c7-bd15-127d8256c6f2"],
+
+Cell["\<\
+Now the atoms are in a symmetric position with respect to the y-axis. \
+(y-z-plane is a mirror plane)\
+\>", "Text",
+ CellChangeTimes->{{3.6987213320030537`*^9, 3.698721365890318*^9}, {
+   3.698722361824047*^9, 3.698722365896744*^9}, {3.715435488053602*^9, 
+   3.7154354902628593`*^9}, 3.715436922321027*^9, {3.71544496595448*^9, 
+   3.7154449998257837`*^9}},ExpressionUUID->"1b60f232-1bbd-4d01-a505-\
+ba9f0c9a184e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"p1", "=", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"c5", ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "0.05", "]"}], ",", "Red"}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}]}], "]"}]}], ";", 
+  RowBox[{"Show", "[", 
+   RowBox[{"p1", ",", "cc"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6735147261138287`*^9, 3.6735147264401007`*^9}, {
+   3.67351482266313*^9, 3.673514823656765*^9}, {3.673515582361165*^9, 
+   3.6735155850782547`*^9}, {3.6735863709162197`*^9, 3.673586378419237*^9}, 
+   3.715420265224922*^9, {3.715443379679401*^9, 3.7154433798237467`*^9}},
+ CellLabel->"In[83]:=",ExpressionUUID->"edf73534-a172-4763-89c3-33657c6fad4e"],
+
+Cell["\<\
+The  atoms of the nanotube will be rotated into the new positions.\
+\>", "Text",
+ CellChangeTimes->{{3.715445012103689*^9, 
+  3.7154450628947697`*^9}},ExpressionUUID->"6c2a8d09-8dce-4a31-80cb-\
+a2bef429792d"],
+
+Cell[BoxData[
+ RowBox[{"m", "=", 
+  RowBox[{"RotationMatrix", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"\[Pi]", "/", "2"}], "-", "\[Phi]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.673515644472184*^9, 3.6735156621641703`*^9}, 
+   3.673516088363253*^9, {3.698722438485373*^9, 3.6987224408349752`*^9}, {
+   3.715436404556774*^9, 3.715436406630302*^9}, 3.715437073315667*^9, {
+   3.7154434439403267`*^9, 3.7154434456627274`*^9}},
+ CellLabel->"In[84]:=",ExpressionUUID->"c2a92c4c-37ec-42fd-a1f4-2097b63640c6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"coordr1", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"m", ".", "#"}], "&"}], "/@", "coord"}], "//", "Chop"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.6735156669944572`*^9, 3.6735157017183123`*^9}, 
+   3.715420324512681*^9, 3.7154434515413027`*^9},
+ CellLabel->"In[85]:=",ExpressionUUID->"281a246c-ec8d-48a1-bf88-296c75f503cb"],
+
+Cell[TextData[{
+ "The coordinates are used to construct a dataset for a 3d plot by means of \
+",
+ StyleBox["GTPlotCluster",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.6735864463303213`*^9, 3.673586463497295*^9}, {
+   3.6987224836740913`*^9, 3.698722532073043*^9}, 3.7154203579251757`*^9, {
+   3.715436415086801*^9, 
+   3.715436416559949*^9}},ExpressionUUID->"1d191b7a-bd14-4659-b502-\
+d39facf119b5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"names", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"\"\<C\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{"Length", "[", "coordr", "]"}], "}"}]}], "]"}]}], ";", 
+  RowBox[{"ctt", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"coordr1", ",", "names"}], "}"}], "//", "Transpose"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.715443399015278*^9, 3.7154434081587753`*^9}, {
+   3.715443474249909*^9, 3.715443478128714*^9}, 3.7154444746211042`*^9},
+ CellLabel->"In[86]:=",ExpressionUUID->"a7c012d6-e496-42e4-a59d-581f9393d042"],
+
+Cell[TextData[{
+ "Take an appropriate piece and shift all in a position that especially ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", 
+    RowBox[{"2", "x"}]], TraditionalForm]],ExpressionUUID->
+  "097a9efd-2c24-4e60-a63e-0fc0b30e69cd"],
+ " is a symmetry element."
+}], "Text",
+ CellChangeTimes->{{3.715445093573517*^9, 
+  3.715445151058189*^9}},ExpressionUUID->"86bee298-2749-4bbe-b6f3-\
+2d2a4f4518c6"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ct5", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"ctt", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "1", ",", "3"}], "]"}], "]"}], "\[GreaterEqual]", 
+        " ", "1."}], "&&", 
+       RowBox[{
+        RowBox[{"ctt", "[", 
+         RowBox[{"[", 
+          RowBox[{"i", ",", "1", ",", "3"}], "]"}], "]"}], "\[LessEqual]", 
+        "3.5"}]}], ",", 
+      RowBox[{"ct5", "=", 
+       RowBox[{"Append", "[", 
+        RowBox[{"ct5", ",", 
+         RowBox[{"ctt", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "]"}]}], ",", "None"}], "]"}], 
+    ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"Length", "[", "ctt", "]"}]}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ct6", "=", 
+   RowBox[{"ct5", "//", "Union"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.673515950256938*^9, 3.673516020200035*^9}, {
+   3.715443044010051*^9, 3.715443044515194*^9}, 3.715443676904249*^9, {
+   3.715445163055152*^9, 3.715445171072083*^9}, {3.71544521720103*^9, 
+   3.7154452209546537`*^9}},
+ CellLabel->"In[87]:=",ExpressionUUID->"146b12d6-0314-4d97-930f-38cf2a6c5940"],
+
+Cell[BoxData[
+ RowBox[{"GTPlotCluster", "[", 
+  RowBox[{"ct6", ",", 
+   RowBox[{"1", "/", 
+    RowBox[{"Sqrt", "[", "2", "]"}]}], ",", "1", ",", 
+   RowBox[{"GOSphere", "\[Rule]", "False"}], ",", 
+   RowBox[{"GOCoordinateSystem", "\[Rule]", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.673516042238584*^9, 3.673516042438781*^9}, {
+  3.6735865857207947`*^9, 3.67358665038546*^9}, {3.715445174401825*^9, 
+  3.7154451746655817`*^9}, {3.7154452265029984`*^9, 3.7154452266682987`*^9}},
+ CellLabel->"In[89]:=",ExpressionUUID->"0ad01120-9185-4f9c-a471-2f5d16363f3e"],
+
+Cell["\<\
+Now the atoms are shifted  into a symmetric position with respect to the \
+origin. It is clearly to see, that the tube has been rotated.\
+\>", "Text",
+ CellChangeTimes->{{3.6987236514282417`*^9, 3.698723703468966*^9}, {
+   3.715420563848093*^9, 3.7154205649846487`*^9}, {3.7154364564890614`*^9, 
+   3.715436461917433*^9}, 
+   3.715437728625979*^9},ExpressionUUID->"5f4a1acf-fd86-4c64-a949-\
+24dd0308d77b"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ct6", "[", 
+      RowBox[{"[", 
+       RowBox[{"i", ",", "1", ",", "3"}], "]"}], "]"}], "=", 
+     RowBox[{
+      RowBox[{"ct6", "[", 
+       RowBox[{"[", 
+        RowBox[{"i", ",", "1", ",", "3"}], "]"}], "]"}], "-", "2.25"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", 
+      RowBox[{"Length", "[", "ct6", "]"}]}], "}"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"GTPlotCluster", "[", 
+  RowBox[{"ct6", ",", 
+   RowBox[{"1", "/", 
+    RowBox[{"Sqrt", "[", "2", "]"}]}], ",", "1", ",", 
+   RowBox[{"GOSphere", "\[Rule]", "False"}], ",", 
+   RowBox[{"GOCoordinateSystem", "\[Rule]", "True"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6735163615691013`*^9, 3.67351642333221*^9}, {
+   3.673516459236376*^9, 3.673516460031233*^9}, {3.6987237086321373`*^9, 
+   3.6987237153644114`*^9}, 3.715443087487042*^9, {3.715443706450879*^9, 
+   3.715443760500186*^9}, {3.715445242760736*^9, 3.715445254063897*^9}},
+ CellLabel->"In[90]:=",ExpressionUUID->"10415400-ace1-4266-a3ec-49f16617689d"],
+
+Cell[TextData[{
+ "Let\[CloseCurlyQuote]s test the symmetry of our piece of the nanotube with \
+respect to ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", 
+    RowBox[{"3", "d"}]], TraditionalForm]],ExpressionUUID->
+  "e366924f-a0b0-4fc7-82a1-f9137c5890af"]
+}], "Text",
+ CellChangeTimes->{{3.71544442319139*^9, 3.71544444837185*^9}, 
+   3.715444522538351*^9},ExpressionUUID->"211c7043-1441-46a3-b8c2-\
+deb9d3551bd4"],
+
+Cell[BoxData[
+ RowBox[{"GTSymmetryElementQ", "[", 
+  RowBox[{"d3d", ",", "ct6"}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.71544313226826*^9, 3.7154445252418537`*^9, {3.715445263590864*^9, 
+   3.715445265789109*^9}},
+ CellLabel->"In[92]:=",ExpressionUUID->"34360741-0613-4756-b684-b7638b639541"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{285, Automatic}, {Automatic, 43}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[422, 15, 231, 8, 98, "Title",ExpressionUUID->"22d64fce-4890-433f-8d0c-cff1e9f47c56"],
+Cell[656, 25, 760, 11, 53, "Subtitle",ExpressionUUID->"da5a11bd-a05c-4556-b956-e6f905acbf9f"],
+Cell[1419, 38, 289, 8, 83, "Author",ExpressionUUID->"dc1cae4c-eefb-436a-815f-16cfcac34305"],
+Cell[CellGroupData[{
+Cell[1733, 50, 394, 6, 67, "Section",ExpressionUUID->"4f0bfed1-9c48-42d7-a8d6-3db4969178ca"],
+Cell[2130, 58, 209, 4, 35, "Text",ExpressionUUID->"f472f54d-84e1-4d90-b0db-cca5aebf5d11"],
+Cell[2342, 64, 1463, 34, 127, "Text",ExpressionUUID->"4e68b260-2a02-40b2-8665-4d4853328007"],
+Cell[3808, 100, 413, 10, 35, "Text",ExpressionUUID->"15af89cf-38ec-4994-96e2-be4ecda83521"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4258, 115, 212, 4, 53, "Section",ExpressionUUID->"23fb44d6-b901-487e-9c5b-d8fc3b8e591c"],
+Cell[4473, 121, 247, 4, 30, "Input",ExpressionUUID->"4dde5bf4-eb68-46df-b131-ebc5da92a244"],
+Cell[4723, 127, 202, 4, 30, "Input",ExpressionUUID->"b066cf94-30c6-4fd4-a6e3-eb62bd730f84"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4962, 136, 420, 11, 54, "Section",ExpressionUUID->"18278d2e-7f0c-49b0-9439-3e68e8e97d5a"],
+Cell[5385, 149, 539, 14, 35, "Text",ExpressionUUID->"38588d9f-afc1-4303-81af-741f246243b9"],
+Cell[5927, 165, 297, 6, 30, "Input",ExpressionUUID->"6214932d-579a-4ac7-b6d9-bdc966b5c92c"],
+Cell[6227, 173, 457, 11, 35, "Text",ExpressionUUID->"36d34229-dec3-49a6-bed8-50c1119049f7"],
+Cell[6687, 186, 297, 5, 30, "Input",ExpressionUUID->"5f358a44-1f15-4b5f-baba-f7ed42bc57b7"],
+Cell[6987, 193, 242, 6, 35, "Text",ExpressionUUID->"fb59602e-8284-43a7-a213-d7d124a7bdc0"],
+Cell[7232, 201, 213, 3, 30, "Input",ExpressionUUID->"d1c94eb0-66c2-4e35-a9c0-f7bf98299d2b"],
+Cell[7448, 206, 278, 7, 35, "Text",ExpressionUUID->"8bbe5619-3c1b-4dd0-84ba-cdd39aade1b2"],
+Cell[7729, 215, 307, 6, 30, "Input",ExpressionUUID->"e2c092f5-a7c0-4a15-b175-cf6db710936d"],
+Cell[8039, 223, 232, 4, 35, "Text",ExpressionUUID->"8ab8511c-9540-460a-ad9b-9e7dc29b4abb"],
+Cell[8274, 229, 207, 3, 30, "Input",ExpressionUUID->"eae4e340-7703-4c37-a785-87a9d4cdaa72"],
+Cell[8484, 234, 213, 3, 30, "Input",ExpressionUUID->"017df301-1103-4c69-9a25-15501f863d47"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[8734, 242, 197, 3, 53, "Section",ExpressionUUID->"732cfe8e-a7dc-4129-b591-4424246fbbc4"],
+Cell[8934, 247, 203, 3, 35, "Text",ExpressionUUID->"bba406e2-304a-42f7-94ae-d2023f4ae2f8"],
+Cell[9140, 252, 416, 9, 30, "Input",ExpressionUUID->"6d27d699-caf6-4b48-a4d5-35f8e6b02ed1"],
+Cell[9559, 263, 315, 6, 30, "Input",ExpressionUUID->"a18b0946-6e6e-4d75-b398-16a25ac0b2b7"],
+Cell[9877, 271, 324, 7, 30, "Input",ExpressionUUID->"482886a3-c06f-43e3-8b2f-1de81d1727b5"],
+Cell[10204, 280, 183, 3, 35, "Text",ExpressionUUID->"78c0550c-a9e1-4647-acab-c65ab29c4913"],
+Cell[10390, 285, 940, 22, 52, "Input",ExpressionUUID->"c8b59d81-a407-492e-9f20-4a4fb788e8c2"],
+Cell[11333, 309, 475, 9, 58, "Text",ExpressionUUID->"a54339df-4ee0-4898-9be6-486b4befecd1"],
+Cell[11811, 320, 346, 5, 35, "Text",ExpressionUUID->"61707268-38f5-4b0a-aed0-497665f90f93"],
+Cell[12160, 327, 535, 11, 30, "Input",ExpressionUUID->"a06a242e-114a-4654-883d-e25bc15ce9dc"],
+Cell[12698, 340, 222, 4, 35, "Text",ExpressionUUID->"c068fdf2-3e4f-4349-b763-3252b99711f7"],
+Cell[12923, 346, 205, 3, 30, "Input",ExpressionUUID->"ff4a4022-9e21-435e-a578-fe4285cf57de"],
+Cell[13131, 351, 805, 14, 30, "Input",ExpressionUUID->"0222c9c3-c145-4af4-a53d-abe100b237e1"],
+Cell[13939, 367, 357, 8, 35, "Text",ExpressionUUID->"44161cd5-13ec-40a5-a815-0189b5e1bb5e"],
+Cell[14299, 377, 1536, 44, 115, "Input",ExpressionUUID->"8b763056-4645-411a-9535-d0147b0e33d6"],
+Cell[15838, 423, 335, 7, 58, "Text",ExpressionUUID->"52a7fa87-1ea7-4677-98af-65544dc089e4"],
+Cell[16176, 432, 230, 4, 30, "Input",ExpressionUUID->"010e7d5a-98b6-46f8-bf24-8345b3a28c26"],
+Cell[16409, 438, 261, 4, 35, "Text",ExpressionUUID->"c2e5a56c-47a1-49e4-90a3-5f5cc64b23c3"],
+Cell[16673, 444, 795, 15, 30, "Input",ExpressionUUID->"eca2dae6-6f03-4145-990d-34bcca140a1a"],
+Cell[17471, 461, 271, 6, 35, "Text",ExpressionUUID->"2d0700ea-42ba-4c33-869c-3028ac05f582"],
+Cell[17745, 469, 922, 26, 73, "Input",ExpressionUUID->"9caeae00-47d3-4212-a84b-5da3de6d9696"],
+Cell[18670, 497, 384, 8, 30, "Input",ExpressionUUID->"284e2a40-1d89-4185-bf3b-746004f756b1"],
+Cell[19057, 507, 392, 7, 58, "Text",ExpressionUUID->"a48c8e9a-73af-46c9-8612-a0df1277559c"],
+Cell[19452, 516, 433, 11, 30, "Input",ExpressionUUID->"cd21ad07-aa66-4089-8b99-151370af039e"],
+Cell[19888, 529, 193, 3, 35, "Text",ExpressionUUID->"5deda2da-a404-4d44-81e4-b8f2e0b5ded2"],
+Cell[20084, 534, 2104, 57, 115, "Input",ExpressionUUID->"ae6e3070-2707-4289-9c7e-2dcb6c3a12d9"],
+Cell[22191, 593, 544, 10, 58, "Text",ExpressionUUID->"a268a743-b776-41d3-9c9f-598cce4d304d"],
+Cell[22738, 605, 891, 23, 30, "Input",ExpressionUUID->"ccf11605-7bb3-4ae3-b813-85a6e3ead713"],
+Cell[23632, 630, 529, 9, 58, "Text",ExpressionUUID->"73eb7bbf-57e9-445c-97c1-153de6b69193"],
+Cell[24164, 641, 550, 9, 30, "Input",ExpressionUUID->"d6e7d0e4-7bf7-4916-ba96-c474bcf25d88"],
+Cell[24717, 652, 206, 3, 35, "Text",ExpressionUUID->"39920d4a-f852-4de4-a0cc-70f3bde00717"],
+Cell[24926, 657, 404, 10, 30, "Input",ExpressionUUID->"ad9dcb12-e1c8-458d-af74-23bb4a564666"],
+Cell[25333, 669, 409, 8, 58, "Text",ExpressionUUID->"5437ff36-3329-4b96-9444-a2f6e6b387c9"],
+Cell[25745, 679, 1034, 26, 73, "Input",ExpressionUUID->"0b5e4946-36a9-4e75-8813-6797b511dd76"],
+Cell[26782, 707, 534, 13, 54, "Text",ExpressionUUID->"3217cb66-157d-4935-9c5c-0e003dcd8db0"],
+Cell[27319, 722, 600, 16, 30, "Input",ExpressionUUID->"53ed21b7-ba59-41bb-8026-947cb8dc4dee"],
+Cell[27922, 740, 560, 12, 30, "Input",ExpressionUUID->"a1ec9ff0-345d-41a5-a498-61706d9ad53b"],
+Cell[28485, 754, 363, 9, 30, "Input",ExpressionUUID->"421b5b6b-c17a-4738-a18a-9652b123061e"],
+Cell[28851, 765, 365, 9, 30, "Input",ExpressionUUID->"4eac9522-d6f1-4690-b4e2-a9db79d8d141"],
+Cell[29219, 776, 251, 4, 35, "Text",ExpressionUUID->"36a28a0c-42c5-4ccc-9bc0-91f036e1ec99"],
+Cell[29473, 782, 368, 7, 58, "Text",ExpressionUUID->"15a6dd8a-6968-4530-9188-f8f11896b834"],
+Cell[29844, 791, 493, 10, 30, "Input",ExpressionUUID->"bbe30ab9-b781-45ba-a235-39438b735972"],
+Cell[30340, 803, 356, 10, 30, "Input",ExpressionUUID->"e13f07f2-32d6-4b01-8894-7689f3a58c5d"],
+Cell[30699, 815, 412, 10, 35, "Text",ExpressionUUID->"589ef12e-1534-4c7f-8b6d-c8432f66e228"],
+Cell[31114, 827, 657, 16, 30, "Input",ExpressionUUID->"86520f6d-2344-4542-9f48-a0addcf3a0d0"],
+Cell[31774, 845, 559, 10, 30, "Input",ExpressionUUID->"33a97041-f5a8-4d4f-b32c-919a81c254e6"],
+Cell[32336, 857, 225, 4, 35, "Text",ExpressionUUID->"95c83c46-e4a1-4274-8dbe-dd0e0a50d9da"],
+Cell[32564, 863, 1029, 30, 73, "Input",ExpressionUUID->"8d66f78e-63da-4463-a03b-6b05532d1c7b"],
+Cell[33596, 895, 464, 9, 30, "Input",ExpressionUUID->"03dcae0f-87de-4544-bebf-aae47a96015d"],
+Cell[34063, 906, 310, 6, 35, "Text",ExpressionUUID->"57fa2b5b-410a-4609-8ab5-19b5168c3438"],
+Cell[34376, 914, 202, 3, 30, "Input",ExpressionUUID->"26f4e434-9bf4-468b-b9da-42006adc19f8"],
+Cell[34581, 919, 336, 7, 30, "Input",ExpressionUUID->"1f0487bd-5921-4860-ad94-eb439acb31ed"],
+Cell[34920, 928, 415, 8, 58, "Text",ExpressionUUID->"2af2fa87-dd38-495e-ac3f-89763a479aa5"],
+Cell[35338, 938, 994, 25, 52, "Input",ExpressionUUID->"83146d09-f9de-4e78-a0cc-107cfe61c66c"],
+Cell[36335, 965, 418, 11, 35, "Text",ExpressionUUID->"f4c5379a-d11d-47a5-b374-5ee5da8ba548"],
+Cell[36756, 978, 390, 6, 30, "Input",ExpressionUUID->"a39ee8d1-ca22-490c-b6be-d37f08dc332c"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[37183, 989, 215, 4, 53, "Section",ExpressionUUID->"5d40e74f-6286-49f4-91e1-8d1cc369ef56"],
+Cell[37401, 995, 223, 4, 35, "Text",ExpressionUUID->"bc32c346-b4c5-4b79-bc35-a86e524a3e54"],
+Cell[37627, 1001, 247, 5, 30, "Input",ExpressionUUID->"cd960b48-53fd-493f-8a47-90cdf4fe73a6"],
+Cell[37877, 1008, 178, 3, 35, "Text",ExpressionUUID->"a77f3934-1bee-4056-86ea-72afed2e3292"],
+Cell[38058, 1013, 314, 6, 30, "Input",ExpressionUUID->"49abac6e-44c3-4a7a-8dcb-5f73f2754061"],
+Cell[38375, 1021, 370, 11, 35, "Text",ExpressionUUID->"bbbe6041-6f92-45b8-9332-272496d11299"],
+Cell[38748, 1034, 214, 3, 30, "Input",ExpressionUUID->"fab84a8f-a84f-428f-9cc5-142dcea9fe55"],
+Cell[38965, 1039, 417, 11, 35, "Text",ExpressionUUID->"be54f10d-d19d-4e5c-91d1-fa6ff1a0f9ea"],
+Cell[39385, 1052, 267, 5, 30, "Input",ExpressionUUID->"ad99fe4e-14ef-4417-8b94-a357a058ee0d"],
+Cell[39655, 1059, 715, 18, 81, "Text",ExpressionUUID->"744c8997-67fc-4f0e-b98d-e4b2f2ac1bc9"],
+Cell[40373, 1079, 633, 11, 30, "Input",ExpressionUUID->"87003997-5307-4e81-93f4-a0588577bcf1"],
+Cell[41009, 1092, 206, 3, 35, "Text",ExpressionUUID->"9dc667cb-ce51-4c87-915f-7ab6b2ae59c8"],
+Cell[41218, 1097, 450, 10, 30, "Input",ExpressionUUID->"9fd276f7-0bb6-47c7-bd15-127d8256c6f2"],
+Cell[41671, 1109, 425, 8, 35, "Text",ExpressionUUID->"1b60f232-1bbd-4d01-a505-ba9f0c9a184e"],
+Cell[42099, 1119, 1082, 26, 73, "Input",ExpressionUUID->"edf73534-a172-4763-89c3-33657c6fad4e"],
+Cell[43184, 1147, 218, 5, 35, "Text",ExpressionUUID->"6c2a8d09-8dce-4a31-80cb-a2bef429792d"],
+Cell[43405, 1154, 582, 12, 30, "Input",ExpressionUUID->"c2a92c4c-37ec-42fd-a1f4-2097b63640c6"],
+Cell[43990, 1168, 381, 10, 30, "Input",ExpressionUUID->"281a246c-ec8d-48a1-bf88-296c75f503cb"],
+Cell[44374, 1180, 412, 10, 35, "Text",ExpressionUUID->"1d191b7a-bd14-4659-b502-d39facf119b5"],
+Cell[44789, 1192, 558, 14, 30, "Input",ExpressionUUID->"a7c012d6-e496-42e4-a59d-581f9393d042"],
+Cell[45350, 1208, 406, 11, 35, "Text",ExpressionUUID->"86bee298-2749-4bbe-b6f3-2d2a4f4518c6"],
+Cell[45759, 1221, 1265, 36, 94, "Input",ExpressionUUID->"146b12d6-0314-4d97-930f-38cf2a6c5940"],
+Cell[47027, 1259, 565, 10, 30, "Input",ExpressionUUID->"0ad01120-9185-4f9c-a471-2f5d16363f3e"],
+Cell[47595, 1271, 415, 8, 58, "Text",ExpressionUUID->"5f4a1acf-fd86-4c64-a949-24dd0308d77b"],
+Cell[48013, 1281, 1093, 26, 52, "Input",ExpressionUUID->"10415400-ace1-4266-a3ec-49f16617689d"],
+Cell[49109, 1309, 417, 11, 35, "Text",ExpressionUUID->"211c7043-1441-46a3-b8c2-deb9d3551bd4"],
+Cell[49529, 1322, 295, 6, 30, "Input",ExpressionUUID->"34360741-0613-4756-b684-b7638b639541"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

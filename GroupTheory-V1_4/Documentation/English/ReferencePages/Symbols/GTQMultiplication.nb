@@ -1,0 +1,984 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     34694,        974]
+NotebookOptionsPosition[     28280,        840]
+NotebookOutlinePosition[     30422,        895]
+CellTagsIndexPosition[     30337,        890]
+WindowTitle->GTQMultiplication
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "55a626ef-61ad-4ec6-a278-f916f7793323"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "bea466ca-505e-4a32-8554-5b9aacff6cc1"],
+        Background->RGBColor[0.490196, 0.576471, 0.690196],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "bc3d81e0-c6ba-4250-857d-ccbd03f8d70a"]
+         }],ExpressionUUID->"59b04869-e340-4330-a40e-db57f2d95a7d"],
+         StripOnInput->False], {"\<\"GTQAbs\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTQAbs"], "\<\"GTQInverse\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTQInverse"], "\<\"GTQPolar\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTQPolar"], "\<\"GTQuaternionQ\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/GTQuaternionQ"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "57ceb718-8dfa-4097-84f2-2605dbf8bdec"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "b240ba25-2aeb-43f6-b4f0-4da072d429ff"]
+         }],ExpressionUUID->"2e862d97-011c-48c3-9012-9ef9efdb8564"],
+         StripOnInput->False], {"\<\"Auxiliary\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/guide/Auxiliary"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "34dc3e43-f960-4628-88ba-39fca47a2646"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "af3d6546-234f-40d2-b5cd-e38195ff49a9"]
+         }],ExpressionUUID->"4b8efe6d-6a73-49a0-9fc4-7886f3b824ed"],
+         StripOnInput->False], {"\<\"Working with Quaternions\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/WorkingWithQuaternions"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "efd01732-b18c-46b5-98ca-6d80fed27c58"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "75df1a0c-fa93-4502-a198-29f20000470a"]
+         }],ExpressionUUID->"8f0ee2e6-72c5-4da9-8b1f-6731b1202298"],
+         StripOnInput->False], {"\<\"GroupTheory/ref/GTQMultiplication\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/ref/GTQMultiplication"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/ref/\
+GTQMultiplication.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$191016], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/ref/GTQMultiplication" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "81b098a3-f640-4caa-83eb-0709691d21ae"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "de4c9484-a566-49d3-b157-9142d002254c"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"81f8e6a4-9418-48f5-9e0b-88b9cc96ab14"],
+
+Cell["GroupTheory`", "ContextNameCell",ExpressionUUID->"ef668973-4f9a-428d-945b-88d97004d231"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "GTQMultiplication", "ObjectName",ExpressionUUID->
+      "699c362d-a7e1-4118-9722-304657a6380f"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"88871b05-7e48-4711-9380-66f96c653493"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "0be48df4-d1d3-4da8-a2b4-c6d2e369a4da"]
+    }],ExpressionUUID->"184bbedb-834b-46ab-9a7a-03022df4e44a"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"49f51131-dc9c-401f-b4f5-\
+88cd75717851"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{
+         Cell[
+          TextData["GTQMultiplication"]], 
+         "paclet:GroupTheory/ref/GTQMultiplication", 
+         "GroupTheory Package Symbol"},
+        "PackageLink",
+        BaseStyle->"InlineFormula"], "[", 
+       RowBox[{
+        StyleBox["q1", "TI"], ",", " ", 
+        StyleBox["q2", "TI"]}], "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "eec3c047-5606-4257-956d-9599fdb4c908"],
+     " \[LineSeparator]multiplies the quaternions ",
+     StyleBox["q1", "TI"],
+     " and ",
+     StyleBox["q2.", "TI"]
+    }],ExpressionUUID->"f068a39f-b55a-4ba9-8fd5-44f85df63db0"]}
+  }]], "Usage",
+ CellID->982511436,ExpressionUUID->"9d718a34-dbc5-4e5a-abcd-b823f0531eba"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    DynamicBox[ToBoxes[
+      If[
+       MatchQ[
+        CurrentValue[
+         EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, 
+         Closed], 
+        Alternatives[Open, True]], 
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], 
+       Rotate[
+        Style[
+         Graphics[{
+           Thickness[0.18], 
+           RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+           Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+          PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+         0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+     ImageSizeCache->{
+      13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+    ExpressionUUID->"ccc78e36-7270-4f62-bc8e-3380f477dcdc"],
+   Cell[BoxData[
+    TemplateBox[{1},
+     "Spacer1"]],ExpressionUUID->"edb2b8ff-6ef7-4498-91a6-e1e2d5ac363a"],
+   "Details and Options"
+  }], "NotesFrameText",ExpressionUUID->"a24e3ba1-b545-402c-a009-8748a46003dd"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->
+   "Preemptive"]],ExpressionUUID->"52defec2-2249-49e3-852f-2603fa7e7f13"]], \
+"NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->307636249,ExpressionUUID->"80e02491-bd40-4b57-a577-afb8021f94a8"],
+
+Cell[TextData[{
+ "For the quaternions ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "1"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "1ba143ca-c768-45e4-a42d-5e3bd33afca5"],
+ StyleBox["=",
+  FontSlant->"Italic"],
+ "(",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["w", "1"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "8665b27f-436a-46b2-ae8d-ae08a026e3a7"],
+ ",(",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "1"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "7f3d6c08-e08d-4e8a-8cb6-c18380bc9f29"],
+ ",",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["y", "1"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "4338c79e-a83f-46fb-86c8-4273377a692b"],
+ ",",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["z", "1"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "826b8370-71ba-4f58-ad83-67c52f0f81cb"],
+ ")) and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "2"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "492bdf0f-b04e-4c14-93e9-0a0d3a2dd762"],
+ StyleBox["=",
+  FontSlant->"Italic"],
+ "(",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["w", "2"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "c54cb196-f958-4ee2-a0ac-e516448621e0"],
+ ",(",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["x", "2"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "174caca3-1b68-47e1-9036-f483484aef8f"],
+ ",",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["y", "2"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "8571d4d4-2a0a-4c11-b24c-b0ca1162d728"],
+ ",",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["z", "2"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "3bd9a829-3950-4e0d-a524-636395c246d4"],
+ ")) the multiplication is defined via ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "1"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "fb18895e-58db-4f15-b18e-c3517ed94769"],
+ "\[Diamond]",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "2"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "c0ee69c6-939c-4a34-8266-435e195946c0"],
+ " = (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["w", "1"], 
+     SubscriptBox["w", "2"]}], "-", 
+    RowBox[{
+     SubscriptBox["x", "1"], 
+     SubscriptBox["x", "2"]}], "-", 
+    RowBox[{
+     SubscriptBox["y", "1"], 
+     SubscriptBox["y", "2"]}], "-", 
+    RowBox[{
+     SubscriptBox["z", "1"], 
+     SubscriptBox["z", "2"]}]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"be5ca113-8984-436f-9586-03ea17d8180c"],
+ ", (",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["w", "1"], 
+     SubscriptBox["x", "2"]}], "+", 
+    RowBox[{
+     SubscriptBox["w", "2"], 
+     SubscriptBox["x", "1"]}], "+", 
+    RowBox[{
+     SubscriptBox["y", "1"], 
+     SubscriptBox["z", "2"]}], "-", 
+    RowBox[{
+     SubscriptBox["z", "1"], 
+     SubscriptBox["y", "2"]}]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"0c7e2fed-b833-4459-94af-1a1b24b9ff2a"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["w", "1"], 
+     SubscriptBox["y", "2"]}], "+", 
+    RowBox[{
+     SubscriptBox["w", "2"], 
+     SubscriptBox["y", "1"]}], "+", 
+    RowBox[{
+     SubscriptBox["z", "1"], 
+     SubscriptBox["x", "2"]}], "-", 
+    RowBox[{
+     SubscriptBox["z", "2"], 
+     SubscriptBox["x", "1"]}]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"5828629a-1b86-499b-a395-9c052195a48a"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["w", "1"], 
+     SubscriptBox["z", "2"]}], "+", 
+    RowBox[{
+     SubscriptBox["w", "2"], 
+     SubscriptBox["z", "1"]}], "+", 
+    RowBox[{
+     SubscriptBox["x", "1"], 
+     SubscriptBox["y", "2"]}], "-", 
+    RowBox[{
+     SubscriptBox["x", "2"], 
+     SubscriptBox["y", "1"]}]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"e22a2789-e2f0-4af6-a22e-15820904d6c6"],
+ "))"
+}], "Notes",
+ CellID->390268250,ExpressionUUID->"5f94f7b1-d726-41dd-b28a-8d07c3a04e56"],
+
+Cell[TextData[{
+ "Alternatively to ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTQMultiplication"]], 
+    "paclet:GroupTheory/ref/GTQMultiplication", "GroupTheory Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "faf80264-8be1-4519-bbe3-ef8e3d73838b"],
+ " the symbol \[Diamond]   can be used. (The operator can be found on the \
+palette. Keyboard entry ESC dia ESC.)"
+}], "Notes",
+ CellID->581987390,ExpressionUUID->"e3dd705a-cbe2-4aa0-97ee-04d8d8449404"],
+
+Cell[TextData[{
+ "See: W. Hergert, M. Geilhufe, ",
+ StyleBox["Group Theory in Solid State Physics and Photonics. Problem Solving \
+with Mathematica, ",
+  FontSlant->"Italic"],
+ "chapter 2.1.3"
+}], "Notes",
+ CellID->1864138468,ExpressionUUID->"640f947f-5a0c-4862-a3e9-3c9ddfef8ca8"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"1329636a-3a19-4569-aee6-fb2895d09f44"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"841cdcc6-c4cb-4bf9-87a0-6d9e76323c7f"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(3)", "ExampleCount",ExpressionUUID->
+  "34b296c0-41ec-4417-9481-c3780382386a"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellTags->"PrimaryExamplesSection",
+ CellID->1671081761,ExpressionUUID->"9868181a-09de-4761-bc5b-c116a8ac1dc0"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"41297b94-50fd-4c31-aeb0-6978e669453d"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"dce6e11c-5415-4cc6-b975-0c9aef0108f2"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(3)", "ExampleCount",ExpressionUUID->
+  "d39dfde7-8cc9-43d1-a9dd-a49e05dd3a9a"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->849177899,ExpressionUUID->"1613b6b1-e176-45e4-ab05-26bd29786473"],
+
+Cell["First, load the package:", "ExampleText",
+ CellID->10029131,ExpressionUUID->"c79133af-e8d6-429f-a6a5-1161aca9fb5a"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->700278011,ExpressionUUID->"8d393ecb-fd20-486c-adda-29a101a7cd7b"],
+
+Cell["Then run the example:", "ExampleText",
+ CellID->57049781,ExpressionUUID->"e007f074-ab87-4ab8-955a-50d47dcf9925"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"q1", "=", 
+  RowBox[{"{", 
+   RowBox[{"w1", ",", 
+    RowBox[{"{", 
+     RowBox[{"x1", ",", "y1", ",", "z1"}], "}"}]}], 
+   "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"q2", "=", 
+  RowBox[{"{", 
+   RowBox[{"w2", ",", 
+    RowBox[{"{", 
+     RowBox[{"x2", ",", "y2", ",", "z2"}], "}"}]}], "}"}]}]}], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1551937558,ExpressionUUID->"62154f5c-1228-4bc0-be8e-7eeee4127582"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"w1", ",", 
+   RowBox[{"{", 
+    RowBox[{"x1", ",", "y1", ",", "z1"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1733271298,ExpressionUUID->"4b42ee60-dc67-440a-b8f3-ef8b823adfe3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"w2", ",", 
+   RowBox[{"{", 
+    RowBox[{"x2", ",", "y2", ",", "z2"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1358144381,ExpressionUUID->"fe06551b-f61d-4b4d-9214-55e9cb30ad57"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTQMultiplication", "[", 
+  RowBox[{"q1", ",", "q2"}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1137968052,ExpressionUUID->"c40fa752-88a0-4e65-bfe4-49141e0b2e5b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"w1", " ", "w2"}], "-", 
+    RowBox[{"x1", " ", "x2"}], "-", 
+    RowBox[{"y1", " ", "y2"}], "-", 
+    RowBox[{"z1", " ", "z2"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"w2", " ", "x1"}], "+", 
+      RowBox[{"w1", " ", "x2"}], "-", 
+      RowBox[{"y2", " ", "z1"}], "+", 
+      RowBox[{"y1", " ", "z2"}]}], ",", 
+     RowBox[{
+      RowBox[{"w2", " ", "y1"}], "+", 
+      RowBox[{"w1", " ", "y2"}], "+", 
+      RowBox[{"x2", " ", "z1"}], "-", 
+      RowBox[{"x1", " ", "z2"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "x2"}], " ", "y1"}], "+", 
+      RowBox[{"x1", " ", "y2"}], "+", 
+      RowBox[{"w2", " ", "z1"}], "+", 
+      RowBox[{"w1", " ", "z2"}]}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1182667602,ExpressionUUID->"5ce4af52-90b7-4976-82c4-dac09a5ffb6c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "17e7625a-2af6-44c7-b0ae-99af3a4fe2fc"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1393031639,ExpressionUUID->"3227857b-3c16-43d9-b40f-8a09d9aa3468"],
+
+Cell["The multiplication can be expressed in a short form:", "ExampleText",
+ CellID->194458944,ExpressionUUID->"afd86093-aae9-4dbf-bec1-119f3a327275"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"q1", "\[Diamond]", "q2"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->217368594,ExpressionUUID->"609ac72e-b38e-409c-9561-d869662bcd95"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"w1", " ", "w2"}], "-", 
+    RowBox[{"x1", " ", "x2"}], "-", 
+    RowBox[{"y1", " ", "y2"}], "-", 
+    RowBox[{"z1", " ", "z2"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"w2", " ", "x1"}], "+", 
+      RowBox[{"w1", " ", "x2"}], "-", 
+      RowBox[{"y2", " ", "z1"}], "+", 
+      RowBox[{"y1", " ", "z2"}]}], ",", 
+     RowBox[{
+      RowBox[{"w2", " ", "y1"}], "+", 
+      RowBox[{"w1", " ", "y2"}], "+", 
+      RowBox[{"x2", " ", "z1"}], "-", 
+      RowBox[{"x1", " ", "z2"}]}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", "x2"}], " ", "y1"}], "+", 
+      RowBox[{"x1", " ", "y2"}], "+", 
+      RowBox[{"w2", " ", "z1"}], "+", 
+      RowBox[{"w1", " ", "z2"}]}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->837993327,ExpressionUUID->"1baf96c9-c8bc-45e0-8e4e-1afbc02abb10"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "928f7f9f-48aa-4b9c-ab0c-08926a14d466"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->903613513,ExpressionUUID->"3f60cd44-dcb5-49c1-a241-34ce61b07a54"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"q1", "=", 
+  RowBox[{"GTGetQuaternion", "[", "C3z", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"q2", "=", 
+  RowBox[{"GTGetQuaternion", "[", "C3x", "]"}]}]}], "Input",
+ CellLabel->"In[1]:=",
+ CellID->690165757,ExpressionUUID->"50afd2b1-714b-4516-a440-1972986427d1"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["1", "2"], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", 
+     RowBox[{"-", 
+      FractionBox[
+       SqrtBox["3"], "2"]}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->1676845602,ExpressionUUID->"108e1314-bb96-4c3f-8bba-e961bf727b1f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["1", "2"], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       SqrtBox["3"], "2"]}], ",", "0", ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->900201183,ExpressionUUID->"f672fe18-f44c-485b-978b-5dc4f80b7922"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTQMultiplication", "[", 
+  RowBox[{"q1", ",", "q2"}], "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->2108147342,ExpressionUUID->"37526e06-3cac-413f-ae71-938e24d78657"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["1", "4"], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", 
+      FractionBox[
+       SqrtBox["3"], "4"]}], ",", 
+     FractionBox["3", "4"], ",", 
+     RowBox[{"-", 
+      FractionBox[
+       SqrtBox["3"], "4"]}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->19250692,ExpressionUUID->"4e091636-8a6a-4b44-adda-da243ade158f"]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, 
+  Closed]]]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTQAbs"]], "paclet:GroupTheory/ref/GTQAbs", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "9c9cde0e-33ae-4ec6-b170-3ee161d95cd4"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTQInverse"]], "paclet:GroupTheory/ref/GTQInverse", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "87f60f3f-ac82-4ac2-bc9b-433e10d30d8c"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTQPolar"]], "paclet:GroupTheory/ref/GTQPolar", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "0ec451e6-af4d-46b8-adfb-55ed37fa946c"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTQuaternionQ"]], 
+           "paclet:GroupTheory/ref/GTQuaternionQ", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "44b7421a-af7d-42d6-909a-cf2806727881"]
+       }], "SeeAlso",ExpressionUUID->"aa39c9f0-d91d-4288-a5d1-fe831608053b"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"4a451478-00a2-4238-a5c2-\
+20a7cec86eb7"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox["Tutorials", "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Working with Quaternions"]], 
+           "paclet:GroupTheory/tutorial/WorkingWithQuaternions"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "78f9aaf4-dc46-4120-96cd-c999c49c54b2"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"452e68b2-caf5-492d-b534-\
+7713fdb59f93"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Auxiliary"]], "paclet:GroupTheory/guide/Auxiliary"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "88985a13-bd05-4a09-94b0-5523b267ac22"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"58f99503-9d9a-407e-a1a7-\
+ba2e496dd530"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"ac76ed8e-1803-44cc-9b3d-fe2b7fa3a45d"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"GTQMultiplication",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "HasOptions" -> True, "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}, 
+    "NotesSection" -> Closed}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 56, 45.100529}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Symbol", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "GTQMultiplication[q1, q2] multiplies the quaternions q1 and q2.", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "GTQMultiplication", 
+    "titlemodifier" -> "", "metadescription" -> "", "windowtitle" -> 
+    "GTQMultiplication", "type" -> "Symbol", "uri" -> 
+    "GroupTheory/ref/GTQMultiplication"}},
+CellContext->"Global`",
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"39cc894e-cb2a-4726-a145-127fd167f77c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[15369, 442, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"9868181a-09de-4761-bc5b-c116a8ac1dc0",
+   CellTags->"PrimaryExamplesSection",
+   CellID->1671081761]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 30136, 883}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[589, 21, 6465, 155, 56, "AnchorBarGrid",ExpressionUUID->"81f8e6a4-9418-48f5-9e0b-88b9cc96ab14",
+ CellID->1],
+Cell[7057, 178, 94, 0, 24, "ContextNameCell",ExpressionUUID->"ef668973-4f9a-428d-945b-88d97004d231"],
+Cell[CellGroupData[{
+Cell[7176, 182, 560, 14, 59, "ObjectNameGrid",ExpressionUUID->"49f51131-dc9c-401f-b4f5-88cd75717851"],
+Cell[7739, 198, 809, 22, 110, "Usage",ExpressionUUID->"9d718a34-dbc5-4e5a-abcd-b823f0531eba",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8585, 225, 1919, 48, 37, "NotesSection",ExpressionUUID->"80e02491-bd40-4b57-a577-afb8021f94a8",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->307636249],
+Cell[10507, 275, 3886, 135, 70, "Notes",ExpressionUUID->"5f94f7b1-d726-41dd-b28a-8d07c3a04e56",
+ CellID->390268250],
+Cell[14396, 412, 562, 15, 70, "Notes",ExpressionUUID->"e3dd705a-cbe2-4aa0-97ee-04d8d8449404",
+ CellID->581987390],
+Cell[14961, 429, 281, 7, 70, "Notes",ExpressionUUID->"640f947f-5a0c-4862-a3e9-3c9ddfef8ca8",
+ CellID->1864138468]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[15369, 442, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"9868181a-09de-4761-bc5b-c116a8ac1dc0",
+ CellTags->"PrimaryExamplesSection",
+ CellID->1671081761],
+Cell[CellGroupData[{
+Cell[16815, 483, 1398, 36, 30, "ExampleSection",ExpressionUUID->"1613b6b1-e176-45e4-ab05-26bd29786473",
+ CellID->849177899],
+Cell[18216, 521, 121, 1, 38, "ExampleText",ExpressionUUID->"c79133af-e8d6-429f-a6a5-1161aca9fb5a",
+ CellID->10029131],
+Cell[18340, 524, 175, 3, 27, "Input",ExpressionUUID->"8d393ecb-fd20-486c-adda-29a101a7cd7b",
+ CellID->700278011],
+Cell[18518, 529, 118, 1, 38, "ExampleText",ExpressionUUID->"e007f074-ab87-4ab8-955a-50d47dcf9925",
+ CellID->57049781],
+Cell[CellGroupData[{
+Cell[18661, 534, 430, 13, 45, "Input",ExpressionUUID->"62154f5c-1228-4bc0-be8e-7eeee4127582",
+ CellID->1551937558],
+Cell[19094, 549, 235, 6, 36, "Output",ExpressionUUID->"4b42ee60-dc67-440a-b8f3-ef8b823adfe3",
+ CellID->1733271298],
+Cell[19332, 557, 235, 6, 36, "Output",ExpressionUUID->"fe06551b-f61d-4b4d-9214-55e9cb30ad57",
+ CellID->1358144381]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19604, 568, 194, 4, 27, "Input",ExpressionUUID->"c40fa752-88a0-4e65-bfe4-49141e0b2e5b",
+ CellID->1137968052],
+Cell[19801, 574, 892, 27, 38, "Output",ExpressionUUID->"5ce4af52-90b7-4976-82c4-dac09a5ffb6c",
+ CellID->1182667602]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20730, 606, 243, 5, 12, "ExampleDelimiter",ExpressionUUID->"3227857b-3c16-43d9-b40f-8a09d9aa3468",
+ CellID->1393031639],
+Cell[20976, 613, 150, 1, 38, "ExampleText",ExpressionUUID->"afd86093-aae9-4dbf-bec1-119f3a327275",
+ CellID->194458944],
+Cell[CellGroupData[{
+Cell[21151, 618, 158, 3, 27, "Input",ExpressionUUID->"609ac72e-b38e-409c-9561-d869662bcd95",
+ CellID->217368594],
+Cell[21312, 623, 891, 27, 38, "Output",ExpressionUUID->"1baf96c9-c8bc-45e0-8e4e-1afbc02abb10",
+ CellID->837993327]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22252, 656, 242, 5, 12, "ExampleDelimiter",ExpressionUUID->"3f60cd44-dcb5-49c1-a241-34ce61b07a54",
+ CellID->903613513],
+Cell[CellGroupData[{
+Cell[22519, 665, 289, 6, 45, "Input",ExpressionUUID->"50afd2b1-714b-4516-a440-1972986427d1",
+ CellID->690165757],
+Cell[22811, 673, 316, 10, 55, "Output",ExpressionUUID->"108e1314-bb96-4c3f-8bba-e961bf727b1f",
+ CellID->1676845602],
+Cell[23130, 685, 315, 10, 55, "Output",ExpressionUUID->"f672fe18-f44c-485b-978b-5dc4f80b7922",
+ CellID->900201183]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23482, 700, 194, 4, 70, "Input",ExpressionUUID->"37526e06-3cac-413f-ae71-938e24d78657",
+ CellID->2108147342],
+Cell[23679, 706, 401, 14, 55, "Output",ExpressionUUID->"4e091636-8a6a-4b44-adda-da243ade158f",
+ CellID->19250692]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, Closed]]]],
+Cell[24334, 730, 2423, 65, 70, "SeeAlsoSection",ExpressionUUID->"4a451478-00a2-4238-a5c2-20a7cec86eb7"],
+Cell[26760, 797, 727, 19, 70, "TutorialsSection",ExpressionUUID->"452e68b2-caf5-492d-b534-7713fdb59f93"],
+Cell[27490, 818, 705, 18, 70, "MoreAboutSection",ExpressionUUID->"58f99503-9d9a-407e-a1a7-ba2e496dd530"],
+Cell[28198, 838, 78, 0, 70, "FooterCell",ExpressionUUID->"ac76ed8e-1803-44cc-9b3d-fe2b7fa3a45d"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

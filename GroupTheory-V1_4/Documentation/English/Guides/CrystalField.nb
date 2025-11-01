@@ -1,0 +1,576 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21545,        566]
+NotebookOptionsPosition[     17527,        483]
+NotebookOutlinePosition[     19164,        524]
+CellTagsIndexPosition[     19121,        521]
+WindowTitle->Crystal Field Theory
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY GUIDE", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "86d2e8ed-d4cc-4e60-a461-aaad17a713ce"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "2d88d3a3-d272-47c5-9893-bfdc9397e8f4"],
+        Background->RGBColor[0.85098, 0.396078, 0],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Functions",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "17657010-61ed-497c-a24c-537e06268ef4"]
+         }],ExpressionUUID->"8a749da0-ab07-4760-af35-84425cc98ff8"],
+         StripOnInput->False], {"\<\"GTBSTOperator\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBSTOperator"], \
+"\<\"GTBSTOperatorElement\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBSTOperatorElement"], "\<\"GTCFDatabaseInfo\
+\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCFDatabaseInfo"], "\<\"GTCFDatabaseRetrieve\
+\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCFDatabaseRetrieve"], \
+"\<\"GTCFDatabaseUpdate\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCFDatabaseUpdate"], \
+"\<\"GTCrystalField\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCrystalField"], \
+"\<\"GTCrystalFieldParameter\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCrystalFieldParameter"], \
+"\<\"GTCrystalFieldSplitting\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCrystalFieldSplitting"], \
+"\<\"GTStevensOperator\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTStevensOperator"], \
+"\<\"GTStevensOperatorElement\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTStevensOperatorElement"], \
+"\<\"GTStevensTheta\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTStevensTheta"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"GuideFunction"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "7d6bbd73-4a75-4d51-b516-2ec6e13c28bf"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "52dbd919-b9e6-4184-8140-f2e5692ec610"]
+         }],ExpressionUUID->"c7979dd4-9059-4397-896a-9a30efeb48c5"],
+         StripOnInput->
+          False], {"\<\"Crystal Field Theory \[Dash] Stevens Operators and \
+Ho/Pt(111)\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/StevensOperators"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"GuideTutorial"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "c703ffc9-ad31-4d0e-8e4f-eca13ee61b4b"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "ab8395d7-8d2c-440a-a795-7b9519ee4a56"]
+         }],ExpressionUUID->"643e6dd7-7b29-4d3e-8216-915879798e9a"],
+         StripOnInput->False], {"\<\"GroupTheory/guide/CrystalField\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/guide/CrystalField"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/guide/\
+CrystalField.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$20331], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/guide/CrystalField" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "7ca139ee-13a0-4a3a-97d6-0fb59487cec0"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "d365027c-8e3f-4dde-b3cb-9c684b436b38"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"3a3bc5b6-6407-4feb-9355-8eacd7687dd4"],
+
+Cell[CellGroupData[{
+
+Cell["Crystal Field Theory", "GuideTitle",
+ CellID->942062912,ExpressionUUID->"6a9c0b77-bd0c-4636-8070-3b1cdae2b100"],
+
+Cell["\<\
+The package contains all modules related to crystal field theory. \
+\>", "GuideAbstract",
+ CellID->2001916300,ExpressionUUID->"379c858a-f676-4259-8f2c-d4728fb3203f"],
+
+Cell["\t", "GuideDelimiterSubsection",ExpressionUUID->"57b50aae-765a-4047-80cc-4c5501fd0a99"],
+
+Cell[CellGroupData[{
+
+Cell["Qualitative Crystal Field Theory", "GuideFunctionsSubsection",
+ CellID->1195259822,ExpressionUUID->"9d48a616-d9e3-474c-bef7-75e8a5f706e6"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCrystalFieldSplitting"]], 
+    "paclet:GroupTheory/ref/GTCrystalFieldSplitting", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",
+  FontWeight->"Bold",ExpressionUUID->"ff12ddbd-db1a-4a91-9731-132d2573dc7f"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives the decomposition of irreducible representations of a group into \
+irreducible representations of a subgroup"
+}], "GuideText",
+ CellID->1186159237,ExpressionUUID->"64a0b118-a876-4658-a072-77e9a853a747"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Crystal Field Expansion and Crystal Field Operators", \
+"GuideFunctionsSubsection",
+ CellID->1544395560,ExpressionUUID->"76929d01-be21-4c50-b6c5-c862ae9b38a6"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCrystalField"]], "paclet:GroupTheory/ref/GTCrystalField", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "0b52911b-5c9a-407a-9d87-6408be11e09d"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives the crystal field Hamiltonian for a certain ",
+ "group."
+}], "GuideText",
+ CellID->26945980,ExpressionUUID->"2e2a6b7c-e151-4fe4-9013-b96057f7e032"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBSTOperator"]], "paclet:GroupTheory/ref/GTBSTOperator", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",
+  FontWeight->"Bold",ExpressionUUID->"486ff432-174f-4c85-ad78-cf9a77d2eea1"],
+ StyleBox[" ",
+  FontWeight->"Bold"],
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates the matrix elements ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"<", "J"}], ",", 
+    RowBox[{
+     SubscriptBox["m", "1"], "|", 
+     SubsuperscriptBox[
+      OverscriptBox["O", "^"], "l", "m"], "|", "J"}], ",", 
+    RowBox[{
+     SubscriptBox["m", "2"], ">"}]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"df1e639e-0ee7-41b9-84c3-8d6e96e7d7ac"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox[
+    OverscriptBox["O", "^"], "l", "m"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"78e02270-4b76-4f29-b242-a2d26b12f46d"],
+ " is the so called Buckmaster-Smith-Thornley operator equivalent."
+}], "GuideText",
+ Deletable->True,
+ CellID->289186391,ExpressionUUID->"c0ae41d2-d3ee-4d85-aae5-4e5a7c8fd7c8"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBSTOperatorElement"]], 
+    "paclet:GroupTheory/ref/GTBSTOperatorElement", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",
+  FontWeight->"Bold",ExpressionUUID->"9c2005b1-5c09-474c-8f9a-b3e226b3347b"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates a single matrix element ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"<", "J"}], ",", 
+    RowBox[{
+     SubscriptBox["m", "1"], "|", 
+     SubsuperscriptBox[
+      OverscriptBox["O", "^"], "l", "m"], "|", "J"}], ",", 
+    RowBox[{
+     SubscriptBox["m", "2"], ">"}]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"d1e28425-183b-4dcc-9436-730419c50534"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox[
+    OverscriptBox["O", "^"], "l", "m"], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"158a78e3-c681-4a67-b09b-cc10290306e2"],
+ " is the so called Buckmaster-Smith-Thornley operator equivalent."
+}], "GuideText",
+ Deletable->True,
+ CellID->2065613942,ExpressionUUID->"cbacd77f-d2dc-4dd4-82fa-4dd3859ba45c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTStevensOperator"]], 
+    "paclet:GroupTheory/ref/GTStevensOperator", "GroupTheory Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "047bd34f-6c68-4b51-b9b6-e3e7156c3b31"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates the matrix elements ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"<", "J"}], ",", 
+    RowBox[{
+     SubscriptBox["m", "1"], "|", 
+     SubsuperscriptBox[
+      OverscriptBox["\[ScriptCapitalO]", "^"], "l", "m"], "|", "J"}], ",", 
+    RowBox[{
+     SubscriptBox["m", "2"], ">"}]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"db0c6b60-27b0-44af-98d4-4579b616f387"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox[
+    OverscriptBox["\[ScriptCapitalO]", "^"], "l", "m"], TraditionalForm]], 
+  "InlineMath",ExpressionUUID->"3169c461-e26a-4cef-908d-4999397c00fd"],
+ " is the so called Stevens operator equivalent."
+}], "GuideText",
+ Deletable->True,
+ CellID->1276901983,ExpressionUUID->"4adb20cf-1c63-41b2-bd6f-c8e6ef21ae51"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTStevensOperatorElement"]], 
+    "paclet:GroupTheory/ref/GTStevensOperatorElement", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "d538451d-471c-4513-baff-9f537608c659"],
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates a single matrix element ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"<", "J"}], ",", 
+    RowBox[{
+     SubscriptBox["m", "1"], "|", 
+     SubsuperscriptBox[
+      OverscriptBox["\[ScriptCapitalO]", "^"], "l", "m"], "|", "J"}], ",", 
+    RowBox[{
+     SubscriptBox["m", "2"], ">"}]}], TraditionalForm]], "InlineMath",
+  ExpressionUUID->"8f47f6a6-b4b3-42bb-b185-f4f0a37a8068"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox[
+    OverscriptBox["\[ScriptCapitalO]", "^"], "l", "m"], TraditionalForm]], 
+  "InlineMath",ExpressionUUID->"0031e5db-fea3-4fb8-b923-2dd23e553237"],
+ " is the so called Stevens operator equivalent."
+}], "GuideText",
+ CellID->2100390122,ExpressionUUID->"eb54e000-522b-4901-9008-0df9a7cb8b6e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Crystal Field Parameters and Databases", "GuideFunctionsSubsection",
+ CellID->267908535,ExpressionUUID->"c7ae85c3-98bb-4563-814b-a9a727c84a9f"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCrystalFieldParameter"]], 
+    "paclet:GroupTheory/ref/GTCrystalFieldParameter", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "4951b562-1c0d-4bb3-8239-aa8951bb8073"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " calculates the crystal field parameters using the point charge model."
+}], "GuideText",
+ CellID->62359655,ExpressionUUID->"8d521654-2197-480c-9a45-0dc8badd4bfc"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTStevensTheta"]], "paclet:GroupTheory/ref/GTStevensTheta", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "a7dad7ae-88e4-4849-b289-59a724fd26ed"],
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives the specified numerical prefactor for operator equivalents within \
+the crystal field expansion"
+}], "GuideText",
+ CellID->1172212496,ExpressionUUID->"adf2007d-a5a7-48d2-8081-d2d04bc82003"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCFDatabaseInfo"]], "paclet:GroupTheory/ref/GTCFDatabaseInfo"},
+   "RefLink",
+   BaseStyle->{"InlineFormula", FontWeight -> "Bold"}]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "0c5f5ff9-8c3d-476c-a505-a3480eb6ac0b"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " gives information about the crystal field expectation value parameter sets \
+available in a database."
+}], "GuideText",
+ CellID->1023929827,ExpressionUUID->"e84cfb5b-bfbc-4b05-b579-bb78505a0b5a"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCFDatabaseRetrieve"]], 
+    "paclet:GroupTheory/ref/GTCFDatabaseRetrieve", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",
+  FontWeight->"Bold",ExpressionUUID->"88bd32fa-cdcb-4998-b452-4d3cc1ae5bdf"],
+ StyleBox[" ",
+  FontWeight->"Bold"],
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " loads a crystal field expectation value parameters set from a database"
+}], "GuideText",
+ CellID->1612218454,ExpressionUUID->"906078a2-faab-46f3-a846-6135d6ff4459"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCFDatabaseUpdate"]], 
+    "paclet:GroupTheory/ref/GTCFDatabaseUpdate", "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "4388c120-5fe7-4238-b55e-bcbf3b269a81"],
+ " ",
+ StyleBox["\[LongDash]", "GuideEmDash"],
+ " adds a new parameter set and stores the database."
+}], "GuideText",
+ CellID->1266274227,ExpressionUUID->"626f7634-df34-4d19-b402-f4c489e16a30"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Tech", " ", "Notes"}], "GuideTutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[{
+         TemplateBox[{
+           Cell[
+            TextData["Crystal Field Theory \[Dash] Stevens Operators and"]], 
+           "paclet:GroupTheory/tutorial/StevensOperators"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}], "\n", 
+         TemplateBox[{
+           Cell[
+            TextData[" Ho/Pt(111)"]], 
+           "paclet:GroupTheory/ref/StevensOperators", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"GuideTutorial"]}], "GuideTutorial",ExpressionUUID->
+         "5e137133-e7ca-4491-a94d-a36b0b073fd1"]}]}
+     }]}
+  }]], "GuideTutorialsSection",ExpressionUUID->"a73926c9-9359-43b5-8f9c-\
+95bf0ee22468"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"ba1a49e0-f9e3-4895-821e-3064ec0b84d7"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{55.5, Automatic}, {Automatic, 20.25}},
+WindowTitle->"Crystal Field Theory",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {"1988", ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 50, 23.833552}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Guide", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "The package contains all modules related to crystal field theory. ", 
+    "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$20289, "title" -> 
+    "Crystal Field Theory", "titlemodifier" -> "", "metadescription" -> "", 
+    "windowtitle" -> "Crystal Field Theory", "type" -> "Guide", "uri" -> 
+    "GroupTheory/guide/CrystalField"}},
+CacheGraphics->False,
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"27d2306c-9bad-4ab7-a461-c6897b44827b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[592, 21, 6381, 147, 70, "AnchorBarGrid",ExpressionUUID->"3a3bc5b6-6407-4feb-9355-8eacd7687dd4",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[6998, 172, 117, 1, 70, "GuideTitle",ExpressionUUID->"6a9c0b77-bd0c-4636-8070-3b1cdae2b100",
+ CellID->942062912],
+Cell[7118, 175, 175, 3, 70, "GuideAbstract",ExpressionUUID->"379c858a-f676-4259-8f2c-d4728fb3203f",
+ CellID->2001916300],
+Cell[7296, 180, 93, 0, 70, "GuideDelimiterSubsection",ExpressionUUID->"57b50aae-765a-4047-80cc-4c5501fd0a99"],
+Cell[CellGroupData[{
+Cell[7414, 184, 144, 1, 70, "GuideFunctionsSubsection",ExpressionUUID->"9d48a616-d9e3-474c-bef7-75e8a5f706e6",
+ CellID->1195259822],
+Cell[7561, 187, 605, 15, 70, "GuideText",ExpressionUUID->"64a0b118-a876-4658-a072-77e9a853a747",
+ CellID->1186159237]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8203, 207, 165, 2, 70, "GuideFunctionsSubsection",ExpressionUUID->"76929d01-be21-4c50-b6c5-c862ae9b38a6",
+ CellID->1544395560],
+Cell[8371, 211, 508, 14, 70, "GuideText",ExpressionUUID->"2e2a6b7c-e151-4fe4-9013-b96057f7e032",
+ CellID->26945980],
+Cell[8882, 227, 1151, 33, 70, "GuideText",ExpressionUUID->"c0ae41d2-d3ee-4d85-aae5-4e5a7c8fd7c8",
+ CellID->289186391],
+Cell[10036, 262, 1143, 33, 70, "GuideText",ExpressionUUID->"cbacd77f-d2dc-4dd4-82fa-4dd3859ba45c",
+ CellID->2065613942],
+Cell[11182, 297, 1127, 33, 70, "GuideText",ExpressionUUID->"4adb20cf-1c63-41b2-bd6f-c8e6ef21ae51",
+ CellID->1276901983],
+Cell[12312, 332, 1122, 31, 70, "GuideText",ExpressionUUID->"eb54e000-522b-4901-9008-0df9a7cb8b6e",
+ CellID->2100390122]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13471, 368, 149, 1, 70, "GuideFunctionsSubsection",ExpressionUUID->"c7ae85c3-98bb-4563-814b-a9a727c84a9f",
+ CellID->267908535],
+Cell[13623, 371, 539, 14, 70, "GuideText",ExpressionUUID->"8d521654-2197-480c-9a45-0dc8badd4bfc",
+ CellID->62359655],
+Cell[14165, 387, 544, 13, 70, "GuideText",ExpressionUUID->"adf2007d-a5a7-48d2-8081-d2d04bc82003",
+ CellID->1172212496],
+Cell[14712, 402, 562, 14, 70, "GuideText",ExpressionUUID->"e84cfb5b-bfbc-4b05-b579-bb78505a0b5a",
+ CellID->1023929827],
+Cell[15277, 418, 587, 15, 70, "GuideText",ExpressionUUID->"906078a2-faab-46f3-a846-6135d6ff4459",
+ CellID->1612218454],
+Cell[15867, 435, 506, 13, 70, "GuideText",ExpressionUUID->"626f7634-df34-4d19-b402-f4c489e16a30",
+ CellID->1266274227]
+}, Open  ]]
+}, Open  ]],
+Cell[16400, 452, 1042, 27, 70, "GuideTutorialsSection",ExpressionUUID->"a73926c9-9359-43b5-8f9c-95bf0ee22468"],
+Cell[17445, 481, 78, 0, 70, "FooterCell",ExpressionUUID->"ba1a49e0-f9e3-4895-821e-3064ec0b84d7"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

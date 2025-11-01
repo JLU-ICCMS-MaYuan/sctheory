@@ -1,0 +1,2866 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 8.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[    138773,       2857]
+NotebookOptionsPosition[    136765,       2801]
+NotebookOutlinePosition[    137495,       2824]
+CellTagsIndexPosition[    137452,       2821]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input"],
+
+Cell["tutorial/StoringAndTrackingPaletteStates", "Text",
+ CellChangeTimes->{3.653651819374817*^9}],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+HMNotation[e_, exp_] := Module[{}, InterpretationBox @@ {Evaluate[e], \
+InputForm@exp}]\
+\>", "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.653637608849256*^9, 3.653637677334444*^9}, {
+   3.653637731029221*^9, 3.653637763936291*^9}, {3.653637899898108*^9, 
+   3.653637957122421*^9}, {3.653638000153623*^9, 3.653638066491954*^9}, {
+   3.653638261145264*^9, 3.653638262080697*^9}, {3.653638303219152*^9, 
+   3.653638338551735*^9}, {3.653638372801589*^9, 3.653638415824101*^9}, {
+   3.653638619316789*^9, 3.653638620169722*^9}, {3.653638919520805*^9, 
+   3.653638921974161*^9}, {3.653638974950175*^9, 3.653638979843727*^9}, {
+   3.6536390754614*^9, 3.653639120393155*^9}, 3.653639352744116*^9, {
+   3.653639578284894*^9, 3.653639610336892*^9}, 3.653639683551352*^9, {
+   3.653639729719517*^9, 3.653639732941981*^9}, {3.653640686203952*^9, 
+   3.653640720177919*^9}, 3.653645911825015*^9, {3.671912863731416*^9, 
+   3.671912874629302*^9}}],
+
+Cell["\<\
+\[LeftBracketingBar]Verbatim[1]\[RightBracketingBar] := HMNotation[\"1\", C1];
+\[LeftBracketingBar]Verbatim[-1]\[RightBracketingBar] := \
+HMNotation[GTOverScript[1], Ci];\
+\>", "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{
+  3.653636217502041*^9, 3.653636264227219*^9, {3.653636421959785*^9, 
+   3.653636422934607*^9}, {3.653636645680588*^9, 3.653636659190105*^9}, {
+   3.653636920746687*^9, 3.653636928460575*^9}, {3.653637006697697*^9, 
+   3.653637009127313*^9}, {3.653637682487504*^9, 3.653637683111516*^9}, {
+   3.653639739364066*^9, 3.653639739973071*^9}, 3.65364591182512*^9, {
+   3.671912863774378*^9, 3.671912874630007*^9}}],
+
+Cell["\<\
+\[LeftBracketingBar]Verbatim[2]\[RightBracketingBar] := HMNotation[\"2\", C2];
+\[LeftBracketingBar]Verbatim[m]\[RightBracketingBar] := HMNotation[\"m\", Cs];
+\[LeftBracketingBar]Verbatim[2/m]\[RightBracketingBar] := HMNotation[\"2/m\", \
+C2h];\
+\>", "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.653636664282555*^9, 3.653636711287874*^9}, {
+   3.653637683717791*^9, 3.653637684913377*^9}, {3.653639740773331*^9, 
+   3.653639741927876*^9}, 3.653645911825215*^9, {3.671912863775498*^9, 
+   3.671912874630908*^9}}],
+
+Cell["\<\
+\[LeftBracketingBar]Verbatim[222]\[RightBracketingBar] := HMNotation[\"222\", \
+D2];
+\[LeftBracketingBar]Verbatim[mm2]\[RightBracketingBar] := HMNotation[\"mm2\", \
+C2v];
+\[LeftBracketingBar]Verbatim[mmm]\[RightBracketingBar] := HMNotation[\"mmm\", \
+D2h];\
+\>", "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.653636664282555*^9, 3.653636711287874*^9}, {
+   3.653637683717791*^9, 3.653637684913377*^9}, {3.653639740773331*^9, 
+   3.653639741927876*^9}, {3.6536400673254*^9, 3.653640094647145*^9}, 
+   3.653645911825315*^9, {3.671912863776363*^9, 3.671912874632216*^9}}],
+
+Cell["\<\
+\[LeftBracketingBar]Verbatim[4]\[RightBracketingBar] := HMNotation[\"4\", C4];
+\[LeftBracketingBar]Verbatim[-4]\[RightBracketingBar] := \
+HMNotation[GTOverScript[4], S4];
+\[LeftBracketingBar]Verbatim[4/m]\[RightBracketingBar] := HMNotation[\"4/m\", \
+C4h];
+\[LeftBracketingBar]Verbatim[422]\[RightBracketingBar] := HMNotation[\"422\", \
+D4];
+\[LeftBracketingBar]Verbatim[4 mm]\[RightBracketingBar] := \
+HMNotation[\"4mm\", C4v];
+\[LeftBracketingBar]Verbatim[-42 m]\[RightBracketingBar] := \
+HMNotation[GTOverScript[4] <> \"2m\", D2d];
+\[LeftBracketingBar]Verbatim[4/mmm]\[RightBracketingBar] := \
+HMNotation[\"4/mmm\", D4h];\
+\>", "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.653636664282555*^9, 3.653636711287874*^9}, {
+   3.653637683717791*^9, 3.653637684913377*^9}, {3.653639740773331*^9, 
+   3.653639741927876*^9}, {3.653640110622987*^9, 3.65364019633558*^9}, {
+   3.653640380632989*^9, 3.653640382856487*^9}, 3.653645911825413*^9, {
+   3.67191286377789*^9, 3.671912874633894*^9}}],
+
+Cell["\<\
+\[LeftBracketingBar]Verbatim[3]\[RightBracketingBar] := HMNotation[\"3\", C3];
+\[LeftBracketingBar]Verbatim[-3]\[RightBracketingBar] := \
+HMNotation[GTOverScript[3], C3i];
+\[LeftBracketingBar]Verbatim[32]\[RightBracketingBar] := HMNotation[\"32\", \
+D3];
+\[LeftBracketingBar]Verbatim[3 m]\[RightBracketingBar] := HMNotation[\"3m\", \
+C3v];
+\[LeftBracketingBar]Verbatim[-3 m]\[RightBracketingBar] := \
+HMNotation[GTOverScript[3] <> \"m\", D3d];\
+\>", "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.65364021582688*^9, 3.653640253433795*^9}, {
+   3.653640375837686*^9, 3.653640392868941*^9}, 3.653645911825511*^9, {
+   3.671912863779005*^9, 3.671912874635099*^9}}],
+
+Cell["\<\
+\[LeftBracketingBar]Verbatim[6]\[RightBracketingBar] := HMNotation[\"6\", C6];
+\[LeftBracketingBar]Verbatim[-6]\[RightBracketingBar] := \
+HMNotation[GTOverScript[6], C3h];
+\[LeftBracketingBar]Verbatim[6/m]\[RightBracketingBar] := HMNotation[\"6/m\", \
+C6h];
+\[LeftBracketingBar]Verbatim[622]\[RightBracketingBar] := HMNotation[\"622\", \
+D6];
+\[LeftBracketingBar]Verbatim[6 mm]\[RightBracketingBar] := \
+HMNotation[\"6mm\", C6v];
+\[LeftBracketingBar]Verbatim[-6 m2]\[RightBracketingBar] := \
+HMNotation[GTOverScript[6] <> \"m2\", D3d];
+\[LeftBracketingBar]Verbatim[6/mmm]\[RightBracketingBar] := \
+HMNotation[\"6/mmm\", D6h];\
+\>", "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.653636664282555*^9, 3.653636711287874*^9}, {
+   3.653637683717791*^9, 3.653637684913377*^9}, {3.653639740773331*^9, 
+   3.653639741927876*^9}, {3.653640110622987*^9, 3.65364019633558*^9}, {
+   3.653640269359855*^9, 3.653640317108514*^9}, 3.653640372148577*^9, 
+   3.653645911825623*^9, {3.671912863780505*^9, 3.671912874636782*^9}}],
+
+Cell["\<\
+\[LeftBracketingBar]Verbatim[23]\[RightBracketingBar] := HMNotation[\"23\", T];
+\[LeftBracketingBar]Verbatim[m - 3]\[RightBracketingBar] := HMNotation[\"m\" \
+<> GTOverScript[3], Th];
+\[LeftBracketingBar]Verbatim[432]\[RightBracketingBar] := HMNotation[\"432\", \
+O];
+\[LeftBracketingBar]Verbatim[-43 m]\[RightBracketingBar] := \
+HMNotation[GTOverScript[4] <> \"3m\", Td];
+\[LeftBracketingBar]Verbatim[m - 3 m]\[RightBracketingBar] := \
+HMNotation[\"m\" <> GTOverScript[3] <> \"m\", Oh];\
+\>", "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.},
+ CellChangeTimes->{{3.65364021582688*^9, 3.653640253433795*^9}, {
+   3.65364033240596*^9, 3.653640368006699*^9}, {3.653640404065218*^9, 
+   3.653640438074267*^9}, 3.653645911825716*^9, {3.67191286378185*^9, 
+   3.671912874638257*^9}}]
+}, Closed]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"PntButtonHM", "[", "sym_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PasteButton", "[", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{"sym", ",", 
+        RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+        RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}]}], "]"}], ",", 
+      "sym", ",", 
+      RowBox[{"FrameMargins", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"5", ",", "5"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"5", ",", "0"}], "}"}]}], "}"}]}]}], "]"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"SetAttributes", "[", 
+  RowBox[{"PntButtonHM", ",", "HoldFirst"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.6618488056962*^9, 3.661848813897489*^9}, {
+  3.661849100286173*^9, 3.661849108096577*^9}, {3.661849216581155*^9, 
+  3.661849221724061*^9}, {3.661849306924019*^9, 3.661849317468696*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"PntButtonHMold", "[", "sym_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PasteButton", "[", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{
+        RowBox[{"DisplayForm", "@", "sym"}], ",", 
+        RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+        RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}]}], "]"}], ",", 
+      RowBox[{"InputForm", "@", " ", 
+       RowBox[{"ToExpression", "@", "sym"}]}], ",", 
+      RowBox[{"FrameMargins", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"5", ",", "5"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"5", ",", "0"}], "}"}]}], "}"}]}]}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.661848774881304*^9, 3.661848775468544*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"PntButton", "[", "sym_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", 
+    RowBox[{"Defer", "[", 
+     RowBox[{"PasteButton", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"sym", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}]}], "]"}], ",", 
+       RowBox[{"InputForm", "@", "sym"}], ",", 
+       RowBox[{"FrameMargins", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"5", ",", "5"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"5", ",", "0"}], "}"}]}], "}"}]}]}], "]"}], "]"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PntButtonHM", "[", "sym_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PasteButton", "[", 
+     RowBox[{
+      RowBox[{"Style", "[", 
+       RowBox[{
+        RowBox[{"DisplayForm", "@", "sym"}], ",", 
+        RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+        RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}]}], "]"}], ",", 
+      RowBox[{"InputForm", "@", " ", 
+       RowBox[{"ToExpression", "@", "sym"}]}], ",", 
+      RowBox[{"FrameMargins", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"5", ",", "5"}], "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{"5", ",", "0"}], "}"}]}], "}"}]}]}], "]"}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SymButton", "[", "sym_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Defer", "@", 
+     RowBox[{"PasteButton", "[", 
+      RowBox[{
+       RowBox[{"Style", "[", 
+        RowBox[{"sym", ",", 
+         RowBox[{"FontSize", "\[Rule]", "14"}], ",", 
+         RowBox[{"FontFamily", "\[Rule]", "\"\<Helvetica\>\""}]}], "]"}], ",", 
+       RowBox[{"InputForm", "@", "sym"}], ",", 
+       RowBox[{"FrameMargins", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"5", ",", "5"}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"5", ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"MemberQ", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"Ee", ",", "IEe"}], "}"}], ",", "sym"}], "]"}], ",", 
+              "0", ",", 
+              RowBox[{"-", "5"}]}], "]"}]}], "}"}]}], "}"}]}]}], "]"}]}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FuncButton", "[", 
+   RowBox[{"name_", ",", "args_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"PasteButton", "@@", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"args", "==", "0"}], ",", 
+         RowBox[{
+          RowBox[{"Defer", "@", "name"}], "@@", 
+          RowBox[{"{", "}"}]}], ",", 
+         RowBox[{
+          RowBox[{"Defer", "@", "name"}], "@@", 
+          RowBox[{"Join", "[", 
+           RowBox[{
+            RowBox[{"{", "\[SelectionPlaceholder]", "}"}], ",", 
+            RowBox[{"Table", "[", 
+             RowBox[{"\[Placeholder]", ",", 
+              RowBox[{"{", 
+               RowBox[{"args", "-", "1"}], "}"}]}], "]"}]}], "]"}]}]}], "]"}],
+        ",", 
+       RowBox[{"Alignment", "\[Rule]", "Left"}]}], "}"}]}]}], 
+   "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"SetAttributes", "[", 
+  RowBox[{"FuncButton", ",", "HoldFirst"}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CatOpener", "[", 
+   RowBox[{"category_", ",", "save_", ",", "content_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"OpenerView", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Toggler", "[", 
+         RowBox[{"save", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"True", "\[Rule]", "category"}], " ", ",", 
+            RowBox[{"False", "\[Rule]", " ", "category"}]}], "}"}], ",", 
+          RowBox[{"ImageMargins", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "2"}], ",", 
+               RowBox[{"-", "2"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "2"}], ",", 
+               RowBox[{"-", "5"}]}], "}"}]}], "}"}]}]}], "]"}], ",", 
+        RowBox[{"TableForm", "[", 
+         RowBox[{"content", ",", 
+          RowBox[{"TableSpacing", "\[Rule]", "0"}]}], "]"}]}], "}"}], ",", 
+      "save"}], "]"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ComOpener", "[", 
+   RowBox[{"category_", ",", "save_", ",", "content_"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"OpenerView", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Toggler", "[", 
+         RowBox[{"save", ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"True", "\[Rule]", "category"}], " ", ",", 
+            RowBox[{"False", "\[Rule]", " ", "category"}]}], "}"}], ",", 
+          RowBox[{"ImageMargins", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "2"}], ",", 
+               RowBox[{"-", "2"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "2"}], ",", 
+               RowBox[{"-", "5"}]}], "}"}]}], "}"}]}]}], "]"}], ",", 
+        RowBox[{"TableForm", "[", 
+         RowBox[{
+          RowBox[{"Apply", "[", 
+           RowBox[{"FuncButton", ",", "content", ",", 
+            RowBox[{"{", "1", "}"}]}], "]"}], ",", 
+          RowBox[{"TableSpacing", "\[Rule]", "0"}]}], "]"}]}], "}"}], ",", 
+      "save"}], "]"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"SetAttributes", "[", 
+  RowBox[{"ComOpener", ",", "HoldAll"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.653303689238793*^9, 3.653303754785701*^9}, {
+   3.653304445466901*^9, 3.653304473113806*^9}, {3.653304544506031*^9, 
+   3.653304563595917*^9}, 3.653304616520661*^9, {3.653304986972803*^9, 
+   3.653304988193005*^9}, {3.653305021402811*^9, 3.653305063138133*^9}, {
+   3.653305113481662*^9, 3.653305117067908*^9}, {3.653305162402381*^9, 
+   3.653305163217862*^9}, 3.653305209305386*^9, 3.653305251686404*^9, {
+   3.653305406094024*^9, 3.653305417397684*^9}, {3.653306147596572*^9, 
+   3.653306177208853*^9}, 3.653306228576962*^9, {3.653384912406337*^9, 
+   3.653384912552226*^9}, {3.653386540120399*^9, 3.653386540694161*^9}, {
+   3.65338697197694*^9, 3.653386979259753*^9}, {3.653387207730951*^9, 
+   3.653387319862586*^9}, {3.653633956156948*^9, 3.653633981411864*^9}, {
+   3.653643313678423*^9, 3.653643331104443*^9}, 3.653644715120975*^9, {
+   3.653645039270241*^9, 3.653645039644321*^9}, {3.65364571341759*^9, 
+   3.653645721892424*^9}, {3.653646166022039*^9, 3.653646166286209*^9}, {
+   3.653648386405344*^9, 3.653648398967851*^9}, 3.653648468234345*^9, 
+   3.653648502632292*^9, {3.654857557722693*^9, 3.65485755818053*^9}, {
+   3.654857639852056*^9, 3.654857641932943*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"NotebookClose", "[", "pal", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"pal", "=", 
+  RowBox[{"CreatePalette", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Grid", "[", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"Pane", "[", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Grid", "[", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"\"\<Load Package:\>\"", ",", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{"\"\<Needs[GroupTheory]\>\"", ",", 
+                   RowBox[{"Defer", "[", 
+                    RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}], 
+                    "]"}]}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<Standard Representation:\>\"", ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"Dynamic", "[", 
+                  RowBox[{
+                   RowBox[{"Which", "[", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    "ValueQ", "[", "GroupTheory`Symbols`grpdgrp", "]"}], 
+                    "\[Equal]", "False"}], ",", "\"\<please load GTPack\>\"", 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{"GroupTheory`Symbols`grpdgrp", "\[Equal]", "1"}], 
+                    ",", "\"\<O(3)\>\"", ",", "\[IndentingNewLine]", 
+                    RowBox[{"GroupTheory`Symbols`grpdgrp", "\[Equal]", "2"}], 
+                    ",", "\"\<SU(2)\>\"", ",", "\[IndentingNewLine]", 
+                    RowBox[{"GroupTheory`Symbols`grpdgrp", "\[Equal]", "3"}], 
+                    ",", "\"\<O(2)\>\"", ",", "\[IndentingNewLine]", 
+                    RowBox[{"GroupTheory`Symbols`grpdgrp", "\[Equal]", "4"}], 
+                    ",", "\"\<permutation matrices\>\"", ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"GroupTheory`Symbols`grpdgrp", "\[Equal]", "5"}], 
+                    ",", "\"\<SU(2)xS\>\""}], "\[IndentingNewLine]", "]"}], 
+                   ",", 
+                   RowBox[{"UpdateInterval", "\[Rule]", "1"}]}], "]"}]}], 
+                "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"\"\<GOFastValue:\>\"", ",", 
+                 RowBox[{"Dynamic", "[", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    "ValueQ", "[", "GroupTheory`Symbols`GOFastValue", "]"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{
+                    "TrueQ", "[", "GroupTheory`Symbols`GOFastValue", "]"}], 
+                    ",", "\[IndentingNewLine]", "\"\< \>\""}], "]"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"UpdateInterval", "\[Rule]", "1"}]}], "]"}]}], 
+                "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"\"\<If you quitted the kernel,\>\"", ",", 
+                 RowBox[{"Button", "[", 
+                  RowBox[{
+                  "\"\<please reload the palette.\>\"", ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"nb", "=", 
+                    RowBox[{"ButtonNotebook", "[", "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"nbdir", "=", 
+                    RowBox[{"NotebookFileName", "[", "nb", "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"NotebookClose", "[", "nb", "]"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"NotebookOpen", "[", "nbdir", "]"}]}]}], 
+                  "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+                "}"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"\"\<For HM Notation use\>\"", ",", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{"\"\<BracketingBars\>\"", ",", 
+                   RowBox[{
+                   "\[LeftBracketingBar]", "\[SelectionPlaceholder]", 
+                    "\[RightBracketingBar]"}]}], "]"}]}], 
+                "\[IndentingNewLine]", "}"}]}], "\[IndentingNewLine]", "}"}], 
+             ",", 
+             RowBox[{"Alignment", "\[Rule]", "Left"}]}], "]"}], ",", "350"}], 
+          "]"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{"CatOpener", "[", 
+          RowBox[{"\"\<Commands\>\"", ",", 
+           RowBox[{"Dynamic", "@", "GTPal1"}], ",", 
+           RowBox[{"{", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"CatOpener", "[", 
+              RowBox[{"\"\<Auxiliary\>\"", ",", 
+               RowBox[{"Dynamic", "@", "GTPal11"}], ",", 
+               RowBox[{"{", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Quaternion Operations\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal111"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTQAbs", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTQConjugate", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTQInverse", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTQMultiplication", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTQPolar", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Logical Operators\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal112"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTEulerAnglesQ", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTQuaternionQ", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTSymbolQ", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Spherical Harmonics\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal113"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTCartesianSphericalHarmonicY", ",", "5"}], 
+                    "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTCartesianTesseralHarmonicY", ",", "5"}], "}"}],
+                     ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGauntCoefficient", ",", "6"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTesseralHarmonicY", ",", "4"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Graphic Representation Of Point Group \
+Relationships\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal114"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTGroupConnection", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGroupHierarchy", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPointGroups", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Input And Output Operations\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal115"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTFermiSurfaceXSF", ",", "7"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTReadFromFile", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTWriteToFile", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Handling Of Cluster Data\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal116"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTClusterFilter", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTCompactStore", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTNeighborPlot", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Special Matrices\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal117"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTDiracMatrix", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTSU2Matrix", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Presentation Of Calculated Data\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal118"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTBlueRed", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTSetTableColors", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}]}], 
+                "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"CatOpener", "[", 
+              RowBox[{"\"\<Basic\>\"", ",", 
+               RowBox[{"Dynamic", "@", "GTPal12"}], ",", 
+               RowBox[{"{", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Classes\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal121"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTClasses", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTClassMult", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTClassMultTable", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Characterization Of Groups And Elements\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal122"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTCenter", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTConjugacyClass", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTConjugateElement", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGenerators", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGetSubGroups", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGroupOrder", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTInverseElement", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTInvSubGroups", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTLeftCosets", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTMultTable", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTNormalizer", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTOrderOfElement", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTProductGroup", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTQuotientGroup", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTRightCosets", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Logical Group Characterization\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal123"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTAbelianQ", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTCyclicQ", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGroupQ", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTInvSubGroupQ", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTProductGroupQ", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTQuotientGroupQ", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTSelfAdjointQ", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTSubGroupQ", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Symbols, Matrices, Quaternions And Euler angles\>\"", 
+                   ",", 
+                   RowBox[{"Dynamic", "@", "GTPal124"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTAllSymbols", ",", "0"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGetEulerAngles", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGetMatrix", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGetQuaternion", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGetRotationMatrix", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGetSU2Matrix", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGetSymbol", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTgmat", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTSetMultiplication", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTType", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTWhichInput", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTWhichOutput", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Coordinate Transformations\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal125"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTTransformation", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTransformationOperator", ",", "3"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}]}], 
+                "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"CatOpener", "[", 
+              RowBox[{"\"\<Crystal Structure\>\"", ",", 
+               RowBox[{"Dynamic", "@", "GTPal13"}], ",", 
+               RowBox[{"{", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Load, Save And Modify Crystal Structure Libraries\>\"",
+                    ",", 
+                   RowBox[{"Dynamic", "@", "GTPal131"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTAllStructures", ",", "0"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTExportXSF", ",", "2"}], "}"}], ",", ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGetStructure", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTInstallStructure", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTImportCIF", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTLoadStructures", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTSaveStructures", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Plot And Manipulate Crystal Structures\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal132"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTClusterManipulate", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPlotCluster", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPlotStructure", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPlotStructure2D", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Point and Space Group Information\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal133"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTBravaisLattice", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTCrystalData", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTCrystalSystem", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGroupNotation", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTLatticeVectors", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTShowSymmetryElements", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTSpaceGroups", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Carbon Nano Structures\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal134"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTBuckyBall", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTubeParameters", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTubeStructure", ",", "5"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}]}], 
+                "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"CatOpener", "[", 
+              RowBox[{"\"\<Electronic Structure\>\"", ",", 
+               RowBox[{"Dynamic", "@", "GTPal14"}], ",", 
+               RowBox[{"{", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Calculations Of Band Structure\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal141"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTBands", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTBandsPlot", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTBandsPlotImprove", ",", "5"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTBandStructure", ",", "4"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Calculations Of Density Of States\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal142"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTDensityOfStates", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTDensityOfStatesRS", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTDensityOfStatesPlot", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Group Theory And Band Structures\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal143"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTCompatibility", ",", "2"}], "}"}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}]}], 
+                "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"CatOpener", "[", 
+              RowBox[{"\"\<Install\>\"", ",", 
+               RowBox[{"Dynamic", "@", "GTPal15"}], ",", 
+               RowBox[{"{", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Installation Of Symmetry Elements\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal151"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTInstallAxis", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTReinstallAxes", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTWhichAxes", ",", "0"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Installation of point groups\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal152"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTGroupFromGenerators", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTInstallGroup", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTableToGroup", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Standard Representation\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal153"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTChangeRepresentation", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTWhichRepresentation", ",", "0"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}]}], 
+                "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"CatOpener", "[", 
+              RowBox[{"\"\<Lattice\>\"", ",", 
+               RowBox[{"Dynamic", "@", "GTPal16"}], ",", 
+               RowBox[{"{", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Cluster Construction And Analysis\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal161"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTAdjacencyMatrix", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTCluster", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTShells", ",", "3"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Lattices In Real Space Or Reciprocal Space\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal162"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTLatCluster", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTLatShells", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Symmetry Analysis Of Real Structure Clusters\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal163"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTGroupGlp", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTShellVectorsQlp", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTransformToQlp", ",", "3"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Reciprocal Lattice\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal164"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTReciprocalBasis", ",", "1"}], "}"}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Brillouin Zones\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal165"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTBZLines", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTBZPath", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTBZPointMesh", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGroupOfK", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTStarOfK", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Brilloin Zones And Wigner-Seitz Zones\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal166"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTVoronoiCell", ",", "3"}], "}"}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}]}], 
+                "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"CatOpener", "[", 
+              RowBox[{"\"\<Photonics\>\"", ",", 
+               RowBox[{"Dynamic", "@", "GTPal17"}], ",", 
+               RowBox[{"{", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Structure Factors And Fourier Transform Of Inverse \
+Permittivity\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal171"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTPhCuboid", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhDCObjects", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhDCPixel", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhDielectric", ",", "4"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhEllipticRod", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhPermittivity", ",", "4"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhPixelSmooth", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhPrismaticRod", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhRodSmooth", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhSlab", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhSlabSmooth", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhSphere", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Visualization Of Distribution Of Permittivity\>\"", 
+                   ",", 
+                   RowBox[{"Dynamic", "@", "GTPal172"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTPhPixelStructure", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhShowStructure", ",", "3"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Master Equation In Matrix Form (Plane Wave Basis)\>\"",
+                    ",", 
+                   RowBox[{"Dynamic", "@", "GTPal173"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTPhMaster", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhMasterEquation", ",", "5"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhMasterObjects", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhMasterPixel", ",", "3"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Symmetry Analysis Of Fields\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal174"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTPhFields", ",", "5"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhSymmetryBands", ",", "9"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhSymmetryField", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhSymmetryPoint", ",", "7"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Connection To MPB\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal175"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTPhMPBBands", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPhMPBFields", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}]}], 
+                "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"CatOpener", "[", 
+              RowBox[{"\"\<Pseudopotential\>\"", ",", 
+               RowBox[{"Dynamic", "@", "GTPal18"}], ",", 
+               RowBox[{"{", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Parameter Sets And Libraries\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal181"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTPwDatabaseInfo", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPwDatabaseRetrieve", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPwDatabaseUpdate", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPwPrintParmSet", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Model-Pseudopotential Hamiltonians\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal182"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTPwDielectricF", ",", "4"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPwHamiltonian", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPwModelPotential", ",", "5"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Plane Waves And Group Theory\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal183"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTPwEmptyLatticeIrep", ",", "4"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPwSymmetrizePW", ",", "4"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}]}], 
+                "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"CatOpener", "[", 
+              RowBox[{"\"\<Representation Theory\>\"", ",", 
+               RowBox[{"Dynamic", "@", "GTPal19"}], ",", 
+               RowBox[{"{", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Characters\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal191"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTCharacterTable", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTExtraRepresentations", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTReorderCharacterTable", ",", "3"}], "}"}], ",",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTReality", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTSpinCharacters", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTSOCSplitting", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Projection Operators\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal192"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTCharProjectionOperator", ",", "4"}], "}"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTProjectionOperator", ",", "6"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTWignerProjectionOperator", ",", "6"}], "}"}]}],
+                     "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Auxiliary Representations\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal193"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTAngularMomentumChars", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTAngularMomentumRep", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTRegularRepresentation", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Irreducible Representations\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal194"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTClebschGordanSum", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTGetIrep", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTIrep", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTIrepDimension", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTIrepMatrixView", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTNumberOfIreps", ",", "1"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Direct Product Of Representations\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal195"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTClebschGordanCoefficients", ",", "3"}], "}"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTClebschGordanTable", ",", "4"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTDirectProductChars", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTDirectProductRep", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}]}], 
+                "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+             "\[IndentingNewLine]", 
+             RowBox[{"CatOpener", "[", 
+              RowBox[{"\"\<Tight Binding\>\"", ",", 
+               RowBox[{"Dynamic", "@", "GTPal1a"}], ",", 
+               RowBox[{"{", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Construction Of Two-Center Tight-Binding \
+Hamiltonians\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal1a1"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTTbHamiltonian", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbHamiltonianElement", ",", "6"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbMatrixElement", ",", "5"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbSpinMatrix", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbSpinOrbit", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbSymbol2C", ",", "4"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Construction Of Three-Center Tight-Binding \
+Hamiltonians\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal1a2"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTIrepInfo", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTSymmetryBasisFunctions", ",", "2"}], "}"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbAngularPart", ",", "7"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbNumberOfIntegrals", ",", "3"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Tight-Binding Real Space Formulation\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal1a3"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTFindStateNumbers", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTPlotStateWeights", ",", "5"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbHamiltonianRS", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbRealSpaceMatrix", ",", "3"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Parameter Sets And Libraries For Tight-Binding \
+Models\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal1a4"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTTbDatabaseInfo", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbDatabaseRetrieve", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbDatabaseUpdate", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbGetParameter", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbParameterNames", ",", "2"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbParmToRule", ",", "1"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbPrintParmSet", ",", "2"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Wave Functions\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal1a5"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTTbAtomicWaveFunction", ",", "5"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbBlochFunction", ",", "4"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbWaveFunction", ",", "4"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Symmetry Analysis Of Band Structures\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal1a6"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTTbSymmetryBand", ",", "3"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbSymmetryPoint", ",", "7"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbSymmetryBandStructure", ",", "8"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{
+                  "\"\<Output Of Hamiltonians As FORTRAN Modules\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal1a7"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"GTTbToFortran", ",", "4"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTTbToFortranList", ",", "3"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"ComOpener", "[", 
+                  RowBox[{"\"\<Miscellaneous\>\"", ",", 
+                   RowBox[{"Dynamic", "@", "GTPal1a8"}], ",", 
+                   RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"GTHamiltonianPlot", ",", "2"}], "}"}], 
+                    "\[IndentingNewLine]", "}"}]}], "]"}]}], 
+                "\[IndentingNewLine]", "}"}]}], "]"}]}], 
+            "\[IndentingNewLine]", "}"}]}], "]"}], "\[IndentingNewLine]", 
+         "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{"CatOpener", "[", 
+          RowBox[{"\"\<Point Groups\>\"", ",", 
+           RowBox[{"Dynamic", "@", "GTPal2"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"TabView", "[", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{
+               "\"\<Schoenfliess notation\>\"", "\[Rule]", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Grid", "[", 
+                 RowBox[{
+                  RowBox[{"Riffle", "[", 
+                   RowBox[{
+                    RowBox[{"Map", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Join", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "SpanFromLeft", ",", "SpanFromLeft", ",", "SpanFromLeft", 
+                    ",", "SpanFromLeft"}], "}"}]}], "]"}], "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", "\"\<Triclinic\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Monoclinic\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Orthorhombic\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Tetragonal\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Trigonal\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Hexagonal\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Cubic\>\"", "}"}]}], "}"}]}], "]"}], 
+                    ",", 
+                    RowBox[{"Map", "[", 
+                    RowBox[{"PntButton", ",", 
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    StyleBox[
+                    InterpretationBox[
+                    StyleBox["C1",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C1],
+                    AutoDelete->True,
+                    Editable->True],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], 
+                    StyleBox[",",
+                    ShowStringCharacters->True,
+                    NumberMarks->True], 
+                    InterpretationBox[
+                    StyleBox["Ci",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`Ci],
+                    AutoDelete->True,
+                    Editable->True]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    StyleBox[
+                    InterpretationBox[
+                    StyleBox["C2",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C2],
+                    AutoDelete->True,
+                    Editable->True],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], 
+                    StyleBox[",",
+                    ShowStringCharacters->True,
+                    NumberMarks->True], 
+                    StyleBox[
+                    InterpretationBox[
+                    StyleBox["Cs",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`Cs],
+                    AutoDelete->True,
+                    Editable->True],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], 
+                    StyleBox[",",
+                    ShowStringCharacters->True,
+                    NumberMarks->True], 
+                    InterpretationBox[
+                    StyleBox["C2h",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C2h],
+                    AutoDelete->True,
+                    Editable->True]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    StyleBox[
+                    InterpretationBox[
+                    StyleBox["D2",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`D2],
+                    AutoDelete->True,
+                    Editable->True],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], ",", 
+                    StyleBox[
+                    InterpretationBox[
+                    StyleBox["C2v",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C2v],
+                    AutoDelete->True,
+                    Editable->True],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], ",", 
+                    StyleBox[
+                    InterpretationBox[
+                    StyleBox["D2h",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`D2h],
+                    AutoDelete->True,
+                    Editable->True],
+                    ShowStringCharacters->True,
+                    NumberMarks->True]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    StyleBox[
+                    InterpretationBox[
+                    StyleBox["C4",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C4],
+                    AutoDelete->True,
+                    Editable->True],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], ",", 
+                    StyleBox[
+                    InterpretationBox[
+                    StyleBox["S4",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`S4],
+                    AutoDelete->True,
+                    Editable->True],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], ",", 
+                    StyleBox[
+                    InterpretationBox[
+                    StyleBox["C4h",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C4h],
+                    AutoDelete->True,
+                    Editable->True],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], 
+                    StyleBox[",",
+                    ShowStringCharacters->True,
+                    NumberMarks->True], 
+                    InterpretationBox[
+                    StyleBox["D4",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`D4],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["C4v",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C4v],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["D2d",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`D2d],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["D4h",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`D4h],
+                    AutoDelete->True,
+                    Editable->True]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["C3",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C3],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["C3i",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C3i],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["D3",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`D3],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["C3v",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C3v],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["D3d",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`D3d],
+                    AutoDelete->True,
+                    Editable->True]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["C6",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C6],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["C3h",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C3h],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["C6h",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C6h],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["D6",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`D6],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["C6v",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`C6v],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["D3d",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`D3d],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["D6h",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`D6h],
+                    AutoDelete->True,
+                    Editable->True]}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    InterpretationBox[
+                    StyleBox["T",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`T],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["Th",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`Th],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["System`O",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[O],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["Td",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`Td],
+                    AutoDelete->True,
+                    Editable->True], ",", 
+                    InterpretationBox[
+                    StyleBox["Oh",
+                    ShowStringCharacters->True,
+                    NumberMarks->True],
+                    InputForm[GroupTheory`Symbols`Oh],
+                    AutoDelete->True,
+                    Editable->True]}], "}"}]}], 
+                    StyleBox["\[IndentingNewLine]",
+                    ShowStringCharacters->True,
+                    NumberMarks->True], "}"}], ",", 
+                    RowBox[{"{", "2", "}"}]}], "]"}]}], "]"}], ",", 
+                  RowBox[{"Spacings", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"0.5", ",", "0.5"}], "}"}]}], ",", 
+                  RowBox[{"Alignment", "\[Rule]", "Left"}]}], "]"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+               "\"\<Herman-Mauguin notation\>\"", " ", "\[Rule]", 
+                "\[IndentingNewLine]", " ", 
+                RowBox[{"Grid", "[", 
+                 RowBox[{
+                  RowBox[{"Riffle", "[", 
+                   RowBox[{
+                    RowBox[{"Map", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Join", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "SpanFromLeft", ",", "SpanFromLeft", ",", "SpanFromLeft", 
+                    ",", "SpanFromLeft"}], "}"}]}], "]"}], "&"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", "\"\<Triclinic\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Monoclinic\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Orthorhombic\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Tetragonal\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Trigonal\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Hexagonal\>\"", "}"}], ",", 
+                    RowBox[{"{", "\"\<Cubic\>\"", "}"}]}], "}"}]}], "]"}], 
+                    ",", 
+                    RowBox[{"Map", "[", 
+                    RowBox[{"PntButton", ",", 
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    "\[LeftBracketingBar]", "1", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"-", "1"}], "\[RightBracketingBar]"}]}], "}"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    StyleBox[
+                    RowBox[{
+                    RowBox[{
+                    "\[LeftBracketingBar]", "2", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{
+                    "\[LeftBracketingBar]", "m", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"2", "/", "m"}], "\[RightBracketingBar]"}]}],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    StyleBox[
+                    RowBox[{
+                    RowBox[{
+                    "\[LeftBracketingBar]", "222", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{
+                    "\[LeftBracketingBar]", "mm2", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{
+                    "\[LeftBracketingBar]", "mmm", "\[RightBracketingBar]"}]}],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    StyleBox[
+                    RowBox[{
+                    RowBox[{
+                    "\[LeftBracketingBar]", "4", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"-", "4"}], "\[RightBracketingBar]"}], ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"4", "/", "m"}], "\[RightBracketingBar]"}], ",", 
+                    RowBox[{
+                    "\[LeftBracketingBar]", "422", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"4", "mm"}], "\[RightBracketingBar]"}], ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{
+                    RowBox[{"-", "42"}], "m"}], "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"4", "/", "mmm"}], "\[RightBracketingBar]"}]}],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    StyleBox[
+                    RowBox[{
+                    RowBox[{
+                    "\[LeftBracketingBar]", "3", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"-", "3"}], "\[RightBracketingBar]"}], ",", 
+                    RowBox[{
+                    "\[LeftBracketingBar]", "32", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"3", "m"}], "\[RightBracketingBar]"}], ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{
+                    RowBox[{"-", "3"}], "m"}], "\[RightBracketingBar]"}]}],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    StyleBox[
+                    RowBox[{
+                    RowBox[{
+                    "\[LeftBracketingBar]", "6", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"-", "6"}], "\[RightBracketingBar]"}], ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"6", "/", "m"}], "\[RightBracketingBar]"}], ",", 
+                    RowBox[{
+                    "\[LeftBracketingBar]", "622", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"6", "mm"}], "\[RightBracketingBar]"}], ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{
+                    RowBox[{"-", "6"}], "m2"}], "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"6", "/", "mmm"}], "\[RightBracketingBar]"}]}],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    StyleBox[
+                    RowBox[{
+                    RowBox[{
+                    "\[LeftBracketingBar]", "23", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"m", "-", "3"}], "\[RightBracketingBar]"}], ",", 
+                    RowBox[{
+                    "\[LeftBracketingBar]", "432", "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{
+                    RowBox[{"-", "43"}], "m"}], "\[RightBracketingBar]"}], 
+                    ",", 
+                    RowBox[{"\[LeftBracketingBar]", 
+                    RowBox[{"m", "-", 
+                    RowBox[{"3", "m"}]}], "\[RightBracketingBar]"}]}],
+                    ShowStringCharacters->True,
+                    NumberMarks->True], "}"}]}], "\[IndentingNewLine]", "}"}],
+                     ",", 
+                    RowBox[{"{", "2", "}"}]}], "]"}]}], "]"}], ",", 
+                  RowBox[{"Spacings", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"0.5", ",", "0.5"}], "}"}]}], ",", 
+                  RowBox[{"Alignment", "\[Rule]", "Left"}]}], "]"}]}]}], 
+              "\[IndentingNewLine]", "}"}], ",", 
+             RowBox[{"Dynamic", "@", "GTPal21"}]}], "]"}]}], 
+          "\[IndentingNewLine]", "]"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{"CatOpener", "[", 
+          RowBox[{"\"\<Symbols\>\"", ",", 
+           RowBox[{"Dynamic", "@", "GTPal3"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"TabView", "[", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Subscript", "[", 
+                 RowBox[{"\"\<C\>\"", ",", "\"\<n\>\""}], "]"}], "\[Rule]", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Grid", "[", 
+                 RowBox[{
+                  RowBox[{"Map", "[", 
+                   RowBox[{"SymButton", ",", 
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", "Ee", "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"C2x", ",", "C2y", ",", "C2z"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "C2a", ",", "C2b", ",", "C2c", ",", "C2d", ",", "C2e", 
+                    ",", "C2f"}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"C2A", ",", "C2B", ",", "C2C", ",", "C2D"}], 
+                    "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "C3\[Alpha]", ",", "C3\[Beta]", ",", "C3\[Gamma]", ",", 
+                    "C3\[Delta]", ",", "C3z"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "C3\[Alpha]i", ",", "C3\[Beta]i", ",", "C3\[Gamma]i", ",",
+                     "C3\[Delta]i", ",", "C3zi"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "C4x", ",", "C4y", ",", "C4z", ",", "C4xi", ",", "C4yi", 
+                    ",", "C4zi"}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"C6z", ",", "C6zi"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}], ",", 
+                    RowBox[{"{", "2", "}"}]}], "]"}], ",", 
+                  RowBox[{"Spacings", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"0.5", ",", "0.5"}], "}"}]}]}], "]"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"Subscript", "[", 
+                 RowBox[{"\"\<IC\>\"", ",", "\"\<n\>\""}], "]"}], "\[Rule]", 
+                "\[IndentingNewLine]", " ", 
+                RowBox[{"Grid", "[", 
+                 RowBox[{
+                  RowBox[{"Map", "[", 
+                   RowBox[{"SymButton", ",", 
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", "IEe", "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"IC2x", ",", "IC2y", ",", "IC2z"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "IC2a", ",", "IC2b", ",", "IC2c", ",", "IC2d", ",", 
+                    "IC2e", ",", "IC2f"}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"IC2A", ",", "IC2B", ",", "IC2C", ",", "IC2D"}], 
+                    "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "IC3\[Alpha]", ",", "IC3\[Beta]", ",", "IC3\[Gamma]", ",",
+                     "IC3\[Delta]", ",", "IC3z"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "IC3\[Alpha]i", ",", "IC3\[Beta]i", ",", "IC3\[Gamma]i", 
+                    ",", "IC3\[Delta]i", ",", "IC3zi"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "IC4x", ",", "IC4y", ",", "IC4z", ",", "IC4xi", ",", 
+                    "IC4yi", ",", "IC4zi"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"IC6z", ",", "IC6zi"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}], ",", 
+                    RowBox[{"{", "2", "}"}]}], "]"}], ",", 
+                  RowBox[{"Spacings", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"0.5", ",", "0.5"}], "}"}]}]}], "]"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"Subscript", "[", 
+                 RowBox[{
+                  RowBox[{"Overscript", "[", 
+                   RowBox[{"\"\<C\>\"", ",", "\"\<_\>\""}], "]"}], ",", 
+                  "\"\<n\>\""}], "]"}], "\[Rule]", "  ", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Grid", "[", 
+                 RowBox[{
+                  RowBox[{"Map", "[", 
+                   RowBox[{"SymButton", ",", 
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", "DEe", "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"DC2x", ",", "DC2y", ",", "DC2z"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "DC2a", ",", "DC2b", ",", "DC2c", ",", "DC2d", ",", 
+                    "DC2e", ",", "DC2f"}], "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"DC2A", ",", "DC2B", ",", "DC2C", ",", "DC2D"}], 
+                    "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "DC3\[Alpha]", ",", "DC3\[Beta]", ",", "DC3\[Gamma]", ",",
+                     "DC3\[Delta]", ",", "DC3z"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "DC3\[Alpha]i", ",", "DC3\[Beta]i", ",", "DC3\[Gamma]i", 
+                    ",", "DC3\[Delta]i", ",", "DC3zi"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "DC4x", ",", "DC4y", ",", "DC4z", ",", "DC4xi", ",", 
+                    "DC4yi", ",", "DC4zi"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"DC6z", ",", "DC6zi"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}], ",", 
+                    RowBox[{"{", "2", "}"}]}], "]"}], ",", 
+                  RowBox[{"Spacings", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"0.5", ",", "0.5"}], "}"}]}]}], "]"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"Subscript", "[", 
+                 RowBox[{
+                  RowBox[{"Overscript", "[", 
+                   RowBox[{"\"\<IC\>\"", ",", "\"\<__\>\""}], "]"}], ",", 
+                  "\"\<n\>\""}], "]"}], "\[Rule]", "  ", 
+                "\[IndentingNewLine]", 
+                RowBox[{"Grid", "[", 
+                 RowBox[{
+                  RowBox[{"Map", "[", 
+                   RowBox[{"SymButton", ",", 
+                    RowBox[{"{", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"{", "DIEe", "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"DIC2x", ",", "DIC2y", ",", "DIC2z"}], "}"}], ",",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "DIC2a", ",", "DIC2b", ",", "DIC2c", ",", "DIC2d", ",", 
+                    "DIC2e", ",", "DIC2f"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "DIC2A", ",", "DIC2B", ",", "DIC2C", ",", "DIC2D"}], 
+                    "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "DIC3\[Alpha]", ",", "DIC3\[Beta]", ",", "DIC3\[Gamma]", 
+                    ",", "DIC3\[Delta]", ",", "DIC3z"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "DIC3\[Alpha]i", ",", "DIC3\[Beta]i", ",", 
+                    "DIC3\[Gamma]i", ",", "DIC3\[Delta]i", ",", "DIC3zi"}], 
+                    "}"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "DIC4x", ",", "DIC4y", ",", "DIC4z", ",", "DIC4xi", ",", 
+                    "DIC4yi", ",", "DIC4zi"}], "}"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"DIC6z", ",", "DIC6zi"}], "}"}]}], 
+                    "\[IndentingNewLine]", "}"}], ",", 
+                    RowBox[{"{", "2", "}"}]}], "]"}], ",", 
+                  RowBox[{"Spacings", "\[Rule]", 
+                   RowBox[{"{", 
+                    RowBox[{"0.5", ",", "0.5"}], "}"}]}]}], "]"}]}]}], 
+              "\[IndentingNewLine]", "}"}], ",", 
+             RowBox[{"Dynamic", "@", "GTPal31"}]}], "]"}]}], 
+          "\[IndentingNewLine]", "]"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{"CatOpener", "[", 
+          RowBox[{"\"\<Operators\>\"", ",", 
+           RowBox[{"Dynamic", "@", "GTPal4"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Grid", "[", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"\"\<Group Multiplication:\>\"", ",", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{"\"\<\[SmallCircle]\>\"", ",", 
+                   RowBox[{"Defer", "[", 
+                    RowBox[{
+                    "\[SelectionPlaceholder]", "\[SmallCircle]", 
+                    "\[Placeholder]"}], "]"}]}], "]"}]}], "}"}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"\"\<Quaterion Multiplication:\>\"", ",", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{"\"\<\[Diamond]\>\"", ",", 
+                   RowBox[{"Defer", "[", 
+                    RowBox[{
+                    "\[SelectionPlaceholder]", "\[Diamond]", 
+                    "\[Placeholder]"}], "]"}]}], "]"}]}], "}"}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"\"\<Clebsch Gordan Summation:\>\"", ",", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{"\"\<\[CirclePlus]\>\"", ",", 
+                   RowBox[{"Defer", "[", 
+                    RowBox[{
+                    "\[SelectionPlaceholder]", "\[CirclePlus]", 
+                    "\[Placeholder]"}], "]"}]}], "]"}]}], "}"}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{"\"\<Direct Product Representation:\>\"", ",", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{"\"\<\[CircleTimes]\>\"", ",", 
+                   RowBox[{"Defer", "[", 
+                    RowBox[{
+                    "\[SelectionPlaceholder]", "\[CircleTimes]", 
+                    "\[Placeholder]"}], "]"}]}], "]"}]}], "}"}]}], 
+              "\[IndentingNewLine]", "}"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", "1"}], ",", 
+             RowBox[{"Alignment", "\[Rule]", "Left"}]}], "]"}]}], 
+          "\[IndentingNewLine]", "]"}], "}"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{"CatOpener", "[", 
+          RowBox[{"\"\<Unit Vectors\>\"", ",", 
+           RowBox[{"Dynamic", "@", "GTPal5"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Grid", "[", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<x\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<y\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<z\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "1"}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}]}], "}"}],
+                ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<a\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}], ",", 
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}], ",", "0"}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<b\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}], ",", "0"}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<c\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}], ",", "0", ",", 
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}]}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<d\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}], ",", "0", ",", 
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}]}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<e\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}], ",", 
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}]}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<f\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"0", ",", 
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "2"}], ")"}]}]}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}]}], "}"}],
+                ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<\[Alpha]\>\""}], "]"}], 
+                   ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}], ",", 
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}]}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<\[Beta]\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}], ",", 
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}]}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<\[Gamma]\>\""}], "]"}], 
+                   ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}]}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<\[Delta]\>\""}], "]"}], 
+                   ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}], ",", 
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}], ",", 
+                    RowBox[{"1", "/", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}]}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}]}], "}"}],
+                ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<A\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"1", "/", "2"}], ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}], "/", "2"}], ",", "0"}], 
+                    "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<B\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "2"}], ",", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}], "/", "2"}], ",", "0"}], 
+                    "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<C\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}], "/", "2"}], ",", 
+                    RowBox[{"1", "/", "2"}], ",", "0"}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"PasteButton", "[", 
+                  RowBox[{
+                   RowBox[{"Subscript", "[", 
+                    RowBox[{"\"\<e\>\"", ",", "\"\<D\>\""}], "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"-", 
+                    RowBox[{"(", 
+                    RowBox[{"\[Sqrt]", "3"}], ")"}]}], "/", "2"}], ",", 
+                    RowBox[{
+                    RowBox[{"-", "1"}], "/", "2"}], ",", "0"}], "}"}], ",", 
+                   RowBox[{"ImageMargins", "\[Rule]", "2"}]}], "]"}]}], 
+                "}"}]}], "\[IndentingNewLine]", "}"}], ",", 
+             RowBox[{"Spacings", "\[Rule]", 
+              RowBox[{"{", 
+               RowBox[{"Automatic", ",", "Automatic"}], "}"}]}]}], "]"}]}], 
+          "\[IndentingNewLine]", "]"}], "\[IndentingNewLine]", "}"}]}], "}"}],
+       ",", 
+      RowBox[{"Alignment", "\[Rule]", "Left"}], ",", 
+      RowBox[{"Dividers", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"False", ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "False", ",", "True", ",", "True", ",", "True", ",", "True", ",", 
+           "True", ",", "False"}], "}"}]}], "}"}]}], ",", 
+      RowBox[{"Spacings", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1"}], "}"}]}]}], "]"}], "\[IndentingNewLine]", ",", 
+    RowBox[{"WindowTitle", "\[Rule]", " ", "\"\<Group Theory\>\""}], ",", 
+    RowBox[{"WindowSize", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"Fit", ",", "Fit"}], "}"}]}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"NotebookSave", "[", 
+  RowBox[{"pal", ",", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<GroupTheoryPalette.nb\>\""}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"NotebookClose", "[", "pal", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"nnnbbb", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+        "\"\<GroupTheoryPalette.nb\>\""}], ",", "\"\<String\>\""}], "]"}]}], 
+    ";", "\n", 
+    RowBox[{"nnnbbb1", "=", 
+     RowBox[{"StringReplace", "[", 
+      RowBox[{"nnnbbb", ",", 
+       RowBox[{
+       "\"\<\[IDoubleDot]\.98\.84\>\"", "->", 
+        "\"\<\[LeftBracketingBar]\>\""}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"nnnbbb2", "=", 
+     RowBox[{"StringReplace", "[", 
+      RowBox[{"nnnbbb1", ",", 
+       RowBox[{
+       "\"\<\[IDoubleDot]\.98\.83\>\"", "->", 
+        "\"\<\[RightBracketingBar]\>\""}]}], "]"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Export", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+       "\"\<GroupTheoryPalette.nb\>\""}], ",", "nnnbbb2", ",", 
+      "\"\<String\>\""}], "]"}], ";", "\n", 
+    RowBox[{"NotebookOpen", "[", 
+     RowBox[{
+      RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+      "\"\<GroupTheoryPalette.nb\>\""}], "]"}]}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.5830533185009165`*^9, 3.5830533888610153`*^9}, {
+   3.5830534492310996`*^9, 3.5830535826522865`*^9}, {3.5830537956945868`*^9, 
+   3.583053803894598*^9}, {3.5830538471646585`*^9, 3.5830540443049345`*^9}, {
+   3.583054126435049*^9, 3.5830541657351046`*^9}, {3.5830542483852205`*^9, 
+   3.5830543494153614`*^9}, {3.5830543973154287`*^9, 3.583054406145441*^9}, {
+   3.583054788586976*^9, 3.5830547976769896`*^9}, {3.5830548377170453`*^9, 
+   3.583054968068228*^9}, {3.583055100278413*^9, 3.5830552093685656`*^9}, {
+   3.5830552610186377`*^9, 3.5830553086987047`*^9}, {3.583055484608951*^9, 
+   3.5830555579890537`*^9}, 3.583055596199107*^9, {3.5830556475791793`*^9, 
+   3.5830557292492933`*^9}, {3.5831286940486135`*^9, 3.583128717532957*^9}, {
+   3.583128764380636*^9, 3.583128839469931*^9}, {3.583128913982193*^9, 
+   3.5831289303421288`*^9}, {3.583129160341284*^9, 3.583129208620045*^9}, {
+   3.5831292503074293`*^9, 3.5831292508514605`*^9}, {3.5831293397545457`*^9, 
+   3.5831293468119497`*^9}, {3.583129489977138*^9, 3.5831297958076305`*^9}, {
+   3.5831298801674557`*^9, 3.583129936415673*^9}, {3.5831299820612836`*^9, 
+   3.5831301091325517`*^9}, {3.5831301466186953`*^9, 
+   3.5831301646697283`*^9}, {3.5831302003757706`*^9, 3.583130279551299*^9}, {
+   3.5831303110861025`*^9, 3.583130469573168*^9}, {3.583133090326066*^9, 
+   3.5831331283002377`*^9}, 3.583133189596744*^9, {3.5831332571946106`*^9, 
+   3.5831335443410344`*^9}, {3.5831335771459103`*^9, 3.58313361577712*^9}, {
+   3.5831336572654934`*^9, 3.583133658724577*^9}, {3.583133704900218*^9, 
+   3.5831338711967297`*^9}, 3.583474601612869*^9, {3.5834749538974824`*^9, 
+   3.5834749817475214`*^9}, 3.5834750681976423`*^9, {3.5834751309177303`*^9, 
+   3.583475133197734*^9}, {3.583475635128436*^9, 3.5834756382284403`*^9}, {
+   3.5834805384793983`*^9, 3.5834805405894012`*^9}, {3.5834805789994545`*^9, 
+   3.5834806144695044`*^9}, 3.5834807722997255`*^9, {3.583480809639778*^9, 
+   3.5834808519798374`*^9}, {3.58348093953996*^9, 3.5834811029601884`*^9}, {
+   3.5834811435602455`*^9, 3.5834811595702677`*^9}, {3.583481223470357*^9, 
+   3.583481242050383*^9}, {3.583481284650443*^9, 3.5834813041504703`*^9}, {
+   3.583481336190515*^9, 3.583481568840841*^9}, {3.583481677470993*^9, 
+   3.5834817673511186`*^9}, {3.5834818352912135`*^9, 3.583481901832307*^9}, 
+   3.583481933802352*^9, {3.5834820150824656`*^9, 3.5834820237024775`*^9}, {
+   3.5834821046925907`*^9, 3.5834821063125935`*^9}, {3.583482176932692*^9, 
+   3.583482254642801*^9}, {3.5834822906228514`*^9, 3.583482404643011*^9}, {
+   3.5834830784139543`*^9, 3.583483633544731*^9}, {3.583483704444831*^9, 
+   3.5834837922449536`*^9}, 3.5834838693850613`*^9, {3.583483901765107*^9, 
+   3.583484016085267*^9}, 3.5834840490353127`*^9, {3.5834842244855585`*^9, 
+   3.5834842736756277`*^9}, {3.583484313875684*^9, 3.583484408575816*^9}, {
+   3.5834845066559534`*^9, 3.5834846093970976`*^9}, {3.5834846523471575`*^9, 
+   3.5834848365674157`*^9}, {3.583485114527805*^9, 3.5834851622178717`*^9}, {
+   3.5834859515389767`*^9, 3.583486003499049*^9}, {3.583486038879099*^9, 
+   3.5834863193294916`*^9}, {3.583486360629549*^9, 3.583486509459758*^9}, {
+   3.583486727550063*^9, 3.5834867694401217`*^9}, {3.5834869251503396`*^9, 
+   3.58348698226042*^9}, {3.583487050670515*^9, 3.58348706813054*^9}, {
+   3.583487204421731*^9, 3.583487210221739*^9}, {3.5834872500517945`*^9, 
+   3.583487274451829*^9}, {3.5834873184918904`*^9, 3.583487342671924*^9}, 
+   3.583487839510625*^9, {3.5834882951212635`*^9, 3.5834883377913227`*^9}, {
+   3.5834883681313653`*^9, 3.5834884035114145`*^9}, {3.5834884488014784`*^9, 
+   3.583488460041494*^9}, {3.583490890715897*^9, 3.583490918525936*^9}, {
+   3.583490982796026*^9, 3.583490995286043*^9}, {3.5834910267160873`*^9, 
+   3.583491030666093*^9}, {3.583491162966278*^9, 3.5834912950664635`*^9}, {
+   3.583491327116508*^9, 3.5834916230869226`*^9}, {3.583492741299488*^9, 
+   3.5834928097895837`*^9}, {3.587708005957305*^9, 3.5877080089304748`*^9}, {
+   3.5877080423743877`*^9, 3.58770807318215*^9}, {3.587708137803846*^9, 
+   3.587708155670868*^9}, {3.5877083220743856`*^9, 3.587708459716258*^9}, {
+   3.5877085838393574`*^9, 3.5877087454766026`*^9}, {3.5877157003123965`*^9, 
+   3.5877157021415014`*^9}, {3.587715745639989*^9, 3.5877158023722343`*^9}, {
+   3.587715837529245*^9, 3.5877158672789464`*^9}, {3.587715897352667*^9, 
+   3.587716172410399*^9}, {3.5877165078015823`*^9, 3.587716567366989*^9}, {
+   3.5877166124815693`*^9, 3.587716617231841*^9}, {3.587717529811038*^9, 
+   3.587717580987965*^9}, 3.5877177723309093`*^9, {3.587717827607071*^9, 
+   3.587717855810684*^9}, {3.5877179361792808`*^9, 3.587717949135022*^9}, {
+   3.587718005274233*^9, 3.5877180293266087`*^9}, {3.5877180912711515`*^9, 
+   3.5877181537367244`*^9}, {3.587718192596947*^9, 3.5877182486341524`*^9}, {
+   3.5877194571482754`*^9, 3.587719472283141*^9}, {3.5877196616969748`*^9, 
+   3.5877196695594244`*^9}, 3.587720039532586*^9, {3.587720078482814*^9, 
+   3.5877200837451143`*^9}, {3.587720119695171*^9, 3.5877201347770333`*^9}, {
+   3.58772021740576*^9, 3.5877202473984747`*^9}, {3.5877202814064198`*^9, 
+   3.587720349134294*^9}, {3.5877204131939583`*^9, 3.587720443669701*^9}, {
+   3.5877204755715256`*^9, 3.587720485490093*^9}, {3.5877205498697753`*^9, 
+   3.5877206099802136`*^9}, {3.587877354190635*^9, 3.5878773583848753`*^9}, {
+   3.587878123348628*^9, 3.5878781251117296`*^9}, 3.587878222613306*^9, {
+   3.587878311623397*^9, 3.5878783145635653`*^9}, 3.5878783620382805`*^9, 
+   3.5878785184472265`*^9, 3.587892248796558*^9, 3.58789292055098*^9, 
+   3.5878931289579*^9, 3.5878938269078207`*^9, {3.587897388566536*^9, 
+   3.5878973906766567`*^9}, 3.587899139709696*^9, 3.5878996163709593`*^9, 
+   3.5878996886110907`*^9, 3.5878999009532366`*^9, {3.588408740184658*^9, 
+   3.5884087558414288`*^9}, {3.588410126494287*^9, 3.5884101397327967`*^9}, {
+   3.588411058437489*^9, 3.588411088977396*^9}, {3.588411131554214*^9, 
+   3.588411131729053*^9}, {3.588411280246696*^9, 3.5884112849566813`*^9}, {
+   3.588918659581801*^9, 3.588918681559772*^9}, {3.588918952996108*^9, 
+   3.588918953349449*^9}, {3.5987801280174212`*^9, 3.598780135947875*^9}, {
+   3.598780176529196*^9, 3.598780179270353*^9}, {3.5987802184165916`*^9, 
+   3.5987803872362475`*^9}, {3.598780560435154*^9, 3.5987806001094236`*^9}, {
+   3.598780878533348*^9, 3.5987810031334753`*^9}, {3.5987810601027336`*^9, 
+   3.5987811929423313`*^9}, {3.598781290634919*^9, 3.598781372040575*^9}, {
+   3.59878195257078*^9, 3.598782050292369*^9}, {3.598782408810875*^9, 
+   3.5987824120250587`*^9}, 3.5987829701099796`*^9, {3.598783589977434*^9, 
+   3.5987836073954306`*^9}, {3.5987852909807262`*^9, 
+   3.5987852954349804`*^9}, {3.63999537256154*^9, 3.639995387453118*^9}, {
+   3.642133330933447*^9, 3.642133345024452*^9}, {3.642133392936475*^9, 
+   3.642133393407173*^9}, {3.642133448034781*^9, 3.64213349112589*^9}, {
+   3.642133533733525*^9, 3.642133537465772*^9}, {3.642133620187277*^9, 
+   3.642133626279696*^9}, {3.642133661771931*^9, 3.642133663949663*^9}, 
+   3.642134511010406*^9, {3.642134828794815*^9, 3.642134885713975*^9}, {
+   3.642134924417553*^9, 3.642134941516527*^9}, {3.642135001900355*^9, 
+   3.642135045480879*^9}, {3.642135085626427*^9, 3.642135091795142*^9}, {
+   3.642135150144129*^9, 3.642135150339613*^9}, {3.642136541938958*^9, 
+   3.642136561192182*^9}, {3.642137068630488*^9, 3.642137085228543*^9}, {
+   3.642137636762046*^9, 3.642137673908893*^9}, {3.642143871862555*^9, 
+   3.642143880867632*^9}, {3.642144020466427*^9, 3.642144110592695*^9}, {
+   3.642144195778521*^9, 3.642144198960868*^9}, {3.642144252598417*^9, 
+   3.642144253943134*^9}, {3.642144284479121*^9, 3.642144350998325*^9}, {
+   3.642144417545238*^9, 3.642144459086896*^9}, {3.642144504083688*^9, 
+   3.642144628151825*^9}, {3.643692356004007*^9, 3.643692391361944*^9}, {
+   3.643692424348983*^9, 3.643692470461453*^9}, {3.643692568064232*^9, 
+   3.643692686760257*^9}, {3.643692718685503*^9, 3.643692814264501*^9}, {
+   3.64369284571439*^9, 3.643692956549338*^9}, {3.643693103051158*^9, 
+   3.643693223841938*^9}, {3.643693279788286*^9, 3.643693617604505*^9}, {
+   3.643693648210546*^9, 3.64369369721374*^9}, {3.643693741545367*^9, 
+   3.643694036410088*^9}, {3.643694076629715*^9, 3.643694088444431*^9}, {
+   3.643694119879475*^9, 3.643694133815448*^9}, {3.643694175599619*^9, 
+   3.643694227719814*^9}, {3.643694267585024*^9, 3.643694300419508*^9}, {
+   3.643694376710807*^9, 3.643694378970167*^9}, {3.643694414830605*^9, 
+   3.643694649824733*^9}, {3.643696208670678*^9, 3.643696242291525*^9}, {
+   3.643696283174207*^9, 3.643696287150828*^9}, {3.643696320133189*^9, 
+   3.643696365035153*^9}, {3.643696400020315*^9, 3.643696431212098*^9}, {
+   3.643696536589392*^9, 3.643696555225931*^9}, {3.643696608123999*^9, 
+   3.643696763302728*^9}, {3.643697354581453*^9, 3.643697452843263*^9}, {
+   3.643697526754768*^9, 3.643697585038715*^9}, {3.643697848928108*^9, 
+   3.643698145476497*^9}, {3.643698181888044*^9, 3.643698203905255*^9}, {
+   3.643699390346038*^9, 3.643699441573868*^9}, {3.652153986752335*^9, 
+   3.652153989226981*^9}, {3.652154060119509*^9, 3.652154071033582*^9}, 
+   3.652154898210763*^9, {3.652154937560827*^9, 3.652154980055393*^9}, {
+   3.652155016403732*^9, 3.652155017952965*^9}, {3.652155167167074*^9, 
+   3.652155172943398*^9}, {3.652155284106412*^9, 3.652155289537579*^9}, {
+   3.652155432861279*^9, 3.652155446249051*^9}, {3.652702565386051*^9, 
+   3.652702566493634*^9}, {3.652702641217954*^9, 3.652702654399399*^9}, {
+   3.652702812233917*^9, 3.652702825481405*^9}, 3.652702916921946*^9, 
+   3.652703392915181*^9, {3.652703525321657*^9, 3.65270355175379*^9}, {
+   3.652703588731546*^9, 3.652703601040529*^9}, {3.652703715268745*^9, 
+   3.652703717722153*^9}, {3.65270376285197*^9, 3.652703806451096*^9}, {
+   3.652704771285755*^9, 3.652704845006342*^9}, {3.652725559603385*^9, 
+   3.652725560483024*^9}, {3.652726410988622*^9, 3.652726417955763*^9}, {
+   3.65277598460664*^9, 3.652776008302364*^9}, {3.652776108414043*^9, 
+   3.652776116270505*^9}, {3.652776327458636*^9, 3.652776385961726*^9}, {
+   3.653294642472072*^9, 3.653294704352058*^9}, {3.653299406188476*^9, 
+   3.65329944293793*^9}, {3.653299548115547*^9, 3.653299549569845*^9}, {
+   3.653299587982034*^9, 3.653299597941046*^9}, {3.653300077411904*^9, 
+   3.653300147018492*^9}, {3.653300531622953*^9, 3.653300564905795*^9}, 
+   3.653300749604765*^9, 3.653300928373909*^9, {3.653300968678712*^9, 
+   3.653300996297195*^9}, {3.653301054740771*^9, 3.653301073729328*^9}, {
+   3.653301120439701*^9, 3.653301146429312*^9}, {3.653301532590656*^9, 
+   3.653301534142431*^9}, {3.653301595898317*^9, 3.653301702157755*^9}, {
+   3.653301766101708*^9, 3.653301772901944*^9}, {3.653301840438745*^9, 
+   3.653301867440112*^9}, {3.653301984768428*^9, 3.653302057842808*^9}, {
+   3.653302102181036*^9, 3.653302134094335*^9}, {3.653302169074949*^9, 
+   3.653302181161167*^9}, {3.653302286219704*^9, 3.653302315677524*^9}, {
+   3.653302352490542*^9, 3.653302353816089*^9}, {3.653302391092761*^9, 
+   3.653302411507886*^9}, 3.653302442346738*^9, {3.653302480913562*^9, 
+   3.65330248499172*^9}, {3.653302543007408*^9, 3.653302625990295*^9}, {
+   3.653302850090659*^9, 3.653302854022553*^9}, {3.653302984715752*^9, 
+   3.653302988370528*^9}, {3.653303114650047*^9, 3.653303122312309*^9}, {
+   3.653303289989354*^9, 3.65330329153256*^9}, {3.653303467556812*^9, 
+   3.653303495667532*^9}, {3.653303552439698*^9, 3.653303559808789*^9}, {
+   3.653303778770919*^9, 3.653303820910035*^9}, {3.653303860073779*^9, 
+   3.653303917204856*^9}, {3.653303952203747*^9, 3.653304117330424*^9}, {
+   3.653304200691139*^9, 3.653304231700594*^9}, {3.653304329401871*^9, 
+   3.653304371543657*^9}, {3.653304574165446*^9, 3.653304594057893*^9}, {
+   3.653305176159216*^9, 3.653305179934281*^9}, {3.65330522250764*^9, 
+   3.653305230113026*^9}, {3.653305294225406*^9, 3.653305301796187*^9}, {
+   3.653305541941275*^9, 3.653305640556995*^9}, {3.653306085928749*^9, 
+   3.653306118642363*^9}, {3.653306195968235*^9, 3.653306212328303*^9}, 
+   3.653306789131471*^9, {3.653386533497342*^9, 3.653386896947854*^9}, {
+   3.653386983733612*^9, 3.653387001402073*^9}, {3.653387059949703*^9, 
+   3.653387062934298*^9}, {3.653387094966638*^9, 3.653387121640968*^9}, {
+   3.65338738037754*^9, 3.653387618495047*^9}, {3.65338765624532*^9, 
+   3.653387844495714*^9}, {3.653387894217385*^9, 3.653388323398069*^9}, {
+   3.653388392016405*^9, 3.653389257255212*^9}, {3.65363332442566*^9, 
+   3.653633330150614*^9}, {3.653633816892872*^9, 3.653633828869779*^9}, 
+   3.653644853561779*^9, {3.653645639354659*^9, 3.653645646046119*^9}, {
+   3.6536461746385*^9, 3.653646273733457*^9}, {3.653648471534446*^9, 
+   3.653648854315044*^9}, {3.653650153884534*^9, 3.653650532319776*^9}, {
+   3.653650765051433*^9, 3.653650790326164*^9}, {3.653651286017059*^9, 
+   3.653651367987611*^9}, {3.653651399541371*^9, 3.653651404236318*^9}, {
+   3.653651441944873*^9, 3.653651454553162*^9}, {3.653651634295848*^9, 
+   3.653651657252341*^9}, {3.653737039662124*^9, 3.653737053668185*^9}, {
+   3.654580157205699*^9, 3.654580185912327*^9}, {3.65458029140452*^9, 
+   3.654580329856739*^9}, {3.654857688034342*^9, 3.654857726525108*^9}, {
+   3.655788849123066*^9, 3.655788905407072*^9}, {3.655789014114706*^9, 
+   3.655789028438395*^9}, {3.655793797954782*^9, 3.655793823857703*^9}, 
+   3.655794012241238*^9, {3.66176967681833*^9, 3.661769737405543*^9}, {
+   3.661769776937081*^9, 3.661769830289913*^9}, {3.661770511547695*^9, 
+   3.661770516942781*^9}, {3.66177109471294*^9, 3.661771110714298*^9}, 
+   3.661774039852937*^9, {3.661774704358458*^9, 3.661774705887439*^9}, 
+   3.661774782391254*^9, {3.661774854148304*^9, 3.661774870330163*^9}, {
+   3.661847018691794*^9, 3.661847018901896*^9}, {3.661848825243463*^9, 
+   3.66184882583753*^9}, {3.661849396924119*^9, 3.661849418431169*^9}, {
+   3.661855617750663*^9, 3.661855618013861*^9}, {3.661855695476272*^9, 
+   3.661855695936785*^9}, {3.661855752814045*^9, 3.661855806053507*^9}, {
+   3.661855858395647*^9, 3.661855862428657*^9}, {3.671878980300872*^9, 
+   3.671879317877719*^9}, {3.671879456296939*^9, 3.671879615688408*^9}, {
+   3.671879675679825*^9, 3.671879707371137*^9}, {3.671879766380453*^9, 
+   3.671879857277825*^9}, {3.671879974983544*^9, 3.671880157666767*^9}, {
+   3.67188020809422*^9, 3.671880311533767*^9}, {3.671880350944605*^9, 
+   3.671880469784526*^9}, {3.671880551497038*^9, 3.671880880472599*^9}, {
+   3.671910829633558*^9, 3.671910838841797*^9}, {3.671910959795518*^9, 
+   3.671910962310437*^9}, {3.67191100449361*^9, 3.671911030066869*^9}, {
+   3.671911065540638*^9, 3.671911114276891*^9}, {3.671911204212467*^9, 
+   3.671911223093995*^9}, 3.671911277736348*^9, {3.671911417918873*^9, 
+   3.671911421987399*^9}, {3.67191148933481*^9, 3.671911763203008*^9}, {
+   3.671911815178006*^9, 3.671911900635981*^9}, {3.671911936525707*^9, 
+   3.671911938611017*^9}, {3.680961100018003*^9, 3.680961100172542*^9}, {
+   3.680961686872148*^9, 3.680961693936581*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{FrontEndObject[
+    LinkObject["446_shm", 3, 1]],301,
+   "FrontEndObject[LinkObject[\"446_shm\", 3, 1]]","301","\"Group Theory\""},
+  "NotebookObjectUnsaved"]], "Output",
+ CellChangeTimes->{
+  3.653634070962873*^9, 3.653643342169264*^9, 3.653643486895651*^9, 
+   3.653644718781665*^9, 3.653644858243721*^9, 3.653645018540021*^9, 
+   3.653645669344879*^9, 3.653645724494337*^9, {3.65364827609958*^9, 
+   3.653648300147109*^9}, 3.653648825141532*^9, {3.653648864849612*^9, 
+   3.65364888546971*^9}, 3.653650562740023*^9, 3.653650792539244*^9, 
+   3.653651406414826*^9, {3.653651661107157*^9, 3.65365168886183*^9}, 
+   3.653737089716257*^9, 3.654580259941765*^9, 3.654580331497404*^9, 
+   3.654857538753537*^9, 3.654857654904415*^9, 3.654857694922012*^9, 
+   3.654857728658566*^9, 3.655788811925935*^9, {3.655788851265844*^9, 
+   3.655788871898853*^9}, 3.655793826224215*^9, 3.655794038104798*^9, 
+   3.661768971122461*^9, 3.661769010872024*^9, 3.661769739381558*^9, 
+   3.661769891767783*^9, 3.661771047495277*^9, 3.661771112331775*^9, 
+   3.661771891435527*^9, 3.661774200363888*^9, 3.661774710708218*^9, 
+   3.661774794153193*^9, 3.661774882534134*^9, 3.661836138118859*^9, 
+   3.661846930696487*^9, {3.661847092783483*^9, 3.661847105077762*^9}, {
+   3.661847863945238*^9, 3.661847879023261*^9}, 3.661848293599891*^9, 
+   3.661848827494221*^9, 3.661849112880542*^9, 3.661849230117442*^9, 
+   3.661849325453039*^9, {3.661849402219374*^9, 3.661849420157391*^9}, 
+   3.661855570051611*^9, 3.661855620995014*^9, 3.661855711129812*^9, {
+   3.66185575798576*^9, 3.661855807958119*^9}, {3.661855864469951*^9, 
+   3.661855871629046*^9}, 3.671911994770659*^9, 3.671912669160082*^9, 
+   3.680961109637689*^9, {3.680961697695082*^9, 3.680961726378327*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.661854389373625*^9, 3.661854402242024*^9}}],
+
+Cell[BoxData["\<\"/home/merrx/Uni/GT/GroupTheory/GroupTheory/FrontEnd/\
+Palettes\"\>"], "Output",
+ CellChangeTimes->{{3.661854391287404*^9, 3.661854402818309*^9}, 
+   3.661855635781429*^9, 3.680961111952087*^9, 3.680961726939656*^9}]
+}, Open  ]],
+
+Cell[RawData["Cell[BoxData[\"\\\"\\<\\[IDoubleDot]\\.98\\.84\\>\\\"\"], \
+\"Input\"]"], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NotebookOpen", "[", 
+  RowBox[{
+   RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+   "\"\<GroupTheoryPalette.nb\>\""}], "]"}]], "Input"],
+
+Cell[BoxData[
+ TemplateBox[{FrontEndObject[
+    LinkObject["446_shm", 3, 1]],302,
+   "FrontEndObject[LinkObject[\"446_shm\", 3, 1]]","302","\"Group Theory\"",
+   "\"/home/merrx/Uni/GT/GroupTheory/GroupTheory/FrontEnd/Palettes/\
+GroupTheoryPalette.nb\""},
+  "NotebookObject"]], "Output",
+ CellChangeTimes->{3.661856011354067*^9, 3.680961112613211*^9, 
+  3.680961727524184*^9}]
+}, Open  ]]
+},
+WindowSize->{716, 849},
+WindowMargins->{{Automatic, 0}, {Automatic, -25}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+TaggingRules->{
+ "DocuToolsSettings" -> {
+   "$ApplicationName" -> "GroupTheory", "$LinkBase" -> "GroupTheory", 
+    "$DocumentationDirectory" -> 
+    "/home/merrx/GT/GroupTheory/GroupTheory/Documentation/English/", 
+    "$ApplicationDirectory" -> "/home/merrx/GT/GroupTheory/GroupTheory"}, 
+  "GTPal111" -> False},
+FrontEndVersion->"9.0 for Linux x86 (32-bit) (February 7, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 77, 1, 32, "Input"],
+Cell[637, 23, 98, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[760, 28, 991, 16, 24, "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[1754, 46, 686, 12, 41, "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[2443, 60, 567, 10, 58, "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[3013, 72, 624, 12, 58, "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[3640, 86, 1042, 20, 126, "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[4685, 108, 716, 14, 92, "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[5404, 124, 1066, 20, 126, "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}],
+Cell[6473, 146, 808, 15, 92, "InlineFormula",
+ CellGroupingRules->{GroupTogetherGrouping, 10000.}]
+}, Closed]],
+Cell[7296, 164, 1000, 25, 93, "Input"],
+Cell[8299, 191, 862, 23, 99, "Input"],
+Cell[9164, 216, 7285, 185, 715, "Input"],
+Cell[CellGroupData[{
+Cell[16474, 405, 117381, 2329, 12583, "Input"],
+Cell[133858, 2736, 1773, 27, 44, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[135668, 2768, 170, 3, 32, "Input"],
+Cell[135841, 2773, 233, 3, 32, "Output"]
+}, Open  ]],
+Cell[136089, 2779, 96, 1, 23, "Input"],
+Cell[CellGroupData[{
+Cell[136210, 2784, 161, 4, 32, "Input"],
+Cell[136374, 2790, 375, 8, 44, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

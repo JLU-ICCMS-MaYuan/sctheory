@@ -1,0 +1,298 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     11465,        290]
+NotebookOptionsPosition[      8616,        243]
+NotebookOutlinePosition[      9084,        261]
+CellTagsIndexPosition[      9041,        258]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"06e252a5-6d76-483b-a35d-\
+1be9fa91924f"],
+
+Cell["Task_7: Properties of  groups", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+  3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+  3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, {
+  3.715702348174486*^9, 3.715702353472621*^9}, {3.715702825025674*^9, 
+  3.715702833336937*^9}, {3.715754769780302*^9, 3.715754773827813*^9}, {
+  3.745481726943931*^9, 
+  3.74548173077223*^9}},ExpressionUUID->"e94d0e13-12c3-4b62-a642-\
+ec74f72e3c7c"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"d46ddd95-c72c-479d-9929-\
+662a47bc67b6"],
+
+Cell[CellGroupData[{
+
+Cell["Task 7", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, {
+  3.7157547804207973`*^9, 
+  3.715754781264522*^9}},ExpressionUUID->"de747643-6507-4261-94bd-\
+26ddc4ff452f"],
+
+Cell["see: Chapter 3, section 3.1, p. 38.", "Text",
+ CellChangeTimes->{{3.74546987161833*^9, 
+  3.745469902056467*^9}},ExpressionUUID->"0b695491-6494-4fb0-93e0-\
+e5ef4010583a"],
+
+Cell[TextData[{
+ "A set {E, C",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["", 
+    RowBox[{"2", "x"}]], TraditionalForm]],ExpressionUUID->
+  "074f5dbf-460c-40e0-a755-d4e06023ee0d"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", 
+    RowBox[{"2", "y"}]], TraditionalForm]],ExpressionUUID->
+  "031a0da3-d20f-4b14-b485-96c6082f52e9"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["C", 
+     RowBox[{"2", "z"}]], "}"}], TraditionalForm]],ExpressionUUID->
+  "4b6dda95-6440-4f6b-a1ba-46f9edf43ea1"],
+ " is given. Proof that the set forms a group. Is the group Abelian? Proof \
+that the multiplication table of this group has the same same structure as \
+the multiplication table of the Klein four group."
+}], "Text",
+ CellChangeTimes->{{3.715702385879613*^9, 3.715702425739534*^9}, 
+   3.715702818805094*^9, {3.715702852191896*^9, 
+   3.7157029439850025`*^9}},ExpressionUUID->"7cd4695c-7e4f-40f5-9ece-\
+975d377faeb1"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 
+  3.5656818754713144`*^9}},ExpressionUUID->"e721325d-ad4a-4ec5-9e60-\
+890394b6b0aa"],
+
+Cell["Start the group theory package", "Text",
+ CellChangeTimes->{{3.5656818798913207`*^9, 3.5656818869633307`*^9}, {
+  3.715702439681484*^9, 
+  3.7157024499527617`*^9}},ExpressionUUID->"b62caec3-57eb-40ea-9bf1-\
+1e98417bcd34"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.715702452900833*^9, 3.7157024774502363`*^9}},
+ CellLabel->"In[29]:=",ExpressionUUID->"5378c160-0972-4fc4-8fab-df1fdaba34fb"],
+
+Cell["The set is given as:", "Text",
+ CellChangeTimes->{{3.7157025132641325`*^9, 3.7157025321700783`*^9}, {
+  3.715702949854438*^9, 
+  3.715702954928528*^9}},ExpressionUUID->"2747b4ec-5d6e-4151-9e61-\
+eea11cdf9848"],
+
+Cell[BoxData[
+ RowBox[{"set", "=", 
+  RowBox[{"{", 
+   RowBox[{"Ee", ",", " ", "C2x", ",", "C2y", ",", "C2z"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.565681889253334*^9, 3.5656819493414183`*^9}, {
+  3.635786193501388*^9, 3.635786195193049*^9}, {3.7157025359525695`*^9, 
+  3.7157025363849335`*^9}, {3.715702605457201*^9, 3.715702624347103*^9}, {
+  3.7157029585446296`*^9, 3.7157029812975965`*^9}},
+ CellLabel->"In[30]:=",ExpressionUUID->"0d4fc01e-fa12-427f-b1bf-4c10af4bf9d1"],
+
+Cell["Test if the set is a group", "Text",
+ CellChangeTimes->{{3.715703017216154*^9, 
+  3.7157030226240683`*^9}},ExpressionUUID->"308452d6-b4e0-4e55-9359-\
+f71bbb6a4333"],
+
+Cell[BoxData[
+ RowBox[{"GTGroupQ", "[", "set", "]"}]], "Input",
+ CellChangeTimes->{{3.715703032201914*^9, 3.7157030441611247`*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"7be09949-29f4-4b09-ac23-d354469c1d35"],
+
+Cell["Test if the group is Abelian", "Text",
+ CellChangeTimes->{{3.6357862127773237`*^9, 3.635786230549738*^9}, {
+  3.7157026402496767`*^9, 3.7157026822165146`*^9}, {3.715702989456139*^9, 
+  3.7157029981599636`*^9}},ExpressionUUID->"bf59f911-0a29-41d2-90a9-\
+179169ca363c"],
+
+Cell[BoxData[
+ RowBox[{"GTAbelianQ", "[", "set", "]"}]], "Input",
+ CellChangeTimes->{{3.715702688851738*^9, 3.715702712912225*^9}, {
+  3.715703053792938*^9, 3.7157030601685905`*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"165bb39c-7054-4942-ba9f-982329dbfef5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"mult", "=", 
+   RowBox[{"GTMultTable", "[", "set", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7157030971095304`*^9, 3.7157031091529317`*^9}, 
+   3.7157053646466455`*^9, {3.7454699779153957`*^9, 3.745469981550789*^9}},
+ CellLabel->"In[33]:=",ExpressionUUID->"39f87fba-db86-4e09-8627-535b24600cb9"],
+
+Cell["\<\
+The multiplication table has to be compared with Figure 3.4. The two \
+multiplication tables possess the same structure.\
+\>", "Text",
+ CellChangeTimes->{{3.7157031652960224`*^9, 3.715703220464243*^9}, 
+   3.715754829672719*^9},ExpressionUUID->"c0e15c0a-d491-4ed9-8ccf-\
+4e3696be1951"],
+
+Cell[TextData[{
+ "We can use ",
+ StyleBox["GTTableToGroup ",
+  FontWeight->"Bold"],
+ "to install the group corresponding to ",
+ StyleBox["mult ",
+  FontSlant->"Italic"],
+ "in the form of Klein\[CloseCurlyQuote]s four-group. "
+}], "Text",
+ CellChangeTimes->{{3.745469988143243*^9, 
+  3.745470061675653*^9}},ExpressionUUID->"7e99c8a6-8bef-4e9d-a3fc-\
+7040a4553e30"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"gelm", "=", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "a", ",", "b", ",", "ab"}], "}"}]}], ";", 
+  RowBox[{"mult1", "=", 
+   RowBox[{"mult", " ", "/.", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Ee", "\[Rule]", "1"}], ",", 
+      RowBox[{"C2x", "\[Rule]", "a"}], ",", 
+      RowBox[{"C2y", "\[Rule]", "b"}], ",", 
+      RowBox[{"C2z", "\[Rule]", "ab"}]}], "}"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.745470079545341*^9, 3.745470174138939*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"eef3ca27-6f34-44b3-89a9-d74b107697f3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fgr", "=", 
+   RowBox[{"GTTableToGroup", "[", 
+    RowBox[{"gelm", ",", "mult1", ",", 
+     RowBox[{"GOVerbose", "\[Rule]", "False"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7454701816227694`*^9, 3.7454702285040503`*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"a402f5e8-c80e-4896-bd24-4ff560729989"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GTMultTable", "[", "fgr", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.74547023326967*^9, 3.7454702582106657`*^9}},
+ CellLabel->"In[36]:=",ExpressionUUID->"54eb2806-d845-45c2-9c6c-bb4141b5ea84"],
+
+Cell["This is now exactly Fig 3.4 ", "Text",
+ CellChangeTimes->{{3.745470263611472*^9, 3.745470275709384*^9}, {
+  3.791883268728689*^9, 
+  3.791883269385213*^9}},ExpressionUUID->"f2467fa6-8360-49b9-9153-\
+00af5c202326"],
+
+Cell["\<\
+Note, during the installation of the group from the multiplication table the \
+representation has been changed:\
+\>", "Text",
+ CellChangeTimes->{{3.745470280019665*^9, 3.74547029805324*^9}, {
+  3.745470385725432*^9, 3.745470394621369*^9}, {3.745470464066586*^9, 
+  3.745470496331772*^9}},ExpressionUUID->"47daf38c-0b15-45aa-adcd-\
+16256310a5f7"],
+
+Cell[BoxData[
+ RowBox[{"GTWhichRepresentation", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.745470300089838*^9, 3.745470380744892*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"78cd33c8-76e9-424d-b9f0-2cd22423ef96"],
+
+Cell["We switch it back to the standard representation.", "Text",
+ CellChangeTimes->{{3.7454705043749332`*^9, 
+  3.74547051570753*^9}},ExpressionUUID->"2f1b7419-84eb-4a01-9a4e-\
+66a9dc50a938"],
+
+Cell[BoxData[
+ RowBox[{"GTChangeRepresentation", " ", "[", "\"\<O(3)\>\"", "]"}]], "Text", \
+"Input",
+ CellChangeTimes->{{3.745470401606009*^9, 3.7454704563978653`*^9}},
+ CellLabel->"In[38]:=",ExpressionUUID->"8f7a42d9-082f-4c56-8ce8-8cbd841ac739"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1694, 984},
+WindowMargins->{{-13, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+Magnification:>1.25 Inherited,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 123, "Title",ExpressionUUID->"06e252a5-6d76-483b-a35d-1be9fa91924f"],
+Cell[801, 32, 516, 8, 67, "Subtitle",ExpressionUUID->"e94d0e13-12c3-4b62-a642-ec74f72e3c7c"],
+Cell[1320, 42, 250, 7, 109, "Author",ExpressionUUID->"d46ddd95-c72c-479d-9929-662a47bc67b6"],
+Cell[CellGroupData[{
+Cell[1595, 53, 204, 4, 84, "Section",ExpressionUUID->"de747643-6507-4261-94bd-26ddc4ff452f"],
+Cell[1802, 59, 176, 3, 44, "Text",ExpressionUUID->"0b695491-6494-4fb0-93e0-e5ef4010583a"],
+Cell[1981, 64, 936, 27, 76, "Text",ExpressionUUID->"7cd4695c-7e4f-40f5-9ece-975d377faeb1"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[2954, 96, 155, 3, 65, "Section",ExpressionUUID->"e721325d-ad4a-4ec5-9e60-890394b6b0aa"],
+Cell[3112, 101, 227, 4, 44, "Text",ExpressionUUID->"b62caec3-57eb-40ea-9bf1-1e98417bcd34"],
+Cell[3342, 107, 224, 3, 37, "Input",ExpressionUUID->"5378c160-0972-4fc4-8fab-df1fdaba34fb"],
+Cell[3569, 112, 215, 4, 44, "Text",ExpressionUUID->"2747b4ec-5d6e-4151-9e61-eea11cdf9848"],
+Cell[3787, 118, 478, 8, 37, "Input",ExpressionUUID->"0d4fc01e-fa12-427f-b1bf-4c10af4bf9d1"],
+Cell[4268, 128, 170, 3, 44, "Text",ExpressionUUID->"308452d6-b4e0-4e55-9359-f71bbb6a4333"],
+Cell[4441, 133, 210, 3, 37, "Input",ExpressionUUID->"7be09949-29f4-4b09-ac23-d354469c1d35"],
+Cell[4654, 138, 273, 4, 44, "Text",ExpressionUUID->"bf59f911-0a29-41d2-90a9-179169ca363c"],
+Cell[4930, 144, 261, 4, 37, "Input",ExpressionUUID->"165bb39c-7054-4942-ba9f-982329dbfef5"],
+Cell[5194, 150, 336, 6, 37, "Input",ExpressionUUID->"39f87fba-db86-4e09-8627-535b24600cb9"],
+Cell[5533, 158, 295, 6, 44, "Text",ExpressionUUID->"c0e15c0a-d491-4ed9-8ccf-4e3696be1951"],
+Cell[5831, 166, 363, 11, 44, "Text",ExpressionUUID->"7e99c8a6-8bef-4e9d-a3fc-7040a4553e30"],
+Cell[6197, 179, 566, 14, 37, "Input",ExpressionUUID->"eef3ca27-6f34-44b3-89a9-d74b107697f3"],
+Cell[6766, 195, 346, 7, 37, "Input",ExpressionUUID->"a402f5e8-c80e-4896-bd24-4ff560729989"],
+Cell[7115, 204, 230, 4, 37, "Input",ExpressionUUID->"54eb2806-d845-45c2-9c6c-bb4141b5ea84"],
+Cell[7348, 210, 219, 4, 44, "Text",ExpressionUUID->"f2467fa6-8360-49b9-9153-00af5c202326"],
+Cell[7570, 216, 355, 7, 44, "Text",ExpressionUUID->"47daf38c-0b15-45aa-adcd-16256310a5f7"],
+Cell[7928, 225, 214, 3, 37, "Input",ExpressionUUID->"78cd33c8-76e9-424d-b9f0-2cd22423ef96"],
+Cell[8145, 230, 192, 3, 44, "Text",ExpressionUUID->"2f1b7419-84eb-4a01-9a4e-66a9dc50a938"],
+Cell[8340, 235, 248, 4, 37, "Text",ExpressionUUID->"8f7a42d9-082f-4c56-8ce8-8cbd841ac739"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

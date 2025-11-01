@@ -1,0 +1,2135 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     74259,       2125]
+NotebookOptionsPosition[     64541,       1929]
+NotebookOutlinePosition[     66780,       1986]
+CellTagsIndexPosition[     66694,       1981]
+WindowTitle->GTCluster
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "d8fef98d-796d-4633-a755-d9ab60854872"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "b584fe16-8610-41a6-b77b-4fb62f3ce597"],
+        Background->RGBColor[0.490196, 0.576471, 0.690196],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "f5dfb580-1c4c-41d1-b06d-0d35ee45b011"]
+         }],ExpressionUUID->"d706ae6e-b85e-4793-9f4d-a0aa39e82da9"],
+         StripOnInput->False], {"\<\"GTAdjacencyMatrix\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTAdjacencyMatrix"], "\<\"GTBuckyBall\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBuckyBall"], "\<\"GTClusterFilter\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTClusterFilter"], "\<\"GTClusterManipulate\"\
+\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTClusterManipulate"], "\<\"GTLatCluster\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTLatCluster"], "\<\"GTLoadStructures\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTLoadStructures"], "\<\"GTPlotCluster\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTPlotCluster"], "\<\"GTShells\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTShells"], "\<\"GTSymmetryElementQ\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTSymmetryElementQ"], "\<\"GTAtomsInCell\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTAtomsInCell"], "\<\"GTTbHamiltonian\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTTbHamiltonian"], "\<\"spcgrp\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/spcgrp"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "b9cd19d5-18dd-4303-b0a8-dae152196aa0"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "714195d8-44e6-49e5-850d-87a2d075f0c6"]
+         }],ExpressionUUID->"85157908-6f11-4bbf-94be-067ab70644fc"],
+         StripOnInput->False], {"\<\"Lattice\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/guide/Lattice"], "\<\"The Mathematica Group \
+Theory Package GTPack, V 1.4\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/guide/GroupTheory"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "dda63f14-7c20-4b6e-b1d5-098ca8a4b4f1"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "92fada58-580c-4ac1-adad-1da0662770e2"]
+         }],ExpressionUUID->"c07bdb1d-0751-46b3-83c8-9c0a06060cfc"],
+         StripOnInput->
+          False], {"\<\"Tight-binding electronic structure of graphene\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/TightBindingGraphene"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"Tutorials"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "1124690e-f0a3-45f6-a688-2993bc6ab8ca"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "32202306-41de-4b28-ab7b-aa51ef71f5c1"]
+         }],ExpressionUUID->"3a0795bd-0f06-4385-bd91-eca2d9159150"],
+         StripOnInput->False], {"\<\"GroupTheory/ref/GTCluster\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/ref/GTCluster"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/ref/\
+GTCluster.html"], StandardForm]], "Input", TextClipboardType -> "PlainText"]},
+              Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$106044], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/ref/GTCluster" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "038f4071-10f8-4df2-8d62-668449003030"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "8bc8251a-93b7-4aac-a9e1-f35d321a31e5"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"8a8f0ba6-788b-4f4f-a3b5-64cb29826f65"],
+
+Cell["GroupTheory`", "ContextNameCell",ExpressionUUID->"63c2f149-30f7-42c6-b493-03085755afa4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "GTCluster", "ObjectName",ExpressionUUID->
+      "c6cfbc40-b090-4f37-ac52-0890a2512e1e"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"ee3e1963-ba53-487b-a599-4ed49467a4e2"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "0cbeebc3-eded-4634-8083-fa2215fd0c49"]
+    }],ExpressionUUID->"8d6fba81-1116-4450-8721-e5c53e322e5a"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"43da1b90-d715-482f-ab5f-\
+8078960e980b"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{
+         Cell[
+          TextData["GTCluster"]], "paclet:GroupTheory/ref/GTCluster", 
+         "GroupTheory Package Symbol"},
+        "PackageLink",
+        BaseStyle->"InlineFormula"], "[", 
+       StyleBox[
+        RowBox[{
+         RowBox[{"space", " ", "group"}], ",", "radius"}], "TI"], "]"}]], 
+      "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "d783a4b4-c0d7-48f9-bec6-7a1982383567"],
+     " \[LineSeparator]constructs a spherical cluster with ",
+     StyleBox["radius", "TI"],
+     " for a given ",
+     StyleBox["space group", "TI"],
+     "."
+    }],ExpressionUUID->"1a2deed4-88ce-40bb-87d8-3b4e16062bc0"]}
+  }]], "Usage",
+ CellID->982511436,ExpressionUUID->"26976bd3-01af-4bc7-9320-802ee2f846aa"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    DynamicBox[ToBoxes[
+      If[
+       MatchQ[
+        CurrentValue[
+         EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, 
+         Closed], 
+        Alternatives[Open, True]], 
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], 
+       Rotate[
+        Style[
+         Graphics[{
+           Thickness[0.18], 
+           RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+           Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+          PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+         0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+     ImageSizeCache->{
+      13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+    ExpressionUUID->"ca39e46e-dc21-46ff-996e-2cad80877b42"],
+   Cell[BoxData[
+    TemplateBox[{1},
+     "Spacer1"]],ExpressionUUID->"5888a1e7-35b6-46a5-80ca-26569e0f5abd"],
+   "Details and Options"
+  }], "NotesFrameText",ExpressionUUID->"3781ca58-95ed-4253-8d86-6514b61e9c64"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->
+   "Preemptive"]],ExpressionUUID->"73a75dc1-4046-4d97-b129-d8d56d2c276d"]], \
+"NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->1832052758,ExpressionUUID->"d1ac1e39-4f05-43f0-bc47-cd18541d7cd2"],
+
+Cell[TextData[{
+ "For the construction of tight-binding Hamiltonians in real space, but also \
+in ",
+ StyleBox["k", "TI",
+  FontWeight->"Bold"],
+ "-space, the real structure of the material is the starting point. The \
+crystal lattice is constructed from ",
+ StyleBox["spacegroup", "TI"],
+ " information",
+ StyleBox[".", "TI"],
+ " The constructed cluster is spherical. All atoms within ",
+ StyleBox["radius", "TI"],
+ " are considered."
+}], "Notes",
+ CellID->1940555064,ExpressionUUID->"9b7c84dc-6c8f-4171-ad1a-b78021bdf91a"],
+
+Cell["The following options can be given:", "Notes",
+ CellID->509457522,ExpressionUUID->"e8a13435-466a-48e2-9d8b-7b0092754928"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "01745c8c-6950-4d94-add5-122c92b38261"], 
+    RowBox[{
+     TemplateBox[{
+       Cell[
+        TextData["GOLattice"]], "paclet:GroupTheory/ref/GOLattice", 
+       "GroupTheory Package Symbol"},
+      "PackageLink",
+      BaseStyle->"3ColumnTableMod"], " ", 
+     TemplateBox[{1295379749},
+      "ExampleJumpLink"]}], 
+    RowBox[{"{", "}"}], Cell[
+    "Rescales the lattice constant", "TableText",ExpressionUUID->
+     "04456178-71dc-4902-8086-567f38c82c03"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "dc8f5c29-d127-4eb6-a0de-564e7a7d5811"], 
+    RowBox[{
+     TemplateBox[{
+       Cell[
+        TextData["GOPosition"]], "paclet:GroupTheory/ref/GOPosition", 
+       "GroupTheory Package Symbol"},
+      "PackageLink",
+      BaseStyle->"3ColumnTableMod"], " ", 
+     TemplateBox[{589382366},
+      "ExampleJumpLink"]}], "0", Cell[TextData[Cell[
+    "Shifts the origin of the cluster construction", "TableText",
+     ExpressionUUID->"46755a33-340e-480b-b449-4fe8a31f44a8"]], "TableText",
+     ExpressionUUID->"6831280d-70ec-48de-a508-eff288b408c7"]},
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "ff851b46-67ef-4ea5-ab05-3798f288871b"], 
+    RowBox[{
+     TemplateBox[{
+       Cell[
+        TextData["GOTbEquivalence"]], 
+       "paclet:GroupTheory/ref/GOTbEquivalence", "GroupTheory Package Symbol"},
+      "PackageLink",
+      BaseStyle->"3ColumnTableMod"], " ", 
+     TemplateBox[{1157809795},
+      "ExampleJumpLink"]}], 
+    TemplateBox[{
+      Cell[
+       TextData["True"]], "paclet:ref/True"},
+     "RefLink",
+     BaseStyle->{"3ColumnTableMod"}], Cell[TextData[Cell[
+    "Decides whether equivalent atomes should be renamed", "TableText",
+     ExpressionUUID->"6e866aec-ca3a-4a6f-a5e8-4040daf09c52"]], "TableText",
+     ExpressionUUID->"b1a6364e-9dcd-4506-8cf9-7dcc9464a9d8"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{"Columns" -> {{None}}, "Rows" -> {None, None, {None}}},
+ GridBoxDividers->{"Rows" -> {{True, True, True, True}}}},
+ CellID->1023362876,ExpressionUUID->"0775c069-2c34-476d-9f02-f72d81e0d7b3"],
+
+Cell[TextData[{
+ "See: W. Hergert, M. Geilhufe, ",
+ StyleBox["Group Theory in Solid State Physics and Photonics. Problem Solving \
+with Mathematica",
+  FontSlant->"Italic"]
+}], "Notes",
+ CellID->1362619625,ExpressionUUID->"9d5dacb8-4cde-44d8-848e-6de0b489659d"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"42a307bd-2b60-4704-bd11-37bb8bdd204a"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"11387001-f67f-4a6c-9c19-5186791c1d98"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(4)", "ExampleCount",ExpressionUUID->
+  "88ad038e-8754-466f-96b5-25b978a139c2"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellTags->"PrimaryExamplesSection",
+ CellID->1824651438,ExpressionUUID->"1274f25b-fa1e-4f8d-9f9f-f1912039ef60"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"3acd88b6-06cc-4533-991a-bc4ccad4989e"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"c83db13e-3a23-4b6d-bc5d-68cbae2a4d79"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "080edaf0-d769-4e82-8626-b5b03f56ade8"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->2099984866,ExpressionUUID->"4cac788c-b654-4348-a1f8-d199906c7d15"],
+
+Cell["First load the package:", "ExampleText",
+ CellID->270448840,ExpressionUUID->"8e13ebf7-560b-4831-bf4f-8d44443589cb"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->99345985,ExpressionUUID->"2be7e498-9b62-4900-ac90-763497b027b7"],
+
+Cell["Then run the example:", "ExampleText",
+ CellID->57049781,ExpressionUUID->"f1274fab-6603-43fa-9d36-8cfcde4cfed1"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<datasets\>\""}], 
+   "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"GTLoadStructures", "[", "\"\<GTPack\>\"", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"znse", "=", 
+  RowBox[{
+  "GTGetStructure", "[", "\"\<ZnSe\>\"", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ac", "=", 
+  RowBox[{"a", " ", "/.", " ", 
+   RowBox[{"znse", "[", 
+    RowBox[{"[", "8", "]"}], "]"}]}]}]}], "Input",
+ CellLabel->"In[2]:=",
+ CellID->998059548,ExpressionUUID->"5e43bb76-e9bb-4c2b-a092-981e78ca58ff"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\" 1 structure found in spcgrp.\"\>"], "Print",
+ CellLabel->"During evaluation of In[12]:=",
+ CellID->299150717,ExpressionUUID->"2d1f6f4c-85b0-4a77-b2cf-ae7ac232d70a"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+----\"\>"], "Print",
+ CellLabel->"During evaluation of In[12]:=",
+ CellID->566882992,ExpressionUUID->"d907c976-03fe-4b1c-bfd5-0100df3b1ec4"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Prototype         : \"\>", 
+     RowBox[{"{", 
+      RowBox[{"\<\"ZnSe\"\>", ",", "\<\"Zinc Blend\"\>"}], "}"}]},
+    {"\<\"Pearson Symbol    : \"\>", "\<\"cF8\"\>"},
+    {"\<\"Strukturbericht   : \"\>", "\<\"B3\"\>"},
+    {"\<\"Space Group       : \"\>", "\<\"F\\!\\(\\*OverscriptBox[\\(43\\), \
+\\(_\\)]\\)m\"\>"},
+    {"\<\"Number            : \"\>", "208"},
+    {"\<\"Lattice Vectors   : \"\>", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         FractionBox["a", "2"], ",", 
+         FractionBox["a", "2"]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox["a", "2"], ",", "0", ",", 
+         FractionBox["a", "2"]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox["a", "2"], ",", 
+         FractionBox["a", "2"], ",", "0"}], "}"}]}], "}"}]},
+    {"\<\"Basis Vectors     : \"\>", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "\<\"Zn\"\>"}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["a", "4"], ",", 
+           FractionBox["a", "4"], ",", 
+           FractionBox["a", "4"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}]}], 
+      "}"}]},
+    {"\<\"Lattice Constants : \"\>", 
+     RowBox[{"{", 
+      RowBox[{"a", "\[Rule]", "566.8`"}], "}"}]}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {
+       RGBColor[1, 0.5, 0.5]}, "Rows" -> {{None}}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Print",
+ CellLabel->"During evaluation of In[12]:=",
+ CellID->1364988452,ExpressionUUID->"e6418682-4285-42ab-bafe-9e9017383911"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"ZnSe\"\>", ",", "\<\"Zinc Blend\"\>"}], "}"}], 
+   ",", "\<\"cF8\"\>", ",", "\<\"B3\"\>", 
+   ",", "\<\"F\\!\\(\\*OverscriptBox[\\(43\\), \\(_\\)]\\)m\"\>", ",", "208", 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       FractionBox["a", "2"], ",", 
+       FractionBox["a", "2"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["a", "2"], ",", "0", ",", 
+       FractionBox["a", "2"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["a", "2"], ",", 
+       FractionBox["a", "2"], ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], 
+     ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox["a", "4"], ",", 
+         FractionBox["a", "4"], ",", 
+         FractionBox["a", "4"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"a", "\[Rule]", "566.8`"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1940595510,ExpressionUUID->"5ed6a9c9-b635-405e-b8e1-a15153e6066c"],
+
+Cell[BoxData["566.8`"], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1754589581,ExpressionUUID->"463563bb-e0af-44e2-8edd-d69993f7a554"]
+}, Open  ]],
+
+Cell["Construction of the atomic cluster:", "ExampleText",
+ CellID->149090523,ExpressionUUID->"6047dc00-f921-44d4-844b-79174a77134a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cl", "=", 
+  RowBox[{"GTCluster", "[", 
+   RowBox[{"znse", ",", 
+    RowBox[{
+     RowBox[{"3", "/", "4"}], " ", "ac"}]}], "]"}]}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->818921836,ExpressionUUID->"4c82e6b5-2c58-4f75-95c9-4957442f34a4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"17", "\[InvisibleSpace]", "\<\" atoms\"\>"}],
+  SequenceForm[17, " atoms"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[6]:=",
+ CellID->1606108757,ExpressionUUID->"4883c6cf-ac7d-4135-95e8-202d34e9bd68"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Atoms in cluster: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"Zn\"\>", ",", "13"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"Se\"\>", ",", "4"}], "}"}]}], "}"}]}],
+  SequenceForm["Atoms in cluster: ", {{"Zn", 13}, {"Se", 4}}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[6]:=",
+ CellID->1070474408,ExpressionUUID->"2ff2ee88-5660-4305-9a1a-d190b5f6e3fe"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "283.4`"}], ",", 
+       RowBox[{"-", "283.4`"}], ",", "0.`"}], "}"}], ",", "\<\"Zn\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "141.7`"}], ",", 
+       RowBox[{"-", "141.7`"}], ",", "141.7`"}], "}"}], ",", "\<\"Se\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "283.4`"}], ",", "0.`", ",", "283.4`"}], "}"}], 
+     ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0.`", ",", 
+       RowBox[{"-", "283.4`"}], ",", "283.4`"}], "}"}], ",", "\<\"Zn\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "283.4`"}], ",", "0.`", ",", 
+       RowBox[{"-", "283.4`"}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "141.7`"}], ",", "141.7`", ",", 
+       RowBox[{"-", "141.7`"}]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "283.4`"}], ",", "283.4`", ",", "0.`"}], "}"}], 
+     ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0.`", ",", 
+       RowBox[{"-", "283.4`"}], ",", 
+       RowBox[{"-", "283.4`"}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"141.7`", ",", 
+       RowBox[{"-", "141.7`"}], ",", 
+       RowBox[{"-", "141.7`"}]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0.`", ",", "0.`", ",", "0.`"}], "}"}], ",", "\<\"Zn\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"141.7`", ",", "141.7`", ",", "141.7`"}], "}"}], 
+     ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0.`", ",", "283.4`", ",", "283.4`"}], "}"}], 
+     ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"283.4`", ",", 
+       RowBox[{"-", "283.4`"}], ",", "0.`"}], "}"}], ",", "\<\"Zn\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"283.4`", ",", "0.`", ",", "283.4`"}], "}"}], 
+     ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0.`", ",", "283.4`", ",", 
+       RowBox[{"-", "283.4`"}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"283.4`", ",", "0.`", ",", 
+       RowBox[{"-", "283.4`"}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"283.4`", ",", "283.4`", ",", "0.`"}], "}"}], 
+     ",", "\<\"Zn\"\>"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1157318530,ExpressionUUID->"c49ad555-5f9e-4e93-99be-71ba4e8e7187"]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, 
+  Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "1"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+  ExpressionUUID->"b0887c33-d2a2-4feb-8be2-0dd1c628b9a0"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"869969fd-49c3-497e-9d6b-cd726f6aba3b"],
+ "Options",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(3)", "ExampleCount",ExpressionUUID->
+  "542489e9-2da3-4fb9-af4d-791d262b31fd"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->2061341341,ExpressionUUID->"05eecb3f-9dcb-4cc3-a404-280e6b1b3a1f"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "ExampleSubsection", "0"}, Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+  ExpressionUUID->"9eba7a5b-38cb-4e67-b445-f77d78933361"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"0b5f179c-159a-4b24-8b6e-412a7e28efe0"],
+ "GOLattice",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "a66c8013-7696-4cb9-8198-68b64a967aef"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->1295379749,ExpressionUUID->"4c93e741-2711-4cf5-ab0e-3ebceafb70a1"],
+
+Cell["The lattice constant is set to 1:", "ExampleText",
+ CellID->249442461,ExpressionUUID->"8c4864cb-79e6-4295-abf9-a5855ce24b50"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cl", "=", 
+  RowBox[{"GTCluster", "[", 
+   RowBox[{"znse", ",", 
+    RowBox[{"3", "/", "4"}], ",", 
+    RowBox[{"GOLattice", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"a", "\[Rule]", "1"}], "}"}]}]}], "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->136333437,ExpressionUUID->"ffa442f2-bb1a-435f-9910-cab93441eae5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"17", "\[InvisibleSpace]", "\<\" atoms\"\>"}],
+  SequenceForm[17, " atoms"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[17]:=",
+ CellID->269868645,ExpressionUUID->"91794854-8444-40de-a295-a9de7e66942a"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Atoms in cluster: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"Zn\"\>", ",", "13"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"Se\"\>", ",", "4"}], "}"}]}], "}"}]}],
+  SequenceForm["Atoms in cluster: ", {{"Zn", 13}, {"Se", 4}}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[17]:=",
+ CellID->196854051,ExpressionUUID->"f5cfe4a4-7a43-41c7-bb6f-cb08b50dc526"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", "0"}], "}"}], ",", "\<\"Zn\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "4"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "4"]}], ",", 
+       FractionBox["1", "4"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", "0", ",", 
+       FractionBox["1", "2"]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", 
+       FractionBox["1", "2"]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", "0", ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "4"]}], ",", 
+       FractionBox["1", "4"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "4"]}]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", 
+       FractionBox["1", "2"], ",", "0"}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "4"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "4"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "4"]}]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "4"], ",", 
+       FractionBox["1", "4"], ",", 
+       FractionBox["1", "4"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       FractionBox["1", "2"], ",", 
+       FractionBox["1", "2"]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "2"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", "0"}], "}"}], ",", "\<\"Zn\"\>"}], 
+    "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "2"], ",", "0", ",", 
+       FractionBox["1", "2"]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       FractionBox["1", "2"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "2"], ",", "0", ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "2"], ",", 
+       FractionBox["1", "2"], ",", "0"}], "}"}], ",", "\<\"Zn\"\>"}], "}"}]}],
+   "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->1401218777,ExpressionUUID->"f4ae9eab-92de-4a0e-97b5-df04c179f1a4"]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSubsection", "0"}, 
+  Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "ExampleSubsection", "1"}, Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+  ExpressionUUID->"306a6a4d-8bfd-42d3-a8f3-b0ebdcc36c14"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"5f939d3b-2fb0-4882-97e1-e89e4d08b011"],
+ "GOPosition",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "d7891f19-0a7f-4aef-b168-8a06213e6d35"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->589382366,ExpressionUUID->"d1e296da-6f40-4ae1-a668-d9726e96e513"],
+
+Cell["\<\
+The origin is shifted to a position between the Zn and Se atoms. This leads \
+to the same number of Zn and Se atoms.\
+\>", "ExampleText",
+ CellID->680321084,ExpressionUUID->"33894c02-76d1-47d8-9efb-bfcc0b34f5fc"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cl", "=", 
+  RowBox[{"GTCluster", "[", 
+   RowBox[{"znse", ",", 
+    RowBox[{"3", "/", "4"}], ",", 
+    RowBox[{"GOLattice", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"a", "\[Rule]", "1"}], "}"}]}], ",", 
+    RowBox[{"GOPosition", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "/", "8"}], ",", 
+       RowBox[{"1", "/", "8"}], ",", 
+       RowBox[{"1", "/", "8"}]}], "}"}]}]}], "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1155215472,ExpressionUUID->"54bd18ea-bc0f-4615-940b-d4b4b9a6b06e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"20", "\[InvisibleSpace]", "\<\" atoms\"\>"}],
+  SequenceForm[20, " atoms"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[16]:=",
+ CellID->1442149838,ExpressionUUID->"256dc736-8f42-4c4c-95a7-2b9606f68615"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Atoms in cluster: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"Se\"\>", ",", "10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"Zn\"\>", ",", "10"}], "}"}]}], "}"}]}],
+  SequenceForm["Atoms in cluster: ", {{"Se", 10}, {"Zn", 10}}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[16]:=",
+ CellID->1711887224,ExpressionUUID->"41a1e022-bbfc-4236-b90a-6da8ccb81c20"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["1", "8"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["5", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       FractionBox["3", "8"]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["1", "8"], ",", 
+       FractionBox["5", "8"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["5", "8"]}], ",", 
+       FractionBox["3", "8"]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["5", "8"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["1", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["5", "8"]}], ",", 
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["5", "8"], ",", 
+       FractionBox["1", "8"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "8"], ",", 
+       FractionBox["1", "8"], ",", 
+       FractionBox["1", "8"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       FractionBox["3", "8"], ",", 
+       FractionBox["3", "8"]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["5", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["5", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["1", "8"]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       FractionBox["3", "8"]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["5", "8"]}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "8"], ",", 
+       FractionBox["5", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["5", "8"]}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["5", "8"], ",", 
+       FractionBox["1", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}]}], "}"}], ",", "\<\"Se\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["3", "8"], ",", 
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}]}], "}"}], ",", "\<\"Zn\"\>"}], "}"}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->1850154909,ExpressionUUID->"4f9667f4-8613-4457-919e-3060596a6ab2"]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSubsection", "1"}, 
+  Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "ExampleSubsection", "2"}, Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+  ExpressionUUID->"cc64ebf6-3b1e-45fb-8067-82792a63950b"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"400a477c-019b-423d-b796-50257b42ab71"],
+ "GOTbEquivalence",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(1)", "ExampleCount",ExpressionUUID->
+  "28629d42-8b17-4ab5-b402-f1734f94859d"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->1157809795,ExpressionUUID->"b8c2acf0-5864-4ead-9858-1d297a2bf738"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"SetDirectory", "[", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<datasets\>\""}], 
+   "]"}], ";", 
+  RowBox[{"GTLoadStructures", "[", "\"\<GTPack\>\"", "]"}], ";", 
+  RowBox[{"carbon", "=", 
+   RowBox[{"GTGetStructure", "[", "\"\<C\>\"", "]"}]}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1585581965,ExpressionUUID->"b5130a79-7039-4d73-9062-e7ad313c5a37"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\" 1 structure found in spcgrp.\"\>"], "Print",
+ CellLabel->"During evaluation of In[9]:=",
+ CellID->1174837378,ExpressionUUID->"beb3da59-9c8f-49cf-b6df-9b8158546f43"],
+
+Cell[BoxData["\<\"------------------------------------------------------------\
+----\"\>"], "Print",
+ CellLabel->"During evaluation of In[9]:=",
+ CellID->1527161528,ExpressionUUID->"f12ac202-9d44-4400-b353-27ed52a5ff86"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Prototype         : \"\>", 
+     RowBox[{"{", 
+      RowBox[{"\<\"C\"\>", ",", "\<\"Diamond\"\>"}], "}"}]},
+    {"\<\"Pearson Symbol    : \"\>", "\<\"cF8\"\>"},
+    {"\<\"Strukturbericht   : \"\>", "\<\"A4\"\>"},
+    {"\<\"Space Group       : \"\>", "\<\"Fd3m\"\>"},
+    {"\<\"Number            : \"\>", "227"},
+    {"\<\"Lattice Vectors   : \"\>", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", 
+         FractionBox["a", "2"], ",", 
+         FractionBox["a", "2"]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox["a", "2"], ",", "0", ",", 
+         FractionBox["a", "2"]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox["a", "2"], ",", 
+         FractionBox["a", "2"], ",", "0"}], "}"}]}], "}"}]},
+    {"\<\"Basis Vectors     : \"\>", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"-", 
+            FractionBox["a", "8"]}], ",", 
+           RowBox[{"-", 
+            FractionBox["a", "8"]}], ",", 
+           RowBox[{"-", 
+            FractionBox["a", "8"]}]}], "}"}], ",", "\<\"C\"\>"}], "}"}], ",", 
+       
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           FractionBox["a", "8"], ",", 
+           FractionBox["a", "8"], ",", 
+           FractionBox["a", "8"]}], "}"}], ",", "\<\"C\"\>"}], "}"}]}], "}"}]},
+    {"\<\"Lattice Constants : \"\>", 
+     RowBox[{"{", 
+      RowBox[{"a", "\[Rule]", "355"}], "}"}]}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {
+       RGBColor[1, 0.5, 0.5]}, "Rows" -> {{None}}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Print",
+ CellLabel->"During evaluation of In[9]:=",
+ CellID->279252152,ExpressionUUID->"36019187-d2e7-4b2c-90a5-a8f2731a5cad"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\<\"C\"\>", ",", "\<\"Diamond\"\>"}], "}"}], ",", "\<\"cF8\"\>", 
+   ",", "\<\"A4\"\>", ",", "\<\"Fd3m\"\>", ",", "227", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       FractionBox["a", "2"], ",", 
+       FractionBox["a", "2"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["a", "2"], ",", "0", ",", 
+       FractionBox["a", "2"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["a", "2"], ",", 
+       FractionBox["a", "2"], ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox["a", "8"]}], ",", 
+         RowBox[{"-", 
+          FractionBox["a", "8"]}], ",", 
+         RowBox[{"-", 
+          FractionBox["a", "8"]}]}], "}"}], ",", "\<\"C\"\>"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         FractionBox["a", "8"], ",", 
+         FractionBox["a", "8"], ",", 
+         FractionBox["a", "8"]}], "}"}], ",", "\<\"C\"\>"}], "}"}]}], "}"}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{"a", "\[Rule]", "355"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->1139149969,ExpressionUUID->"caee0f18-6557-4771-8d27-b08fe569c9b1"]
+}, Open  ]],
+
+Cell[TextData[{
+ "In the diamond structure are two equivalent atoms in the basis set. With ",
+ ButtonBox["GOTbEquivalence",
+  BaseStyle->"Link",
+  ButtonData->"paclet:GroupTheory/ref/GOTbEquivalence"],
+ StyleBox[" ",
+  FontWeight->"Bold"],
+ "the equivalent atoms get different names."
+}], "ExampleText",
+ CellID->1202817432,ExpressionUUID->"bb1da678-4ddd-4e2c-ad35-0b253988d5a7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"cl", "=", 
+  RowBox[{"GTCluster", "[", 
+   RowBox[{"carbon", ",", 
+    RowBox[{"3", "/", "4"}], ",", 
+    RowBox[{"GOLattice", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"a", "\[Rule]", "1"}], "}"}]}], ",", 
+    RowBox[{"GOTbEquivalence", "\[Rule]", "False"}]}], "]"}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1913313224,ExpressionUUID->"c91a34a6-45e0-4d55-b62d-e201110186f4"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"20", "\[InvisibleSpace]", "\<\" atoms\"\>"}],
+  SequenceForm[20, " atoms"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[10]:=",
+ CellID->761727724,ExpressionUUID->"36e18c70-a321-49c0-a424-469d12e56289"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Atoms in cluster: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"C2\"\>", ",", "10"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"C1\"\>", ",", "10"}], "}"}]}], "}"}]}],
+  SequenceForm["Atoms in cluster: ", {{"C2", 10}, {"C1", 10}}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[10]:=",
+ CellID->1207837501,ExpressionUUID->"700207cd-4c7b-4d5f-ada3-5e88cd857fad"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["1", "8"]}], "}"}], ",", "\<\"C2\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["5", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       FractionBox["3", "8"]}], "}"}], ",", "\<\"C1\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["1", "8"], ",", 
+       FractionBox["5", "8"]}], "}"}], ",", "\<\"C2\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["5", "8"]}], ",", 
+       FractionBox["3", "8"]}], "}"}], ",", "\<\"C1\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["5", "8"]}], "}"}], ",", "\<\"C2\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["1", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}]}], "}"}], ",", "\<\"C2\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["5", "8"]}], ",", 
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}]}], "}"}], ",", "\<\"C1\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["5", "8"], ",", 
+       FractionBox["1", "8"]}], "}"}], ",", "\<\"C2\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}]}], "}"}], ",", "\<\"C2\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}]}], "}"}], ",", "\<\"C1\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "8"], ",", 
+       FractionBox["1", "8"], ",", 
+       FractionBox["1", "8"]}], "}"}], ",", "\<\"C2\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       FractionBox["3", "8"], ",", 
+       FractionBox["3", "8"]}], "}"}], ",", "\<\"C1\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["5", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}]}], "}"}], ",", "\<\"C1\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["5", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}], ",", 
+       FractionBox["1", "8"]}], "}"}], ",", "\<\"C2\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       FractionBox["3", "8"]}], "}"}], ",", "\<\"C1\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["5", "8"]}]}], "}"}], ",", "\<\"C1\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", "8"], ",", 
+       FractionBox["5", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}]}], "}"}], ",", "\<\"C2\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["5", "8"]}]}], "}"}], ",", "\<\"C1\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["5", "8"], ",", 
+       FractionBox["1", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["3", "8"]}]}], "}"}], ",", "\<\"C2\"\>"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["3", "8"], ",", 
+       FractionBox["3", "8"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "8"]}]}], "}"}], ",", "\<\"C1\"\>"}], "}"}]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->2109447863,ExpressionUUID->"15e7c0d1-8c83-45c5-9b95-7fc80aec19f1"]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSubsection", "2"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "1"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, 
+  Closed]]]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTAdjacencyMatrix"]], 
+           "paclet:GroupTheory/ref/GTAdjacencyMatrix", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "d061d25f-68b0-4208-86ec-c513e20b1f70"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTBuckyBall"]], "paclet:GroupTheory/ref/GTBuckyBall", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "c2a13a25-3735-4628-ac6a-49b6d9012df3"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTClusterFilter"]], 
+           "paclet:GroupTheory/ref/GTClusterFilter", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "9efaa341-37a8-4d71-b433-f50db62985b8"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTClusterManipulate"]], 
+           "paclet:GroupTheory/ref/GTClusterManipulate", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "d4c47587-3dbc-4a21-9b91-e8b8bdbdd215"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTLatCluster"]], "paclet:GroupTheory/ref/GTLatCluster", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "9f41a128-110e-47f9-abf3-200a373da578"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTLoadStructures"]], 
+           "paclet:GroupTheory/ref/GTLoadStructures", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "97f239c6-5414-414f-aa33-11ff17ad894d"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTPlotCluster"]], 
+           "paclet:GroupTheory/ref/GTPlotCluster", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "a398de19-0aac-4055-8466-af27b439bca0"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTShells"]], "paclet:GroupTheory/ref/GTShells", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "f1dbfb7a-262b-409b-a4f1-042ab90ba0fa"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTSymmetryElementQ"]], 
+           "paclet:GroupTheory/ref/GTSymmetryElementQ", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "f5594e74-bcb5-487f-963b-79ba8dba6dd0"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTAtomsInCell"]], 
+           "paclet:GroupTheory/ref/GTAtomsInCell", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "91bea401-278f-4bb9-980f-7163929c59d6"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTTbHamiltonian"]], 
+           "paclet:GroupTheory/ref/GTTbHamiltonian", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "9d5d282f-885a-4b3f-8537-102d3c0a39fb"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["spcgrp"]], "paclet:GroupTheory/ref/spcgrp", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "2413a58e-061d-462f-a8ab-6072fc49a659"]
+       }], "SeeAlso",ExpressionUUID->"3520c195-4d1e-489d-88bf-987b80bda7ba"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"ca874140-d097-4ab8-9371-\
+c96be9bc7a58"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox["Tutorials", "TutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Tight-binding electronic structure of graphene"]], 
+           "paclet:GroupTheory/tutorial/TightBindingGraphene"},
+          "RefLinkPlain",
+          BaseStyle->{"Tutorials"}]], "Tutorials",ExpressionUUID->
+         "600ef01b-e1a0-49a0-8e2c-6e0dd45146ae"]}]}
+     }]}
+  }]], "TutorialsSection",ExpressionUUID->"e6b87e6a-bd42-40c3-8cd5-\
+76304c1bf570"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Lattice"]], "paclet:GroupTheory/guide/Lattice"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "3d6e2208-f0b1-42a6-abdb-7871d82b34ac"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["The Mathematica Group Theory Package GTPack, V 1.4"]], 
+           "paclet:GroupTheory/guide/GroupTheory"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "fd666d6e-9df1-4358-8923-40de4bf9262c"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"1d9e3d23-388f-45de-8a5d-\
+cc7121f39daf"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"00fc9158-2aef-4d7d-9175-9fb1c5655474"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowTitle->"GTCluster",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "HasOptions" -> True, "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, 
+    "ExampleSection" -> {"0" -> Open, "1" -> Closed}, "NotesSection" -> 
+    Closed, "ExampleSubsection" -> {
+     "0" -> Closed, "1" -> Closed, "2" -> Closed}}, "NewStyles" -> True, 
+  "CitationPopupData" -> $Failed, "ShowCitation" -> False, "RootCaptions" -> 
+  "", "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 53, 15.850512}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Symbol", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "GTCluster[space group, radius] constructs a spherical cluster with \
+radius for a given space group.", "synonyms" -> {}, "tabletags" -> {}, 
+    "title" -> "GTCluster", "titlemodifier" -> "", "metadescription" -> "", 
+    "windowtitle" -> "GTCluster", "type" -> "Symbol", "uri" -> 
+    "GroupTheory/ref/GTCluster"}},
+CellContext->"Global`",
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"8fc91467-60fc-45ca-8555-6aed931f46cb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[14767, 381, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"1274f25b-fa1e-4f8d-9f9f-f1912039ef60",
+   CellTags->"PrimaryExamplesSection",
+   CellID->1824651438]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 66493, 1974}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[581, 21, 7515, 175, 56, "AnchorBarGrid",ExpressionUUID->"8a8f0ba6-788b-4f4f-a3b5-64cb29826f65",
+ CellID->1],
+Cell[8099, 198, 94, 0, 24, "ContextNameCell",ExpressionUUID->"63c2f149-30f7-42c6-b493-03085755afa4"],
+Cell[CellGroupData[{
+Cell[8218, 202, 552, 14, 59, "ObjectNameGrid",ExpressionUUID->"43da1b90-d715-482f-ab5f-8078960e980b"],
+Cell[8773, 218, 840, 23, 110, "Usage",ExpressionUUID->"26976bd3-01af-4bc7-9320-802ee2f846aa",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9650, 246, 1920, 48, 37, "NotesSection",ExpressionUUID->"d1ac1e39-4f05-43f0-bc47-cd18541d7cd2",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->1832052758],
+Cell[11573, 296, 524, 14, 70, "Notes",ExpressionUUID->"9b7c84dc-6c8f-4171-ad1a-b78021bdf91a",
+ CellID->1940555064],
+Cell[12100, 312, 127, 1, 70, "Notes",ExpressionUUID->"e8a13435-466a-48e2-9d8b-7b0092754928",
+ CellID->509457522],
+Cell[12230, 315, 2146, 52, 70, "3ColumnTableMod",ExpressionUUID->"0775c069-2c34-476d-9f02-f72d81e0d7b3",
+ CellID->1023362876],
+Cell[14379, 369, 261, 6, 70, "Notes",ExpressionUUID->"9d5dacb8-4cde-44d8-848e-6de0b489659d",
+ CellID->1362619625]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[14767, 381, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"1274f25b-fa1e-4f8d-9f9f-f1912039ef60",
+ CellTags->"PrimaryExamplesSection",
+ CellID->1824651438],
+Cell[CellGroupData[{
+Cell[16213, 422, 1399, 36, 30, "ExampleSection",ExpressionUUID->"4cac788c-b654-4348-a1f8-d199906c7d15",
+ CellID->2099984866],
+Cell[17615, 460, 121, 1, 38, "ExampleText",ExpressionUUID->"8e13ebf7-560b-4831-bf4f-8d44443589cb",
+ CellID->270448840],
+Cell[17739, 463, 174, 3, 27, "Input",ExpressionUUID->"2be7e498-9b62-4900-ac90-763497b027b7",
+ CellID->99345985],
+Cell[17916, 468, 118, 1, 38, "ExampleText",ExpressionUUID->"f1274fab-6603-43fa-9d36-8cfcde4cfed1",
+ CellID->57049781],
+Cell[CellGroupData[{
+Cell[18059, 473, 622, 17, 80, "Input",ExpressionUUID->"5e43bb76-e9bb-4c2b-a092-981e78ca58ff",
+ CellID->998059548],
+Cell[CellGroupData[{
+Cell[18706, 494, 183, 2, 25, "Print",ExpressionUUID->"2d1f6f4c-85b0-4a77-b2cf-ae7ac232d70a",
+ CellID->299150717],
+Cell[18892, 498, 220, 3, 23, "Print",ExpressionUUID->"d907c976-03fe-4b1c-bfd5-0100df3b1ec4",
+ CellID->566882992],
+Cell[19115, 503, 1858, 52, 196, "Print",ExpressionUUID->"e6418682-4285-42ab-bafe-9e9017383911",
+ CellID->1364988452]
+}, Open  ]],
+Cell[20988, 558, 1260, 40, 71, "Output",ExpressionUUID->"5ed6a9c9-b635-405e-b8e1-a15153e6066c",
+ CellID->1940595510],
+Cell[22251, 600, 132, 2, 36, "Output",ExpressionUUID->"463563bb-e0af-44e2-8edd-d69993f7a554",
+ CellID->1754589581]
+}, Open  ]],
+Cell[22398, 605, 133, 1, 70, "ExampleText",ExpressionUUID->"6047dc00-f921-44d4-844b-79174a77134a",
+ CellID->149090523],
+Cell[CellGroupData[{
+Cell[22556, 610, 263, 7, 70, "Input",ExpressionUUID->"4c82e6b5-2c58-4f75-95c9-4957442f34a4",
+ CellID->818921836],
+Cell[CellGroupData[{
+Cell[22844, 621, 270, 6, 70, "Print",ExpressionUUID->"4883c6cf-ac7d-4135-95e8-202d34e9bd68",
+ CellID->1606108757],
+Cell[23117, 629, 488, 12, 70, "Print",ExpressionUUID->"2ff2ee88-5660-4305-9a1a-d190b5f6e3fe",
+ CellID->1070474408]
+}, Open  ]],
+Cell[23620, 644, 3064, 101, 104, "Output",ExpressionUUID->"c49ad555-5f9e-4e93-99be-71ba4e8e7187",
+ CellID->1157318530]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[26833, 753, 1415, 37, 70, "ExampleSection",ExpressionUUID->"05eecb3f-9dcb-4cc3-a404-280e6b1b3a1f",
+ CellID->2061341341],
+Cell[CellGroupData[{
+Cell[28273, 794, 1426, 37, 70, "ExampleSubsection",ExpressionUUID->"4c93e741-2711-4cf5-ab0e-3ebceafb70a1",
+ CellID->1295379749],
+Cell[29702, 833, 131, 1, 70, "ExampleText",ExpressionUUID->"8c4864cb-79e6-4295-abf9-a5855ce24b50",
+ CellID->249442461],
+Cell[CellGroupData[{
+Cell[29858, 838, 344, 9, 70, "Input",ExpressionUUID->"ffa442f2-bb1a-435f-9910-cab93441eae5",
+ CellID->136333437],
+Cell[CellGroupData[{
+Cell[30227, 851, 270, 6, 70, "Print",ExpressionUUID->"91794854-8444-40de-a295-a9de7e66942a",
+ CellID->269868645],
+Cell[30500, 859, 488, 12, 70, "Print",ExpressionUUID->"f5cfe4a4-7a43-41c7-bb6f-cb08b50dc526",
+ CellID->196854051]
+}, Open  ]],
+Cell[31003, 874, 3768, 131, 142, "Output",ExpressionUUID->"f4ae9eab-92de-4a0e-97b5-df04c179f1a4",
+ CellID->1401218777]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSubsection", "0"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[34923, 1013, 1426, 37, 70, "ExampleSubsection",ExpressionUUID->"d1e296da-6f40-4ae1-a668-d9726e96e513",
+ CellID->589382366],
+Cell[36352, 1052, 222, 4, 70, "ExampleText",ExpressionUUID->"33894c02-76d1-47d8-9efb-bfcc0b34f5fc",
+ CellID->680321084],
+Cell[CellGroupData[{
+Cell[36599, 1060, 542, 15, 70, "Input",ExpressionUUID->"54bd18ea-bc0f-4615-940b-d4b4b9a6b06e",
+ CellID->1155215472],
+Cell[CellGroupData[{
+Cell[37166, 1079, 271, 6, 70, "Print",ExpressionUUID->"256dc736-8f42-4c4c-95a7-2b9606f68615",
+ CellID->1442149838],
+Cell[37440, 1087, 491, 12, 70, "Print",ExpressionUUID->"41a1e022-bbfc-4236-b90a-6da8ccb81c20",
+ CellID->1711887224]
+}, Open  ]],
+Cell[37946, 1102, 5055, 175, 142, "Output",ExpressionUUID->"4f9667f4-8613-4457-919e-3060596a6ab2",
+ CellID->1850154909]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSubsection", "1"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[43153, 1285, 1432, 37, 70, "ExampleSubsection",ExpressionUUID->"b8c2acf0-5864-4ead-9858-1d297a2bf738",
+ CellID->1157809795],
+Cell[CellGroupData[{
+Cell[44610, 1326, 416, 10, 70, "Input",ExpressionUUID->"b5130a79-7039-4d73-9062-e7ad313c5a37",
+ CellID->1585581965],
+Cell[CellGroupData[{
+Cell[45051, 1340, 183, 2, 70, "Print",ExpressionUUID->"beb3da59-9c8f-49cf-b6df-9b8158546f43",
+ CellID->1174837378],
+Cell[45237, 1344, 220, 3, 70, "Print",ExpressionUUID->"f12ac202-9d44-4400-b353-27ed52a5ff86",
+ CellID->1527161528],
+Cell[45460, 1349, 1967, 56, 70, "Print",ExpressionUUID->"36019187-d2e7-4b2c-90a5-a8f2731a5cad",
+ CellID->279252152]
+}, Open  ]],
+Cell[47442, 1408, 1355, 43, 77, "Output",ExpressionUUID->"caee0f18-6557-4771-8d27-b08fe569c9b1",
+ CellID->1139149969]
+}, Open  ]],
+Cell[48812, 1454, 379, 9, 70, "ExampleText",ExpressionUUID->"bb1da678-4ddd-4e2c-ad35-0b253988d5a7",
+ CellID->1202817432],
+Cell[CellGroupData[{
+Cell[49216, 1467, 406, 10, 70, "Input",ExpressionUUID->"c91a34a6-45e0-4d55-b62d-e201110186f4",
+ CellID->1913313224],
+Cell[CellGroupData[{
+Cell[49647, 1481, 270, 6, 70, "Print",ExpressionUUID->"36e18c70-a321-49c0-a424-469d12e56289",
+ CellID->761727724],
+Cell[49920, 1489, 491, 12, 70, "Print",ExpressionUUID->"700207cd-4c7b-4d5f-ada3-5e88cd857fad",
+ CellID->1207837501]
+}, Open  ]],
+Cell[50426, 1504, 5055, 175, 142, "Output",ExpressionUUID->"15e7c0d1-8c83-45c5-9b95-7fc80aec19f1",
+ CellID->2109447863]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSubsection", "2"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "1"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, Closed]]]],
+Cell[55838, 1691, 6783, 184, 70, "SeeAlsoSection",ExpressionUUID->"ca874140-d097-4ab8-9371-c96be9bc7a58"],
+Cell[62624, 1877, 747, 19, 70, "TutorialsSection",ExpressionUUID->"e6b87e6a-bd42-40c3-8cd5-76304c1bf570"],
+Cell[63374, 1898, 1082, 27, 70, "MoreAboutSection",ExpressionUUID->"1d9e3d23-388f-45de-8a5d-cc7121f39daf"],
+Cell[64459, 1927, 78, 0, 70, "FooterCell",ExpressionUUID->"00fc9158-2aef-4d7d-9175-9fb1c5655474"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

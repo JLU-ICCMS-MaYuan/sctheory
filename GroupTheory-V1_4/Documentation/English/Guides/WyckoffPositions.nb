@@ -1,0 +1,388 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     14990,        378]
+NotebookOptionsPosition[     11684,        311]
+NotebookOutlinePosition[     13474,        354]
+CellTagsIndexPosition[     13431,        351]
+WindowTitle->Wyckoff positions
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY PACKAGE GUIDE", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "1b16772e-0955-4764-89ff-7e6c7f85a10f"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "72a3fd40-bd45-424f-a5e9-b3fb60d208d9"],
+        Background->RGBColor[0.85098, 0.396078, 0],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Functions",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "cb37cab8-adc1-49cf-86a4-b78b52ead9df"]
+         }],ExpressionUUID->"cb0172d8-340b-40fe-801a-a8270bf2b50a"],
+         StripOnInput->False], {"\<\"GTAllWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTAllWyckoff"], "\<\"GTClearWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTClearWyckoff"], \
+"\<\"GTCoordFromWyckoff\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCoordFromWyckoff"], "\<\"GTGetWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTGetWyckoff"], "\<\"GTInstallWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTInstallWyckoff"], "\<\"GTLoadWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTLoadWyckoff"], "\<\"GTSaveWyckoff\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTSaveWyckoff"], "\<\"wyckoff\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/wyckoff"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"GuideFunction"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "52fc7616-4493-4855-828e-aca338fa8d8c"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Tech Notes",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "79305aef-478a-4529-a4b0-c94c4da61a28"]
+         }],ExpressionUUID->"34cf8f7b-0ef1-4f4f-b5a4-f7dd663f524e"],
+         StripOnInput->False], {"\<\"Wyckoff Positions\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/tutorial/WyckoffPositions"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"GuideTutorial"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "1edaa079-eb4f-400a-9cf1-38c413514491"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "a54d5ef4-fc80-41f2-921d-4ba2ffd2efc0"]
+         }],ExpressionUUID->"6b19930b-b553-479a-956a-1c1e2aa52447"],
+         StripOnInput->False], {"\<\"GroupTheory/guide/WyckoffPositions\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/guide/WyckoffPositions"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/guide/\
+WyckoffPositions.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$33379], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/guide/WyckoffPositions" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "17887c0b-eb7c-4e26-aad8-0da048440189"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "3f963347-bd93-435d-8fd1-a0eb96d4d69a"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"6848a026-eb68-4eca-95fe-7ac19d25257c"],
+
+Cell[CellGroupData[{
+
+Cell["Wyckoff positions", "GuideTitle",
+ CellID->942062912,ExpressionUUID->"2a8029fd-4f19-44d5-84a5-9f2dd93a5f46"],
+
+Cell[TextData[{
+ "This new part of ",
+ StyleBox["GTPack ",
+  FontWeight->"Bold"],
+ "is in a preliminary state! Sometimes it is helpful to have all information \
+directly at hand to avoid additional lookup of tables. Thus, tables with \
+Wyckoff positions will be added."
+}], "GuideAbstract",
+ CellID->2001916300,ExpressionUUID->"476a9803-5e9d-44f9-8e2d-4a1da8d3e71e"],
+
+Cell["\t", "GuideDelimiterSubsection",ExpressionUUID->"b331b222-6fe5-4fee-848c-77778255ee5c"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTInstallWyckoff"]], "paclet:GroupTheory/ref/GTInstallWyckoff",
+     "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "9d961023-6769-4d5d-8cbf-23dd60811c4b"],
+ " - installs Wyckoff positions"
+}], "GuideText",
+ CellID->794985314,ExpressionUUID->"2f655d74-ce64-4d82-bc21-8a248977c4bc"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTAllWyckoff"]], "paclet:GroupTheory/ref/GTAllWyckoff", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "b07a3bb0-5c75-4e6a-9ab3-ca6ae72c4386"],
+ " - lists all currently installed Wyckoff positions"
+}], "GuideText",
+ CellID->1650411683,ExpressionUUID->"b66a1a1f-617e-49ea-ba67-403dda83b64a"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTClearWyckoff"]], "paclet:GroupTheory/ref/GTClearWyckoff", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "106da694-7bbf-4e27-8cb0-4eed664eb949"],
+ " - removes all currently installed Wyckoff positions"
+}], "GuideText",
+ CellID->1827294511,ExpressionUUID->"da532503-e3e5-433c-85ce-002521c80731"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTLoadWyckoff"]], "paclet:GroupTheory/ref/GTLoadWyckoff", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "ad4eccea-da05-4101-96ef-64ca2af38011"],
+ " - loads a list of Wyckoff positions from a data base"
+}], "GuideText",
+ CellID->19900363,ExpressionUUID->"446745c3-7315-40c1-b2f4-359aa4a68053"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTGetWyckoff"]], "paclet:GroupTheory/ref/GTGetWyckoff", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "54efdbcc-62d0-4c09-8e3a-f38e462f1af8"],
+ " - gives Wyckoff positions for a space group and a setting"
+}], "GuideText",
+ CellID->1834821805,ExpressionUUID->"df7cdd0e-43da-42ae-81bf-80ff9532a23d"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTSaveWyckoff"]], "paclet:GroupTheory/ref/GTSaveWyckoff", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "c08e729b-cc7f-4e1c-a5e0-b72299eb810d"],
+ " - saves the content of the global variable to a database."
+}], "GuideText",
+ CellID->1187642532,ExpressionUUID->"0453bb28-9d58-43c3-bc2e-2f2e01d93a10"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCoordFromWyckoff"]], 
+    "paclet:GroupTheory/ref/GTCoordFromWyckoff", "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "9ea52bba-383f-4d46-95c1-09550f734e12"],
+ " - generates part of ",
+ StyleBox["GTPack ",
+  FontWeight->"Bold"],
+ "structure file from Wyckoff positions "
+}], "GuideText",
+ CellID->1120561143,ExpressionUUID->"4f437a50-8fe0-4265-88d7-d0169ec04cfc"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["wyckoff"]], "paclet:GroupTheory/ref/wyckoff", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFunctionSans"]], "InlineFunctionSans",ExpressionUUID->
+  "0cae81c6-a77c-4859-b3b2-5348d90c5c80"],
+ " - global variable for Wyckoff positions"
+}], "GuideText",
+ CellID->1908651458,ExpressionUUID->"2d3b2c59-9da8-4213-b535-0236c3e3561e"]
+}, Open  ]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedTutorial.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Tech", " ", "Notes"}], "GuideTutorialsSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Wyckoff Positions"]], 
+           "paclet:GroupTheory/tutorial/WyckoffPositions"},
+          "RefLinkPlain",
+          BaseStyle->{"GuideTutorial"}]], "GuideTutorial",ExpressionUUID->
+         "ee0e2a35-172f-418c-8836-b5ffe493d30e"]}]}
+     }]}
+  }]], "GuideTutorialsSection",ExpressionUUID->"57d648b2-5108-4441-8f36-\
+c6fa73505807"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"f5145eba-8d45-4afb-9283-466b1dedceb6"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{55.5, Automatic}, {Automatic, 20.25}},
+WindowTitle->"Wyckoff positions",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {$Failed, ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 50, 32.377364}", 
+    "history" -> {"XX", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Package Guide", "language" -> "en", "paclet" -> 
+    "GroupTheory Package", "status" -> "None", "summary" -> 
+    "This new part of GTPack is in a preliminary state! Sometimes it is \
+helpful to have all information directly at hand to avoid additional lookup \
+of tables. Thus, tables with Wyckoff positions will be added.", 
+    "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$33341, "title" -> 
+    "Wyckoff positions", "titlemodifier" -> "", "metadescription" -> "", 
+    "windowtitle" -> "Wyckoff positions", "type" -> "Guide", "uri" -> 
+    "GroupTheory/guide/WyckoffPositions"}},
+CacheGraphics->False,
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "Reference.nb", 
+  CharacterEncoding -> "UTF-8"],
+ExpressionUUID->"9e89642a-0491-4f8e-a884-4bbbbe8bb4cc"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[589, 21, 5968, 139, 70, "AnchorBarGrid",ExpressionUUID->"6848a026-eb68-4eca-95fe-7ac19d25257c",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[6582, 164, 114, 1, 70, "GuideTitle",ExpressionUUID->"2a8029fd-4f19-44d5-84a5-9f2dd93a5f46",
+ CellID->942062912],
+Cell[6699, 167, 366, 8, 70, "GuideAbstract",ExpressionUUID->"476a9803-5e9d-44f9-8e2d-4a1da8d3e71e",
+ CellID->2001916300],
+Cell[7068, 177, 93, 0, 70, "GuideDelimiterSubsection",ExpressionUUID->"b331b222-6fe5-4fee-848c-77778255ee5c"],
+Cell[7164, 179, 433, 11, 70, "GuideText",ExpressionUUID->"2f655d74-ce64-4d82-bc21-8a248977c4bc",
+ CellID->794985314],
+Cell[7600, 192, 447, 11, 70, "GuideText",ExpressionUUID->"b66a1a1f-617e-49ea-ba67-403dda83b64a",
+ CellID->1650411683],
+Cell[8050, 205, 453, 11, 70, "GuideText",ExpressionUUID->"da532503-e3e5-433c-85ce-002521c80731",
+ CellID->1827294511],
+Cell[8506, 218, 450, 11, 70, "GuideText",ExpressionUUID->"446745c3-7315-40c1-b2f4-359aa4a68053",
+ CellID->19900363],
+Cell[8959, 231, 455, 11, 70, "GuideText",ExpressionUUID->"df7cdd0e-43da-42ae-81bf-80ff9532a23d",
+ CellID->1834821805],
+Cell[9417, 244, 457, 11, 70, "GuideText",ExpressionUUID->"0453bb28-9d58-43c3-bc2e-2f2e01d93a10",
+ CellID->1187642532],
+Cell[9877, 257, 517, 14, 70, "GuideText",ExpressionUUID->"4f437a50-8fe0-4265-88d7-d0169ec04cfc",
+ CellID->1120561143],
+Cell[10397, 273, 427, 11, 70, "GuideText",ExpressionUUID->"2d3b2c59-9da8-4213-b535-0236c3e3561e",
+ CellID->1908651458]
+}, Open  ]],
+Cell[10839, 287, 760, 20, 70, "GuideTutorialsSection",ExpressionUUID->"57d648b2-5108-4441-8f36-c6fa73505807"],
+Cell[11602, 309, 78, 0, 70, "FooterCell",ExpressionUUID->"f5145eba-8d45-4afb-9283-466b1dedceb6"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

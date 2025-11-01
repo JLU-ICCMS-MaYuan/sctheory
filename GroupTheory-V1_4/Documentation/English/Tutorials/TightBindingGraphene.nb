@@ -1,0 +1,1961 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     80571,       1951]
+NotebookOptionsPosition[     72058,       1781]
+NotebookOutlinePosition[     76024,       1860]
+CellTagsIndexPosition[     75981,       1857]
+WindowTitle->Tight-binding electronic structure of graphene
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY TUTORIAL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "34341ece-7af7-4a26-b011-9ee0e795314a"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "ebb4c61a-047d-42ef-8777-a566151cd881"],
+        Background->RGBColor[
+         0.7450980392156863, 0.3254901960784314, 0.1411764705882353],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "a72c905c-ff3f-4351-b2a6-5cae8cdc0efe"]
+         }],ExpressionUUID->"d0683359-558b-4e76-b515-47c4bcba0764"],
+         StripOnInput->
+          False], {"\<\"W. Hergert, R. M. Geilhufe, Group Theory in Solid \
+State Physics and Photonics: Problem Solving with Mathematica, Wiley-VCH, \
+ISBN: 978-3-527-41133-7 (2018).\"\>":>Documentation`HelpLookup[
+        "paclet:http://gtpack.org/book/"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"TutorialMoreAboutSection"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "94d2957d-2c60-49c3-8065-0bcd375bf105"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Functions",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "003712cb-ba36-4e3c-8cbd-bb3f310a7a75"]
+         }],ExpressionUUID->"e8d0f06c-91f6-48e1-9b11-3e064e73e788"],
+         StripOnInput->False], {"\<\"GTBands\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBands"], "\<\"GTBandStructure\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBandStructure"], "\<\"GTBZPath\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTBZPath"], "\<\"GTCluster\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCluster"], "\<\"GTHamiltonianPlot\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTHamiltonianPlot"], "\<\"GTShells\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTShells"], "\<\"GTTBHamiltonian\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/GTTBHamiltonian"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"TutorialFunction"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "cf7c6f8e-012b-4382-bdbb-fc53f805ebf6"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "ff0c8b01-37f2-4975-85a0-556e56eabac8"]
+         }],ExpressionUUID->"6aec713c-8175-4f9d-b14d-95ec44f8f8f5"],
+         StripOnInput->
+          False], {"\<\"GroupTheory/tutorial/TightBindingGraphene\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/tutorial/TightBindingGraphene"]}, Visible -> 
+             False]]; SelectionMove[
+          DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/tutorial/\
+TightBindingGraphene.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$265722], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/tutorial/TightBindingGraphene" <> ".html"], 
+            None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "12a31bf5-0263-4386-a730-d104e8381359"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "c5529d25-ee25-4a2a-a169-ff05385c6193"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"fa270c02-3eda-4d98-8b58-1431504b25d6"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+
+Tight-binding electronic structure of graphene\
+\>", "Title",
+ CellID->509267359,ExpressionUUID->"064a379e-6255-49aa-81f3-1509f69671a8"],
+
+Cell["\<\
+We illustrate the generation of effective tight-binding Hamiltonians in the \
+two-center Slater-Koster formalism for the 2-dimensional carbon allotrope \
+graphene. \
+\>", "Text",
+ CellID->1534169418,ExpressionUUID->"48cdca93-20d2-4300-8572-84dffd61a5d6"],
+
+Cell[BoxData[GridBox[{
+   {
+    TemplateBox[{
+      Cell[
+       TextData["GTCluster"]], "paclet:GroupTheory/ref/GTCluster", 
+      "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "constructs a spherical cluster crystal structure.", "TableText",
+     ExpressionUUID->"19c7c5e4-c7b3-4647-9277-253187815c9e"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["GTShells"]], "paclet:GroupTheory/ref/GTShells", 
+      "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "performs a reordering of a cluster of atoms into shells", "TableText",
+     ExpressionUUID->"fcbd291e-3cc6-45fa-a6f3-70dad4bbfd9f"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["GTTBHamiltonian"]], "paclet:GroupTheory/ref/GTTBHamiltonian",
+       "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[TextData[{
+     "constructs a",
+     StyleBox[" k",
+      FontWeight->"Bold"],
+     "-dependent tight-binding Hamiltonian ",
+     StyleBox[Cell[
+     "\[Placeholder]", "TI",ExpressionUUID->
+      "6209777e-8e49-4473-af95-fc8e6a93f3e8"], "TI"]
+    }], "TableText",ExpressionUUID->"15980dc4-4601-4fed-81fd-5eae4d6cab91"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["GTHamiltonianPlot"]], 
+      "paclet:GroupTheory/ref/GTHamiltonianPlot", 
+      "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "plots the structure of a Hamiltonian", "TableText",ExpressionUUID->
+     "afed46f2-179d-4f78-83e4-2eb99b313767"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["GTBZPath"]], "paclet:GroupTheory/ref/GTBZPath", 
+      "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "generates a standard path in the Brillouin zone", "TableText",
+     ExpressionUUID->"ceec9375-9014-48bf-b278-c2e403c35081"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["GTBandStructure"]], "paclet:GroupTheory/ref/GTBandStructure",
+       "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell["\<\
+calculates and plots the band structure for a given Hamiltonian\
+\>", "TableText",ExpressionUUID->"545452e7-1942-4d6a-9630-abf167767638"]},
+   {
+    TemplateBox[{
+      Cell[
+       TextData["GTBands"]], "paclet:GroupTheory/ref/GTBands", 
+      "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->{"DefinitionBox", CellFrame -> 0}], Cell[
+    "calculates the lowest band energies for a given Hamiltonian", 
+     "TableText",ExpressionUUID->"1e35f7b0-8c7c-4122-9277-10e8535cdd3d"]}
+  }]], "DefinitionBox",
+ CellID->2096742444,ExpressionUUID->"510a82ca-aef2-4bcb-904e-3f0939c38df5"],
+
+Cell[TextData[{
+ "Graphene crystallizes in a 2-dimensional honeycomb lattice with two atoms \
+in the primitive unit cell. In GTPack, structures are specified as a list, \
+where the list contains the name of the structure and a prototype, four \
+different names for the space group (Pearson symbol, Strukturbericht \
+designation, international notation, and space group number), the lattice, \
+and the sites containing the atom name and the atom position. Note that the \
+first five information are optional and not important for the generation of \
+the tight-binding model. The structure itself can be plotted using ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTPlotStructure2D"]], 
+    "paclet:GroupTheory/ref/GTPlotStructure2D", "GroupTheory Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "7b27d16c-99ec-4378-a8f8-32e9f634fd90"],
+ ". In our example we choose the lattice constant to be a = 1 a.u. and plot \
+the structure within a radius of 5 a.u.."
+}], "MathCaption",
+ CellID->836781195,ExpressionUUID->"b7373d71-f0c2-4911-879f-55e33f1b762c"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1931498702,ExpressionUUID->"63c03637-adcc-45ba-9965-d2e46834e1b2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"hcp", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<C\>\"", ",", "\"\<Honeycomb\>\""}], "}"}], ",", 
+     "\"\<hP1\>\"", ",", "\"\<\!\(\*SubscriptBox[\(A\), \(f\)]\)\>\"", ",", 
+     "\"\<P6/mmm\>\"", ",", "191", ",", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Sqrt", "[", "3", "]"}], "a"}], ",", "0", ",", "0"}], "}"}],
+        ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Sqrt", "[", "3", "]"}], 
+          RowBox[{"a", "/", "2"}]}], ",", 
+         RowBox[{"3", 
+          RowBox[{"a", "/", "2"}]}], ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "\"\<C1\>\""}], 
+        "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"-", "a"}], ",", "0"}], "}"}], ",", "\"\<C2\>\""}], 
+        "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", "\[Rule]", "240"}], "}"}]}], "}"}]}], ";"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1122875335,ExpressionUUID->"517b72ef-d76f-462b-8fbb-7151594ebb03"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTPlotStructure2D", "[", 
+  RowBox[{"hcp", ",", "5", ",", 
+   RowBox[{"GOLattice", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"a", "\[Rule]", "1"}], "}"}]}]}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->2002398383,ExpressionUUID->"a5f1fb88-b4c5-4eb9-9bb7-68cc9a90b05e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"61", "\[InvisibleSpace]", "\<\" atoms\"\>"}],
+  SequenceForm[61, " atoms"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[40]:=",
+ CellID->1083681892,ExpressionUUID->"eda97d0c-7c42-484e-bb19-aaa940ad70fc"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Atoms in cluster: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"C1\"\>", ",", "31"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"C2\"\>", ",", "30"}], "}"}]}], "}"}]}],
+  SequenceForm["Atoms in cluster: ", {{"C1", 31}, {"C2", 30}}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[40]:=",
+ CellID->1988071396,ExpressionUUID->"fec33448-d08c-48d0-9341-29a1a1b86cba"]
+}, Open  ]],
+
+Cell[BoxData[
+ TemplateBox[{
+   GraphicsBox[{{{}, {{{}, {
+         Hue[0.67, 0.6, 0.6], 
+         Directive[
+          PointSize[0.011000000000000001`], 
+          RGBColor[0.368417, 0.506779, 0.709798], 
+          AbsoluteThickness[1.6]], 
+         PointBox[CompressedData["
+1:eJxTTMoPSmViYGCQB2IQvcon4kXVttf7GcBA6ACUb4/K5z4A4XNA+b/3w/gM
+KAAub4/K53aA8V/rm1/kCRKE6vuxv8HSSe/OCRY4H9U9cL49mnoHGB9qngOq
+eph7Yf6DuRcToLoXxoe5l4EBzb32aO61R3OvPZp77dHca4/mXnu08HVAC1+4
+O9Dk7VH58PB1QItPB7T4dAAA6lCP5w==
+          "]]}, {
+         Hue[0.9060679774997897, 0.6, 0.6], 
+         Directive[
+          PointSize[0.011000000000000001`], 
+          RGBColor[0.880722, 0.611041, 0.142051], 
+          AbsoluteThickness[1.6]], 
+         PointBox[CompressedData["
+1:eJxTTMoPSmViYGCQA2IQvcon4kXVtt/7GcBA4AADChA4AJW3h/Ff65tf5AkS
+hKpjOdBg6aR35wQLnA9R/3o/Gt8eTb0DjA81zwFVPTfUvA/7Ud33YT+q++Dy
+9qh8bgcYH9W9D+xR3fvAHtW9cL49mnoHGB/VvTD1MPcyOKC6l8EB1b1weXtU
+Psy9DA6o7uNxQHUfnG8P46O6jwfNPhEHAFkShMs=
+          "]]}, {}}}, {}, {}, {}, {}}, {
+      LineBox[
+       NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+          
+          Rational[-9, 2]}, {-3^
+           Rational[
+            1, 2], -4}}, {{-0.8660254037844386, -4.5}, {-1.7320508075688772`, \
+-4}}]], 
+      LineBox[
+       NCache[{{-3^Rational[1, 2], -3}, {-3^
+           Rational[
+            1, 2], -4}}, {{-1.7320508075688772`, -3}, {-1.7320508075688772`, \
+-4}}]], 
+      LineBox[
+       NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[-9, 2]}, {0, -4}}, {{-0.8660254037844386, -4.5}, {
+         0, -4}}]], 
+      LineBox[
+       NCache[{{Rational[1, 2] 3^Rational[1, 2], 
+          Rational[-9, 2]}, {0, -4}}, {{0.8660254037844386, -4.5}, {0, -4}}]], 
+      LineBox[{{0, -3}, {0, -4}}], 
+      LineBox[
+       NCache[{{Rational[1, 2] 3^Rational[1, 2], 
+          Rational[-9, 2]}, {3^Rational[1, 2], -4}}, {{
+         0.8660254037844386, -4.5}, {1.7320508075688772`, -4}}]], 
+      LineBox[
+       NCache[{{3^Rational[1, 2], -3}, {3^Rational[1, 2], -4}}, {{
+         1.7320508075688772`, -3}, {1.7320508075688772`, -4}}]], 
+      LineBox[
+       NCache[{{(-2) 3^Rational[1, 2], -3}, {Rational[-5, 2] 3^Rational[1, 2], 
+          
+          Rational[-5, 
+           2]}}, {{-3.4641016151377544`, -3}, {-4.330127018922193, -2.5}}]], 
+      LineBox[
+       NCache[{{Rational[-5, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {Rational[-5, 2] 3^Rational[1, 2], 
+          
+          Rational[-5, 
+           2]}}, {{-4.330127018922193, -1.5}, {-4.330127018922193, -2.5}}]], 
+      LineBox[
+       NCache[{{(-2) 3^Rational[1, 2], -3}, {Rational[-3, 2] 3^Rational[1, 2], 
+          
+          Rational[-5, 
+           2]}}, {{-3.4641016151377544`, -3}, {-2.598076211353316, -2.5}}]], 
+      LineBox[
+       NCache[{{-3^Rational[1, 2], -3}, {Rational[-3, 2] 3^Rational[1, 2], 
+          
+          Rational[-5, 
+           2]}}, {{-1.7320508075688772`, -3}, {-2.598076211353316, -2.5}}]], 
+      LineBox[
+       NCache[{{Rational[-3, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {Rational[-3, 2] 3^Rational[1, 2], 
+          
+          Rational[-5, 
+           2]}}, {{-2.598076211353316, -1.5}, {-2.598076211353316, -2.5}}]], 
+      LineBox[
+       NCache[{{-3^Rational[1, 2], -3}, {Rational[-1, 2] 3^Rational[1, 2], 
+          
+          Rational[-5, 
+           2]}}, {{-1.7320508075688772`, -3}, {-0.8660254037844386, -2.5}}]], 
+      
+      LineBox[
+       NCache[{{0, -3}, {Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[-5, 2]}}, {{0, -3}, {-0.8660254037844386, -2.5}}]], 
+      LineBox[
+       NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {Rational[-1, 2] 3^Rational[1, 2], 
+          
+          Rational[-5, 
+           2]}}, {{-0.8660254037844386, -1.5}, {-0.8660254037844386, -2.5}}]], 
+      LineBox[
+       NCache[{{0, -3}, {Rational[1, 2] 3^Rational[1, 2], 
+          Rational[-5, 2]}}, {{0, -3}, {0.8660254037844386, -2.5}}]], 
+      LineBox[
+       NCache[{{3^Rational[1, 2], -3}, {Rational[1, 2] 3^Rational[1, 2], 
+          Rational[-5, 2]}}, {{1.7320508075688772`, -3}, {
+         0.8660254037844386, -2.5}}]], 
+      LineBox[
+       NCache[{{Rational[1, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {Rational[1, 2] 3^Rational[1, 2], 
+          Rational[-5, 2]}}, {{0.8660254037844386, -1.5}, {
+        0.8660254037844386, -2.5}}]], 
+      LineBox[
+       NCache[{{3^Rational[1, 2], -3}, {Rational[3, 2] 3^Rational[1, 2], 
+          Rational[-5, 2]}}, {{1.7320508075688772`, -3}, {
+         2.598076211353316, -2.5}}]], 
+      LineBox[
+       NCache[{{2 3^Rational[1, 2], -3}, {Rational[3, 2] 3^Rational[1, 2], 
+          Rational[-5, 2]}}, {{3.4641016151377544`, -3}, {
+         2.598076211353316, -2.5}}]], 
+      LineBox[
+       NCache[{{Rational[3, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {Rational[3, 2] 3^Rational[1, 2], 
+          Rational[-5, 2]}}, {{2.598076211353316, -1.5}, {
+        2.598076211353316, -2.5}}]], 
+      LineBox[
+       NCache[{{2 3^Rational[1, 2], -3}, {Rational[5, 2] 3^Rational[1, 2], 
+          Rational[-5, 2]}}, {{3.4641016151377544`, -3}, {
+         4.330127018922193, -2.5}}]], 
+      LineBox[
+       NCache[{{Rational[5, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {Rational[5, 2] 3^Rational[1, 2], 
+          Rational[-5, 2]}}, {{4.330127018922193, -1.5}, {
+        4.330127018922193, -2.5}}]], 
+      LineBox[
+       NCache[{{Rational[-5, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {(-2) 
+          3^Rational[
+            1, 2], -1}}, {{-4.330127018922193, -1.5}, {-3.4641016151377544`, \
+-1}}]], 
+      LineBox[
+       NCache[{{Rational[-3, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {(-2) 
+          3^Rational[
+            1, 2], -1}}, {{-2.598076211353316, -1.5}, {-3.4641016151377544`, \
+-1}}]], 
+      LineBox[
+       NCache[{{(-2) 3^Rational[1, 2], 0}, {(-2) 
+          3^Rational[1, 2], -1}}, {{-3.4641016151377544`, 
+          0}, {-3.4641016151377544`, -1}}]], 
+      LineBox[
+       NCache[{{Rational[-3, 2] 3^Rational[1, 2], 
+          
+          Rational[-3, 2]}, {-3^
+           Rational[
+            1, 2], -1}}, {{-2.598076211353316, -1.5}, {-1.7320508075688772`, \
+-1}}]], 
+      LineBox[
+       NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+          
+          Rational[-3, 2]}, {-3^
+           Rational[
+            1, 2], -1}}, {{-0.8660254037844386, -1.5}, {-1.7320508075688772`, \
+-1}}]], 
+      LineBox[
+       NCache[{{-3^Rational[1, 2], 
+          0}, {-3^Rational[1, 2], -1}}, {{-1.7320508075688772`, 
+          0}, {-1.7320508075688772`, -1}}]], 
+      LineBox[
+       NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {0, -1}}, {{-0.8660254037844386, -1.5}, {
+         0, -1}}]], 
+      LineBox[
+       NCache[{{Rational[1, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {0, -1}}, {{0.8660254037844386, -1.5}, {0, -1}}]], 
+      LineBox[{{0, 0}, {0, -1}}], 
+      LineBox[
+       NCache[{{Rational[1, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {3^Rational[1, 2], -1}}, {{
+         0.8660254037844386, -1.5}, {1.7320508075688772`, -1}}]], 
+      LineBox[
+       NCache[{{Rational[3, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {3^Rational[1, 2], -1}}, {{
+         2.598076211353316, -1.5}, {1.7320508075688772`, -1}}]], 
+      LineBox[
+       NCache[{{3^Rational[1, 2], 0}, {3^Rational[1, 2], -1}}, {{
+         1.7320508075688772`, 0}, {1.7320508075688772`, -1}}]], 
+      LineBox[
+       NCache[{{Rational[3, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {2 3^Rational[1, 2], -1}}, {{
+         2.598076211353316, -1.5}, {3.4641016151377544`, -1}}]], 
+      LineBox[
+       NCache[{{Rational[5, 2] 3^Rational[1, 2], 
+          Rational[-3, 2]}, {2 3^Rational[1, 2], -1}}, {{
+         4.330127018922193, -1.5}, {3.4641016151377544`, -1}}]], 
+      LineBox[
+       NCache[{{2 3^Rational[1, 2], 0}, {2 3^Rational[1, 2], -1}}, {{
+         3.4641016151377544`, 0}, {3.4641016151377544`, -1}}]], 
+      LineBox[
+       NCache[{{(-2) 3^Rational[1, 2], 0}, {
+         Rational[-5, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{-3.4641016151377544`, 0}, {-4.330127018922193, 
+         0.5}}]], 
+      LineBox[
+       NCache[{{Rational[-5, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {Rational[-5, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{-4.330127018922193, 1.5}, {-4.330127018922193, 
+        0.5}}]], 
+      LineBox[
+       NCache[{{(-2) 3^Rational[1, 2], 0}, {
+         Rational[-3, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{-3.4641016151377544`, 0}, {-2.598076211353316, 
+         0.5}}]], 
+      LineBox[
+       NCache[{{-3^Rational[1, 2], 0}, {Rational[-3, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{-1.7320508075688772`, 0}, {-2.598076211353316, 
+         0.5}}]], 
+      LineBox[
+       NCache[{{Rational[-3, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {Rational[-3, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{-2.598076211353316, 1.5}, {-2.598076211353316, 
+        0.5}}]], 
+      LineBox[
+       NCache[{{-3^Rational[1, 2], 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{-1.7320508075688772`, 0}, {-0.8660254037844386, 
+         0.5}}]], 
+      LineBox[
+       NCache[{{0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{0, 0}, {-0.8660254037844386, 0.5}}]], 
+      LineBox[
+       NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{-0.8660254037844386, 1.5}, {-0.8660254037844386,
+         0.5}}]], 
+      LineBox[
+       NCache[{{0, 0}, {Rational[1, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{0, 0}, {0.8660254037844386, 0.5}}]], 
+      LineBox[
+       NCache[{{3^Rational[1, 2], 0}, {Rational[1, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{1.7320508075688772`, 0}, {0.8660254037844386, 
+         0.5}}]], 
+      LineBox[
+       NCache[{{Rational[1, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {Rational[1, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{0.8660254037844386, 1.5}, {0.8660254037844386, 
+        0.5}}]], 
+      LineBox[
+       NCache[{{3^Rational[1, 2], 0}, {Rational[3, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{1.7320508075688772`, 0}, {2.598076211353316, 
+         0.5}}]], 
+      LineBox[
+       NCache[{{2 3^Rational[1, 2], 0}, {Rational[3, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{3.4641016151377544`, 0}, {2.598076211353316, 
+         0.5}}]], 
+      LineBox[
+       NCache[{{Rational[3, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {Rational[3, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{2.598076211353316, 1.5}, {2.598076211353316, 
+        0.5}}]], 
+      LineBox[
+       NCache[{{2 3^Rational[1, 2], 0}, {Rational[5, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{3.4641016151377544`, 0}, {4.330127018922193, 
+         0.5}}]], 
+      LineBox[
+       NCache[{{Rational[5, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {Rational[5, 2] 3^Rational[1, 2], 
+          Rational[1, 2]}}, {{4.330127018922193, 1.5}, {4.330127018922193, 
+        0.5}}]], 
+      LineBox[
+       NCache[{{Rational[-5, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {(-2) 3^Rational[1, 2], 2}}, {{-4.330127018922193, 
+         1.5}, {-3.4641016151377544`, 2}}]], 
+      LineBox[
+       NCache[{{Rational[-3, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {(-2) 3^Rational[1, 2], 2}}, {{-2.598076211353316, 
+         1.5}, {-3.4641016151377544`, 2}}]], 
+      LineBox[
+       NCache[{{(-2) 3^Rational[1, 2], 3}, {(-2) 3^Rational[1, 2], 
+          2}}, {{-3.4641016151377544`, 3}, {-3.4641016151377544`, 2}}]], 
+      LineBox[
+       NCache[{{Rational[-3, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {-3^Rational[1, 2], 2}}, {{-2.598076211353316, 
+         1.5}, {-1.7320508075688772`, 2}}]], 
+      LineBox[
+       NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {-3^Rational[1, 2], 2}}, {{-0.8660254037844386, 
+         1.5}, {-1.7320508075688772`, 2}}]], 
+      LineBox[
+       NCache[{{-3^Rational[1, 2], 3}, {-3^Rational[1, 2], 
+          2}}, {{-1.7320508075688772`, 3}, {-1.7320508075688772`, 2}}]], 
+      LineBox[
+       NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {0, 2}}, {{-0.8660254037844386, 1.5}, {0, 2}}]], 
+      LineBox[
+       NCache[{{Rational[1, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {0, 2}}, {{0.8660254037844386, 1.5}, {0, 2}}]], 
+      LineBox[{{0, 3}, {0, 2}}], 
+      LineBox[
+       NCache[{{Rational[1, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {3^Rational[1, 2], 2}}, {{0.8660254037844386, 
+         1.5}, {1.7320508075688772`, 2}}]], 
+      LineBox[
+       NCache[{{Rational[3, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {3^Rational[1, 2], 2}}, {{2.598076211353316, 
+         1.5}, {1.7320508075688772`, 2}}]], 
+      LineBox[
+       NCache[{{3^Rational[1, 2], 3}, {3^Rational[1, 2], 2}}, {{
+         1.7320508075688772`, 3}, {1.7320508075688772`, 2}}]], 
+      LineBox[
+       NCache[{{Rational[3, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {2 3^Rational[1, 2], 2}}, {{2.598076211353316, 
+         1.5}, {3.4641016151377544`, 2}}]], 
+      LineBox[
+       NCache[{{Rational[5, 2] 3^Rational[1, 2], 
+          Rational[3, 2]}, {2 3^Rational[1, 2], 2}}, {{4.330127018922193, 
+         1.5}, {3.4641016151377544`, 2}}]], 
+      LineBox[
+       NCache[{{2 3^Rational[1, 2], 3}, {2 3^Rational[1, 2], 2}}, {{
+         3.4641016151377544`, 3}, {3.4641016151377544`, 2}}]], 
+      LineBox[
+       NCache[{{(-2) 3^Rational[1, 2], 3}, {
+         Rational[-3, 2] 3^Rational[1, 2], 
+          Rational[7, 2]}}, {{-3.4641016151377544`, 3}, {-2.598076211353316, 
+         3.5}}]], 
+      LineBox[
+       NCache[{{-3^Rational[1, 2], 3}, {Rational[-3, 2] 3^Rational[1, 2], 
+          Rational[7, 2]}}, {{-1.7320508075688772`, 3}, {-2.598076211353316, 
+         3.5}}]], 
+      LineBox[
+       NCache[{{-3^Rational[1, 2], 3}, {Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[7, 2]}}, {{-1.7320508075688772`, 3}, {-0.8660254037844386, 
+         3.5}}]], 
+      LineBox[
+       NCache[{{0, 3}, {Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[7, 2]}}, {{0, 3}, {-0.8660254037844386, 3.5}}]], 
+      LineBox[
+       NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[9, 2]}, {Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[7, 2]}}, {{-0.8660254037844386, 4.5}, {-0.8660254037844386,
+         3.5}}]], 
+      LineBox[
+       NCache[{{0, 3}, {Rational[1, 2] 3^Rational[1, 2], 
+          Rational[7, 2]}}, {{0, 3}, {0.8660254037844386, 3.5}}]], 
+      LineBox[
+       NCache[{{3^Rational[1, 2], 3}, {Rational[1, 2] 3^Rational[1, 2], 
+          Rational[7, 2]}}, {{1.7320508075688772`, 3}, {0.8660254037844386, 
+         3.5}}]], 
+      LineBox[
+       NCache[{{Rational[1, 2] 3^Rational[1, 2], 
+          Rational[9, 2]}, {Rational[1, 2] 3^Rational[1, 2], 
+          Rational[7, 2]}}, {{0.8660254037844386, 4.5}, {0.8660254037844386, 
+        3.5}}]], 
+      LineBox[
+       NCache[{{3^Rational[1, 2], 3}, {Rational[3, 2] 3^Rational[1, 2], 
+          Rational[7, 2]}}, {{1.7320508075688772`, 3}, {2.598076211353316, 
+         3.5}}]], 
+      LineBox[
+       NCache[{{2 3^Rational[1, 2], 3}, {Rational[3, 2] 3^Rational[1, 2], 
+          Rational[7, 2]}}, {{3.4641016151377544`, 3}, {2.598076211353316, 
+         3.5}}]], 
+      LineBox[
+       NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+          Rational[9, 2]}, {0, 5}}, {{-0.8660254037844386, 4.5}, {0, 5}}]], 
+      LineBox[
+       NCache[{{Rational[1, 2] 3^Rational[1, 2], 
+          Rational[9, 2]}, {0, 5}}, {{0.8660254037844386, 4.5}, {0, 5}}]]}}, {
+    DisplayFunction -> Identity, PlotRangePadding -> {{
+        Scaled[0.02], 
+        Scaled[0.02]}, {
+        Scaled[0.05], 
+        Scaled[0.05]}}, AxesOrigin -> {0, 0}, 
+     PlotRange -> {{-4.330127018922194, 4.330127018922194}, {-4.5, 5.}}, 
+     PlotRangeClipping -> True, ImagePadding -> All, DisplayFunction -> 
+     Identity, AspectRatio -> 1, Axes -> {True, True}, 
+     AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, DisplayFunction :> 
+     Identity, Frame -> {{False, False}, {False, False}}, 
+     FrameLabel -> {{None, None}, {None, None}}, 
+     FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
+     GridLines -> {None, None}, GridLinesStyle -> Directive[
+       GrayLevel[0.5, 0.4]], 
+     Method -> {"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+           (Identity[#]& )[
+            Part[#, 1]], 
+           (Identity[#]& )[
+            Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+           (Identity[#]& )[
+            Part[#, 1]], 
+           (Identity[#]& )[
+            Part[#, 2]]}& )}}, PlotLabel -> FormBox[
+       RowBox[{"{", "\" \"", "}"}], TraditionalForm], 
+     PlotRange -> {{-4.330127018922194, 4.330127018922194}, {-4.5, 5.}}, 
+     PlotRangeClipping -> True, PlotRangePadding -> {{
+        Scaled[0.02], 
+        Scaled[0.02]}, {
+        Scaled[0.05], 
+        Scaled[0.05]}}, Prolog -> PointSize[0.05], 
+     Ticks -> {Automatic, Automatic}}], 
+   FormBox[
+    FormBox[
+     TemplateBox[{"\"C1\"", "\"C2\""}, "PointLegend", 
+      DisplayFunction -> (FormBox[
+        FrameBox[
+         StyleBox[
+          StyleBox[
+           PaneBox[
+            TagBox[
+             GridBox[{{
+                StyleBox[
+                "\"Atoms\"", {FontFamily -> "Arial"}, StripOnInput -> 
+                 False]}, {
+                TagBox[
+                 GridBox[{{
+                    TagBox[
+                    GridBox[{{
+                    GraphicsBox[{{}, {
+                    Directive[
+                    EdgeForm[
+                    Directive[
+                    Opacity[0.3], 
+                    GrayLevel[0]]], 
+                    PointSize[0.396], 
+                    RGBColor[0.368417, 0.506779, 0.709798], 
+                    AbsoluteThickness[1.6]], {
+                    Directive[
+                    EdgeForm[
+                    Directive[
+                    Opacity[0.3], 
+                    GrayLevel[0]]], 
+                    PointSize[0.396], 
+                    RGBColor[0.368417, 0.506779, 0.709798], 
+                    AbsoluteThickness[1.6]], 
+                    PointBox[
+                    NCache[{
+                    Scaled[{
+                    Rational[1, 2], 
+                    Rational[1, 2]}]}, {
+                    Scaled[{0.5, 0.5}]}]]}}}, AspectRatio -> Full, 
+                    ImageSize -> {10, 10}, PlotRangePadding -> None, 
+                    ImagePadding -> Automatic, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #}, {
+                    GraphicsBox[{{}, {
+                    Directive[
+                    EdgeForm[
+                    Directive[
+                    Opacity[0.3], 
+                    GrayLevel[0]]], 
+                    PointSize[0.396], 
+                    RGBColor[0.880722, 0.611041, 0.142051], 
+                    AbsoluteThickness[1.6]], {
+                    Directive[
+                    EdgeForm[
+                    Directive[
+                    Opacity[0.3], 
+                    GrayLevel[0]]], 
+                    PointSize[0.396], 
+                    RGBColor[0.880722, 0.611041, 0.142051], 
+                    AbsoluteThickness[1.6]], 
+                    PointBox[
+                    NCache[{
+                    Scaled[{
+                    Rational[1, 2], 
+                    Rational[1, 2]}]}, {
+                    Scaled[{0.5, 0.5}]}]]}}}, AspectRatio -> Full, 
+                    ImageSize -> {10, 10}, PlotRangePadding -> None, 
+                    ImagePadding -> Automatic, 
+                    BaselinePosition -> (Scaled[0.1] -> Baseline)], #2}}, 
+                    GridBoxAlignment -> {
+                    "Columns" -> {Center, Left}, "Rows" -> {{Baseline}}}, 
+                    AutoDelete -> False, 
+                    GridBoxDividers -> {
+                    "Columns" -> {{False}}, "Rows" -> {{False}}}, 
+                    GridBoxItemSize -> {
+                    "Columns" -> {{All}}, "Rows" -> {{All}}}, 
+                    GridBoxSpacings -> {
+                    "Columns" -> {{0.5}}, "Rows" -> {{0.8}}}], "Grid"]}}, 
+                  GridBoxAlignment -> {
+                   "Columns" -> {{Left}}, "Rows" -> {{Top}}}, AutoDelete -> 
+                  False, GridBoxItemSize -> {
+                   "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+                  GridBoxSpacings -> {"Columns" -> {{1}}, "Rows" -> {{0}}}], 
+                 "Grid"]}}, GridBoxAlignment -> {"Columns" -> {{Center}}}, 
+              AutoDelete -> False, 
+              GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+              GridBoxSpacings -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"],
+             Alignment -> Left, AppearanceElements -> None, ImageSizeAction -> 
+            "ResizeToFit"], LineIndent -> 0, StripOnInput -> False], {
+          FontFamily -> "Arial"}, StripOnInput -> False], Background -> 
+         Automatic, RoundingRadius -> 5, ContentPadding -> True, 
+         FrameMargins -> {{5, 5}, {5, 5}}, FrameStyle -> Thickness[0.01], 
+         StripOnInput -> False], TraditionalForm]& ), 
+      InterpretationFunction :> (RowBox[{"PointLegend", "[", 
+         RowBox[{
+           RowBox[{"{", 
+             RowBox[{
+               RowBox[{"Directive", "[", 
+                 RowBox[{
+                   RowBox[{"PointSize", "[", "0.011000000000000001`", "]"}], 
+                   ",", 
+                   InterpretationBox[
+                    ButtonBox[
+                    TooltipBox[
+                    GraphicsBox[{{
+                    GrayLevel[0], 
+                    RectangleBox[{0, 0}]}, {
+                    GrayLevel[0], 
+                    RectangleBox[{1, -1}]}, {
+                    RGBColor[0.368417, 0.506779, 0.709798], 
+                    RectangleBox[{0, -1}, {2, 1}]}}, DefaultBaseStyle -> 
+                    "ColorSwatchGraphics", AspectRatio -> 1, Frame -> True, 
+                    FrameStyle -> 
+                    RGBColor[
+                    0.24561133333333335`, 0.3378526666666667, 
+                    0.4731986666666667], FrameTicks -> None, PlotRangePadding -> 
+                    None, ImageSize -> 
+                    Dynamic[{
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                    StyleBox[
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.368417`", ",", "0.506779`", ",", "0.709798`"}],
+                     "]"}], NumberMarks -> False]], Appearance -> None, 
+                    BaseStyle -> {}, BaselinePosition -> Baseline, 
+                    DefaultBaseStyle -> {}, ButtonFunction :> 
+                    With[{Typeset`box$ = EvaluationBox[]}, 
+                    If[
+                    Not[
+                    AbsoluteCurrentValue["Deployed"]], 
+                    SelectionMove[Typeset`box$, All, Expression]; 
+                    FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+                    FrontEnd`Private`$ColorSelectorInitialColor = 
+                    RGBColor[0.368417, 0.506779, 0.709798]; 
+                    FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+                    MathLink`CallFrontEnd[
+                    FrontEnd`AttachCell[Typeset`box$, 
+                    FrontEndResource["RGBColorValueSelector"], {
+                    0, {Left, Bottom}}, {Left, Top}, 
+                    "ClosingActions" -> {
+                    "SelectionDeparture", "ParentChanged", 
+                    "EvaluatorQuit"}]]]], BaseStyle -> Inherited, Evaluator -> 
+                    Automatic, Method -> "Preemptive"], 
+                    RGBColor[0.368417, 0.506779, 0.709798], Editable -> False,
+                     Selectable -> False], ",", 
+                   RowBox[{"AbsoluteThickness", "[", "1.6`", "]"}]}], "]"}], 
+               ",", 
+               RowBox[{"Directive", "[", 
+                 RowBox[{
+                   RowBox[{"PointSize", "[", "0.011000000000000001`", "]"}], 
+                   ",", 
+                   InterpretationBox[
+                    ButtonBox[
+                    TooltipBox[
+                    GraphicsBox[{{
+                    GrayLevel[0], 
+                    RectangleBox[{0, 0}]}, {
+                    GrayLevel[0], 
+                    RectangleBox[{1, -1}]}, {
+                    RGBColor[0.880722, 0.611041, 0.142051], 
+                    RectangleBox[{0, -1}, {2, 1}]}}, DefaultBaseStyle -> 
+                    "ColorSwatchGraphics", AspectRatio -> 1, Frame -> True, 
+                    FrameStyle -> 
+                    RGBColor[
+                    0.587148, 0.40736066666666665`, 0.09470066666666668], 
+                    FrameTicks -> None, PlotRangePadding -> None, ImageSize -> 
+                    Dynamic[{
+                    Automatic, 
+                    1.35 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                    Magnification])}]], 
+                    StyleBox[
+                    RowBox[{"RGBColor", "[", 
+                    RowBox[{"0.880722`", ",", "0.611041`", ",", "0.142051`"}],
+                     "]"}], NumberMarks -> False]], Appearance -> None, 
+                    BaseStyle -> {}, BaselinePosition -> Baseline, 
+                    DefaultBaseStyle -> {}, ButtonFunction :> 
+                    With[{Typeset`box$ = EvaluationBox[]}, 
+                    If[
+                    Not[
+                    AbsoluteCurrentValue["Deployed"]], 
+                    SelectionMove[Typeset`box$, All, Expression]; 
+                    FrontEnd`Private`$ColorSelectorInitialAlpha = 1; 
+                    FrontEnd`Private`$ColorSelectorInitialColor = 
+                    RGBColor[0.880722, 0.611041, 0.142051]; 
+                    FrontEnd`Private`$ColorSelectorUseMakeBoxes = True; 
+                    MathLink`CallFrontEnd[
+                    FrontEnd`AttachCell[Typeset`box$, 
+                    FrontEndResource["RGBColorValueSelector"], {
+                    0, {Left, Bottom}}, {Left, Top}, 
+                    "ClosingActions" -> {
+                    "SelectionDeparture", "ParentChanged", 
+                    "EvaluatorQuit"}]]]], BaseStyle -> Inherited, Evaluator -> 
+                    Automatic, Method -> "Preemptive"], 
+                    RGBColor[0.880722, 0.611041, 0.142051], Editable -> False,
+                     Selectable -> False], ",", 
+                   RowBox[{"AbsoluteThickness", "[", "1.6`", "]"}]}], "]"}]}],
+              "}"}], ",", 
+           RowBox[{"{", 
+             RowBox[{#, ",", #2}], "}"}], ",", 
+           RowBox[{"LegendMarkers", "\[Rule]", 
+             RowBox[{"{", 
+               RowBox[{
+                 RowBox[{"{", 
+                   RowBox[{"False", ",", "Automatic"}], "}"}], ",", 
+                 RowBox[{"{", 
+                   RowBox[{"False", ",", "Automatic"}], "}"}]}], "}"}]}], ",", 
+           RowBox[{"Joined", "\[Rule]", 
+             RowBox[{"{", 
+               RowBox[{"False", ",", "False"}], "}"}]}], ",", 
+           RowBox[{"LabelStyle", "\[Rule]", 
+             RowBox[{"{", "}"}]}], ",", 
+           RowBox[{"LegendFunction", "\[Rule]", "\"Frame\""}], ",", 
+           RowBox[{"LegendLabel", "\[Rule]", "\"Atoms\""}], ",", 
+           RowBox[{"LegendLayout", "\[Rule]", "\"Column\""}]}], "]"}]& ), 
+      Editable -> True], TraditionalForm], TraditionalForm]},
+  "Legended",
+  DisplayFunction->(GridBox[{{
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"], 
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, GridBoxItemSize -> Automatic, 
+    BaselinePosition -> {1, 1}]& ),
+  Editable->True,
+  InterpretationFunction->(RowBox[{"Legended", "[", 
+     RowBox[{#, ",", 
+       RowBox[{"Placed", "[", 
+         RowBox[{#2, ",", "After"}], "]"}]}], "]"}]& )]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->1688699559,ExpressionUUID->"019196ae-fdac-4932-ae12-4c3b289289b3"]
+}, Open  ]],
+
+Cell[TextData[{
+ "For the construction of the tight-binding model it is necessary to \
+construct a real space cluster. This cluster is reordered into different \
+shells corresponding to nearest neighbor, next nearest neighbor, next next \
+nearest neighbor interactions, etc. The respective commands to do so are ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTCluster"]], "paclet:GroupTheory/ref/GTCluster", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "cd3b334c-9ac8-4e62-a7d5-48ffb8c81767"],
+ " and ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTShells"]], "paclet:GroupTheory/ref/GTShells", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "632a9942-bdd8-4a4b-a104-43b8f0523dd7"],
+ ". Originating from each of the two carbon atoms in the unit cell we choose \
+to construct a cluster of a radius of 3 a.u. about both atoms. Using the \
+option ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GOTbLattice"]], "paclet:GroupTheory/ref/GOTbLattice", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "a14f77c8-d268-48b8-88af-e4bf92693c56"],
+ " one can specify which interaction are to be taken into account. Here we \
+choose a nearest neighbor tight-binding model, where only the first shell of \
+the two nonequivalent carbon atoms is taken into account. We furthermore set \
+the onsite interaction to zero. Using ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GOPosition"]], "paclet:GroupTheory/ref/GOPosition", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "217a5de2-5d9a-48a2-9502-6c02a21695f9"],
+ " we set the algorithm to work in relative coordinates."
+}], "MathCaption",
+ CellID->1785522660,ExpressionUUID->"db493a7c-dfa3-401f-b4a2-97303f416006"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"cl", "=", 
+   RowBox[{"GTCluster", "[", 
+    RowBox[{"hcp", ",", "3", ",", 
+     RowBox[{"GOLattice", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"a", "->", "1"}], "}"}]}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bas0", "=", 
+   RowBox[{
+    RowBox[{"hcp", "[", 
+     RowBox[{"[", "7", "]"}], "]"}], " ", "/.", 
+    RowBox[{"{", 
+     RowBox[{"a", "\[Rule]", "1"}], "}"}]}]}], ";", " ", 
+  RowBox[{"shells", "=", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "2"}], "}"}]}], ";"}]}], "Input",
+ CellLabel->"In[4]:=",
+ CellID->984533705,ExpressionUUID->"0b359f3d-e195-4bc3-ba2c-5051131a1c98"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"25", "\[InvisibleSpace]", "\<\" atoms\"\>"}],
+  SequenceForm[25, " atoms"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[41]:=",
+ CellID->780061894,ExpressionUUID->"a5297023-5484-433f-af4b-2f834178a816"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Atoms in cluster: \"\>", "\[InvisibleSpace]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\<\"C1\"\>", ",", "13"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\<\"C2\"\>", ",", "12"}], "}"}]}], "}"}]}],
+  SequenceForm["Atoms in cluster: ", {{"C1", 13}, {"C2", 12}}],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[41]:=",
+ CellID->1723511254,ExpressionUUID->"b88c8df4-e79f-42a6-88e0-ff57d2d4bdd2"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lat", "=", 
+   RowBox[{"GTShells", "[", 
+    RowBox[{"cl", ",", "bas0", ",", "shells", ",", 
+     RowBox[{"GOVerbose", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"GOTbLattice", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<C1,C1\>\"", ",", 
+          RowBox[{"{", "0", "}"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"\"\<C2,C2\>\"", ",", 
+          RowBox[{"{", "0", "}"}]}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"\"\<C1,C2\>\"", ",", 
+          RowBox[{"{", "1", "}"}]}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"GOPosition", "\[Rule]", "\"\<Relative\>\""}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[5]:=",
+ CellID->136108687,ExpressionUUID->"6fdf8a9a-e56a-4f17-9e85-ad89b0797163"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"Basis\"\>", "\<\"dist\"\>", "\<\"Atoms\"\>", "\<\"dist\"\>", \
+"\<\"Atoms\"\>"},
+    {"\<\"C1\"\>", "1", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\<\"C1\"\>", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\<\"C2\"\>", ",", "3"}], "}"}]}], "}"}], 
+     SqrtBox["3"], 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\<\"C1\"\>", ",", "7"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\<\"C2\"\>", ",", "3"}], "}"}]}], "}"}]},
+    {"\<\"C2\"\>", "1", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\<\"C1\"\>", ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\<\"C2\"\>", ",", "1"}], "}"}]}], "}"}], 
+     SqrtBox["3"], 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\<\"C1\"\>", ",", "3"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"\<\"C2\"\>", ",", "7"}], "}"}]}], "}"}]}
+   },
+   AutoDelete->False,
+   GridBoxBackground->{"Columns" -> {
+       RGBColor[1, 0.5, 0.5], None}, "Rows" -> {
+       RGBColor[1, 0.5, 0.5], None}, 
+     "ItemsIndexed" -> {{1, 1} -> RGBColor[1, 1, 0]}},
+   GridBoxDividers->{
+    "ColumnsIndexed" -> {
+      2 -> RGBColor[1, 0, 0], 3 -> GrayLevel[0], 4 -> 
+       GroupTheory`Symbols`GTDividerColor2, 5 -> GrayLevel[0], 6 -> 
+       GroupTheory`Symbols`GTDividerColor2}, 
+     "RowsIndexed" -> {2 -> RGBColor[1, 0, 0]}},
+   GridBoxFrame->{"ColumnsIndexed" -> {{{1, -1}, {1, -1}} -> True}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Print",
+ CellLabel->"During evaluation of In[43]:=",
+ CellID->1677869983,ExpressionUUID->"71974c83-e4f2-4a1b-ae40-198a93600645"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Using the information for the corresponding shells as well as an orbital \
+basis, a tight-binding Hamiltonian is constructed using ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTTbHamiltonian"]], "paclet:GroupTheory/ref/GTTbHamiltonian", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "31b4c079-d9f1-49c4-86d0-fad7f3d61928"],
+ ". The orbital basis is specified as a list containing : i) the name of the \
+site or type; ii) the number of atoms of this type; iii) a list of angular \
+momenta to be taken into account. In our example we consider s\[Dash](l = 0) \
+and p - orbitals (l = 1) only, so the angular momentum information is {0, 1}. \
+To obtain a better overview of the non-zero matrix elements of the \
+Hamiltonian, ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTHamiltonianPlot"]], 
+    "paclet:GroupTheory/ref/GTHamiltonianPlot", "GroupTheory Package Symbol"},
+   
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "d10d6ca0-37bb-4eaf-96a9-c722e4df4080"],
+ " is used."
+}], "MathCaption",
+ CellID->211400516,ExpressionUUID->"fe10d437-d1f2-40f3-bd45-bfee74991c1f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"bas", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\"\<C1\>\"", ",", "1", ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\"\<C2\>\"", ",", "1", ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}]}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"hamc", "=", 
+   RowBox[{"GTTbHamiltonian", "[", 
+    RowBox[{"bas", ",", "lat"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"GTHamiltonianPlot", "[", 
+  RowBox[{"hamc", ",", "bas"}], "]"}]}], "Input",
+ CellLabel->"In[6]:=",
+ CellID->1427663228,ExpressionUUID->"cb5dc945-3507-4825-a35b-c9bcf3fe8012"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\" \"\>", "\<\"s\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \
+\\(y\\)]\\)\"\>", "\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\"\
+\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", "\<\"s\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", \
+"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>"},
+    {"\<\"s\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"},
+    {"\<\"s\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(y\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(z\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"},
+    {"\<\"\\!\\(\\*SubscriptBox[\\(p\\), \\(x\\)]\\)\"\>", "\<\" \"\>", "\<\" \
+\"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \"\>", "\<\" \
+\"\>"}
+   },
+   AutoDelete->False,
+   ColumnsEqual->True,
+   GridBoxBackground->{
+    "Columns" -> {{None}}, "Rows" -> {{None}}, 
+     "ItemsIndexed" -> {{2, 2} -> RGBColor[1, 0.5, 0.5], {2, 6} -> 
+       RGBColor[1, 0.5, 0.5], {2, 7} -> RGBColor[1, 0.5, 0.5], {2, 9} -> 
+       RGBColor[1, 0.5, 0.5], {3, 3} -> RGBColor[1, 0.5, 0.5], {3, 6} -> 
+       RGBColor[1, 0.5, 0.5], {3, 7} -> RGBColor[1, 0.5, 0.5], {3, 9} -> 
+       RGBColor[1, 0.5, 0.5], {4, 4} -> RGBColor[1, 0.5, 0.5], {4, 8} -> 
+       RGBColor[1, 0.5, 0.5], {5, 5} -> RGBColor[1, 0.5, 0.5], {5, 6} -> 
+       RGBColor[1, 0.5, 0.5], {5, 7} -> RGBColor[1, 0.5, 0.5], {5, 9} -> 
+       RGBColor[1, 0.5, 0.5], {6, 2} -> RGBColor[1, 0.5, 0.5], {6, 3} -> 
+       RGBColor[1, 0.5, 0.5], {6, 5} -> RGBColor[1, 0.5, 0.5], {6, 6} -> 
+       RGBColor[1, 0.5, 0.5], {7, 2} -> RGBColor[1, 0.5, 0.5], {7, 3} -> 
+       RGBColor[1, 0.5, 0.5], {7, 5} -> RGBColor[1, 0.5, 0.5], {7, 7} -> 
+       RGBColor[1, 0.5, 0.5], {8, 4} -> RGBColor[1, 0.5, 0.5], {8, 8} -> 
+       RGBColor[1, 0.5, 0.5], {9, 2} -> RGBColor[1, 0.5, 0.5], {9, 3} -> 
+       RGBColor[1, 0.5, 0.5], {9, 5} -> RGBColor[1, 0.5, 0.5], {9, 9} -> 
+       RGBColor[1, 0.5, 0.5]}},
+   GridBoxDividers->{
+    "ColumnsIndexed" -> {2 -> RGBColor[1, 0, 0]}, 
+     "RowsIndexed" -> {2 -> RGBColor[1, 0, 0]}},
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{},
+   RowsEqual->True],
+  "Grid"]], "Output",
+ CellLabel->"Out[6]=",
+ CellID->60182276,ExpressionUUID->"20060be8-3b21-4171-813c-4ef79550b926"]
+}, Open  ]],
+
+Cell[TextData[{
+ "As can be verified, all orbitals with in - plane components hybridize, \
+i.e., s -, ",
+ Cell[BoxData[
+  SubscriptBox["p", "x"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "db5ccd77-15a2-48b2-b049-c943bdc202a4"],
+ " -, and ",
+ Cell[BoxData[
+  SubscriptBox["p", "y"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "893182ad-9918-4b2f-a30e-f9565bcc054d"],
+ " - orbitals. However, the ",
+ Cell[BoxData[
+  SubscriptBox["p", "z"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "56a96cdb-e3ee-4c7e-96e1-f991c27751e5"],
+ "-orbitals do not hybridize with any of the other orbitals, leading to a 2x2 \
+sub-matrix which is extracted from the full Hamiltonian in the following. \
+Furthermore, we apply ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBZPath"]], "paclet:GroupTheory/ref/GTBZPath", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "ca01e140-c1ce-4129-abe8-2bc749ba3f1b"],
+ " to obtain a standard path for the band structure calculation."
+}], "MathCaption",
+ CellID->1262258684,ExpressionUUID->"0fcaec4d-2779-4b35-84c8-4cbca139c0b3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"hpp", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"hamc", "[", 
+        RowBox[{"[", 
+         RowBox[{"3", ",", "3"}], "]"}], "]"}], ",", 
+       RowBox[{"hamc", "[", 
+        RowBox[{"[", 
+         RowBox[{"3", ",", "7"}], "]"}], "]"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"hamc", "[", 
+        RowBox[{"[", 
+         RowBox[{"7", ",", "3"}], "]"}], "]"}], ",", 
+       RowBox[{"hamc", "[", 
+        RowBox[{"[", 
+         RowBox[{"7", ",", "7"}], "]"}], "]"}]}], "}"}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellLabel->"In[7]:=",
+ CellID->728985210,ExpressionUUID->"d5e9fb0b-c6af-478f-9e50-e71d665ec441"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"kp", "=", 
+  RowBox[{"GTBZPath", "[", "\"\<Honeycomb\>\"", "]"}]}]], "Input",
+ CellLabel->"In[8]:=",
+ CellID->644724534,ExpressionUUID->"219c9d8e-9d57-4c8e-9be7-84cd7460e47a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["2", 
+         RowBox[{"3", " ", 
+          SqrtBox["3"]}]]}], ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["1", 
+        RowBox[{"2", " ", 
+         SqrtBox["3"]}]], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "6"]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox["2", 
+        RowBox[{"3", " ", 
+         SqrtBox["3"]}]], ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"\<\"K'\"\>", ",", "\<\"\[CapitalGamma]\"\>", ",", "\<\"M\"\>", 
+     ",", "\<\"K\"\>"}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[8]=",
+ CellID->1337540457,ExpressionUUID->"526b5d13-4fe8-493b-a995-4bb86885b0d0"]
+}, Open  ]],
+
+Cell[TextData[{
+ "The final band structure plot is obtained using the command ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBandStructure"]], "paclet:GroupTheory/ref/GTBandStructure", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "fa206c11-71bb-4926-93a1-facf88e6df65"],
+ ". We set the on-site energies to zero and choose a value of 1 (in arbitrary \
+units) for the nearest neighbor hopping strength. ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBandStructure"]], "paclet:GroupTheory/ref/GTBandStructure", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "4aa01e27-af0d-4e1f-a4d3-ae5cb66578e9"],
+ " requires the Hamiltonian, the high-symmetry points of the Brillouin zone \
+path, the number of mesh points used along each segment of the Brillouin zone \
+path, as well as the number of bands to be plotted."
+}], "MathCaption",
+ CellID->159582237,ExpressionUUID->"e360636a-77d3-4d9a-8249-995a3d92a30a"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"hamrule", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      TemplateBox[{"\"(pp0)\"", "\"C1\""},
+       "Superscript"], "\[Rule]", "0"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"(pp0)\"", "\"C2\""},
+       "Superscript"], "\[Rule]", "0"}], ",", 
+     RowBox[{
+      TemplateBox[{"\"(pp\[Pi])\"", "1", "\"C1,C2\""},
+       "Subsuperscript"], "\[Rule]", "1."}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"hparm", "=", 
+   RowBox[{"hpp", " ", "/.", " ", "hamrule"}]}], ";"}]}], "Input",
+ CellLabel->"In[9]:=",
+ CellID->1819954872,ExpressionUUID->"b84b865f-61dd-446a-88fb-876e897473c5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTBandStructure", "[", 
+  RowBox[{"hparm", ",", "kp", ",", "25", ",", "2", ",", 
+   RowBox[{"Joined", "\[Rule]", "True"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\< \>\"", ",", "\"\<Energy (arb. units)\>\""}], "}"}]}], ",", 
+   " ", "\[IndentingNewLine]", 
+   RowBox[{"PlotLabel", "\[Rule]", "\"\<\[Pi]-electrons in Graphene\>\""}]}], 
+  "]"}]], "Input",
+ CellLabel->"In[10]:=",
+ CellID->1968906856,ExpressionUUID->"62fb1927-e5af-4c2c-895d-bc8f464735ba"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Maximum Abscissa = \"\>", "\[InvisibleSpace]", 
+   "0.9106836025229591`"}],
+  SequenceForm["Maximum Abscissa = ", 0.9106836025229591],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[51]:=",
+ CellID->1605304013,ExpressionUUID->"44725ff3-8abd-4882-b6c7-1082dbb78b25"],
+
+Cell[BoxData[
+ GraphicsBox[{{{}, {{}, {}, 
+     {RGBColor[0, 0, 1], PointSize[0.009166666666666668], AbsoluteThickness[
+      1.6], LineBox[CompressedData["
+1:eJxd030w3EcYB/AjOG9jZIwjGkpI0niLhqq54pEURb02lRg1oYmMaESmyCRK
+RYho3kQrnXhpvdfbdDCKSCLZ9VKCw905jjsc5+1e+YUQDqPt/K79ozuzs/PM
+7n6fzx+7FuevfnFRlUKh+P49/1n/P+Lt0kWH4nKhudjC0m+4C5F1KdBEUlqD
+Cwcd8cQRTuU1IFydSFUTTCv3G8HVW4FXhfOo36W03Ca7GXDkcIh2nER5vg3I
+dALdCpqhub1sB/NgY66ib1V5H4NwMqPkTs46OuiY61Wd3Ak+mX0z7j6byrxu
+UKh70TlvFOiGe+New+MesGYUvaDd2VXmv1bmUzDHl/msraEf2q3cU8/ZqWCy
+HwP0dMxq+T6q+HgokdjRPwSLv4JjUPA+TPZnwsGaGNbTk2rYy0HTaCGBBZVd
+92zhPXVMetgQesQ2yY2vjtc+Mk6KTR+BZikt3zVdA5M+DuTQjllsa1Jx2Scf
+sOQPR+FeZGVFfBIVk94x0M3x6Pmzg4qDTrrYJxRxgaWty4slqJj0jyv9mjiS
+XfFzZ9YEjLSaSALfUnF+VPZQcCwPihyNev1ZVMxc/oYq8OfD6aQBXbsnVKz1
+faDHFYdJuFanGPfypuJTOieStw2m4HbO15n6Ag2cUmDYdPfdFITVVmRan9fA
+zUe3JEb8aThr5Pr6DFMdy1smLateCUC8ya69aa2ODQ5F2ZuEzMAFvzPPn32r
+ho+LWX6znTOwobI28Fn1Puzf+GlMjdMsFJ7dayllqOJL11syr1bNQu3bJ0XX
+51RwlvvRUmdjIajRA9m9cgouUy9o370rhJh+TUMGfw+9YmhPdG8LIWMwwurE
+4C7i5aWu378yB7X+YaLvWrfRRvjy/tOCObCW27sSJVuI9MzDZntU4WbeO0R6
+5sFGa3lwoGQdkZ4F0OlLyqNz1hDpWQCFZeBTR+9VRHoWwdxMbcJF7w0iPYsg
+asu9leZFKD2L/73PxMHfo6+5LcHy/ea1GGIFHRsKJA7fXAJPG4dL1R0rSDBE
+pIzhJXBmjR8eTVxBj4d/omarisDeRfWAEXUF+TGd8j72FEGcOAHKU5YRhTVm
+JsoSgXXajznPWXLUyrpRl98rgo4Gb3aTlhxdZps4+2qJwSW88rbMUoYsRto7
+tvzE8MDkYjHXXIq4I+cC6h6IgVn/VdQqRYIecigT4UNiENbLDPu6RejUaHm0
+jr4EQgsametxS2hz1JN4ESKB97MiTc0VC6h+bDElLk8COXo2TTtx8+gC9weq
+6agErHzraQE9QnRg3DpvkCaFhNJiL4HGLBoeZ5ilhUnBgM7NNYmcRlkT8XX2
+hVL4cGWnIDmDh+g8fWcBXwq/ZBRefpk8hgheU8cjUxkkhBE+U95sVMX/MsAj
+Ugb+JTU7fdwBFDG5MU6UyqD7c2HX0mgn2j+VH10mlEHdbyq2K8Z/oN4pOhFi
+Jf/3/1L+Akz+VO4=
+       "]]}, 
+     {RGBColor[0, 0, 1], PointSize[0.009166666666666668], AbsoluteThickness[
+      1.6], LineBox[CompressedData["
+1:eJxd03kw3GcYB/AlWNcYGZMlGkpI0iCioWoU3zcpioqjqcSoCU1kRCPJFJlE
+qQgRzSVa6cTRxhF1TQejyCUZV4l7dx2LJcu69uQXQliMtvPb9o++M++888z7
+vt/n88f7mp+6+MUZVQaD4f33/Gf9/7hwIFm0OzoTtQ/NLXz6WkDXBWCJpKwq
+pwHsdW8MdSgqg3BxJFFN8Fq5Xw0XT0XjonAanU4FRdbptWgM6wvUjpYozz8B
+nU7hmv8Ey/VFA8wCjHiKjkXl/UYIx1Lyb2QsY5d9pkdpfDO8Ujsm3LxWlXmt
+UKh7OA+8UeCKW/VW1f02WHXnPWfd2FTmv1LmM8iAN/vpk6pONFi6JZ48oELo
+ft3Q0zEt53upkoNBVGxTZy9mf4W9f8A2QvdnY1dZJOfxYTXiYadpOBPDQXHL
+LRu8p05oDxdBe23iXPnqZOkjo7io5H7USlnZLskahPYNIIO133xdk0kKP/mA
+I787iFthxY8uxDEJ7R2CbgZp+7OJSfwPO9nG5PHA0dYdjaKYhPYPK/2aJIz7
+6OfmtBH01xtL/N4ySXZ4em9A1Cjy7A3bfTlMwp7/hinw5eNYXJfugQdMovW9
+HzlvN4ZLFYphD08mOaJzKH7dYBzXM75O1RdokIScHTU3340juPxRqtUpDVK7
+b01iyH+NE4Yur46z1Ym8bsyi5KUA4lVu+VUrdWKwO9zWOHACp32OP3v6rRo5
+KOb4TDZPYEVlqeuz0m3Et/rTyDKHSeSe2Kor6FYlZy/XpV4smUT52wd5l6dU
+SJrbvgJHIyHUnP247XIGKVTPadi8KURkp+aObv4WXnZrj7SuC5HSE2p5qGcT
+o1mJy7fPT6HcN1j0Xf06VkLmtx8TTMFKbutC5a+B9kxjtSE8dzXrHWjPNKy1
+5nu68pdBe2ag0xGX5TywBNozA4WF32N7z0XQnlmYmaqNOOm9Ae2ZhehJ5rUk
+D0rpmf3vfcb2/B5xyXUO87drlyKpBezv9aP2XJ2Du7Xd2dKmBQh6qYShxjk4
+cob3DMYu4H7fT8x0VRFsnVR3GjIX4MN2yPrYXYRocQyKEubB4AyZitJEsEr6
+MeMZR456zpWK7HYRmqo8uTVacpzjGjt6a4nhFFJ8XWYhg3l/Q9Oajxh3jM88
+5JlJwes/ebTijhjsyq/CFxkS3B1gjIT0iiGslO3oaBXhyGBRhI6+BEE51ezl
+6DmsDrpTzwMleD8tzMRMMYPKodmE6CwJMvSsazaip3Ga9wPTZFACS+9K1tE2
+IXYOW2X1sKSIKXjoIdCYRN9wt2lSsBQGzrxM47DXSBu5UGGbK8WHCxs58Smj
+cB7VdxTwpfglJffci/ghUKM1TfdMZIgJprzGPbko4X95lITJ4JtfttHB60Lo
+2MowVSBD6+fClrnBZmwfz44oFMpQ8ZuKzYLRH2gfd6YCLeX//l/GX0TOMW4=
+
+       "]]}}, {}, {}, {}, {}}, {{}, {{}, {}, 
+     {GrayLevel[0], PointSize[
+       NCache[
+        Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6], 
+      LineBox[{{0.3849001794597505, -13.}, {0.3849001794597505, 13.}}]}, 
+     {GrayLevel[0], PointSize[
+       NCache[
+        Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6], 
+      LineBox[{{0.7182335127930839, -13.}, {0.7182335127930839, 13.}}]}, 
+     {GrayLevel[0], PointSize[
+       NCache[
+        Rational[7, 360], 0.019444444444444445`]], AbsoluteThickness[1.6], 
+      LineBox[{{0.9106836025229591, -13.}, {0.9106836025229591, 
+       13.}}]}}, {}, {}, {}, {}}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  DisplayFunction->Identity,
+  Epilog->{{
+     InsetBox[
+      FormBox[
+       StyleBox["\"\"", {{20, 
+          RGBColor[
+           Rational[2, 3], 0, 0]}}, StripOnInput -> False], 
+       TraditionalForm], {0, 0}]}, {
+     InsetBox[
+      FormBox[
+       StyleBox["\"\"", {{20, 
+          RGBColor[
+           Rational[2, 3], 0, 0]}}, StripOnInput -> False], TraditionalForm], 
+      
+      NCache[{Rational[2, 3] 3^Rational[-1, 2], -3.}, {
+       0.3849001794597505, -3.}]]}, {
+     InsetBox[
+      FormBox[
+       StyleBox["\"\"", {{20, 
+          RGBColor[
+           Rational[2, 3], 0, 0]}}, StripOnInput -> False], TraditionalForm], 
+      
+      NCache[{Rational[1, 3] + Rational[2, 3] 3^Rational[-1, 2], -1.}, {
+       0.7182335127930839, -1.}]]}, {
+     InsetBox[
+      FormBox[
+       StyleBox["\"\"", {{20, 
+          RGBColor[
+           Rational[2, 3], 0, 0]}}, StripOnInput -> False], TraditionalForm], 
+      
+      NCache[{
+       Rational[1, 3] + Rational[1, 4] 3^Rational[-1, 2] + 
+        Rational[1, 4] 3^Rational[1, 2], 0}, {0.9106836025229591, 0}]]}, {
+     InsetBox[
+      FormBox[
+       StyleBox["\"\"", {{20, 
+          RGBColor[
+           Rational[2, 3], 0, 0]}}, StripOnInput -> False], 
+       TraditionalForm], {0, 0}]}, {
+     InsetBox[
+      FormBox[
+       StyleBox["\"\"", {{20, 
+          RGBColor[
+           Rational[2, 3], 0, 0]}}, StripOnInput -> False], TraditionalForm], 
+      
+      NCache[{Rational[2, 3] 3^Rational[-1, 2], 3.}, {0.3849001794597505, 
+       3.}]]}, {
+     InsetBox[
+      FormBox[
+       StyleBox["\"\"", {{20, 
+          RGBColor[
+           Rational[2, 3], 0, 0]}}, StripOnInput -> False], TraditionalForm], 
+      
+      NCache[{Rational[1, 3] + Rational[2, 3] 3^Rational[-1, 2], 1.}, {
+       0.7182335127930839, 1.}]]}, {
+     InsetBox[
+      FormBox[
+       StyleBox["\"\"", {{20, 
+          RGBColor[
+           Rational[2, 3], 0, 0]}}, StripOnInput -> False], TraditionalForm], 
+      
+      NCache[{
+       Rational[1, 3] + Rational[1, 4] 3^Rational[-1, 2] + 
+        Rational[1, 4] 3^Rational[1, 2], 0}, {0.9106836025229591, 0}]]}},
+  Frame->{{True, True}, {True, True}},
+  FrameLabel->{{
+     FormBox["\"Energy (arb. units)\"", TraditionalForm], None}, {
+     FormBox["\" \"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {{{0, 
+       FormBox["\"K'\"", TraditionalForm]}, {
+       NCache[Rational[2, 3] 3^Rational[-1, 2], 0.3849001794597505], 
+       FormBox["\"\[CapitalGamma]\"", TraditionalForm]}, {
+       NCache[
+       Rational[1, 3] + Rational[2, 3] 3^Rational[-1, 2], 0.7182335127930839], 
+       FormBox["\"M\"", TraditionalForm]}, {
+       NCache[
+       Rational[1, 3] + Rational[1, 4] 3^Rational[-1, 2] + 
+        Rational[1, 4] 3^Rational[1, 2], 0.9106836025229591], 
+       FormBox["\"K\"", TraditionalForm]}}, {{0, 
+       FormBox["\"K'\"", TraditionalForm]}, {
+       NCache[Rational[2, 3] 3^Rational[-1, 2], 0.3849001794597505], 
+       FormBox["\"\[CapitalGamma]\"", TraditionalForm]}, {
+       NCache[
+       Rational[1, 3] + Rational[2, 3] 3^Rational[-1, 2], 0.7182335127930839], 
+       FormBox["\"M\"", TraditionalForm]}, {
+       NCache[
+       Rational[1, 3] + Rational[1, 4] 3^Rational[-1, 2] + 
+        Rational[1, 4] 3^Rational[1, 2], 0.9106836025229591], 
+       FormBox["\"K\"", TraditionalForm]}}}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImagePadding->All,
+  Method->{"CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+        (Identity[#]& )[
+         Part[#, 1]], 
+        (Identity[#]& )[
+         Part[#, 2]]}& )}},
+  PlotLabel->FormBox["\"\[Pi]-electrons in Graphene\"", TraditionalForm],
+  PlotRange->{{0, 0.9106836025229591}, {-3., 3.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellLabel->"Out[10]=",
+ CellID->1235296409,ExpressionUUID->"50d1f480-bfad-48f6-916f-4d99dce7d1a9"]
+}, Open  ]],
+
+Cell[TextData[{
+ "For large Hamiltonians it can be useful to store the calculated band \
+structure as well as the wave function coefficients. To do so, ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBands"]], "paclet:GroupTheory/ref/GTBands", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "deaaf92a-03f3-494c-a90b-2e2f4c8a18a1"],
+ " can be used, specifying the option ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GOStore"]], "paclet:GroupTheory/ref/GOStore", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "a32797c3-b566-42ea-9930-e2c8f31020de"],
+ ". ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBands"]], "paclet:GroupTheory/ref/GTBands", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "f6b5ecec-df54-4788-bb81-0656631668a5"],
+ " requires the actual k-points, which we obtain from the high-symmetry \
+points using ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTBZLines"]], "paclet:GroupTheory/ref/GTBZLines", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "0aebc2b5-7c3d-45a2-8e70-55abb7fd7e75"],
+ "."
+}], "MathCaption",
+ CellID->2031355388,ExpressionUUID->"be89259d-b7de-4d25-8604-06463c407288"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"kpl", "=", 
+   RowBox[{
+    RowBox[{"GTBZLines", "[", 
+     RowBox[{"kp", ",", 
+      RowBox[{"{", 
+       RowBox[{"25", ",", "25", ",", "25", ",", "25"}], "}"}]}], "]"}], "//", 
+    "N"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"bands", "=", 
+   RowBox[{"GTBands", "[", 
+    RowBox[{"hparm", ",", "kpl", ",", "2", ",", 
+     RowBox[{"GOEigenvectors", "\[Rule]", "True"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"GOStore", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"\"\<graphene.bnd\>\"", ",", "\"\<graphene.wf\>\""}], 
+       "}"}]}]}], "]"}]}], ";"}]}], "Input",
+ CellLabel->"In[11]:=",
+ CellID->1843863650,ExpressionUUID->"ab530b53-975d-4976-9b84-11c306548759"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Write to file: \"\>", 
+   "\[InvisibleSpace]", "\<\"graphene.bnd\"\>"}],
+  SequenceForm["Write to file: ", "graphene.bnd"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[52]:=",
+ CellID->676316556,ExpressionUUID->"140c960f-42f5-4231-8827-92ec9e756070"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Write to file: \"\>", 
+   "\[InvisibleSpace]", "\<\"graphene.wf\"\>"}],
+  SequenceForm["Write to file: ", "graphene.wf"],
+  Editable->False]], "Print",
+ CellLabel->"During evaluation of In[52]:=",
+ CellID->1316753097,ExpressionUUID->"56448319-e20f-44db-8cad-1497e1d89ff7"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "TutorialMoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[TextData[Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData[
+             StyleBox[{"W. Hergert, R. M. Geilhufe, ", 
+               StyleBox[
+               "Group Theory in Solid State Physics and Photonics: Problem \
+Solving with Mathematica, Wiley-VCH, ISBN: 978-3-527-41133-7 (2018)", 
+                FontSlant -> "Italic"], "."}]]], "http://gtpack.org/book/"},
+          "WebLink",
+          BaseStyle->{"TutorialMoreAboutSection"}]],ExpressionUUID->
+         "c8cbf2f4-f6ec-49b4-bf4b-ccbc85200cf1"]], "TutorialMoreAbout",
+         ExpressionUUID->"9beff5d2-2c57-449f-8fbb-0dab660d5d61"]}]}
+     }]}
+  }]], "TutorialMoreAboutSection",ExpressionUUID->"27ff084a-6efd-4bd2-9af3-\
+843ef2fe0e2e"],
+
+Cell[BoxData[""], "Input",ExpressionUUID->"de23df66-9e53-4683-923e-45c2d5d84ec5"],
+
+Cell[BoxData[""], "Input",ExpressionUUID->"3b0e016c-bfae-4021-b720-4f041acdf930"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[" ", "FooterCell",ExpressionUUID->"024daf05-e997-44f3-a365-4a2d9ab0c983"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{55.5, Automatic}, {Automatic, 20.25}},
+WindowTitle->"Tight-binding electronic structure of graphene",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, "ExampleSection" -> {"0" -> Open}}, 
+  "NewStyles" -> True, "CitationPopupData" -> {$Failed, ""}, "ShowCitation" -> 
+  False, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 59, 49.665137}", 
+    "history" -> {"1.1", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Tutorial", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "We illustrate the generation of effective tight-binding Hamiltonians in \
+the two-center Slater-Koster formalism for the 2-dimensional carbon allotrope \
+graphene. Graphene crystallizes in a 2-dimensional honeycomb lattice with two \
+atoms in the primitive unit cell. In GTPack, structures are specified as a \
+list, where the list contains the name of the structure and a prototype, four \
+different names for the space group (Pearson symbol, Strukturbericht \
+designation, international notation, and space group number), the lattice, \
+and the sites containing the atom name and the atom position. Note that the \
+first five information are optional and not important for the generation of \
+the tight-binding model. The structure itself can be plotted using \
+GTPlotStructure2D. In our example we choose the lattice constant to be a = 1 \
+a.u. and plot the structure within a radius of 5 a.u.. For the construction \
+of the tight-binding model it is necessary to construct a real space cluster. \
+This cluster is reordered into different shells corresponding to nearest \
+neighbor, next nearest neighbor, next next nearest neighbor interactions, \
+etc. The respective commands to do so are GTCluster and GTShells. Originating \
+from each of the two carbon atoms in the unit cell we choose to construct a \
+cluster of a radius of 3 a.u. about both atoms. Using the option GOTbLattice \
+one can specify which interaction are to be taken into account. Here we \
+choose a nearest neighbor tight-binding model, where only the first shell of \
+the two nonequivalent carbon atoms is taken into account. We furthermore set \
+the onsite interaction to zero. Using GOPosition we set the algorithm to work \
+in relative coordinates.", "synonyms" -> {}, "tabletags" -> 
+    DocumentationBuild`Make`Private`tabletaggingrules$265662, "title" -> 
+    "Tight-binding electronic structure of graphene", "titlemodifier" -> "", 
+    "metadescription" -> "", "windowtitle" -> 
+    "Tight-binding electronic structure of graphene", "type" -> "Tutorial", 
+    "uri" -> "GroupTheory/tutorial/TightBindingGraphene"}},
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> Notebook], 
+   Cell[
+    StyleData["Output"], CellContext -> Notebook], 
+   Cell[
+    StyleData["TutorialMoreAboutSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["RelatedTutorialsSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}], 
+   Cell[
+    StyleData["TutorialRelatedLinksSection"], 
+    CellGroupingRules -> {"SectionGrouping", 30}]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"7a6ec689-cbdc-4b46-9965-d56808687e15"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[618, 21, 6090, 142, 56, "AnchorBarGrid",ExpressionUUID->"fa270c02-3eda-4d98-8b58-1431504b25d6",
+ CellID->1],
+Cell[CellGroupData[{
+Cell[6733, 167, 147, 4, 160, "Title",ExpressionUUID->"064a379e-6255-49aa-81f3-1509f69671a8",
+ CellID->509267359],
+Cell[6883, 173, 264, 5, 60, "Text",ExpressionUUID->"48cdca93-20d2-4300-8572-84dffd61a5d6",
+ CellID->1534169418],
+Cell[7150, 180, 2816, 72, 245, "DefinitionBox",ExpressionUUID->"510a82ca-aef2-4bcb-904e-3f0939c38df5",
+ CellID->2096742444],
+Cell[9969, 254, 1154, 22, 133, "MathCaption",ExpressionUUID->"b7373d71-f0c2-4911-879f-55e33f1b762c",
+ CellID->836781195],
+Cell[11126, 278, 176, 3, 27, "Input",ExpressionUUID->"63c03637-adcc-45ba-9965-d2e46834e1b2",
+ CellID->1931498702],
+Cell[11305, 283, 1404, 42, 66, "Input",ExpressionUUID->"517b72ef-d76f-462b-8fbb-7151594ebb03",
+ CellID->1122875335],
+Cell[CellGroupData[{
+Cell[12734, 329, 299, 7, 27, "Input",ExpressionUUID->"a5f1fb88-b4c5-4eb9-9bb7-68cc9a90b05e",
+ CellID->2002398383],
+Cell[CellGroupData[{
+Cell[13058, 340, 271, 6, 25, "Print",ExpressionUUID->"eda97d0c-7c42-484e-bb19-aaa940ad70fc",
+ CellID->1083681892],
+Cell[13332, 348, 491, 12, 25, "Print",ExpressionUUID->"fec33448-d08c-48d0-9341-29a1a1b86cba",
+ CellID->1988071396]
+}, Open  ]],
+Cell[13838, 363, 28321, 627, 263, "Output",ExpressionUUID->"019196ae-fdac-4932-ae12-4c3b289289b3",
+ CellID->1688699559]
+}, Open  ]],
+Cell[42174, 993, 2129, 51, 70, "MathCaption",ExpressionUUID->"db493a7c-dfa3-401f-b4a2-97303f416006",
+ CellID->1785522660],
+Cell[CellGroupData[{
+Cell[44328, 1048, 649, 20, 70, "Input",ExpressionUUID->"0b359f3d-e195-4bc3-ba2c-5051131a1c98",
+ CellID->984533705],
+Cell[CellGroupData[{
+Cell[45002, 1072, 270, 6, 70, "Print",ExpressionUUID->"a5297023-5484-433f-af4b-2f834178a816",
+ CellID->780061894],
+Cell[45275, 1080, 491, 12, 70, "Print",ExpressionUUID->"b88c8df4-e79f-42a6-88e0-ff57d2d4bdd2",
+ CellID->1723511254]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45815, 1098, 849, 22, 70, "Input",ExpressionUUID->"6fdf8a9a-e56a-4f17-9e85-ad89b0797163",
+ CellID->136108687],
+Cell[46667, 1122, 1733, 48, 70, "Print",ExpressionUUID->"71974c83-e4f2-4a1b-ae40-198a93600645",
+ CellID->1677869983]
+}, Open  ]],
+Cell[48415, 1173, 1294, 30, 70, "MathCaption",ExpressionUUID->"fe10d437-d1f2-40f3-bd45-bfee74991c1f",
+ CellID->211400516],
+Cell[CellGroupData[{
+Cell[49734, 1207, 722, 21, 70, "Input",ExpressionUUID->"cb5dc945-3507-4825-a35b-c9bcf3fe8012",
+ CellID->1427663228],
+Cell[50459, 1230, 3200, 58, 229, "Output",ExpressionUUID->"20060be8-3b21-4171-813c-4ef79550b926",
+ CellID->60182276]
+}, Open  ]],
+Cell[53674, 1291, 1243, 31, 70, "MathCaption",ExpressionUUID->"0fcaec4d-2779-4b35-84c8-4cbca139c0b3",
+ CellID->1262258684],
+Cell[54920, 1324, 705, 23, 70, "Input",ExpressionUUID->"d5e9fb0b-c6af-478f-9e50-e71d665ec441",
+ CellID->728985210],
+Cell[CellGroupData[{
+Cell[55650, 1351, 199, 4, 70, "Input",ExpressionUUID->"219c9d8e-9d57-4c8e-9be7-84cd7460e47a",
+ CellID->644724534],
+Cell[55852, 1357, 913, 29, 57, "Output",ExpressionUUID->"526b5d13-4fe8-493b-a995-4bb86885b0d0",
+ CellID->1337540457]
+}, Open  ]],
+Cell[56780, 1389, 1146, 26, 70, "MathCaption",ExpressionUUID->"e360636a-77d3-4d9a-8249-995a3d92a30a",
+ CellID->159582237],
+Cell[57929, 1417, 649, 19, 70, "Input",ExpressionUUID->"b84b865f-61dd-446a-88fb-876e897473c5",
+ CellID->1819954872],
+Cell[CellGroupData[{
+Cell[58603, 1440, 539, 11, 70, "Input",ExpressionUUID->"62fb1927-e5af-4c2c-895d-bc8f464735ba",
+ CellID->1968906856],
+Cell[59145, 1453, 334, 7, 70, "Print",ExpressionUUID->"44725ff3-8abd-4882-b6c7-1082dbb78b25",
+ CellID->1605304013],
+Cell[59482, 1462, 8150, 187, 217, "Output",ExpressionUUID->"50d1f480-bfad-48f6-916f-4d99dce7d1a9",
+ CellID->1235296409]
+}, Open  ]],
+Cell[67647, 1652, 1588, 45, 70, "MathCaption",ExpressionUUID->"be89259d-b7de-4d25-8604-06463c407288",
+ CellID->2031355388],
+Cell[CellGroupData[{
+Cell[69260, 1701, 728, 20, 70, "Input",ExpressionUUID->"ab530b53-975d-4976-9b84-11c306548759",
+ CellID->1843863650],
+Cell[CellGroupData[{
+Cell[70013, 1725, 322, 7, 70, "Print",ExpressionUUID->"140c960f-42f5-4231-8827-92ec9e756070",
+ CellID->676316556],
+Cell[70338, 1734, 321, 7, 70, "Print",ExpressionUUID->"56448319-e20f-44db-8cad-1497e1d89ff7",
+ CellID->1316753097]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[70708, 1747, 1073, 24, 70, "TutorialMoreAboutSection",ExpressionUUID->"27ff084a-6efd-4bd2-9af3-843ef2fe0e2e"],
+Cell[71784, 1773, 81, 0, 70, "Input",ExpressionUUID->"de23df66-9e53-4683-923e-45c2d5d84ec5"],
+Cell[71868, 1775, 81, 0, 70, "Input",ExpressionUUID->"3b0e016c-bfae-4021-b720-4f041acdf930"]
+}, Open  ]]
+}, Open  ]],
+Cell[71976, 1779, 78, 0, 70, "FooterCell",ExpressionUUID->"024daf05-e997-44f3-a365-4a2d9ab0c983"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

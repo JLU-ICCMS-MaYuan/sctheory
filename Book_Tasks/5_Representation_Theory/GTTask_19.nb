@@ -1,0 +1,260 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      9844,        252]
+NotebookOptionsPosition[      7672,        213]
+NotebookOutlinePosition[      8108,        230]
+CellTagsIndexPosition[      8065,        227]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"745f680e-6a2a-4d81-badf-\
+8e15d7efd881"],
+
+Cell["Task_19: Character projection operator", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+  3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+  3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, {
+  3.715571191956353*^9, 3.715571211605142*^9}, {3.715573845446602*^9, 
+  3.71557386522208*^9}, {3.7155749162729387`*^9, 3.715574931537026*^9}, {
+  3.7155773396647787`*^9, 3.715577357645968*^9}, {3.7155788851948023`*^9, 
+  3.715578892177968*^9}, {3.715587625318437*^9, 3.715587626778842*^9}, {
+  3.7155888215605288`*^9, 3.715588822098742*^9}, {3.71558924339729*^9, 
+  3.7155892478735113`*^9}, {3.71601935045632*^9, 3.7160193554382763`*^9}, {
+  3.745484018974743*^9, 
+  3.7454840198728228`*^9}},ExpressionUUID->"c2de791b-c844-4609-9e13-\
+707781a65dcf"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"6dd5a025-d924-446f-8d60-\
+d3b11be39ad3"],
+
+Cell[CellGroupData[{
+
+Cell["Task 19", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, {
+  3.715571215441505*^9, 3.715571215824078*^9}, {3.715573868810258*^9, 
+  3.715573869147704*^9}, {3.715574936025814*^9, 3.7155749364533243`*^9}, {
+  3.7155773619834642`*^9, 3.715577362377207*^9}, {3.715578616426693*^9, 
+  3.7155786166834803`*^9}, {3.7155892519228907`*^9, 3.715589252215455*^9}, {
+  3.716019358756818*^9, 
+  3.716019360230811*^9}},ExpressionUUID->"91b6fd75-0936-4011-804f-\
+c2e4396178ae"],
+
+Cell["see : Chapter 5, section 5.4, p. 112.", "Text",
+ CellChangeTimes->{
+  3.7454840239283667`*^9, {3.745491994178739*^9, 
+   3.74549200124874*^9}},ExpressionUUID->"623f93d6-4b4e-419e-87ab-\
+25d2a6483a62"],
+
+Cell[TextData[{
+ " Apply the character projection operator (",
+ StyleBox["GTCharProjectionOperator",
+  FontWeight->"Bold"],
+ ") associated to each irreducible representation of the point group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", 
+    RowBox[{"3", "v"}]], TraditionalForm]],ExpressionUUID->
+  "cf4a7117-335d-4b1a-91d1-6a9564d11cec"],
+ " to the function\nf(x,y,z)=(x+y+z)^2"
+}], "Text",
+ CellChangeTimes->{{3.5656816415621853`*^9, 3.565681860239293*^9}, {
+  3.635786170800764*^9, 3.635786173860598*^9}, {3.715571225242838*^9, 
+  3.715571374339094*^9}, {3.7155738798070374`*^9, 3.7155739017227373`*^9}, {
+  3.715573991685924*^9, 3.715574012227669*^9}, {3.7155749595051603`*^9, 
+  3.715574997227096*^9}, {3.7155750470765553`*^9, 3.7155751263004208`*^9}, {
+  3.715577368891337*^9, 3.7155773930370913`*^9}, {3.715578769168973*^9, 
+  3.7155788448933764`*^9}, {3.7155789131370583`*^9, 3.715578947371417*^9}, {
+  3.715589256344595*^9, 
+  3.7155893367830057`*^9}},ExpressionUUID->"ce8ea0c3-6223-4f24-9c95-\
+080676e3efe5"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 
+  3.5656818754713144`*^9}},ExpressionUUID->"e8af2007-ec82-42ee-8d4d-\
+45d9e06d6c52"],
+
+Cell["Start the group theory package.", "Text",
+ CellChangeTimes->{{3.715571417371958*^9, 
+  3.715571426911421*^9}},ExpressionUUID->"7a4ae3c0-3a36-442e-adb6-\
+8a360f276b00"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.715571457490114*^9, 3.7155714691449003`*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"32e18517-2f20-444b-a6d2-26e584e29f71"],
+
+Cell[TextData[{
+ "Install the group ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["C", 
+     RowBox[{"3", "v"}]], "."}], TraditionalForm]],ExpressionUUID->
+  "d8f52f85-f615-411b-bd81-2e332ef6b4b8"]
+}], "Text",
+ CellChangeTimes->{{3.71558937477465*^9, 
+  3.715589383822029*^9}},ExpressionUUID->"8e34c1e1-6cec-4a8a-8c08-\
+804cefcfebe6"],
+
+Cell[BoxData[
+ RowBox[{"c3v", "=", 
+  RowBox[{"GTInstallGroup", "[", "C3v", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7155893911439257`*^9, 3.715589400471192*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"a9047e40-c53d-4ad1-bf47-4712554fd87d"],
+
+Cell[BoxData[
+ RowBox[{"?", "GTCharProjectionOperator"}]], "Input",
+ CellChangeTimes->{{3.715589404458662*^9, 3.715589412919324*^9}},
+ CellLabel->"In[21]:=",ExpressionUUID->"c63d3ade-23b3-4a12-b5df-a896e5357bf0"],
+
+Cell["The character table has to be calculated.", "Text",
+ CellChangeTimes->{{3.715589423365218*^9, 
+  3.7155894359983797`*^9}},ExpressionUUID->"0b238e29-e51d-44e6-9fec-\
+36e2805b2fce"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{"classes", ",", "characters", ",", "names"}], "}"}], "=", 
+  RowBox[{"GTCharacterTable", "[", 
+   RowBox[{"c3v", ",", 
+    RowBox[{"GOIrepNotation", "\[Rule]", "\"\<Mulliken\>\""}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.715589440092247*^9, 3.715589495432865*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"dbca952e-98d3-4530-ac2f-87674a0ddd1a"],
+
+Cell["Define the function", "Text",
+ CellChangeTimes->{{3.7155896221664743`*^9, 
+  3.7155896289179897`*^9}},ExpressionUUID->"5af2225e-0bd9-4cf5-99d2-\
+f72174d1df28"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "[", 
+   RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"x", "+", "y", "+", "z"}], ")"}], "^", "2"}]}]], "Input",
+ CellChangeTimes->{{3.7155896324501333`*^9, 3.7155896539365473`*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"580dfcfe-8346-48fa-b696-10254b2f29d0"],
+
+Cell["Calculate the projections", "Text",
+ CellChangeTimes->{{3.715589661385386*^9, 
+  3.715589674985924*^9}},ExpressionUUID->"6971fedb-0e18-42d0-bd90-\
+dbbbe413ebdb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pf", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"pf", "=", 
+     RowBox[{"Append", "[", 
+      RowBox[{"pf", ",", 
+       RowBox[{"GTCharProjectionOperator", "[", 
+        RowBox[{"classes", ",", 
+         RowBox[{"characters", "[", 
+          RowBox[{"[", "i", "]"}], "]"}], ",", "f", ",", 
+         RowBox[{"{", 
+          RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "3"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7155895327566137`*^9, 3.715589605918611*^9}, {
+  3.7155896786659737`*^9, 3.7155897058679*^9}, {3.715589742543517*^9, 
+  3.715589747673511*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"6607048f-d616-40aa-8e98-b979a38354bc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tab", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"names", ",", "pf"}], "}"}], "//", "Transpose"}]}], ";", 
+  RowBox[{"Grid", "[", 
+   RowBox[{"tab", ",", 
+    RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+    RowBox[{"Background", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"1", "\[Rule]", "LightRed"}], "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.71558976193851*^9, 3.715589908237433*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"eebc8bfd-5d58-4705-b6e9-e82dcb2a95ee"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1916, 1035},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"745f680e-6a2a-4d81-badf-8e15d7efd881"],
+Cell[801, 32, 825, 12, 53, "Subtitle",ExpressionUUID->"c2de791b-c844-4609-9e13-707781a65dcf"],
+Cell[1629, 46, 250, 7, 83, "Author",ExpressionUUID->"6dd5a025-d924-446f-8d60-d3b11be39ad3"],
+Cell[CellGroupData[{
+Cell[1904, 57, 499, 8, 67, "Section",ExpressionUUID->"91b6fd75-0936-4011-804f-c2e4396178ae"],
+Cell[2406, 67, 206, 4, 35, "Text",ExpressionUUID->"623f93d6-4b4e-419e-87ab-25d2a6483a62"],
+Cell[2615, 73, 1025, 21, 58, "Text",ExpressionUUID->"ce8ea0c3-6223-4f24-9c95-080676e3efe5"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3677, 99, 155, 3, 53, "Section",ExpressionUUID->"e8af2007-ec82-42ee-8d4d-45d9e06d6c52"],
+Cell[3835, 104, 173, 3, 35, "Text",ExpressionUUID->"7a4ae3c0-3a36-442e-adb6-8a360f276b00"],
+Cell[4011, 109, 224, 3, 30, "Input",ExpressionUUID->"32e18517-2f20-444b-a6d2-26e584e29f71"],
+Cell[4238, 114, 346, 11, 35, "Text",ExpressionUUID->"8e34c1e1-6cec-4a8a-8c08-804cefcfebe6"],
+Cell[4587, 127, 241, 4, 30, "Input",ExpressionUUID->"a9047e40-c53d-4ad1-bf47-4712554fd87d"],
+Cell[4831, 133, 212, 3, 30, "Input",ExpressionUUID->"c63d3ade-23b3-4a12-b5df-a896e5357bf0"],
+Cell[5046, 138, 185, 3, 35, "Text",ExpressionUUID->"0b238e29-e51d-44e6-9fec-36e2805b2fce"],
+Cell[5234, 143, 402, 9, 30, "Input",ExpressionUUID->"dbca952e-98d3-4530-ac2f-87674a0ddd1a"],
+Cell[5639, 154, 165, 3, 35, "Text",ExpressionUUID->"5af2225e-0bd9-4cf5-99d2-f72174d1df28"],
+Cell[5807, 159, 346, 8, 30, "Input",ExpressionUUID->"580dfcfe-8346-48fa-b696-10254b2f29d0"],
+Cell[6156, 169, 167, 3, 35, "Text",ExpressionUUID->"6971fedb-0e18-42d0-bd90-dbbbe413ebdb"],
+Cell[6326, 174, 798, 20, 30, "Input",ExpressionUUID->"6607048f-d616-40aa-8e98-b979a38354bc"],
+Cell[7127, 196, 517, 13, 30, "Input",ExpressionUUID->"eebc8bfd-5d58-4705-b6e9-e82dcb2a95ee"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

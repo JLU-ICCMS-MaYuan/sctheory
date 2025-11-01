@@ -1,0 +1,817 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     31645,        809]
+NotebookOptionsPosition[     26110,        728]
+NotebookOutlinePosition[     26603,        747]
+CellTagsIndexPosition[     26560,        744]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"39084f0f-5c3f-474c-bef9-\
+c5aa415195ea"],
+
+Cell["Task_26: Trigonal crystal fields ", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+   3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+   3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, 
+   3.6510653858085613`*^9, {3.651065421088859*^9, 3.651065421366317*^9}, {
+   3.6510687045818653`*^9, 3.651068710545953*^9}, {3.698590274583303*^9, 
+   3.6985902766031446`*^9}, {3.715676225518305*^9, 3.715676245048991*^9}, {
+   3.715755292106161*^9, 3.715755292520115*^9}, {3.715758251670918*^9, 
+   3.715758274686324*^9}, {3.7157611881702137`*^9, 3.715761209296259*^9}, {
+   3.7159194801332703`*^9, 3.715919494968292*^9}, {3.715924866832803*^9, 
+   3.715924890601943*^9}, {3.715935521784905*^9, 3.715935522008493*^9}, {
+   3.715935863328487*^9, 3.7159358688072147`*^9}, {3.745498270654529*^9, 
+   3.745498271976645*^9}},ExpressionUUID->"25fb425b-43e5-46a8-a80f-\
+e4402bb077e1"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"3fe1f4d6-7fbe-4b7b-ae22-\
+8e488b846ff0"],
+
+Cell[CellGroupData[{
+
+Cell["Task 26", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, 
+   3.6510654285215063`*^9, {3.698590282115162*^9, 3.698590283315255*^9}, {
+   3.71567624900875*^9, 3.7156762495600367`*^9}, {3.715755448158073*^9, 
+   3.715755448639861*^9}, {3.7157582840802937`*^9, 3.715758284687776*^9}, 
+   3.715761214043702*^9, 3.715923389350745*^9, {3.7159248959570093`*^9, 
+   3.715924896249406*^9}, {3.715935857389296*^9, 
+   3.7159358576243887`*^9}},ExpressionUUID->"039caaab-a700-4bdd-9772-\
+d84e0ebd38ad"],
+
+Cell["see : Chapter 7, section 7.4.2, p. 164.", "Text",
+ CellChangeTimes->{
+  3.745498263586955*^9, {3.7454982950104713`*^9, 
+   3.745498304161786*^9}},ExpressionUUID->"d580ad56-678f-44fa-8aa0-\
+e49eb451cf17"],
+
+Cell[TextData[{
+ "Trigonal crystal fields having ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", 
+    RowBox[{"3", "v"}]], TraditionalForm]],ExpressionUUID->
+  "8ee2ff29-6e65-4ae6-9278-7996bfcbe806"],
+ " symmetry can occur on surfaces of fcc crystals. How do ",
+ StyleBox["p",
+  FontSlant->"Italic"],
+ "-states split? Verify the crystal field expansion for this symmetry. "
+}], "Text",
+ CellChangeTimes->{{3.5656816415621853`*^9, 3.565681860239293*^9}, {
+   3.635786170800764*^9, 3.635786173860598*^9}, {3.651065436926057*^9, 
+   3.651065635578711*^9}, {3.651068560289382*^9, 3.6510686003385973`*^9}, {
+   3.698590315173243*^9, 3.698590316986977*^9}, {3.698590659653771*^9, 
+   3.698590660901269*^9}, {3.715676257064826*^9, 3.715676287709859*^9}, {
+   3.7157582892011023`*^9, 3.715758394670127*^9}, {3.7157612456348457`*^9, 
+   3.715761334275275*^9}, {3.715761702901366*^9, 3.715761703563676*^9}, {
+   3.715919504783739*^9, 3.715919509087599*^9}, {3.715919546359535*^9, 
+   3.715919550949649*^9}, 3.715919875130816*^9, {3.715919967288609*^9, 
+   3.7159200921187687`*^9}, {3.715924903585038*^9, 3.715925035819388*^9}, {
+   3.715925379424611*^9, 3.7159254018140907`*^9}, 3.715931208054966*^9, {
+   3.715935877999349*^9, 3.7159359203110228`*^9}, {3.715935952802744*^9, 
+   3.715935991142565*^9}, 3.7160214713462343`*^9, {3.716032135963929*^9, 
+   3.716032140279677*^9}, {3.716033588814055*^9, 
+   3.716033610657587*^9}},ExpressionUUID->"88ff6f8e-a215-47d6-b7f6-\
+ceaf14a84831"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 3.5656818754713144`*^9}, {
+  3.651068604062579*^9, 3.6510686054795933`*^9}, {3.715758402017662*^9, 
+  3.7157584036702013`*^9}},ExpressionUUID->"3ff3e08f-3170-40d2-837e-\
+51b8496f0014"],
+
+Cell["GTPack will used.", "Text",
+ CellChangeTimes->{{3.6510687190694857`*^9, 
+  3.6510687427760773`*^9}},ExpressionUUID->"3de0daf7-1f7c-4cc5-a88a-\
+441fd99981f7"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.565681889253334*^9, 3.5656819493414183`*^9}, {
+  3.635786193501388*^9, 3.635786195193049*^9}, {3.6510687481027937`*^9, 
+  3.651068762513336*^9}, {3.651068796080668*^9, 3.6510687983863363`*^9}},
+ CellLabel->
+  "In[129]:=",ExpressionUUID->"4a4a01ba-0c6d-4605-ac9d-e43d31bd57f3"],
+
+Cell[TextData[{
+ "Installation of the point group ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["C", 
+     RowBox[{"3", "v"}]], "."}], TraditionalForm]],ExpressionUUID->
+  "9550a461-4910-4476-ad53-e8dcccef05d9"]
+}], "Text",
+ CellChangeTimes->{{3.7159360525800447`*^9, 3.715936068085544*^9}, {
+  3.7159361252504377`*^9, 
+  3.715936125497333*^9}},ExpressionUUID->"6ff794ce-a867-43d4-a994-\
+7f30fe75b37b"],
+
+Cell[BoxData[
+ RowBox[{"c3v", "=", 
+  RowBox[{"GTInstallGroup", "[", 
+   RowBox[{"C3v", ",", 
+    RowBox[{"GOVerbose", "\[Rule]", "False"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.715936128661985*^9, 3.715936137431055*^9}, {
+   3.716022808475305*^9, 3.716022810523905*^9}, {3.716022854241007*^9, 
+   3.716022855063291*^9}, {3.7160233468542757`*^9, 3.716023355112565*^9}, 
+   3.716028646348385*^9},
+ CellLabel->
+  "In[130]:=",ExpressionUUID->"cf4da461-b0ee-4127-84fd-1a35712b6dee"],
+
+Cell[CellGroupData[{
+
+Cell["Discussion of the splitting", "Subsection",
+ CellChangeTimes->{{3.7160229640427027`*^9, 
+  3.716022973841876*^9}},ExpressionUUID->"79f2edd3-47b5-450e-85ff-\
+91223afab15a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Ohgroup", "=", 
+   RowBox[{"GTInstallGroup", "[", 
+    RowBox[{"Oh", ",", 
+     RowBox[{"GOVerbose", "\[Rule]", "False"}]}], "]"}]}], ";", 
+  RowBox[{"ohct", "=", 
+   RowBox[{"GTCharacterTable", "[", 
+    RowBox[{"Ohgroup", ",", 
+     RowBox[{"GOIrepNotation", "\[Rule]", "\"\<Mulliken\>\""}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.716022983516322*^9, 3.716023012160705*^9}, {
+  3.716023217603735*^9, 3.716023262939883*^9}, {3.716028782643395*^9, 
+  3.716028791046908*^9}, {3.716028931147277*^9, 3.7160289353349247`*^9}, {
+  3.716035979958784*^9, 3.71603598235181*^9}},
+ CellLabel->
+  "In[131]:=",ExpressionUUID->"562003ea-8bac-4938-90f9-7be4f0e6fe0b"],
+
+Cell[BoxData[
+ RowBox[{"GTSymmetryBasisFunctions", "[", 
+  RowBox[{"ohct", ",", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y", ",", "z"}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.716023021660118*^9, 3.716023050321842*^9}, {
+  3.716023142789197*^9, 3.716023213674098*^9}, {3.716023254569544*^9, 
+  3.716023256582974*^9}},
+ CellLabel->
+  "In[132]:=",ExpressionUUID->"976161d7-55d2-46ef-a05b-c7986d41f70a"],
+
+Cell[TextData[{
+ StyleBox["p",
+  FontSlant->"Italic"],
+ "-function belong to the irreducible representation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["T", 
+     RowBox[{"1", "u", " "}]], " "}], TraditionalForm]],ExpressionUUID->
+  "36d88523-8db5-44d9-9045-fd421feb3beb"],
+ "of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["O", "h"], ".", " "}], TraditionalForm]],ExpressionUUID->
+  "593570a2-aa97-4d16-ba62-4f34665314cb"]
+}], "Text",
+ CellChangeTimes->{{3.715936150299571*^9, 3.715936156161229*^9}, {
+  3.716023300086727*^9, 3.7160233389366417`*^9}, {3.716028594238833*^9, 
+  3.7160286030913363`*^9}},ExpressionUUID->"d102aaad-b177-4a88-b142-\
+3fc63b7035e6"],
+
+Cell["\<\
+We are facing the same complication as in previous tasks. We select the \
+threefold axis in <111> direction as a generator. Additionally a mirror plane \
+has to be found as a proper generator.\
+\>", "Text",
+ CellChangeTimes->{{3.716028668570801*^9, 3.716028752314592*^9}, {
+  3.716035997889031*^9, 3.716036002322644*^9}, {3.7454983503559027`*^9, 
+  3.7454983566765547`*^9}},ExpressionUUID->"75cadfb6-af17-4086-a095-\
+5ea52bdcf774"],
+
+Cell[BoxData[
+ RowBox[{"C3vgroup", "=", 
+  RowBox[{"GTGroupFromGenerators", "[", 
+   RowBox[{"{", 
+    RowBox[{"C3\[Delta]", ",", "IC2f"}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.716028755191298*^9, 3.716028775735651*^9}, {
+  3.716028805999976*^9, 3.716028811649037*^9}, {3.7160288427661858`*^9, 
+  3.716028844937736*^9}, {3.716028951454767*^9, 3.716028953728026*^9}},
+ CellLabel->
+  "In[133]:=",ExpressionUUID->"c83a3816-2557-4e9d-812b-527f75e009d7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GTClasses", "[", "c3v", "]"}], "//", "Sort"}]], "Input",
+ CellChangeTimes->{{3.745498388183585*^9, 3.7454983981171207`*^9}},
+ CellLabel->
+  "In[134]:=",ExpressionUUID->"fdc1e06f-e72a-4f98-8c27-e091f59f68fa"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GTClasses", "[", "C3vgroup", "]"}], "//", "Sort"}]], "Input",
+ CellChangeTimes->{{3.745498409723222*^9, 3.745498413253911*^9}},
+ CellLabel->
+  "In[135]:=",ExpressionUUID->"0c3ad7c6-7451-4102-928c-9e467ab4d034"],
+
+Cell["We see the isomorphism.", "Text",
+ CellChangeTimes->{{3.745498421103079*^9, 
+  3.745498432549603*^9}},ExpressionUUID->"0607f9df-99b5-473d-900e-\
+50b6a2f09e12"],
+
+Cell[BoxData[
+ RowBox[{"GTSubGroupQ", "[", 
+  RowBox[{"Ohgroup", ",", "C3vgroup"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7160288175138807`*^9, 3.7160288511889067`*^9}, {
+  3.716028980281124*^9, 3.716028990403597*^9}},
+ CellLabel->
+  "In[136]:=",ExpressionUUID->"4b8ae5ed-5dec-4bfa-9c2e-c03958c379fa"],
+
+Cell["True", "Text",
+ CellChangeTimes->{3.716028852885894*^9, 3.716028992049992*^9, 
+  3.716029293425735*^9},ExpressionUUID->"13a19f94-4a6c-4177-a6ab-\
+5d124153f8ac"],
+
+Cell["The character table is given by", "Text",
+ CellChangeTimes->{{3.716029307069528*^9, 
+  3.716029315831706*^9}},ExpressionUUID->"85ccd8d7-7642-4523-9aa1-\
+3027bf85237c"],
+
+Cell[BoxData[
+ RowBox[{"GTCharacterTable", "[", 
+  RowBox[{"C3vgroup", ",", 
+   RowBox[{"GOIrepNotation", "\[Rule]", "\"\<Mulliken\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7160293226654654`*^9, 3.716029351810351*^9}},
+ CellLabel->
+  "In[137]:=",ExpressionUUID->"a150893c-07cb-4a49-b94c-c86ad5824f84"],
+
+Cell["Now the splitting can be analysed.", "Text",
+ CellChangeTimes->{{3.716028858290174*^9, 
+  3.716028868573545*^9}},ExpressionUUID->"b9808de4-15d1-4a78-97ae-\
+4f34ee8c1661"],
+
+Cell[BoxData[
+ RowBox[{"GTCrystalFieldSplitting", "[", 
+  RowBox[{"Ohgroup", ",", "C3vgroup"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7160288781324797`*^9, 3.716028891293256*^9}, {
+  3.716029003608884*^9, 3.716029007485269*^9}},
+ CellLabel->
+  "In[138]:=",ExpressionUUID->"f178b4b1-715f-494c-9c65-aeb617e6b517"],
+
+Cell[TextData[{
+ "The threefold degenerate level for the ",
+ StyleBox["p",
+  FontSlant->"Italic"],
+ "-electrons is split in a twofold and a single level according to: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["T", 
+     RowBox[{"1", "u"}]], "=", 
+    RowBox[{
+     SubscriptBox["A", "1"], "\[CirclePlus]", 
+     RowBox[{"E", "."}]}]}], TraditionalForm]],ExpressionUUID->
+  "092b8b68-c8f2-4ea6-80e0-41220cf6d5a2"],
+ " Mkes sense, having two orbitals in the surface  and one orthogonal to the \
+surface."
+}], "Text",
+ CellChangeTimes->{{3.7160290250993757`*^9, 3.716029064295062*^9}, {
+  3.716029175439064*^9, 3.716029210245338*^9}, {3.716029242793469*^9, 
+  3.716029279088373*^9}, {3.7454985393814774`*^9, 
+  3.745498592295425*^9}},ExpressionUUID->"64f7be42-8dc8-4530-85c6-\
+3e04d0535341"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Crystal field", "Subsection",
+ CellChangeTimes->{{3.716029381218601*^9, 
+  3.716029385186871*^9}},ExpressionUUID->"2fd83e23-5d00-4647-98ce-\
+e7045c5b6ebf"],
+
+Cell[TextData[{
+ "(111) surfaces of fcc-crystals show a ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["C", 
+      RowBox[{"3", "v", " "}]], 
+     RowBox[{"symmetry", ".", "  ", "A"}], " ", "group", " ", "with", " ", 
+     "three"}], "-", 
+    RowBox[{"fold", " ", "axis", " ", "in", " ", "z"}], "-", 
+    RowBox[{"direction", " ", "is", " ", 
+     RowBox[{"appropriate", "."}]}]}], TraditionalForm]],ExpressionUUID->
+  "ff0cec83-4767-4c4e-b039-0ce35371e6c3"],
+ "  The group is constructed such, that the x-z plane is a mirror plane."
+}], "Text",
+ CellChangeTimes->{{3.716029418856902*^9, 3.7160294361213503`*^9}, {
+  3.716029496225072*^9, 3.716029559924491*^9}, {3.7160309799728127`*^9, 
+  3.716030999008853*^9}, {3.716031121971395*^9, 3.716031126416761*^9}, {
+  3.745498508913327*^9, 3.745498512333886*^9}, {3.745498607546279*^9, 
+  3.745498607985293*^9}},ExpressionUUID->"19aaf6fe-06f7-41d9-86ff-\
+7a7578e3b534"],
+
+Cell[BoxData[
+ RowBox[{"c3v", "=", 
+  RowBox[{"GTGroupFromGenerators", "[", 
+   RowBox[{"{", 
+    RowBox[{"C3z", ",", "IC2x"}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.716029566524992*^9, 3.716029567366457*^9}, {
+  3.716030919705323*^9, 3.7160309580560827`*^9}},
+ CellLabel->
+  "In[139]:=",ExpressionUUID->"7b7bde91-da02-417d-99b1-bf1bb760ff89"],
+
+Cell[TextData[{
+ "Crystal field expansion. A maximum angular momentum ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["l", "max"], "=", 
+    RowBox[{"4", " ", "is", " ", 
+     RowBox[{"used", "."}]}]}], TraditionalForm]],ExpressionUUID->
+  "9a080da5-c8c2-4e17-83d0-1d5f492f701e"]
+}], "Text",
+ CellChangeTimes->{{3.716029588626816*^9, 3.716029596705268*^9}, {
+  3.716031006341134*^9, 3.716031007595591*^9}, {3.7160310569732513`*^9, 
+  3.7160310736599903`*^9}},ExpressionUUID->"99bae8fa-d169-4f19-9bad-\
+26409dff34fd"],
+
+Cell[BoxData[
+ RowBox[{"vcr", "=", 
+  RowBox[{"GTCrystalField", "[", 
+   RowBox[{"c3v", ",", "4"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.715936162402413*^9, 3.715936174386723*^9}, {
+  3.71602219248106*^9, 3.7160222197634573`*^9}},
+ CellLabel->
+  "In[140]:=",ExpressionUUID->"18bb20f7-7453-42b0-b6aa-0bc1f1976006"],
+
+Cell[TextData[{
+ "The matrix",
+ StyleBox[" A",
+  FontWeight->"Bold"],
+ " is constructed according to Figure 7.6. The matrix elements are calculated \
+with ",
+ StyleBox["p",
+  FontSlant->"Italic"],
+ " orbitals."
+}], "Text",
+ CellChangeTimes->{{3.715936239202001*^9, 3.71593629275016*^9}, {
+  3.7160298456920013`*^9, 
+  3.716029881624712*^9}},ExpressionUUID->"63754681-f0ec-422a-97cf-\
+6b8c456f7468"],
+
+Cell[BoxData[
+ RowBox[{"Amat", "=", 
+  RowBox[{"vcr", " ", "/.", " ", 
+   RowBox[{
+    RowBox[{"Y", "[", 
+     RowBox[{"l_", ",", "m_"}], "]"}], "\[RuleDelayed]", " ", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"-", "1"}], ")"}], "^", "m1"}], " ", 
+       RowBox[{"GTGauntCoefficient", "[", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "m1"}], ",", "l", ",", "m", ",", "1", ",", "m2"}], 
+        "]"}]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"m1", ",", 
+        RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"m2", ",", 
+        RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.715936301894657*^9, 3.7159364205985413`*^9}, {
+  3.7159410745202703`*^9, 3.715941081855516*^9}, {3.716031988649095*^9, 
+  3.716032005156492*^9}, {3.7160321660510263`*^9, 3.7160321775415382`*^9}},
+ CellLabel->
+  "In[141]:=",ExpressionUUID->"1cd9632e-b50e-49d2-a7bb-d8c5a74e013a"],
+
+Cell[BoxData[
+ RowBox[{"Amat", "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.716029626608245*^9, 3.716029632334387*^9}},
+ CellLabel->
+  "In[142]:=",ExpressionUUID->"3ad3aadd-5701-44be-841a-5f99c2e36318"],
+
+Cell[CellGroupData[{
+
+Cell["Equilateral triangle", "Subsubsection",
+ CellChangeTimes->{{3.715936705734242*^9, 
+  3.715936716959755*^9}},ExpressionUUID->"b916c38d-7bbe-4436-8c16-\
+cffa081e884a"],
+
+Cell[TextData[{
+ "The group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", 
+    RowBox[{"3", "v"}]], TraditionalForm]],ExpressionUUID->
+  "26c7d4fd-2f09-45d0-ad7b-8d97f5a99144"],
+ " constructed above corresponds to the symmetry properties of this triangle."
+}], "Text",
+ CellChangeTimes->{{3.7160311504080267`*^9, 
+  3.71603118622593*^9}},ExpressionUUID->"c0393884-c0e7-4044-96cc-\
+b246fb84994c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tri", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], ",", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"Tan", "[", 
+          RowBox[{"\[Pi]", "/", "6"}], "]"}]}], "/", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", "1"}], "/", "2"}], ",", 
+       RowBox[{
+        RowBox[{"-", 
+         RowBox[{"Tan", "[", 
+          RowBox[{"\[Pi]", "/", "6"}], "]"}]}], "/", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"Tan", "[", 
+           RowBox[{"\[Pi]", "/", "3"}], "]"}], "-", 
+          RowBox[{"Tan", "[", 
+           RowBox[{"\[Pi]", "/", "6"}], "]"}]}], ")"}], "/", "2"}]}], "}"}]}],
+     "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.715936722279763*^9, 3.715936730024955*^9}, {
+   3.715940008112499*^9, 3.715940152507265*^9}, {3.7159402986262407`*^9, 
+   3.7159403131153307`*^9}, {3.7159406372583323`*^9, 3.71594065267115*^9}, {
+   3.715941420275025*^9, 3.715941425483342*^9}, 3.7160300542741003`*^9},
+ CellLabel->
+  "In[143]:=",ExpressionUUID->"e0fb7b70-9da2-4413-a5ff-fab36e8d88e6"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"pl", "=", 
+   RowBox[{"ListPlot", "[", 
+    RowBox[{"tri", ",", 
+     RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+     RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+     RowBox[{"PlotStyle", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", ".05", "]"}], ",", "Red"}], "}"}]}], ",", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "1"}], ",", "1"}], "}"}]}], "}"}]}]}], "]"}]}], ";", 
+  RowBox[{"g", "=", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Blue", ",", 
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"tri", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], ",", "1"}], "]"}], ",", 
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"tri", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], ",", "1"}], "]"}], ",", 
+      RowBox[{"Circle", "[", 
+       RowBox[{
+        RowBox[{"tri", "[", 
+         RowBox[{"[", "3", "]"}], "]"}], ",", "1"}], "]"}]}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"g1", "=", 
+   RowBox[{"Graphics", "[", 
+    RowBox[{"{", 
+     RowBox[{"Magenta", ",", 
+      RowBox[{"Line", "[", 
+       RowBox[{"Append", "[", 
+        RowBox[{"tri", ",", 
+         RowBox[{"tri", "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "]"}]}], "}"}], "]"}]}], 
+  ";", 
+  RowBox[{"Show", "[", 
+   RowBox[{"pl", ",", "g", ",", "g1"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.715940157646722*^9, 3.715940194235079*^9}, {
+   3.715940736980048*^9, 3.715940751925207*^9}, {3.71594079160079*^9, 
+   3.715940813233788*^9}, 3.7159413069778137`*^9, {3.7160300662575417`*^9, 
+   3.7160302246148643`*^9}},
+ CellLabel->
+  "In[144]:=",ExpressionUUID->"0be2f89a-56d7-42fc-9ff9-0b9f1788d355"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.715940693725813*^9, 3.715940746207885*^9}},
+ CellLabel->
+  "In[146]:=",ExpressionUUID->"45e798a3-2d67-46e9-9b9e-d7ef028df272"],
+
+Cell[TextData[{
+ "The plot demonstrates that the triangle is equilateral, but also ",
+ StyleBox["DistanceMatrix",
+  FontWeight->"Bold"],
+ " can be used to get this result."
+}], "Text",
+ CellChangeTimes->{{3.716030242558766*^9, 
+  3.716030332384749*^9}},ExpressionUUID->"374b26fc-dcfb-462d-bee3-\
+92245823e30c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"DistanceMatrix", "[", "tri", "]"}], "//", "N"}], "//", 
+  "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.715940416323338*^9, 3.7159404425380898`*^9}},
+ CellLabel->
+  "In[147]:=",ExpressionUUID->"13502358-cbf2-4700-89ac-0ac976dd1571"],
+
+Cell[TextData[{
+ "As usual we can construct a cluster to show the invariance under ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", 
+    RowBox[{"3", "v"}]], TraditionalForm]],ExpressionUUID->
+  "66fdaea2-6a44-4337-95e4-a3bc9d93ea17"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.7160303498644257`*^9, 3.7160303943362293`*^9}, {
+  3.7160311959230747`*^9, 
+  3.7160312000615*^9}},ExpressionUUID->"7df207a0-4681-442d-a7db-a58748b90f9f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tri3D", "=", 
+   RowBox[{
+    RowBox[{"Append", "[", 
+     RowBox[{
+      RowBox[{"tri", "//", "Transpose"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "]"}], "//", 
+    "Transpose"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.716031320073935*^9, 3.7160313267070427`*^9}},
+ CellLabel->
+  "In[148]:=",ExpressionUUID->"e546e609-0ff0-4eaa-9452-90438155a31f"],
+
+Cell[BoxData[
+ RowBox[{"cl", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"tri3D", ",", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Ba\>\"", ",", "\"\<Ba\>\"", ",", "\"\<Ba\>\""}], "}"}]}], 
+     "}"}], "//", "Transpose"}], "//", "FullSimplify"}]}]], "Input",
+ CellChangeTimes->{{3.7160303964666758`*^9, 3.716030449816062*^9}, {
+   3.716030511108096*^9, 3.71603057904519*^9}, {3.7160306339544373`*^9, 
+   3.716030685430575*^9}, {3.716030730931864*^9, 3.716030743904735*^9}, 
+   3.716030870139702*^9, {3.716031314102393*^9, 3.716031335968937*^9}},
+ CellLabel->
+  "In[149]:=",ExpressionUUID->"0114f160-9c58-4a6f-bc6f-9dd2327450ed"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"GTSymmetryElementQ", "[", 
+    RowBox[{"#", ",", "cl"}], "]"}], "&"}], "/@", "c3v"}]], "Input",
+ CellChangeTimes->{{3.7160304653382397`*^9, 3.716030491496674*^9}},
+ CellLabel->
+  "In[150]:=",ExpressionUUID->"a1b753e7-865b-491c-9e22-9705d1d7d925"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"qtri", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"q", ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "5"}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.715940878813755*^9, 3.7159408965188417`*^9}, {
+  3.7160320506432037`*^9, 3.7160320509378357`*^9}},
+ CellLabel->
+  "In[151]:=",ExpressionUUID->"c675e71a-422b-46da-8553-fcadb94ace6b"],
+
+Cell[BoxData[
+ RowBox[{"cf", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"Expand", "[", 
+      RowBox[{"Eigenvalues", "[", "Amat", "]"}], "]"}], "/.", " ", 
+     RowBox[{
+      RowBox[{"A", "[", 
+       RowBox[{"l_", ",", "m_"}], "]"}], "\[Rule]", 
+      RowBox[{"GTCrystalFieldParameter", "[", 
+       RowBox[{"l", ",", "m", ",", "tri3D", ",", "qtri"}], "]"}]}]}], "//", 
+    "Simplify"}], "//", "Expand"}]}]], "Input",
+ CellChangeTimes->{{3.715940921720358*^9, 3.71594100666968*^9}, {
+  3.715941038059202*^9, 3.715941038598192*^9}, {3.715941359443864*^9, 
+  3.715941367071207*^9}, {3.715941464374714*^9, 3.715941467906946*^9}, {
+  3.716031357768641*^9, 3.716031358486458*^9}, {3.7160323064947357`*^9, 
+  3.716032308476255*^9}, {3.7160328407764063`*^9, 3.7160328666740103`*^9}},
+ CellLabel->
+  "In[152]:=",ExpressionUUID->"c1bd700f-3fa0-4587-9a46-815ec0963351"],
+
+Cell[TextData[{
+ "In case of the splitting of the ",
+ StyleBox["d",
+  FontSlant->"Italic"],
+ "-levels the  following nomenclature was introduced."
+}], "Text",
+ CellChangeTimes->{{3.7160314603637466`*^9, 3.716031492232482*^9}, {
+  3.716032061883087*^9, 
+  3.716032062440332*^9}},ExpressionUUID->"d00acb0c-6a4f-4699-8932-\
+ae5fe87fea6f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rule0", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"q", " ", 
+       SuperscriptBox["r", "2"]}], "\[Rule]", " ", 
+      RowBox[{"24", " ", "\[Pi]", " ", 
+       RowBox[{"Dq", "[", "oct", "]"}]}]}], ",", " ", 
+     RowBox[{"q", "\[Rule]", 
+      RowBox[{
+       RowBox[{"2", "/", "3"}], " ", "\[Pi]", " ", 
+       RowBox[{"\[Epsilon]", "[", "oct", "]"}]}]}]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7159364922023287`*^9, 3.71593653792715*^9}, 
+   3.71603223531225*^9, {3.716032711183003*^9, 3.716032721277094*^9}},
+ CellLabel->
+  "In[153]:=",ExpressionUUID->"cd57bdf0-5744-4b85-8b64-82118458e428"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s  simplify the expansion by means of the following \
+abbreviations:\
+\>", "Text",
+ CellChangeTimes->{{3.7160322760798273`*^9, 3.716032325305352*^9}, 
+   3.745498704552813*^9},ExpressionUUID->"034ff3ba-5967-4541-9838-\
+8e4570a14406"],
+
+Cell[BoxData[
+ RowBox[{"rule", "=", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"q", " ", 
+      SuperscriptBox["r", "2"]}], "\[Rule]", " ", 
+     RowBox[{"40", "\[Pi]", " ", 
+      RowBox[{
+       RowBox[{"Dq", "[", "tr", "]"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"3", " ", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], ")"}]}]}]}], ",", " ", 
+    RowBox[{"q", "\[Rule]", 
+     RowBox[{"4", "\[Pi]", " ", 
+      RowBox[{
+       RowBox[{"\[Epsilon]", "[", "tr", "]"}], "/", 
+       RowBox[{"(", 
+        RowBox[{"3", " ", 
+         RowBox[{"Sqrt", "[", "3", "]"}]}], ")"}]}]}]}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.716032328556945*^9, 3.716032399881907*^9}, {
+   3.7160324301515427`*^9, 3.71603251466927*^9}, {3.716032686129816*^9, 
+   3.7160326869421167`*^9}, {3.716032764252819*^9, 3.716032764721602*^9}, 
+   3.716032901615735*^9, {3.716032961546515*^9, 3.716032966880082*^9}, {
+   3.716033009514426*^9, 3.716033044027124*^9}, 3.716033074789578*^9},
+ CellLabel->
+  "In[154]:=",ExpressionUUID->"73b5d17a-f439-4027-97ae-45aeba87aa7f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"#", "/.", "rule"}], "&"}], " ", "/@", " ", "cf"}]], "Input",
+ CellChangeTimes->{{3.71603277115899*^9, 3.7160328270198593`*^9}, {
+  3.716032980522627*^9, 3.7160329892362127`*^9}},
+ CellLabel->
+  "In[155]:=",ExpressionUUID->"e20b06b4-5c8e-4e81-915b-cd0e4b5acc5d"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1207, 905},
+WindowMargins->{{-10, Automatic}, {Automatic, -10}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 231, 8, 98, "Title",ExpressionUUID->"39084f0f-5c3f-474c-bef9-c5aa415195ea"],
+Cell[814, 32, 949, 13, 53, "Subtitle",ExpressionUUID->"25fb425b-43e5-46a8-a80f-e4402bb077e1"],
+Cell[1766, 47, 250, 7, 83, "Author",ExpressionUUID->"3fe1f4d6-7fbe-4b7b-ae22-8e488b846ff0"],
+Cell[CellGroupData[{
+Cell[2041, 58, 526, 8, 67, "Section",ExpressionUUID->"039caaab-a700-4bdd-9772-d84e0ebd38ad"],
+Cell[2570, 68, 209, 4, 35, "Text",ExpressionUUID->"d580ad56-678f-44fa-8aa0-e49eb451cf17"],
+Cell[2782, 74, 1476, 27, 35, "Text",ExpressionUUID->"88ff6f8e-a215-47d6-b7f6-ceaf14a84831"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4295, 106, 254, 4, 53, "Section",ExpressionUUID->"3ff3e08f-3170-40d2-837e-51b8496f0014"],
+Cell[4552, 112, 163, 3, 35, "Text",ExpressionUUID->"3de0daf7-1f7c-4cc5-a88a-441fd99981f7"],
+Cell[4718, 117, 376, 6, 30, "Input",ExpressionUUID->"4a4a01ba-0c6d-4605-ac9d-e43d31bd57f3"],
+Cell[5097, 125, 414, 12, 35, "Text",ExpressionUUID->"6ff794ce-a867-43d4-a994-7f30fe75b37b"],
+Cell[5514, 139, 484, 10, 30, "Input",ExpressionUUID->"cf4da461-b0ee-4127-84fd-1a35712b6dee"],
+Cell[CellGroupData[{
+Cell[6023, 153, 177, 3, 54, "Subsection",ExpressionUUID->"79f2edd3-47b5-450e-85ff-91223afab15a"],
+Cell[6203, 158, 702, 16, 30, "Input",ExpressionUUID->"562003ea-8bac-4938-90f9-7be4f0e6fe0b"],
+Cell[6908, 176, 409, 9, 30, "Input",ExpressionUUID->"976161d7-55d2-46ef-a05b-c7986d41f70a"],
+Cell[7320, 187, 687, 20, 35, "Text",ExpressionUUID->"d102aaad-b177-4a88-b142-3fc63b7035e6"],
+Cell[8010, 209, 441, 8, 58, "Text",ExpressionUUID->"75cadfb6-af17-4086-a095-5ea52bdcf774"],
+Cell[8454, 219, 460, 9, 30, "Input",ExpressionUUID->"c83a3816-2557-4e9d-812b-527f75e009d7"],
+Cell[8917, 230, 242, 5, 30, "Input",ExpressionUUID->"fdc1e06f-e72a-4f98-8c27-e091f59f68fa"],
+Cell[9162, 237, 245, 5, 30, "Input",ExpressionUUID->"0c3ad7c6-7451-4102-928c-9e467ab4d034"],
+Cell[9410, 244, 165, 3, 35, "Text",ExpressionUUID->"0607f9df-99b5-473d-900e-50b6a2f09e12"],
+Cell[9578, 249, 302, 6, 30, "Input",ExpressionUUID->"4b8ae5ed-5dec-4bfa-9c2e-c03958c379fa"],
+Cell[9883, 257, 166, 3, 35, "Text",ExpressionUUID->"13a19f94-4a6c-4177-a6ab-5d124153f8ac"],
+Cell[10052, 262, 173, 3, 35, "Text",ExpressionUUID->"85ccd8d7-7642-4523-9aa1-3027bf85237c"],
+Cell[10228, 267, 311, 7, 30, "Input",ExpressionUUID->"a150893c-07cb-4a49-b94c-c86ad5824f84"],
+Cell[10542, 276, 176, 3, 35, "Text",ExpressionUUID->"b9808de4-15d1-4a78-97ae-4f34ee8c1661"],
+Cell[10721, 281, 312, 6, 30, "Input",ExpressionUUID->"f178b4b1-715f-494c-9c65-aeb617e6b517"],
+Cell[11036, 289, 804, 21, 58, "Text",ExpressionUUID->"64f7be42-8dc8-4530-85c6-3e04d0535341"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11877, 315, 161, 3, 54, "Subsection",ExpressionUUID->"2fd83e23-5d00-4647-98ce-e7045c5b6ebf"],
+Cell[12041, 320, 940, 21, 58, "Text",ExpressionUUID->"19aaf6fe-06f7-41d9-86ff-7a7578e3b534"],
+Cell[12984, 343, 353, 8, 30, "Input",ExpressionUUID->"7b7bde91-da02-417d-99b1-bf1bb760ff89"],
+Cell[13340, 353, 526, 13, 35, "Text",ExpressionUUID->"99bae8fa-d169-4f19-9bad-26409dff34fd"],
+Cell[13869, 368, 317, 7, 30, "Input",ExpressionUUID->"18bb20f7-7453-42b0-b6aa-0bc1f1976006"],
+Cell[14189, 377, 398, 13, 35, "Text",ExpressionUUID->"63754681-f0ec-422a-97cf-6b8c456f7468"],
+Cell[14590, 392, 1004, 26, 30, "Input",ExpressionUUID->"1cd9632e-b50e-49d2-a7bb-d8c5a74e013a"],
+Cell[15597, 420, 211, 4, 30, "Input",ExpressionUUID->"3ad3aadd-5701-44be-841a-5f99c2e36318"],
+Cell[CellGroupData[{
+Cell[15833, 428, 171, 3, 45, "Subsubsection",ExpressionUUID->"b916c38d-7bbe-4436-8c16-cffa081e884a"],
+Cell[16007, 433, 399, 11, 35, "Text",ExpressionUUID->"c0393884-c0e7-4044-96cc-b246fb84994c"],
+Cell[16409, 446, 1229, 35, 30, "Input",ExpressionUUID->"e0fb7b70-9da2-4413-a5ff-fab36e8d88e6"],
+Cell[17641, 483, 1924, 55, 94, "Input",ExpressionUUID->"0be2f89a-56d7-42fc-9ff9-0b9f1788d355"],
+Cell[19568, 540, 175, 3, 30, "Input",ExpressionUUID->"45e798a3-2d67-46e9-9b9e-d7ef028df272"],
+Cell[19746, 545, 310, 8, 35, "Text",ExpressionUUID->"374b26fc-dcfb-462d-bee3-92245823e30c"],
+Cell[20059, 555, 281, 7, 30, "Input",ExpressionUUID->"13502358-cbf2-4700-89ac-0ac976dd1571"],
+Cell[20343, 564, 430, 11, 35, "Text",ExpressionUUID->"7df207a0-4681-442d-a7db-a58748b90f9f"],
+Cell[20776, 577, 424, 12, 30, "Input",ExpressionUUID->"e546e609-0ff0-4eaa-9452-90438155a31f"],
+Cell[21203, 591, 641, 14, 30, "Input",ExpressionUUID->"0114f160-9c58-4a6f-bc6f-9dd2327450ed"],
+Cell[21847, 607, 293, 7, 30, "Input",ExpressionUUID->"a1b753e7-865b-491c-9e22-9705d1d7d925"],
+Cell[22143, 616, 395, 10, 30, "Input",ExpressionUUID->"c675e71a-422b-46da-8553-fcadb94ace6b"],
+Cell[22541, 628, 873, 19, 30, "Input",ExpressionUUID->"c1bd700f-3fa0-4587-9a46-815ec0963351"],
+Cell[23417, 649, 335, 9, 35, "Text",ExpressionUUID->"d00acb0c-6a4f-4699-8932-ae5fe87fea6f"],
+Cell[23755, 660, 662, 17, 33, "Input",ExpressionUUID->"cd57bdf0-5744-4b85-8b64-82118458e428"],
+Cell[24420, 679, 264, 6, 35, "Text",ExpressionUUID->"034ff3ba-5967-4541-9838-8e4570a14406"],
+Cell[24687, 687, 1060, 26, 33, "Input",ExpressionUUID->"73b5d17a-f439-4027-97ae-45aeba87aa7f"],
+Cell[25750, 715, 308, 7, 30, "Input",ExpressionUUID->"e20b06b4-5c8e-4e81-915b-cd0e4b5acc5d"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

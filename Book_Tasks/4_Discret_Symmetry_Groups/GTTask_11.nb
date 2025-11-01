@@ -1,0 +1,1137 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     43969,       1129]
+NotebookOptionsPosition[     36583,       1025]
+NotebookOutlinePosition[     37019,       1042]
+CellTagsIndexPosition[     36976,       1039]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"962ae9b6-b89b-477c-a6cf-\
+f69b3c834570"],
+
+Cell["Task_11: Product of rotation and mirror operation", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+   3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+   3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, 
+   3.6510653858085613`*^9, {3.651065421088859*^9, 3.651065421366317*^9}, {
+   3.6510687045818653`*^9, 3.651068710545953*^9}, {3.651072608392005*^9, 
+   3.65107261910872*^9}, 3.6510728249097757`*^9, {3.698590296566618*^9, 
+   3.698590299418901*^9}, {3.698592194892194*^9, 3.69859219662912*^9}, {
+   3.7160198668070917`*^9, 3.7160198728011417`*^9}, {3.74548167304169*^9, 
+   3.745481673708893*^9}},ExpressionUUID->"66477c18-d64e-47e4-b444-\
+300a627068d6"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"a4887832-be1a-4adc-a95a-\
+d4351edd6f42"],
+
+Cell[CellGroupData[{
+
+Cell["Task 11", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, 
+   3.6510654285215063`*^9, {3.651072623507641*^9, 3.651072623957384*^9}, {
+   3.7146663134650507`*^9, 3.714666314827601*^9}, {3.7160198757712193`*^9, 
+   3.7160198762552433`*^9}},ExpressionUUID->"a3914e15-61b4-4a9c-a869-\
+36bafdb59ea0"],
+
+Cell["see : Chapter 4, section 4.1.2 , p. 58.", "Text",
+ CellChangeTimes->{{3.745477646038622*^9, 
+  3.7454776701475554`*^9}},ExpressionUUID->"b52fae4e-f10a-4e72-b21a-\
+d42b3321add8"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Part I: Proof :The product of a ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"rotation", " ", 
+    SubsuperscriptBox["C", "n", "m"], " ", "with", " ", "a", " ", "mirror", 
+    " ", "operation", " ", 
+    SubscriptBox["\[Sigma]", "v"], " ", "results", " ", "in", " ", "a", " ", 
+    "mirror", " ", "operation"}], TraditionalForm]],ExpressionUUID->
+  "93d24783-4d2a-46d5-8eab-3bf3d93149bb"],
+ ". The mirror plane contains the rotation axis."
+}], "Item",
+ CellChangeTimes->{{3.71470035792348*^9, 3.714700411737934*^9}, {
+  3.74547768564958*^9, 
+  3.745477716377573*^9}},ExpressionUUID->"a385757a-2446-419f-8e20-\
+be3a355e5817"],
+
+Cell[TextData[{
+ "Part II:  For even ",
+ StyleBox["n",
+  FontSlant->"Italic"],
+ " two sets of mirror planes exist ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"(", 
+    RowBox[{
+     SubscriptBox["\[Sigma]", "v"], ",", 
+     RowBox[{
+      SubscriptBox["\[Sigma]", "v"], "'"}]}]}], TraditionalForm]],
+  ExpressionUUID->"cb7b9b48-f0f9-405e-946b-c9a3e634b4b3"],
+ ",... and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Sigma]", "d"], ",", 
+    RowBox[{
+     SubscriptBox["\[Sigma]", "d"], "'"}], ","}], TraditionalForm]],
+  ExpressionUUID->"4f38a8ef-29af-4d6d-8730-acce20d5ea27"],
+ "...). The multiplication of the rotation with a member of one of the sets \
+leads to another member of the same set."
+}], "Item",
+ CellChangeTimes->{{3.71470035792348*^9, 
+  3.714700434112731*^9}},ExpressionUUID->"bb2323e3-0d14-4a07-91c1-\
+1ebd661ec1df"],
+
+Cell["\<\
+Part III: Demonstrate this result in case of the benzene molecule.\
+\>", "Item",
+ CellChangeTimes->{{3.71470035792348*^9, 3.714700359517631*^9}, {
+  3.714700438079988*^9, 
+  3.714700445681305*^9}},ExpressionUUID->"e150c0f1-a74d-45d6-b89a-\
+c627808ff99c"]
+}, Open  ]],
+
+Cell["GTPack will used.", "Text",
+ CellChangeTimes->{{3.6510687190694857`*^9, 
+  3.6510687427760773`*^9}},ExpressionUUID->"3e150a8b-23a9-4070-bf87-\
+203c50fba2c0"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.565681889253334*^9, 3.5656819493414183`*^9}, {
+  3.635786193501388*^9, 3.635786195193049*^9}, {3.6510687481027937`*^9, 
+  3.651068762513336*^9}, {3.651068796080668*^9, 3.6510687983863363`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"6e7a6006-ee30-428a-a7a8-40985feb91de"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["General considerations", "Section",
+ CellChangeTimes->{{3.714656857958139*^9, 3.714656865145402*^9}, {
+  3.7146569052889853`*^9, 3.7146569092811193`*^9}, {3.714700258497705*^9, 
+  3.714700261668157*^9}},ExpressionUUID->"24aeb825-c9b7-49bc-9a97-\
+8fa619c2b666"],
+
+Cell[CellGroupData[{
+
+Cell["Proof of part I", "Subsection",
+ CellChangeTimes->{{3.714700266441967*^9, 
+  3.7147002701630583`*^9}},ExpressionUUID->"1998c787-84c0-4994-bc77-\
+afb76534d871"],
+
+Cell[TextData[{
+ "At first we construct a rotation matrix for a rotation ",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox["C", "n", "m"], TraditionalForm]],ExpressionUUID->
+  "b7789458-b413-4589-8b3d-61ab8d1176ee"],
+ " about the ",
+ StyleBox["z",
+  FontSlant->"Italic"],
+ "-axis. We have to take into account that we work in the passive notation. \
+We have to take the rotation angle or the direction of the rotation axis \
+negative."
+}], "Text",
+ CellChangeTimes->{{3.714695908798546*^9, 3.714696063071704*^9}, {
+  3.7147004987691383`*^9, 
+  3.714700500478713*^9}},ExpressionUUID->"abdb3fc5-ff6e-476d-a138-\
+d22fe1e21310"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rotmat", "[", 
+   RowBox[{"m_", ",", "n_"}], "]"}], "=", 
+  RowBox[{"RotationMatrix", "[", 
+   RowBox[{
+    RowBox[{"m", " ", "2", 
+     RowBox[{"\[Pi]", "/", "n"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "0", ",", 
+      RowBox[{"-", "1"}]}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.714664426678603*^9, 3.714664444076339*^9}, {
+   3.714664488887323*^9, 3.714664552386333*^9}, {3.7146654753555517`*^9, 
+   3.714665476413313*^9}, {3.714666094878121*^9, 3.714666100570546*^9}, {
+   3.714666169365548*^9, 3.714666191720077*^9}, {3.714668954628819*^9, 
+   3.7146689561855927`*^9}, {3.7146702002134542`*^9, 3.714670211730188*^9}, {
+   3.714670251679551*^9, 3.714670262507757*^9}, 3.714670675110652*^9, {
+   3.7146958586042*^9, 3.7146958616576147`*^9}, {3.714695953565371*^9, 
+   3.714695956728807*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"48cae423-a4ba-4166-a0d2-0d28d90c41b7"],
+
+Cell[TextData[{
+ "Test for ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", 
+    RowBox[{"3", "z"}]], TraditionalForm]],ExpressionUUID->
+  "7fb0cf63-1bac-4cc1-a90f-041f7e1a9dc1"]
+}], "Text",
+ CellChangeTimes->{{3.714696079315097*^9, 
+  3.714696103512377*^9}},ExpressionUUID->"b532420e-ef98-4c76-a7ed-\
+87cf0a544faf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GTGetMatrix", "[", "C3z", "]"}], "\[Equal]", 
+  RowBox[{"rotmat", "[", 
+   RowBox[{"1", ",", "3"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7146702743306417`*^9, 3.714670283225954*^9}, {
+  3.714670914492716*^9, 3.714670918318152*^9}, {3.7146961105472193`*^9, 
+  3.7146961264129677`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"4dd5dec9-f119-4952-9a39-79aa3c148860"],
+
+Cell[TextData[{
+ "Now we construct the new mirror operation. For ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Sigma]", "v"], " ", "we", " ", "can", " ", "chose", " ", 
+    "without", " "}], TraditionalForm]],ExpressionUUID->
+  "1dcd8d82-30d0-47d3-8e39-d79873d67ee6"],
+ "loss of generality ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["IC", 
+     RowBox[{"2", "x"}]], "."}], TraditionalForm]],ExpressionUUID->
+  "8bf65f57-c4db-419a-aa38-0b9820829f35"],
+ " "
+}], "Text",
+ CellChangeTimes->{{3.714696143507578*^9, 3.7146961695540953`*^9}, {
+  3.714700556896991*^9, 
+  3.714700557800776*^9}},ExpressionUUID->"a606521d-d669-4897-a408-\
+121eaf3fc29b"],
+
+Cell[BoxData[
+ RowBox[{"new", "=", 
+  RowBox[{
+   RowBox[{"rotmat", "[", 
+    RowBox[{"m", ",", "n"}], "]"}], ".", 
+   RowBox[{"GTGetMatrix", "[", "IC2x", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7146708276200733`*^9, 3.714670835626975*^9}, {
+  3.714696179308115*^9, 3.714696240446591*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"bd1eb971-eb76-4ca5-af3a-6d286f8a9061"],
+
+Cell[BoxData[
+ RowBox[{"new", "//", "MatrixForm"}]], "Input",
+ CellChangeTimes->{{3.714700612420178*^9, 3.71470061779696*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"3b7b9986-439d-4cce-916b-51cca36fd14f"],
+
+Cell[TextData[{
+ "Is this a mirror operation? Properties of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["IC", 
+    RowBox[{"2", "x"}]], TraditionalForm]],ExpressionUUID->
+  "b6a52948-3a83-41b1-9ae1-1a23d6c92a9e"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.714696248036558*^9, 3.7146962628872147`*^9}, {
+  3.714700570457633*^9, 
+  3.7147005800888023`*^9}},ExpressionUUID->"b4695737-2c2b-4166-bcba-\
+fb9b40f52962"],
+
+Cell[BoxData[{
+ RowBox[{"GTOrderOfElement", "[", "IC2x", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Det", "[", 
+  RowBox[{"GTGetMatrix", "[", "IC2x", "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7146962661584187`*^9, 3.714696298649719*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"f1bfc015-6883-45f3-927e-14392a7a7015"],
+
+Cell["Mirror operations have order 2 and a determinant of -1.", "Text",
+ CellChangeTimes->{{3.714696306164528*^9, 3.714696328192937*^9}, {
+  3.714700585558835*^9, 
+  3.714700597355805*^9}},ExpressionUUID->"6fd29f30-0a2e-4ebb-a6f9-\
+551e41f60308"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"new", ".", "new"}], "//", "FullSimplify"}], "//", 
+  "MatrixForm"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Det", "[", "new", "]"}], "//", "FullSimplify"}]}], "Input",
+ CellChangeTimes->{{3.714696339160388*^9, 3.714696404225958*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"abdaedce-d50c-4be7-9ac4-62b3170fc75a"],
+
+Cell[TextData[{
+ "That' s fine. The operation ",
+ StyleBox["new ",
+  FontSlant->"Italic"],
+ "leaves the ",
+ StyleBox["z",
+  FontSlant->"Italic"],
+ "-coordinate unchanged, i.e. we concentrate on the transformations in the ",
+ StyleBox["xy",
+  FontSlant->"Italic"],
+ "-plane."
+}], "Text",
+ CellChangeTimes->{{3.7146964110612097`*^9, 3.7146965047290697`*^9}, 
+   3.714697916712802*^9},ExpressionUUID->"ce612d43-a305-4eac-91c2-\
+96922687a832"],
+
+Cell[TextData[{
+ "We study transformations of points in the ",
+ StyleBox["xy",
+  FontSlant->"Italic"],
+ "-plane. A point p1={x,y,0} is transformed by the new operation into"
+}], "Text",
+ CellChangeTimes->{{3.714696815911388*^9, 3.7146968483972063`*^9}, {
+  3.714697941175024*^9, 3.7146979415671043`*^9}, {3.714700637986945*^9, 
+  3.7147006589399242`*^9}, {3.745477965543048*^9, 
+  3.745477967498681*^9}},ExpressionUUID->"51020972-5b29-42aa-91b1-\
+651febd82c2e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"p1", "=", 
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y", ",", "0"}], "}"}]}], ";", 
+  RowBox[{"p2", "=", 
+   RowBox[{"new", ".", "p1"}]}]}]], "Input",
+ CellChangeTimes->{{3.714696861590766*^9, 3.714696903906001*^9}, {
+  3.714697965404437*^9, 3.714697975300935*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"125340b8-82c7-44f9-8dd0-adad4b9911c2"],
+
+Cell[TextData[{
+ "The connection of both points has to be perpendicular to the new mirror \
+plane, or parallel to the normal of that plane. The normal of the new mirror \
+plane is defined by the axis of rotation of ",
+ Cell[BoxData[
+  FormBox[
+   SubsuperscriptBox["C", "n", "m"], TraditionalForm]],ExpressionUUID->
+  "013fb68c-7972-4f57-9720-e99491721430"],
+ " ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["IC", 
+    RowBox[{"2", "x"}]], TraditionalForm]],ExpressionUUID->
+  "0597217c-09f0-4081-a42a-498bb557ac77"]
+}], "Text",
+ CellChangeTimes->{{3.7146969164371223`*^9, 3.714697079606352*^9}, {
+  3.714697198210087*^9, 3.714697204423768*^9}, {3.7146977503851852`*^9, 
+  3.7146977755861683`*^9}, {3.714698043276629*^9, 3.714698043713717*^9}, {
+  3.714698130630517*^9, 3.714698133302093*^9}, {3.714698975194865*^9, 
+  3.714699007798272*^9}, {3.714699733032353*^9, 3.7146997586157627`*^9}, {
+  3.714700698506199*^9, 3.7147007618873568`*^9}, {3.745478016881489*^9, 
+  3.745478016881804*^9}},ExpressionUUID->"1c7f98b0-e88d-4e35-a071-\
+bb0b0e004a6b"],
+
+Cell[BoxData[
+ RowBox[{"rot", "=", 
+  RowBox[{
+   RowBox[{"rotmat", "[", 
+    RowBox[{"m", ",", "n"}], "]"}], ".", 
+   RowBox[{"GTGetMatrix", "[", "IC2x", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.71469779317379*^9, 3.714697833972425*^9}, {
+  3.714698115224449*^9, 3.7146981259935837`*^9}, {3.7146981890730877`*^9, 
+  3.714698189956497*^9}, {3.714699010939082*^9, 3.7146990224305067`*^9}, {
+  3.714699768134931*^9, 3.7146997684877253`*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"93d911b9-4b9c-42a6-8e1f-d62af48561be"],
+
+Cell[TextData[{
+ "The axis of rotation and the vector characterizing the mirror plane are \
+found from the eigensystem of ",
+ StyleBox["rot.",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{{3.7146997928057137`*^9, 
+  3.714699849622703*^9}},ExpressionUUID->"3e06ff0c-9932-461d-a5b8-\
+4e41d7fe8624"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"es", "=", 
+   RowBox[{"Eigensystem", "[", "rot", "]"}]}], ";", 
+  RowBox[{"axis", "=", 
+   RowBox[{"es", "[", 
+    RowBox[{"[", 
+     RowBox[{"2", ",", "3"}], "]"}], "]"}]}], ";", 
+  RowBox[{"mirror", "=", 
+   RowBox[{"es", "[", 
+    RowBox[{"[", 
+     RowBox[{"2", ",", "1"}], "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.714699481720837*^9, 3.7146996398055573`*^9}, {
+  3.714699675701939*^9, 3.7146997075484877`*^9}, {3.714699853921748*^9, 
+  3.7146998755504*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"fec488ea-353f-4959-a131-5494842a7e65"],
+
+Cell[TextData[{
+ "The mirror plane should contain the ",
+ StyleBox["z",
+  FontSlant->"Italic"],
+ "-axis, i.e."
+}], "Text",
+ CellChangeTimes->{{3.714700061914401*^9, 3.714700098632349*^9}, 
+   3.714700788943762*^9},ExpressionUUID->"013b2605-8985-4e78-a6d3-\
+23ee377130c7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"axis", ".", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "\[Equal]", "0"}]], "Input",
+ CellChangeTimes->{{3.714700102741581*^9, 3.714700111733309*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"01a5ded5-64a2-4c54-9126-7aafdc7ec58d"],
+
+Cell["Is (p2-p1) in parallel to the normal of the mirror plane?", "Text",
+ CellChangeTimes->{{3.714699889959598*^9, 3.7146998933697042`*^9}, {
+  3.714700122501958*^9, 
+  3.714700155011064*^9}},ExpressionUUID->"0ebe86ad-5749-4ba5-9efa-\
+b1a30e2dfb7d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"test", "=", 
+   RowBox[{
+    RowBox[{"axis", ".", 
+     RowBox[{"(", 
+      RowBox[{"p2", "-", "p1"}], ")"}]}], "//", "FullSimplify"}]}], ";", 
+  RowBox[{"test", "\[Equal]", "0"}]}]], "Input",
+ CellChangeTimes->{{3.714700157738571*^9, 3.714700191191908*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"4d2b125d-6530-43c9-be8f-a07582f8f886"],
+
+Cell["Is (p2 - p1)  perpendicular to a vector in the mirror plane?", "Text",
+ CellChangeTimes->{{3.714700221247861*^9, 3.7147002477383757`*^9}, {
+  3.7147002829858837`*^9, 
+  3.7147002942516108`*^9}},ExpressionUUID->"92b06299-a372-4727-bbc2-\
+fa08a363f980"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"test", "=", 
+   RowBox[{
+    RowBox[{"Cross", "[", 
+     RowBox[{"mirror", ",", 
+      RowBox[{"(", 
+       RowBox[{"p2", "-", "p1"}], ")"}]}], "]"}], "//", "FullSimplify"}]}], 
+  ";", 
+  RowBox[{"test", "==", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0", ",", "0"}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.7146999056623163`*^9, 3.714699949983842*^9}, {
+  3.714700196730714*^9, 3.714700207660571*^9}, {3.7147003038881607`*^9, 
+  3.714700304807453*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"0b6a2286-45ab-48dc-9af8-db3266ec91dc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"axis", ".", 
+   RowBox[{"(", 
+    RowBox[{"p2", "-", "p1"}], ")"}]}], "//", "FullSimplify"}]], "Input",
+ CellChangeTimes->{{3.714669835350094*^9, 3.7146698411082783`*^9}, {
+   3.714669983319817*^9, 3.714669983914946*^9}, {3.714697094375266*^9, 
+   3.714697113409821*^9}, 3.714697262360156*^9, 3.714697784805045*^9, {
+   3.714697840826882*^9, 3.714697873534902*^9}, {3.7146981962548237`*^9, 
+   3.7146982171717777`*^9}, {3.7146983821244173`*^9, 3.714698397263466*^9}, {
+   3.714698484632928*^9, 3.714698509900647*^9}, {3.714699620036656*^9, 
+   3.714699620694427*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"80c24791-dc20-4f40-bb40-cd8320555dc5"],
+
+Cell["This completes the proof.", "Text",
+ CellChangeTimes->{{3.714700806525098*^9, 
+  3.7147008137412853`*^9}},ExpressionUUID->"66fd0dbf-8c22-444f-bbee-\
+67ca17dc5e13"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Examples to part II", "Subsection",
+ CellChangeTimes->{{3.7147003169842176`*^9, 
+  3.7147003230091047`*^9}},ExpressionUUID->"73993f10-66e8-4be0-a149-\
+e576208f2426"],
+
+Cell[TextData[{
+ "We consider the consequences for rotations of even and odd order.  To do \
+this the cyclic groups ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["C", "4"], " ", "and", " ", 
+    SubscriptBox["C", "3"], " ", "are", " ", 
+    RowBox[{"used", "."}]}], TraditionalForm]],ExpressionUUID->
+  "b9cd4988-d8cd-4c5b-a8dc-1d92492fed98"],
+ " "
+}], "Text",
+ CellChangeTimes->{{3.714656913244814*^9, 3.7146570260217943`*^9}, {
+  3.714657104499119*^9, 3.7146571520459757`*^9}, {3.714700874056283*^9, 
+  3.714700966337062*^9}, {3.745478077104425*^9, 
+  3.7454780781938047`*^9}},ExpressionUUID->"6edf9725-4fd7-4b1a-956d-\
+17800b1cbf5c"],
+
+Cell[CellGroupData[{
+
+Cell["Even order", "Subsubsection",
+ CellChangeTimes->{{3.714701010862958*^9, 3.714701014219185*^9}, 
+   3.714701065627881*^9},ExpressionUUID->"bd23a7b6-7791-45b1-80f8-\
+329bc3763bb4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g4", "=", 
+   RowBox[{"GTInstallGroup", "[", 
+    RowBox[{"C4", ",", 
+     RowBox[{"GOVerbose", "\[Rule]", "False"}]}], "]"}]}], ";", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"IC2x", "\[SmallCircle]", "#"}], "&"}], "/@", "g4"}]}]], "Input",
+ CellChangeTimes->{{3.714657156865044*^9, 3.7146572643967247`*^9}, {
+  3.714657811809081*^9, 3.714657816317593*^9}, {3.714663078285325*^9, 
+  3.714663079195014*^9}, {3.714664377783205*^9, 3.714664396429871*^9}, {
+  3.714701023130645*^9, 3.714701056050768*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"84765d93-f123-4843-9274-96dd27c87bb2"],
+
+Cell[TextData[{
+ "We see again, that a product of a mirror operation and a rotation results \
+in a mirror operation. We apply now all elements of ",
+ StyleBox["g4 ",
+  FontSlant->"Italic"],
+ " to the set of mirror operations."
+}], "Text",
+ CellChangeTimes->{{3.71470110317768*^9, 
+  3.714701176029808*^9}},ExpressionUUID->"b1380ee4-159c-4283-8ba7-\
+3a97c07e5912"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"t", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"t", "=", 
+     RowBox[{"Append", "[", 
+      RowBox[{"t", ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"g4", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "\[SmallCircle]", "#"}], "&"}], "/@", 
+        RowBox[{"{", 
+         RowBox[{"IC2x", ",", "IC2y", ",", "IC2a", ",", "IC2b"}], "}"}]}]}], 
+      "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "4"}], "}"}]}], "]"}], ";", 
+  RowBox[{"t", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{"t", ",", 
+     RowBox[{"{", 
+      RowBox[{"IC2x", ",", "IC2y", ",", "IC2a", ",", "IC2b"}], "}"}]}], 
+    "]"}]}], ";", 
+  RowBox[{"t", "=", 
+   RowBox[{
+    RowBox[{"Prepend", "[", 
+     RowBox[{
+      RowBox[{"t", "//", "Transpose"}], ",", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\< \>\"", ",", "g4"}], "}"}], "//", "Flatten"}]}], "]"}], "//",
+     "Transpose"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.714662148428028*^9, 3.7146622816949663`*^9}, {
+  3.714662715842648*^9, 3.714662741127707*^9}, {3.714662802394477*^9, 
+  3.714662819405711*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"d53859bd-8e83-43bb-96f5-baba9839fd35"],
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{"t", ",", 
+   RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+   RowBox[{"Background", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", "LightRed"}], ",", 
+      RowBox[{"1", "\[Rule]", "LightRed"}]}], "}"}]}], ",", 
+   RowBox[{"Dividers", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"2", "\[Rule]", "Blue"}], ",", 
+        RowBox[{"4", "\[Rule]", "Red"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"2", "->", "Blue"}], ",", 
+        RowBox[{"4", "\[Rule]", "Red"}]}], "}"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.714662285520108*^9, 3.7146623280655527`*^9}, {
+  3.714662396048532*^9, 3.714662430321377*^9}, {3.714662621302236*^9, 
+  3.714662686398574*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"8e4d1e7c-8117-4124-8857-5d832c54eedb"],
+
+Cell[TextData[{
+ "It  can be seen, that for a rotation axis of even order the mirror \
+operations form groups. That is the basic fact that in groups ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", "nv"], TraditionalForm]],ExpressionUUID->
+  "50d14dbf-c7a7-4155-be1f-6718d544795a"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{" ", 
+    RowBox[{
+    "the", " ", "mirror", " ", "planes", " ", "form", " ", "distinguished", "  ",
+      "sets", " ", 
+     SubscriptBox["\[Sigma]", "v"]}]}], TraditionalForm]],ExpressionUUID->
+  "e54ac0ba-fe6d-430b-898d-0ce0edf9f2ab"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", 
+    RowBox[{"d", "."}]], TraditionalForm]],ExpressionUUID->
+  "36b80614-1df8-49c8-92b6-93fc443a3919"]
+}], "Text",
+ CellChangeTimes->{{3.7146619896701393`*^9, 3.714662055672331*^9}, {
+  3.714663436334301*^9, 3.714663549749934*^9}, {3.714701208644471*^9, 
+  3.7147012175948753`*^9}},ExpressionUUID->"bbe25976-47ee-4c91-ae60-\
+47d89f1507d2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Odd order", "Subsubsection",
+ CellChangeTimes->{{3.714663561446124*^9, 3.7146635729224167`*^9}, {
+  3.714701247694479*^9, 
+  3.7147012501142387`*^9}},ExpressionUUID->"caa6dace-bf6f-4b57-ad77-\
+ca9a9f1aef26"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g3", "=", 
+   RowBox[{"GTGroupFromGenerators", "[", 
+    RowBox[{"{", "C3z", "}"}], "]"}]}], ";", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"IC2x", "\[SmallCircle]", "#"}], "&"}], "/@", "g3"}]}]], "Input",
+ CellChangeTimes->{{3.7146620763820677`*^9, 3.714662076876073*^9}, {
+  3.7146629174961653`*^9, 3.71466291812101*^9}, {3.714701264585372*^9, 
+  3.7147012652872057`*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"400e57fb-65d7-4a25-89b1-30cf5083adff"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"t", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"t", "=", 
+     RowBox[{"Append", "[", 
+      RowBox[{"t", ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"g3", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "\[SmallCircle]", "#"}], "&"}], "/@", 
+        RowBox[{"{", 
+         RowBox[{"IC2x", ",", "IC2A", ",", "IC2B"}], "}"}]}]}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "3"}], "}"}]}], "]"}], ";", 
+  RowBox[{"t", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{"t", ",", 
+     RowBox[{"{", 
+      RowBox[{"IC2x", ",", "IC2A", ",", "IC2B"}], "}"}]}], "]"}]}], ";", 
+  RowBox[{"t", "=", 
+   RowBox[{
+    RowBox[{"Prepend", "[", 
+     RowBox[{
+      RowBox[{"t", "//", "Transpose"}], ",", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\< \>\"", ",", "g3"}], "}"}], "//", "Flatten"}]}], "]"}], "//",
+     "Transpose"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.714662148428028*^9, 3.7146622816949663`*^9}, {
+  3.714662715842648*^9, 3.714662741127707*^9}, {3.714662802394477*^9, 
+  3.714662819405711*^9}, {3.714662923276018*^9, 3.714662923524392*^9}, {
+  3.714662971402214*^9, 3.714663000886808*^9}},
+ CellLabel->"In[21]:=",ExpressionUUID->"1666013f-322c-42cb-b908-c692664c17e6"],
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{"t", ",", 
+   RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+   RowBox[{"Background", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", "LightRed"}], ",", 
+      RowBox[{"1", "\[Rule]", "LightRed"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.714662285520108*^9, 3.7146623280655527`*^9}, {
+  3.714662396048532*^9, 3.714662430321377*^9}, {3.714662621302236*^9, 
+  3.714662686398574*^9}, {3.714663031784627*^9, 3.714663032476433*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"82648fb4-a136-4841-8e8a-2880eb88a182"],
+
+Cell[TextData[{
+ "Every ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["\[Sigma]", "v"], " ", "can", " ", "be", " ", "transformed", 
+    " "}], TraditionalForm]],ExpressionUUID->
+  "2ba392ca-8fef-4fab-89ff-ecf62462634c"],
+ "in every other one by an appropriate rotation."
+}], "Text",
+ CellChangeTimes->{{3.7146636098241673`*^9, 3.714663679546215*^9}, 
+   3.714701287167407*^9},ExpressionUUID->"96cad64d-15c1-49e1-bae1-\
+d7f0408b4b17"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Part III: Benzene molecule", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 3.5656818754713144`*^9}, {
+  3.651068604062579*^9, 3.6510686054795933`*^9}, {3.6510728038488283`*^9, 
+  3.651072807097383*^9}, {3.714700474998616*^9, 
+  3.714700478151887*^9}},ExpressionUUID->"f266a1e5-086d-4949-9b9a-\
+9acc823b87ca"],
+
+Cell[TextData[{
+ "The point group of benzene is  ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", 
+    RowBox[{"6", "h"}]], TraditionalForm]],ExpressionUUID->
+  "891ad037-73ee-4ff0-86da-3ee0b032eeca"],
+ Cell[BoxData[
+  FormBox[".", TraditionalForm]],ExpressionUUID->
+  "a16cab18-449a-4a9d-bd78-12c8c8bcc90f"]
+}], "Text",
+ CellChangeTimes->{{3.651068806205772*^9, 3.65106884881911*^9}, {
+  3.651073083659505*^9, 3.6510730983770943`*^9}, {3.698592240382278*^9, 
+  3.6985922547569933`*^9}},ExpressionUUID->"c8b279a8-1ab4-4e51-a836-\
+555d03999c9b"],
+
+Cell[BoxData[
+ RowBox[{"d6h", "=", 
+  RowBox[{"GTInstallGroup", "[", "D6h", "]"}]}]], "Input",
+ CellChangeTimes->{{3.651068851199368*^9, 3.6510688726706553`*^9}, {
+   3.65107310216674*^9, 3.6510731094897842`*^9}, {3.651074315300931*^9, 
+   3.651074327219482*^9}, {3.651074368681396*^9, 3.651074374621645*^9}, 
+   3.651074428765575*^9, {3.651074517833061*^9, 3.651074518718203*^9}, {
+   3.6510745901888523`*^9, 3.6510745913366117`*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"55491574-8208-4521-b964-007d27d921c6"],
+
+Cell[BoxData[
+ RowBox[{"GTGroupOrder", "[", "d6h", "]"}]], "Input",
+ CellChangeTimes->{{3.6510745989422398`*^9, 3.651074614467002*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"75d2a9fd-0169-4013-8d2a-d36273da2885"],
+
+Cell["The visualization of the symmetry elements will help us.", "Text",
+ CellChangeTimes->{{3.65106888311528*^9, 3.651068918985819*^9}, {
+  3.714658351147143*^9, 
+  3.714658351853997*^9}},ExpressionUUID->"d00ac63c-1785-4d5a-8894-\
+48331b04c953"],
+
+Cell[BoxData[
+ RowBox[{"GTShowSymmetryElements", "[", 
+  RowBox[{"d6h", ",", 
+   RowBox[{"GOSelectSymmetry", "\[Rule]", "\"\<Rotations\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.651074707629777*^9, 3.65107472045051*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"c2430808-f37d-4c89-8ab2-c44d254044b7"],
+
+Cell[BoxData[
+ RowBox[{"GTShowSymmetryElements", "[", 
+  RowBox[{"d6h", ",", 
+   RowBox[{"GOSelectSymmetry", "\[Rule]", "\"\<Reflections\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.5656819525524235`*^9, 3.565681955702428*^9}, {
+  3.63578620020043*^9, 3.635786202251442*^9}, {3.651068922276528*^9, 
+  3.651068936762134*^9}, {3.6510731180314693`*^9, 3.6510731433884478`*^9}, {
+  3.6510731939310007`*^9, 3.651073218153378*^9}, {3.651074685548305*^9, 
+  3.6510746870978947`*^9}},
+ CellLabel->"In[26]:=",ExpressionUUID->"b2cfeec2-555b-44fb-be42-fe04638ddcc6"],
+
+Cell["\<\
+We see all the vertical reflection planes and the horizontal reflection plane.\
+\>", "Text",
+ CellChangeTimes->{{3.651073254109799*^9, 3.651073264727137*^9}, {
+  3.714658544255131*^9, 
+  3.714658557869919*^9}},ExpressionUUID->"a0676b40-0f52-45dd-a86b-\
+bc4b8503fb78"],
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{"i", ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", "24"}], "}"}]}], "]"}], ",", "d6h", ",", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"GTOrderOfElement", "[", "#", "]"}], "&"}], ",", "d6h"}], 
+      "]"}]}], "}"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+   RowBox[{"Background", "\[Rule]", " ", 
+    RowBox[{"{", 
+     RowBox[{"None", ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"1", "\[Rule]", "LightRed"}], ",", 
+        RowBox[{"2", "\[Rule]", "LightBlue"}]}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.651073280231641*^9, 3.651073308829604*^9}, {
+  3.7146584051049423`*^9, 3.71465840659737*^9}, {3.714701338481413*^9, 
+  3.71470139053403*^9}, {3.714701454285758*^9, 3.714701457353537*^9}, {
+  3.7454783731902437`*^9, 3.745478402387423*^9}},
+ CellLabel->"In[27]:=",ExpressionUUID->"fcfcd571-a7c3-48e9-b0a9-5bde2433c75d"],
+
+Cell["We select the vertical reflection planes.", "Text",
+ CellChangeTimes->{{3.714658562297248*^9, 
+  3.714658578449381*^9}},ExpressionUUID->"cc8338e7-9022-4d55-bac3-\
+101b10e911fe"],
+
+Cell[BoxData[
+ RowBox[{"reflections", "=", 
+  RowBox[{"Take", "[", 
+   RowBox[{"d6h", ",", 
+    RowBox[{"{", 
+     RowBox[{"14", ",", "19"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.651073330658107*^9, 3.6510733424339437`*^9}, {
+  3.714658444743088*^9, 3.7146584573079157`*^9}, {3.714658619656823*^9, 
+  3.714658621926126*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"801a3fd2-4655-499b-9a13-3234fb282ab5"],
+
+Cell[TextData[{
+ "From Fig. 4.1 of the text book we conclude that the reflections containing \
+a twofold rotation axis going trough the vertices of the hexagon ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["IC", 
+       RowBox[{"2", "x"}]], ",", " ", 
+      SubscriptBox["IC", 
+       RowBox[{"2", "A"}]], ",", " ", 
+      SubscriptBox["IC", 
+       RowBox[{"2", "B"}]]}], ")"}], "  ", "form", " ", "one", " ", "set", 
+    " ", "and", " ", "the", " "}], TraditionalForm]],ExpressionUUID->
+  "a128273c-55bb-43cb-bfd9-78ed382b373d"],
+ "other set contains the twofold rotations through the edges of the hexagon ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", 
+     RowBox[{
+      SubscriptBox["IC", 
+       RowBox[{"2", "y"}]], ",", " ", 
+      SubscriptBox["IC", 
+       RowBox[{"2", "C"}]], ",", " ", 
+      SubscriptBox["IC", 
+       RowBox[{"2", "D"}]]}], ")"}], "."}], TraditionalForm]],ExpressionUUID->
+  "9ac01240-593f-49d1-88bb-71f54c156477"]
+}], "Text",
+ CellChangeTimes->{{3.651073587863287*^9, 3.651073618092655*^9}, {
+  3.65107371431577*^9, 3.651073948937828*^9}, {3.651073988613051*^9, 
+  3.651074014403957*^9}, {3.714658629077291*^9, 3.714658660565267*^9}, {
+  3.71470147984663*^9, 
+  3.714701483196804*^9}},ExpressionUUID->"c57c7a68-0b01-4947-b702-\
+90fea19c11fa"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"set1", "=", 
+   RowBox[{"{", 
+    RowBox[{"IC2x", ",", "IC2A", ",", " ", "IC2B"}], "}"}]}], ";", " ", 
+  RowBox[{"set2", "=", 
+   RowBox[{"{", 
+    RowBox[{"IC2y", ",", "IC2C", ",", "IC2D"}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.6510739700339622`*^9, 3.6510739832385*^9}, {
+  3.651074019744039*^9, 3.6510740522474537`*^9}},
+ CellLabel->"In[29]:=",ExpressionUUID->"adad2b35-1a40-45eb-8890-642dae3d23be"],
+
+Cell[TextData[{
+ "We generate the rotations about ",
+ StyleBox["z",
+  FontSlant->"Italic"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.714701523459731*^9, 
+  3.714701543581667*^9}},ExpressionUUID->"dfe3b22b-29f8-4e9e-b037-\
+6af8a5c052f4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"g", "=", 
+   RowBox[{"GTGroupFromGenerators", "[", 
+    RowBox[{"{", "C6z", "}"}], "]"}]}], ";", 
+  RowBox[{"Grid", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"g", ",", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"GTOrderOfElement", "[", "#", "]"}], "&"}], "/@", "g"}]}], 
+     "}"}], ",", 
+    RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+    RowBox[{"Background", "\[Rule]", " ", 
+     RowBox[{"{", 
+      RowBox[{"None", ",", 
+       RowBox[{"{", 
+        RowBox[{"1", "\[Rule]", "LightRed"}], "}"}]}], "}"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7146587668976*^9, 3.714658800522211*^9}, {
+  3.7146589652861023`*^9, 3.7146589678585577`*^9}, {3.71470163656428*^9, 
+  3.714701689219756*^9}, {3.7147017406288633`*^9, 3.714701748638726*^9}, {
+  3.7454785100343313`*^9, 3.7454785362559137`*^9}},
+ CellLabel->"In[30]:=",ExpressionUUID->"4329c798-bcd7-4c9a-9f64-2d5f38c691e9"],
+
+Cell["\<\
+We group the operations of even and odd order. The first three elements are \
+of odd the last three of even order.\
+\>", "Text",
+ CellChangeTimes->{{3.71470178574969*^9, 3.714701814747932*^9}, {
+  3.745478590858614*^9, 
+  3.745478613051571*^9}},ExpressionUUID->"da8154c2-31a2-4113-b33a-\
+32bdf43f3477"],
+
+Cell[BoxData[
+ RowBox[{"g6", "=", 
+  RowBox[{"{", 
+   RowBox[{
+   "Ee", ",", "C3z", ",", "C3zi", ",", "C2z", ",", "C6z", ",", "C6zi"}], 
+   "}"}]}]], "Input",
+ CellChangeTimes->{{3.7147017571489067`*^9, 3.714701782366769*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"bf826aa3-36cb-46ff-b41c-67e0183d5f1d"],
+
+Cell[TextData[{
+ "We apply ",
+ StyleBox["g6",
+  FontSlant->"Italic"],
+ " on the two sets ",
+ StyleBox["set1",
+  FontSlant->"Italic"],
+ " and ",
+ StyleBox["set2. ",
+  FontSlant->"Italic"]
+}], "Text",
+ CellChangeTimes->{{3.7146600605924873`*^9, 3.7146600652022667`*^9}, {
+   3.714660281083522*^9, 3.714660319889571*^9}, {3.714660547467339*^9, 
+   3.714660582298258*^9}, 3.714701685432459*^9, 3.7147017229893513`*^9, 
+   3.714701755599145*^9, 
+   3.7147018343682413`*^9},ExpressionUUID->"3cb0a4cb-b29f-484a-b63f-\
+4941c201f270"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"t", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{"Do", "[", 
+   RowBox[{
+    RowBox[{"t", "=", 
+     RowBox[{"Append", "[", 
+      RowBox[{"t", ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"g6", "[", 
+           RowBox[{"[", "i", "]"}], "]"}], "\[SmallCircle]", "#"}], "&"}], "/@", 
+        RowBox[{"{", 
+         RowBox[{
+         "IC2x", ",", "IC2A", ",", "IC2B", ",", "IC2C", ",", "IC2D", ",", 
+          "IC2y"}], "}"}]}]}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "1", ",", "6"}], "}"}]}], "]"}], ";", 
+  RowBox[{"t", "=", 
+   RowBox[{"Prepend", "[", 
+    RowBox[{"t", ",", 
+     RowBox[{"{", 
+      RowBox[{
+      "IC2x", ",", "IC2A", ",", "IC2B", ",", "IC2C", ",", "IC2D", ",", 
+       "IC2y"}], "}"}]}], "]"}]}], ";", 
+  RowBox[{"t", "=", 
+   RowBox[{
+    RowBox[{"Prepend", "[", 
+     RowBox[{
+      RowBox[{"t", "//", "Transpose"}], ",", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"\"\< \>\"", ",", "g6"}], "}"}], "//", "Flatten"}]}], "]"}], "//",
+     "Transpose"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.714662148428028*^9, 3.7146622816949663`*^9}, {
+  3.714662715842648*^9, 3.714662741127707*^9}, {3.714662802394477*^9, 
+  3.714662819405711*^9}, {3.714662923276018*^9, 3.714662923524392*^9}, {
+  3.714662971402214*^9, 3.714663000886808*^9}, {3.7146637752752333`*^9, 
+  3.714663835078697*^9}, {3.745478771897441*^9, 3.7454787909720984`*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"9a62f727-6aac-428b-98c2-87acb79571e6"],
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{"t", ",", 
+   RowBox[{"Frame", "\[Rule]", "All"}], ",", 
+   RowBox[{"Background", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"1", "\[Rule]", "LightRed"}], ",", 
+      RowBox[{"1", "\[Rule]", "LightRed"}]}], "}"}]}], ",", 
+   RowBox[{"Dividers", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"2", "\[Rule]", "Blue"}], ",", 
+        RowBox[{"5", "\[Rule]", "Red"}]}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"2", "->", "Blue"}], ",", 
+        RowBox[{"5", "\[Rule]", "Red"}]}], "}"}]}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.714662285520108*^9, 3.7146623280655527`*^9}, {
+  3.714662396048532*^9, 3.714662430321377*^9}, {3.714662621302236*^9, 
+  3.714662686398574*^9}, {3.714663031784627*^9, 3.714663032476433*^9}, {
+  3.714664034169045*^9, 3.7146640516911793`*^9}},
+ CellLabel->"In[33]:=",ExpressionUUID->"ea42c488-3511-404d-9380-998c5a02dfa2"],
+
+Cell["\<\
+The even and odd transformations transform the two different sets of mirror \
+operations into each other.\
+\>", "Text",
+ CellChangeTimes->{{3.714701839378722*^9, 
+  3.7147018454998293`*^9}},ExpressionUUID->"65f55309-e54a-4230-ad9b-\
+17ee71c07582"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{979, 911},
+WindowMargins->{{132, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"962ae9b6-b89b-477c-a6cf-f69b3c834570"],
+Cell[801, 32, 740, 10, 53, "Subtitle",ExpressionUUID->"66477c18-d64e-47e4-b444-300a627068d6"],
+Cell[1544, 44, 250, 7, 83, "Author",ExpressionUUID->"a4887832-be1a-4adc-a95a-d4351edd6f42"],
+Cell[CellGroupData[{
+Cell[1819, 55, 331, 5, 67, "Section",ExpressionUUID->"a3914e15-61b4-4a9c-a869-36bafdb59ea0"],
+Cell[2153, 62, 183, 3, 35, "Text",ExpressionUUID->"b52fae4e-f10a-4e72-b21a-d42b3321add8"],
+Cell[CellGroupData[{
+Cell[2361, 69, 637, 15, 53, "Item",ExpressionUUID->"a385757a-2446-419f-8e20-be3a355e5817"],
+Cell[3001, 86, 845, 26, 53, "Item",ExpressionUUID->"bb2323e3-0d14-4a07-91c1-1ebd661ec1df"],
+Cell[3849, 114, 264, 6, 32, "Item",ExpressionUUID->"e150c0f1-a74d-45d6-b89a-c627808ff99c"]
+}, Open  ]],
+Cell[4128, 123, 163, 3, 35, "Text",ExpressionUUID->"3e150a8b-23a9-4070-bf87-203c50fba2c0"],
+Cell[4294, 128, 371, 5, 30, "Input",ExpressionUUID->"6e7a6006-ee30-428a-a7a8-40985feb91de"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4702, 138, 266, 4, 53, "Section",ExpressionUUID->"24aeb825-c9b7-49bc-9a97-8fa619c2b666"],
+Cell[CellGroupData[{
+Cell[4993, 146, 165, 3, 54, "Subsection",ExpressionUUID->"1998c787-84c0-4994-bc77-afb76534d871"],
+Cell[5161, 151, 624, 16, 58, "Text",ExpressionUUID->"abdb3fc5-ff6e-476d-a138-d22fe1e21310"],
+Cell[5788, 169, 930, 19, 30, "Input",ExpressionUUID->"48cae423-a4ba-4166-a0d2-0d28d90c41b7"],
+Cell[6721, 190, 317, 10, 35, "Text",ExpressionUUID->"b532420e-ef98-4c76-a7ed-87cf0a544faf"],
+Cell[7041, 202, 401, 8, 30, "Input",ExpressionUUID->"4dd5dec9-f119-4952-9a39-79aa3c148860"],
+Cell[7445, 212, 674, 20, 35, "Text",ExpressionUUID->"a606521d-d669-4897-a408-121eaf3fc29b"],
+Cell[8122, 234, 370, 8, 30, "Input",ExpressionUUID->"bd1eb971-eb76-4ca5-af3a-6d286f8a9061"],
+Cell[8495, 244, 204, 3, 30, "Input",ExpressionUUID->"3b7b9986-439d-4cce-916b-51cca36fd14f"],
+Cell[8702, 249, 410, 12, 35, "Text",ExpressionUUID->"b4695737-2c2b-4166-bcba-fb9b40f52962"],
+Cell[9115, 263, 318, 5, 52, "Input",ExpressionUUID->"f1bfc015-6883-45f3-927e-14392a7a7015"],
+Cell[9436, 270, 246, 4, 35, "Text",ExpressionUUID->"6fd29f30-0a2e-4ebb-a6f9-551e41f60308"],
+Cell[9685, 276, 365, 8, 52, "Input",ExpressionUUID->"abdaedce-d50c-4be7-9ac4-62b3170fc75a"],
+Cell[10053, 286, 439, 14, 35, "Text",ExpressionUUID->"ce612d43-a305-4eac-91c2-96922687a832"],
+Cell[10495, 302, 461, 10, 35, "Text",ExpressionUUID->"51020972-5b29-42aa-91b1-651febd82c2e"],
+Cell[10959, 314, 377, 9, 30, "Input",ExpressionUUID->"125340b8-82c7-44f9-8dd0-adad4b9911c2"],
+Cell[11339, 325, 1046, 22, 58, "Text",ExpressionUUID->"1c7f98b0-e88d-4e35-a071-bb0b0e004a6b"],
+Cell[12388, 349, 520, 10, 30, "Input",ExpressionUUID->"93d911b9-4b9c-42a6-8e1f-d62af48561be"],
+Cell[12911, 361, 305, 8, 35, "Text",ExpressionUUID->"3e06ff0c-9932-461d-a5b8-4e41d7fe8624"],
+Cell[13219, 371, 590, 15, 30, "Input",ExpressionUUID->"fec488ea-353f-4959-a131-5494842a7e65"],
+Cell[13812, 388, 271, 8, 35, "Text",ExpressionUUID->"013b2605-8985-4e78-a6d3-23ee377130c7"],
+Cell[14086, 398, 286, 6, 30, "Input",ExpressionUUID->"01a5ded5-64a2-4c54-9126-7aafdc7ec58d"],
+Cell[14375, 406, 250, 4, 35, "Text",ExpressionUUID->"0ebe86ad-5749-4ba5-9efa-b1a30e2dfb7d"],
+Cell[14628, 412, 372, 9, 30, "Input",ExpressionUUID->"4d2b125d-6530-43c9-be8f-a07582f8f886"],
+Cell[15003, 423, 257, 4, 35, "Text",ExpressionUUID->"92b06299-a372-4727-bbc2-fa08a363f980"],
+Cell[15263, 429, 569, 15, 30, "Input",ExpressionUUID->"0b6a2286-45ab-48dc-9af8-db3266ec91dc"],
+Cell[15835, 446, 681, 12, 30, "Input",ExpressionUUID->"80c24791-dc20-4f40-bb40-cd8320555dc5"],
+Cell[16519, 460, 169, 3, 35, "Text",ExpressionUUID->"66fd0dbf-8c22-444f-bbee-67ca17dc5e13"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16725, 468, 171, 3, 54, "Subsection",ExpressionUUID->"73993f10-66e8-4be0-a149-e576208f2426"],
+Cell[16899, 473, 648, 16, 35, "Text",ExpressionUUID->"6edf9725-4fd7-4b1a-956d-17800b1cbf5c"],
+Cell[CellGroupData[{
+Cell[17572, 493, 184, 3, 45, "Subsubsection",ExpressionUUID->"bd23a7b6-7791-45b1-80f8-329bc3763bb4"],
+Cell[17759, 498, 610, 13, 30, "Input",ExpressionUUID->"84765d93-f123-4843-9274-96dd27c87bb2"],
+Cell[18372, 513, 363, 9, 58, "Text",ExpressionUUID->"b1380ee4-159c-4283-8ba7-3a97c07e5912"],
+Cell[18738, 524, 1258, 37, 94, "Input",ExpressionUUID->"d53859bd-8e83-43bb-96f5-baba9839fd35"],
+Cell[19999, 563, 894, 23, 52, "Input",ExpressionUUID->"8e4d1e7c-8117-4124-8857-5d832c54eedb"],
+Cell[20896, 588, 963, 25, 58, "Text",ExpressionUUID->"bbe25976-47ee-4c91-ae60-47d89f1507d2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21896, 618, 213, 4, 45, "Subsubsection",ExpressionUUID->"caa6dace-bf6f-4b57-ad77-ca9a9f1aef26"],
+Cell[22112, 624, 482, 11, 30, "Input",ExpressionUUID->"400e57fb-65d7-4a25-89b1-30cf5083adff"],
+Cell[22597, 637, 1315, 36, 94, "Input",ExpressionUUID->"1666013f-322c-42cb-b908-c692664c17e6"],
+Cell[23915, 675, 587, 12, 30, "Input",ExpressionUUID->"82648fb4-a136-4841-8e8a-2880eb88a182"],
+Cell[24505, 689, 445, 12, 35, "Text",ExpressionUUID->"96cad64d-15c1-49e1-bae1-d7f0408b4b17"]
+}, Open  ]]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[25011, 708, 321, 5, 53, "Section",ExpressionUUID->"f266a1e5-086d-4949-9b9a-9acc823b87ca"],
+Cell[25335, 715, 545, 14, 35, "Text",ExpressionUUID->"c8b279a8-1ab4-4e51-a836-555d03999c9b"],
+Cell[25883, 731, 514, 8, 30, "Input",ExpressionUUID->"55491574-8208-4521-b964-007d27d921c6"],
+Cell[26400, 741, 214, 3, 30, "Input",ExpressionUUID->"75d2a9fd-0169-4013-8d2a-d36273da2885"],
+Cell[26617, 746, 246, 4, 35, "Text",ExpressionUUID->"d00ac63c-1785-4d5a-8894-48331b04c953"],
+Cell[26866, 752, 308, 6, 30, "Input",ExpressionUUID->"c2430808-f37d-4c89-8ab2-c44d254044b7"],
+Cell[27177, 760, 562, 10, 30, "Input",ExpressionUUID->"b2cfeec2-555b-44fb-be42-fe04638ddcc6"],
+Cell[27742, 772, 277, 6, 35, "Text",ExpressionUUID->"a0676b40-0f52-45dd-a86b-bc4b8503fb78"],
+Cell[28022, 780, 1039, 27, 52, "Input",ExpressionUUID->"fcfcd571-a7c3-48e9-b0a9-5bde2433c75d"],
+Cell[29064, 809, 183, 3, 35, "Text",ExpressionUUID->"cc8338e7-9022-4d55-bac3-101b10e911fe"],
+Cell[29250, 814, 416, 9, 30, "Input",ExpressionUUID->"801a3fd2-4655-499b-9a13-3234fb282ab5"],
+Cell[29669, 825, 1332, 35, 61, "Text",ExpressionUUID->"c57c7a68-0b01-4947-b702-90fea19c11fa"],
+Cell[31004, 862, 448, 10, 30, "Input",ExpressionUUID->"adad2b35-1a40-45eb-8890-642dae3d23be"],
+Cell[31455, 874, 234, 8, 35, "Text",ExpressionUUID->"dfe3b22b-29f8-4e9e-b037-6af8a5c052f4"],
+Cell[31692, 884, 927, 24, 52, "Input",ExpressionUUID->"4329c798-bcd7-4c9a-9f64-2d5f38c691e9"],
+Cell[32622, 910, 312, 7, 35, "Text",ExpressionUUID->"da8154c2-31a2-4113-b33a-32bdf43f3477"],
+Cell[32937, 919, 305, 7, 30, "Input",ExpressionUUID->"bf826aa3-36cb-46ff-b41c-67e0183d5f1d"],
+Cell[33245, 928, 525, 16, 35, "Text",ExpressionUUID->"3cb0a4cb-b29f-484a-b63f-4941c201f270"],
+Cell[33773, 946, 1528, 41, 94, "Input",ExpressionUUID->"9a62f727-6aac-428b-98c2-87acb79571e6"],
+Cell[35304, 989, 991, 24, 52, "Input",ExpressionUUID->"ea42c488-3511-404d-9380-998c5a02dfa2"],
+Cell[36298, 1015, 257, 6, 35, "Text",ExpressionUUID->"65f55309-e54a-4230-ad9b-17ee71c07582"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

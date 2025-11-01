@@ -1,0 +1,663 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     23517,        655]
+NotebookOptionsPosition[     19432,        591]
+NotebookOutlinePosition[     19924,        610]
+CellTagsIndexPosition[     19881,        607]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "Group Theory with ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " "
+}], "Title",
+ CellChangeTimes->{{3.635786095598536*^9, 
+  3.635786109397464*^9}},ExpressionUUID->"39084f0f-5c3f-474c-bef9-\
+c5aa415195ea"],
+
+Cell["Task_24: Group of the Schr\[ODoubleDot]dinger equation", "Subtitle",
+ CellChangeTimes->{{3.467525574109375*^9, 3.46752559234375*^9}, {
+   3.5647036143822513`*^9, 3.5647036159578543`*^9}, {3.565681606469136*^9, 
+   3.5656816206801558`*^9}, {3.635786112389933*^9, 3.635786112605093*^9}, 
+   3.6510653858085613`*^9, {3.651065421088859*^9, 3.651065421366317*^9}, {
+   3.6510687045818653`*^9, 3.651068710545953*^9}, {3.698590274583303*^9, 
+   3.6985902766031446`*^9}, {3.715676225518305*^9, 3.715676245048991*^9}, {
+   3.715755292106161*^9, 3.715755292520115*^9}, {3.715758251670918*^9, 
+   3.715758274686324*^9}, {3.7157611881702137`*^9, 3.715761209296259*^9}, {
+   3.7159194801332703`*^9, 3.715919494968292*^9}, {3.745493808230414*^9, 
+   3.7454938090354357`*^9}},ExpressionUUID->"25fb425b-43e5-46a8-a80f-\
+e4402bb077e1"],
+
+Cell["\<\
+Wolfram Hergert, Matthias Geilhufe
+Institute of Physics  
+Martin Luther University Halle-Wittenberg\
+\>", "Author",
+ CellChangeTimes->{{3.63578611652057*^9, 
+  3.635786146421397*^9}},ExpressionUUID->"3fe1f4d6-7fbe-4b7b-ae22-\
+8e488b846ff0"],
+
+Cell[CellGroupData[{
+
+Cell["Task 24", "Section",
+ CellChangeTimes->{{3.635786154466366*^9, 3.6357861563109913`*^9}, 
+   3.6510654285215063`*^9, {3.698590282115162*^9, 3.698590283315255*^9}, {
+   3.71567624900875*^9, 3.7156762495600367`*^9}, {3.715755448158073*^9, 
+   3.715755448639861*^9}, {3.7157582840802937`*^9, 3.715758284687776*^9}, 
+   3.715761214043702*^9, 
+   3.715923389350745*^9},ExpressionUUID->"039caaab-a700-4bdd-9772-\
+d84e0ebd38ad"],
+
+Cell["see : Chapter 7, section 7.2, p. 154.", "Text",
+ CellChangeTimes->{
+  3.745493747563057*^9, {3.7454937829538307`*^9, 
+   3.7454938231786737`*^9}},ExpressionUUID->"0c332f72-3ad0-4319-a23b-\
+69bcc8d185c2"],
+
+Cell[TextData[{
+ "Verify that all transformations ",
+ StyleBox["P(T) ",
+  FontSlant->"Italic"],
+ "which leave the Hamilton operator invariant form a group.\[RawEscape]"
+}], "Text",
+ CellChangeTimes->{{3.5656816415621853`*^9, 3.565681860239293*^9}, {
+   3.635786170800764*^9, 3.635786173860598*^9}, {3.651065436926057*^9, 
+   3.651065635578711*^9}, {3.651068560289382*^9, 3.6510686003385973`*^9}, {
+   3.698590315173243*^9, 3.698590316986977*^9}, {3.698590659653771*^9, 
+   3.698590660901269*^9}, {3.715676257064826*^9, 3.715676287709859*^9}, {
+   3.7157582892011023`*^9, 3.715758394670127*^9}, {3.7157612456348457`*^9, 
+   3.715761334275275*^9}, {3.715761702901366*^9, 3.715761703563676*^9}, {
+   3.715919504783739*^9, 3.715919509087599*^9}, {3.715919546359535*^9, 
+   3.715919550949649*^9}, 3.715919875130816*^9, {3.715919967288609*^9, 
+   3.7159200921187687`*^9}, {3.745493828845718*^9, 
+   3.745493829423551*^9}},ExpressionUUID->"88ff6f8e-a215-47d6-b7f6-\
+ceaf14a84831"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Solution", "Section",
+ CellChangeTimes->{{3.565681868000304*^9, 3.5656818754713144`*^9}, {
+  3.651068604062579*^9, 3.6510686054795933`*^9}, {3.715758402017662*^9, 
+  3.7157584036702013`*^9}},ExpressionUUID->"3ff3e08f-3170-40d2-837e-\
+51b8496f0014"],
+
+Cell["It has to be shown, that the group postulates are fulfilled.", "Text",
+ CellChangeTimes->{{3.715920106181409*^9, 3.71592011292028*^9}, {
+  3.715922497434678*^9, 3.7159225480260973`*^9}, {3.745493835979361*^9, 
+  3.74549384025838*^9}},ExpressionUUID->"edd43935-2397-4225-bd92-\
+90965793d265"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Obviously the identity transformation leaves H(",
+ StyleBox["r",
+  FontWeight->"Bold"],
+ ") invariant."
+}], "Item",
+ CellChangeTimes->{{3.715922561155251*^9, 3.715922606594729*^9}, {
+  3.745493844532147*^9, 
+  3.745493847649857*^9}},ExpressionUUID->"00b7bbff-9360-4b00-95a6-\
+059b386c94e5"],
+
+Cell[TextData[{
+ "If ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["T", "1"], TraditionalForm]],ExpressionUUID->
+  "6afcc9cf-d7ce-4022-ba8e-dcd88f9a5e67"],
+ "and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["T", "2"], " ", "are", " ", "members", "  ", "of", " ", 
+     "the", " ", "group"}], ",", " ", 
+    RowBox[{"also", " ", 
+     RowBox[{
+      SubscriptBox["T", "1"], "\[CenterDot]", 
+      SubscriptBox["T", "2"]}]}]}], TraditionalForm]],ExpressionUUID->
+  "41c85f5d-92f4-4624-a194-0e7a57745de1"],
+ " has to  be a member of the group. Starting from:"
+}], "Item",
+ CellChangeTimes->{{3.715922561155251*^9, 3.7159226942787457`*^9}, {
+  3.745493853237783*^9, 
+  3.745493868578665*^9}},ExpressionUUID->"08649ff8-e24d-4160-990b-\
+64b0332bf5b5"]
+}, Open  ]],
+
+Cell[TextData[{
+ StyleBox["H(",
+  FontSlant->"Italic"],
+ StyleBox["r",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ StyleBox[")= ",
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", 
+    SubscriptBox["T", "1"]}], TraditionalForm]],ExpressionUUID->
+  "7126941b-93ac-4165-836f-508e22060c6d"],
+ StyleBox[") H(",
+  FontSlant->"Italic"],
+ StyleBox["r) ",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["P", 
+     RowBox[{"-", "1"}]], "(", 
+    SubscriptBox["T", "1"]}], TraditionalForm]],ExpressionUUID->
+  "0d64176b-7884-4cfe-888b-ff9c4cc2f9df"],
+ StyleBox[")   ",
+  FontSlant->"Italic"],
+ "and  ",
+ StyleBox["H(",
+  FontSlant->"Italic"],
+ StyleBox["r",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ StyleBox[")= ",
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", 
+    SubscriptBox["T", "2"]}], TraditionalForm]],ExpressionUUID->
+  "3c550813-6e55-4701-885a-1853f7660ba6"],
+ StyleBox[") H(",
+  FontSlant->"Italic"],
+ StyleBox["r) ",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["P", 
+     RowBox[{"-", "1"}]], "(", 
+    SubscriptBox["T", "2"]}], TraditionalForm]],ExpressionUUID->
+  "0de07e84-bd46-423c-bd5d-541964eec47c"],
+ StyleBox[")   ",
+  FontSlant->"Italic"],
+ "we get"
+}], "Text",
+ CellChangeTimes->{{3.715922698688945*^9, 3.715922849115616*^9}, 
+   3.715923033000667*^9},ExpressionUUID->"9100ecfd-2129-4fab-b77b-\
+dcb038d32cff"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"P", "(", 
+      SubscriptBox["T", "2"], ")"}], 
+     StyleBox[
+      RowBox[{"H", "(", 
+       StyleBox["r",
+        FontWeight->"Bold"], ")"}],
+      FontSlant->"Italic"], " ", 
+     RowBox[{
+      SuperscriptBox["P", 
+       RowBox[{"-", "1"}]], "(", 
+      SubscriptBox["T", "2"], ")"}]}], " ", "=", " ", 
+    RowBox[{"P", "(", 
+     SubscriptBox["T", "2"], ")"}], " "}], TraditionalForm]],ExpressionUUID->
+  "8b7b6c5b-0243-4106-ad45-5efd824bcbb1"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", 
+    SubscriptBox["T", "1"]}], TraditionalForm]],ExpressionUUID->
+  "9781d0e0-465f-449d-a3dd-9a4e40f8abe2"],
+ StyleBox[") H(",
+  FontSlant->"Italic"],
+ StyleBox["r) ",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["P", 
+     RowBox[{"-", "1"}]], "(", 
+    SubscriptBox["T", "1"]}], TraditionalForm]],ExpressionUUID->
+  "f46a28c8-31e1-48f5-9c57-5c7bcf283c40"],
+ StyleBox[") ",
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["P", 
+     RowBox[{"-", "1"}]], "(", 
+    SubscriptBox["T", "2"]}], TraditionalForm]],ExpressionUUID->
+  "2d1ec95c-1771-484d-8433-0f1acf625d3a"],
+ StyleBox[") = ",
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", 
+     RowBox[{
+      SubscriptBox["T", "2"], "\[CenterDot]", " ", 
+      SubscriptBox["T", "1"]}], ")"}], " "}], TraditionalForm]],
+  ExpressionUUID->"19847d4b-e2bf-412c-a44f-8b1cdb1fc9f6"],
+ StyleBox["H(",
+  FontSlant->"Italic"],
+ StyleBox["r) ",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["P", 
+     RowBox[{"-", "1"}]], "(", 
+    RowBox[{
+     SubscriptBox["T", "2"], "\[CenterDot]", 
+     SubscriptBox["T", "1"]}]}], TraditionalForm]],ExpressionUUID->
+  "9b34e427-2639-4d2b-8bd0-2a96d37ea005"],
+ ")"
+}], "Text",
+ CellChangeTimes->{{3.715922897086409*^9, 3.7159231409007683`*^9}, {
+  3.745496265603446*^9, 
+  3.745496265603713*^9}},ExpressionUUID->"e9dda704-655d-4682-bc50-\
+60601f1815bb"],
+
+Cell[TextData[{
+ "Thus, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["T", "2"], "\[CenterDot]", 
+    SubscriptBox["T", "1"]}], TraditionalForm]],ExpressionUUID->
+  "4354465e-d1c1-42cb-87a8-8c2dee3a46b0"],
+ " is also element f the group. If we use ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["T", "2"], "=", " ", 
+     RowBox[{
+      SuperscriptBox[
+       SubscriptBox["T", "1"], 
+       RowBox[{"-", "1"}]], " ", "it", " ", "follows"}]}], ",", " ", 
+    RowBox[{"that", " ", "also", " ", "the", " ", "inverse", " ", "of", " ", 
+     SubscriptBox["T", "1"], " ", "is", " ", "member", " ", "of", " ", "the", 
+     " ", 
+     RowBox[{"group", "."}]}]}], TraditionalForm]],ExpressionUUID->
+  "d3c46797-ee7d-495e-a57d-b9796e397a5f"]
+}], "Text",
+ CellChangeTimes->{{3.715923145851076*^9, 3.715923167159026*^9}, {
+  3.7159233388718777`*^9, 
+  3.715923381219618*^9}},ExpressionUUID->"9e71a857-bbc0-44fe-bcfd-\
+003902461810"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Example", "Section",
+ CellChangeTimes->{{3.715919516917726*^9, 
+  3.71591951826763*^9}},ExpressionUUID->"c89c2293-9850-41d9-98f9-\
+1c4283ea916c"],
+
+Cell["GTPack will used.", "Text",
+ CellChangeTimes->{{3.6510687190694857`*^9, 
+  3.6510687427760773`*^9}},ExpressionUUID->"3de0daf7-1f7c-4cc5-a88a-\
+441fd99981f7"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.565681889253334*^9, 3.5656819493414183`*^9}, {
+  3.635786193501388*^9, 3.635786195193049*^9}, {3.6510687481027937`*^9, 
+  3.651068762513336*^9}, {3.651068796080668*^9, 3.6510687983863363`*^9}},
+ CellLabel->"In[95]:=",ExpressionUUID->"4a4a01ba-0c6d-4605-ac9d-e43d31bd57f3"],
+
+Cell[TextData[{
+ "We can demonstrate that the group of the Schr\[ODoubleDot]dinger equation \
+for a cubical arrangement of atoms is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["O", "h"], "."}], TraditionalForm]],ExpressionUUID->
+  "ab8a19d0-ddbd-410f-b6cf-50eb4fd58b3e"],
+ " The kinetic part of the Hamiltonian is invariant under O(3). Thus, it is \
+enough to concentrate on the potential. We assume that the atomic potentials \
+are spherically symmetric. The resulting symmetry is given by the arrangement \
+of atoms. "
+}], "Text",
+ CellChangeTimes->{{3.715920128051962*^9, 3.715920348443726*^9}, {
+  3.715921126460886*^9, 
+  3.71592114765598*^9}},ExpressionUUID->"01930c1b-9a36-4ab4-9228-\
+81b0fcd31210"],
+
+Cell["Define the cube. At the corners reside for example Ba atoms.", "Text",
+ CellChangeTimes->{{3.715920355092495*^9, 3.715920357939768*^9}, {
+   3.7159205941493683`*^9, 3.715920602270945*^9}, {3.715920754936496*^9, 
+   3.71592077209188*^9}, {3.715921157399509*^9, 3.715921160154845*^9}, 
+   3.745496344709055*^9},ExpressionUUID->"7a05c90b-7737-4130-819b-\
+db1cd79dde84"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pos", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "1", ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", 
+       RowBox[{"-", "1"}], ",", "1"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", 
+       RowBox[{"-", "1"}], ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "1", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", 
+       RowBox[{"-", "1"}], ",", 
+       RowBox[{"-", "1"}]}], "}"}]}], "}"}]}], ";", 
+  RowBox[{"atom", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"\"\<Ba\>\"", ",", 
+     RowBox[{"{", "8", "}"}]}], "]"}]}], ";", 
+  RowBox[{"cl", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pos", ",", "atom"}], "}"}], "//", "Transpose"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.715920365293726*^9, 3.715920440198309*^9}, {
+  3.715920700722384*^9, 3.7159207515178947`*^9}},
+ CellLabel->"In[96]:=",ExpressionUUID->"b84b0d18-4d5f-4f0f-a1ca-ef288ddfbc40"],
+
+Cell[BoxData[
+ RowBox[{"GTPlotCluster", "[", 
+  RowBox[{"cl", ",", "2", ",", "4", ",", 
+   RowBox[{"GOSphere", "\[Rule]", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7159207748137903`*^9, 3.715920842408494*^9}},
+ CellLabel->"In[97]:=",ExpressionUUID->"d83fc97b-352b-4d20-bceb-7c405b27119b"],
+
+Cell[TextData[{
+ "Installation of the point group ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["O", "h"], "."}], TraditionalForm]],ExpressionUUID->
+  "55d5dba5-6e9f-4d55-bd35-1082f448e0b6"]
+}], "Text",
+ CellChangeTimes->{{3.7157617085702877`*^9, 3.715761713769641*^9}, {
+  3.715920696042872*^9, 3.7159207250919113`*^9}, {3.715920870093829*^9, 
+  3.715920892676485*^9}, {3.745496365121084*^9, 
+  3.745496368650329*^9}},ExpressionUUID->"c0ee7818-c7a0-44b8-81c6-\
+739c0cb351ec"],
+
+Cell[BoxData[
+ RowBox[{"oh", "=", 
+  RowBox[{"GTInstallGroup", "[", "Oh", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7159209117990217`*^9, 3.715920921147449*^9}},
+ CellLabel->"In[98]:=",ExpressionUUID->"7ef20a72-1a0a-46d9-9b2c-d6c6447c052d"],
+
+Cell[TextData[{
+ "Test if the elements of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["O", "h"], " ", "transform", " ", "the", " ", "cube", " ", 
+    "into", " ", 
+    RowBox[{"itself", "."}]}], TraditionalForm]],ExpressionUUID->
+  "25173c34-1c54-43da-84a6-27daf226d590"]
+}], "Text",
+ CellChangeTimes->{{3.715921069377007*^9, 3.715921109970223*^9}, {
+  3.745496377044097*^9, 
+  3.745496377641361*^9}},ExpressionUUID->"ef493f46-678c-4b71-83d2-\
+7fba34d85fd5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"GTSymmetryElementQ", "[", 
+      RowBox[{"#", ",", "cl"}], "]"}], "&"}], ",", "oh"}], "]"}], "//", 
+  "Union"}]], "Input",
+ CellChangeTimes->{{3.715920969568027*^9, 3.715921015713435*^9}},
+ CellLabel->"In[99]:=",ExpressionUUID->"ee6babd3-c958-415e-815d-9f36eb6c85b2"],
+
+Cell[TextData[{
+ "All symmetry elements of the point group ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["O", "h"], TraditionalForm]],ExpressionUUID->
+  "ced8fcf5-d334-4d60-844d-771c4f8c9e64"],
+ " transform the cubical arrangement of atoms into itself."
+}], "Text",
+ CellChangeTimes->{{3.7159210204955263`*^9, 3.715921061389472*^9}, 
+   3.7454963997607613`*^9},ExpressionUUID->"2c56b70b-065d-4425-89aa-\
+5247435e3e8f"],
+
+Cell["Now we change the arrangement of atoms.", "Text",
+ CellChangeTimes->{{3.715921185782642*^9, 
+  3.715921194332981*^9}},ExpressionUUID->"9edf913b-0573-4821-8146-\
+4560643be520"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"atom1", "=", "atom"}], ";", 
+  RowBox[{
+   RowBox[{"atom1", "[", 
+    RowBox[{"[", "1", "]"}], "]"}], "=", 
+   RowBox[{
+    RowBox[{"atom1", "[", 
+     RowBox[{"[", "8", "]"}], "]"}], "=", "\"\<Si\>\""}]}], ";", 
+  RowBox[{"cl1", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pos", ",", "atom1"}], "}"}], "//", "Transpose"}]}], ";", 
+  RowBox[{"GTPlotCluster", "[", 
+   RowBox[{"cl1", ",", "2", ",", "4", ",", 
+    RowBox[{"GOSphere", "\[Rule]", "False"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7159212261173267`*^9, 3.715921302302456*^9}, {
+  3.715921638402763*^9, 3.7159216554344873`*^9}},
+ CellLabel->
+  "In[100]:=",ExpressionUUID->"fb98d5a8-dad8-4b95-b702-4d35723d2b0c"],
+
+Cell[BoxData[
+ RowBox[{"test", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"GTSymmetryElementQ", "[", 
+      RowBox[{"#", ",", "cl1"}], "]"}], "&"}], ",", "oh"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.715920969568027*^9, 3.715921015713435*^9}, {
+  3.715921322384245*^9, 3.715921331249729*^9}, {3.745496781542717*^9, 
+  3.7454967832133913`*^9}},
+ CellLabel->
+  "In[101]:=",ExpressionUUID->"9bed764c-65d4-42cc-860f-ed25d9e8cc9b"],
+
+Cell["\<\
+We select the positions of the symmetry elements leaving the cluster \
+unchanged.\
+\>", "Text",
+ CellChangeTimes->{{3.7454970039874372`*^9, 
+  3.745497038265967*^9}},ExpressionUUID->"ce610507-34cf-4dd9-a2b7-\
+925547b562f8"],
+
+Cell[BoxData[
+ RowBox[{"sel", "=", 
+  RowBox[{
+   RowBox[{"Position", "[", 
+    RowBox[{"test", ",", "True"}], "]"}], "//", "Flatten"}]}]], "Input",
+ CellChangeTimes->{{3.745496775747218*^9, 3.745496812487564*^9}},
+ CellLabel->
+  "In[102]:=",ExpressionUUID->"2faec352-e0b5-412a-9d57-28b666e32380"],
+
+Cell["Take the symmetry elements.", "Text",
+ CellChangeTimes->{{3.745497045887457*^9, 
+  3.745497060745819*^9}},ExpressionUUID->"d72f482d-48d2-4b44-a79e-\
+22913d3c0579"],
+
+Cell[BoxData[
+ RowBox[{"g1", "=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"Take", "[", 
+      RowBox[{"oh", ",", 
+       RowBox[{"{", "#", "}"}]}], "]"}], "&"}], "/@", "sel"}], "//", 
+   "Flatten"}]}]], "Input",
+ CellChangeTimes->{{3.745496916160967*^9, 3.745496966703961*^9}},
+ CellLabel->
+  "In[103]:=",ExpressionUUID->"b29c00c9-714a-45b3-b2c4-5e33972c2891"],
+
+Cell["Is this a group?", "Text",
+ CellChangeTimes->{{3.745497082630144*^9, 
+  3.745497086952553*^9}},ExpressionUUID->"81d7f6e7-85bf-4400-a4b1-\
+1f1486086a44"],
+
+Cell[BoxData[
+ RowBox[{"GTGroupQ", "[", "g1", "]"}]], "Input",
+ CellChangeTimes->{{3.745496973833888*^9, 3.74549697877245*^9}},
+ CellLabel->
+  "In[104]:=",ExpressionUUID->"3aa792b5-70f3-4b1e-9231-f4579acd1441"],
+
+Cell[BoxData[
+ RowBox[{"GTGroupOrder", "[", "g1", "]"}]], "Input",
+ CellChangeTimes->{{3.74549720121297*^9, 3.745497207768515*^9}},
+ CellLabel->
+  "In[105]:=",ExpressionUUID->"df1bdc2c-d017-40cf-9c3b-138fad271c96"],
+
+Cell[BoxData[
+ RowBox[{"GTClasses", "[", "g1", "]"}]], "Input",
+ CellChangeTimes->{{3.7454973016743526`*^9, 3.745497307786374*^9}},
+ CellLabel->
+  "In[106]:=",ExpressionUUID->"8476cd63-8e46-4bee-9ca5-8cfafe91dae8"],
+
+Cell[TextData[{
+ "This is the group ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["D", 
+      RowBox[{"3", "d"}]], ".", "  ", "It"}], " ", "is", " ", 
+    StyleBox["o",
+     FontSlant->"Plain"], "f", " ", "course", " ", "a", " ", "subgoup", " ", 
+    "of", " ", 
+    RowBox[{
+     SubscriptBox["O", "h"], "."}]}], TraditionalForm]],ExpressionUUID->
+  "30188888-0c13-4a1f-9407-011734ee0a8c"]
+}], "Text",
+ CellChangeTimes->{{3.745497377039157*^9, 3.745497414907482*^9}, {
+  3.745497455848055*^9, 
+  3.745497456772997*^9}},ExpressionUUID->"49a4451a-fbad-43cb-8765-\
+e236abf80ff0"],
+
+Cell[BoxData[
+ RowBox[{"GTSubGroupQ", "[", 
+  RowBox[{"oh", ",", "g1"}], "]"}]], "Input",
+ CellChangeTimes->{{3.745497430744871*^9, 3.7454974719061203`*^9}},
+ CellLabel->
+  "In[107]:=",ExpressionUUID->"7ab84791-25d0-4c36-aa3b-61a1a61d758a"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1155, 905},
+WindowMargins->{{53, Automatic}, {204, Automatic}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
+ShowSelection->True,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 231, 8, 98, "Title",ExpressionUUID->"39084f0f-5c3f-474c-bef9-c5aa415195ea"],
+Cell[801, 32, 824, 11, 53, "Subtitle",ExpressionUUID->"25fb425b-43e5-46a8-a80f-e4402bb077e1"],
+Cell[1628, 45, 250, 7, 83, "Author",ExpressionUUID->"3fe1f4d6-7fbe-4b7b-ae22-8e488b846ff0"],
+Cell[CellGroupData[{
+Cell[1903, 56, 426, 7, 67, "Section",ExpressionUUID->"039caaab-a700-4bdd-9772-d84e0ebd38ad"],
+Cell[2332, 65, 209, 4, 35, "Text",ExpressionUUID->"0c332f72-3ad0-4319-a23b-69bcc8d185c2"],
+Cell[2544, 71, 973, 17, 35, "Text",ExpressionUUID->"88ff6f8e-a215-47d6-b7f6-ceaf14a84831"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[3554, 93, 254, 4, 53, "Section",ExpressionUUID->"3ff3e08f-3170-40d2-837e-51b8496f0014"],
+Cell[3811, 99, 297, 4, 35, "Text",ExpressionUUID->"edd43935-2397-4225-bd92-90965793d265"],
+Cell[CellGroupData[{
+Cell[4133, 107, 308, 9, 32, "Item",ExpressionUUID->"00b7bbff-9360-4b00-95a6-059b386c94e5"],
+Cell[4444, 118, 771, 23, 32, "Item",ExpressionUUID->"08649ff8-e24d-4160-990b-64b0332bf5b5"]
+}, Open  ]],
+Cell[5230, 144, 1492, 58, 35, "Text",ExpressionUUID->"9100ecfd-2129-4fab-b77b-dcb038d32cff"],
+Cell[6725, 204, 2095, 74, 35, "Text",ExpressionUUID->"e9dda704-655d-4682-bc50-60601f1815bb"],
+Cell[8823, 280, 958, 27, 35, "Text",ExpressionUUID->"9e71a857-bbc0-44fe-bcfd-003902461810"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[9818, 312, 151, 3, 53, "Section",ExpressionUUID->"c89c2293-9850-41d9-98f9-1c4283ea916c"],
+Cell[9972, 317, 163, 3, 35, "Text",ExpressionUUID->"3de0daf7-1f7c-4cc5-a88a-441fd99981f7"],
+Cell[10138, 322, 372, 5, 30, "Input",ExpressionUUID->"4a4a01ba-0c6d-4605-ac9d-e43d31bd57f3"],
+Cell[10513, 329, 720, 16, 81, "Text",ExpressionUUID->"01930c1b-9a36-4ab4-9228-81b0fcd31210"],
+Cell[11236, 347, 372, 5, 35, "Text",ExpressionUUID->"7a05c90b-7737-4130-819b-db1cd79dde84"],
+Cell[11611, 354, 1409, 44, 73, "Input",ExpressionUUID->"b84b0d18-4d5f-4f0f-a1ca-ef288ddfbc40"],
+Cell[13023, 400, 298, 5, 30, "Input",ExpressionUUID->"d83fc97b-352b-4d20-bceb-7c405b27119b"],
+Cell[13324, 407, 488, 12, 35, "Text",ExpressionUUID->"c0ee7818-c7a0-44b8-81c6-739c0cb351ec"],
+Cell[13815, 421, 239, 4, 30, "Input",ExpressionUUID->"7ef20a72-1a0a-46d9-9b2c-d6c6447c052d"],
+Cell[14057, 427, 472, 13, 35, "Text",ExpressionUUID->"ef493f46-678c-4b71-83d2-7fba34d85fd5"],
+Cell[14532, 442, 353, 9, 30, "Input",ExpressionUUID->"ee6babd3-c958-415e-815d-9f36eb6c85b2"],
+Cell[14888, 453, 417, 10, 35, "Text",ExpressionUUID->"2c56b70b-065d-4425-89aa-5247435e3e8f"],
+Cell[15308, 465, 181, 3, 35, "Text",ExpressionUUID->"9edf913b-0573-4821-8146-4560643be520"],
+Cell[15492, 470, 718, 19, 94, "Input",ExpressionUUID->"fb98d5a8-dad8-4b95-b702-4d35723d2b0c"],
+Cell[16213, 491, 453, 11, 30, "Input",ExpressionUUID->"9bed764c-65d4-42cc-860f-ed25d9e8cc9b"],
+Cell[16669, 504, 233, 6, 35, "Text",ExpressionUUID->"ce610507-34cf-4dd9-a2b7-925547b562f8"],
+Cell[16905, 512, 297, 7, 30, "Input",ExpressionUUID->"2faec352-e0b5-412a-9d57-28b666e32380"],
+Cell[17205, 521, 169, 3, 35, "Text",ExpressionUUID->"d72f482d-48d2-4b44-a79e-22913d3c0579"],
+Cell[17377, 526, 370, 11, 30, "Input",ExpressionUUID->"b29c00c9-714a-45b3-b2c4-5e33972c2891"],
+Cell[17750, 539, 158, 3, 35, "Text",ExpressionUUID->"81d7f6e7-85bf-4400-a4b1-1f1486086a44"],
+Cell[17911, 544, 210, 4, 30, "Input",ExpressionUUID->"3aa792b5-70f3-4b1e-9231-f4579acd1441"],
+Cell[18124, 550, 214, 4, 30, "Input",ExpressionUUID->"df1bdc2c-d017-40cf-9c3b-138fad271c96"],
+Cell[18341, 556, 214, 4, 30, "Input",ExpressionUUID->"8476cd63-8e46-4bee-9ca5-8cfafe91dae8"],
+Cell[18558, 562, 603, 18, 35, "Text",ExpressionUUID->"49a4451a-fbad-43cb-8765-e236abf80ff0"],
+Cell[19164, 582, 240, 5, 30, "Input",ExpressionUUID->"7ab84791-25d0-4c36-aa3b-61a1a61d758a"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+

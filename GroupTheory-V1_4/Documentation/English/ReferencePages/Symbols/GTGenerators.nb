@@ -1,0 +1,1757 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     63050,       1747]
+NotebookOptionsPosition[     50996,       1496]
+NotebookOutlinePosition[     53201,       1553]
+CellTagsIndexPosition[     53115,       1548]
+WindowTitle->GTGenerators
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[GridBox[{
+   {GridBox[{
+      {
+       ItemBox[Cell[BoxData[
+         RowBox[{
+          TemplateBox[{12},
+           "Spacer1"], Cell["GROUP THEORY SYMBOL", "PacletNameCell",
+           TextAlignment->Center,ExpressionUUID->
+           "23090867-4b67-41e2-ae31-86d4af1f80ff"], 
+          TemplateBox[{8},
+           "Spacer1"]}]],
+         TextAlignment->Center,ExpressionUUID->
+         "b4b4c21d-522a-4ff7-8b0e-3844259786a9"],
+        Background->RGBColor[0.490196, 0.576471, 0.690196],
+        ItemSize->Full], ""}
+     },
+     GridBoxAlignment->{"Rows" -> {{Center}}},
+     GridBoxItemSize->{"Columns" -> {Full, 
+         Scaled[0.02]}, "Rows" -> {{2.5}}}], Cell[TextData[{
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "See Also",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "a2e2f134-c9d1-4f01-b325-ecf5d00d42f2"]
+         }],ExpressionUUID->"0d500179-3b0c-406e-88e4-54d7c274e741"],
+         StripOnInput->False], {"\<\"GTGroupFromGenerators\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTGroupFromGenerators"], \
+"\<\"GTGroupOrder\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTGroupOrder"], "\<\"GTOrderOfElement\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTOrderOfElement"], "\<\"GTCyclicQ\"\>":>
+        Documentation`HelpLookup[
+        "paclet:GroupTheory/ref/GTCyclicQ"], "\<\"GTGetSubGroups\"\>":>
+        Documentation`HelpLookup["paclet:GroupTheory/ref/GTGetSubGroups"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"SeeAlso"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "de7a0f6f-5a51-4a0e-9b60-c164a668cb62"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "Related Guides",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "6a5d96a7-1663-45fc-8dce-df29e9523678"]
+         }],ExpressionUUID->"0e81fd12-4edb-4aa9-9a80-7a68efa19caa"],
+         StripOnInput->False], {"\<\"Basic\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/guide/Basic"], "\<\"The Mathematica Group Theory \
+Package GTPack, V 1.4\"\>":>Documentation`HelpLookup[
+        "paclet:GroupTheory/guide/GroupTheory"]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"MoreAbout"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "11f50d48-b9cf-4065-aa10-4cdf2955af0e"],
+     "\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\[ThickSpace]\
+\[ThickSpace]",
+     Cell[BoxData[
+      TagBox[
+       ActionMenuBox[
+        FrameBox[Cell[TextData[{
+          "URL",
+          " ",
+          Cell[BoxData[
+           GraphicsBox[
+            {GrayLevel[0.66667], Thickness[0.13], 
+             LineBox[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]},
+            AspectRatio->1,
+            ImageSize->20,
+            PlotRange->{{-3, 4}, {-1, 1}}]],ExpressionUUID->
+           "2e264fcc-01b2-491a-95ed-acc3778ff6a6"]
+         }],ExpressionUUID->"bc1fed32-5ca6-41b4-9832-166275a55cb4"],
+         StripOnInput->False], {"\<\"GroupTheory/ref/GTGenerators\"\>":>
+        None, "\<\"Copy Wolfram Documentation Center URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell["GroupTheory/ref/GTGenerators"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; Null], 
+        Delimiter, "\<\"Copy web URL\"\>":>
+        Module[{DocumentationSearch`Private`nb$}, 
+         DocumentationSearch`Private`nb$ = NotebookPut[
+            Notebook[{
+              Cell[
+               BoxData[
+                MakeBoxes[
+                 Hyperlink[
+                 "http://reference.wolfram.com/language/GroupTheory/ref/\
+GTGenerators.html"], StandardForm]], "Input", TextClipboardType -> 
+               "PlainText"]}, Visible -> False]]; 
+         SelectionMove[DocumentationSearch`Private`nb$, All, Notebook]; 
+         FrontEndTokenExecute[DocumentationSearch`Private`nb$, "Copy"]; 
+         NotebookClose[DocumentationSearch`Private`nb$]; 
+         Null], "\<\"Go to web URL\"\>":>FrontEndExecute[{
+          NotebookLocate[{
+            URL[If[
+               TrueQ[DocumentationBuild`Make`Private`wsmlinkQ$122776], 
+               "http://reference.wolfram.com/system-modeler/", 
+               "http://reference.wolfram.com/language/"] <> 
+             "GroupTheory/ref/GTGenerators" <> ".html"], None}]}]},
+        Appearance->None,
+        MenuAppearance->Automatic,
+        MenuStyle->"URLMenu"],
+       MouseAppearanceTag["LinkHand"]]],
+      LineSpacing->{1.4, 0},ExpressionUUID->
+      "bf64a122-5db7-4f6f-8fb2-b89723d28189"]
+    }], "AnchorBar",
+     CacheGraphics->False,ExpressionUUID->
+     "9ce9328c-1ee8-45d5-a0b4-436a68a9d777"]}
+  }]], "AnchorBarGrid",
+ CellID->1,ExpressionUUID->"e096525d-6b01-4f65-86f9-7f9e75c7ff67"],
+
+Cell["GroupTheory`", "ContextNameCell",ExpressionUUID->"21398433-ba6d-466c-8247-31266b47bc3d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[GridBox[{
+   {Cell[TextData[{
+     Cell[
+     "GTGenerators", "ObjectName",ExpressionUUID->
+      "c300729c-c294-4cda-9ba0-f33cac4ff236"],
+     Cell[BoxData[
+      TemplateBox[{8},
+       "Spacer1"]],ExpressionUUID->"d169a4ca-ed81-4d28-ab68-21956096e320"],
+     Cell[BoxData[
+     ""], "ObjectNameTranslation",ExpressionUUID->
+      "668d41c2-ffbb-435b-ad1e-3ce11c53d810"]
+    }],ExpressionUUID->"532df1e7-eb7a-4726-a95f-3b9031d1d77d"], 
+    "\[SpanFromLeft]"}
+  }]], "ObjectNameGrid",ExpressionUUID->"883e420f-56be-4e83-b895-\
+b8484511d668"],
+
+Cell[BoxData[GridBox[{
+   {"", Cell[TextData[{
+     Cell[BoxData[
+      RowBox[{
+       TemplateBox[{
+         Cell[
+          TextData["GTGenerators"]], "paclet:GroupTheory/ref/GTGenerators", 
+         "GroupTheory Package Symbol"},
+        "PackageLink",
+        BaseStyle->"InlineFormula"], "[", 
+       StyleBox["group", "TI",
+        FontSlant->"Italic"], "]"}]], "InlineFormula",
+      FontFamily->"Source Sans Pro",ExpressionUUID->
+      "9e498c6f-9bd8-4d19-b057-39b3435dc271"],
+     "\[LineSeparator]gives the generators of a certain ",
+     StyleBox["group", "TI",
+      FontSlant->"Italic"],
+     "."
+    }],ExpressionUUID->"7f2d6287-7bad-475b-b460-51a70491b92f"]}
+  }]], "Usage",
+ CellID->982511436,ExpressionUUID->"93b3ce45-c75a-44b7-a1c6-aafa008d0b3c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[Cell[BoxData[
+ ButtonBox[Cell[TextData[{
+   Cell[BoxData[
+    DynamicBox[ToBoxes[
+      If[
+       MatchQ[
+        CurrentValue[
+         EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, 
+         Closed], 
+        Alternatives[Open, True]], 
+       Style[
+        Graphics[{
+          Thickness[0.18], 
+          RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+          Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+         PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+        0.68 Inherited], 
+       Rotate[
+        Style[
+         Graphics[{
+           Thickness[0.18], 
+           RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+           Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+          PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+         0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+     ImageSizeCache->{
+      13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+    ExpressionUUID->"c8171439-35cb-4505-8ce2-4ab234e1bb4f"],
+   Cell[BoxData[
+    TemplateBox[{1},
+     "Spacer1"]],ExpressionUUID->"5a348236-4686-4bf1-86f7-033de94ae276"],
+   "Details and Options"
+  }], "NotesFrameText",ExpressionUUID->"43b1356e-c91f-4871-8aa4-f7c336862e7e"],
+  Appearance->{Automatic, None, "Normal", Automatic},
+  BaseStyle->None,
+  ButtonFunction:>(FrontEndExecute[{
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], All, ButtonCell], 
+     FrontEndToken["OpenCloseGroup"], 
+     FrontEnd`SelectionMove[
+      FrontEnd`SelectedNotebook[], After, CellContents]}]& ),
+  Evaluator->None,
+  Method->
+   "Preemptive"]],ExpressionUUID->"95400e7b-ff6e-452e-a756-03195d0e071e"]], \
+"NotesSection",
+ WholeCellGroupOpener->True,
+ CellGroupingRules->{"SectionGrouping", 50},
+ CacheGraphics->False,
+ CellID->1628606060,ExpressionUUID->"95f0edcc-b2ab-410f-9cca-b5035bb2a066"],
+
+Cell[TextData[{
+ "Suppose a subset ",
+ Cell[BoxData[
+  FormBox["\[ScriptCapitalS]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "d5de50ee-c05a-4b33-a86d-0907434f82f3"],
+ " of a group ",
+ Cell[BoxData[
+  FormBox["\[ScriptCapitalG]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "35af4d0e-dc09-49bd-ad9d-de292d8bf8f6"],
+ " with elements ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["s", "1"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "bcf8f365-2893-4275-ab7d-d0e6610f2932"],
+ ",...,",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["s", "n"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "884d0735-73c7-4bf0-8442-a24155ac0dd6"],
+ " is given. The elements ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["s", "1"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "ff0a1df0-0ebb-42d0-b60d-49ac31bba2da"],
+ ",...,",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["s", "n"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "4711e70a-79c0-411c-aaa4-cc417cf9661a"],
+ " are said to be the generators of the group ",
+ Cell[BoxData[
+  FormBox["\[ScriptCapitalG]", TraditionalForm]], "InlineMath",ExpressionUUID->
+  "64b4a12e-4716-4166-90f9-23f743477050"],
+ ", if every element ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", "\[Element]", "\[ScriptCapitalG]"}], TraditionalForm]], 
+  "InlineMath",ExpressionUUID->"cca4bf73-6afc-49f9-bcb9-64e593a877ba"],
+ " can be expressed as a combination of  ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["s", "1"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "2e23e5d6-b189-4649-be73-1b0876d36b85"],
+ ",...,",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["s", "n"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "971b9fdc-8957-4542-8571-79540b84ac6d"],
+ "."
+}], "Notes",
+ CellID->1067943069,ExpressionUUID->"c641753e-fa3f-4583-9df6-1832e491f65f"],
+
+Cell["The choice of the generators for a group is not unique.", "Notes",
+ CellID->1468855162,ExpressionUUID->"35637d10-ae27-4bd8-85cc-5cce39f86b30"],
+
+Cell[TextData[{
+ "The ",
+ StyleBox["group", "TI",
+  FontSlant->"Italic"],
+ " can contain symbols, matrices, quaternions or Euler angles (compare ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTEulerAnglesQ"]], "paclet:GroupTheory/ref/GTEulerAnglesQ", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "0be8188e-630a-4a92-bcca-c1c928e47358"],
+ ", ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTQuaternionQ"]], "paclet:GroupTheory/ref/GTQuaternionQ", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "fdb35f70-3998-4e30-989c-f152e04f9f8f"],
+ " and ",
+ Cell[BoxData[
+  TemplateBox[{
+    Cell[
+     TextData["GTSymbolQ"]], "paclet:GroupTheory/ref/GTSymbolQ", 
+    "GroupTheory Package Symbol"},
+   "PackageLink",
+   BaseStyle->"InlineFormula"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "8f5cdc4c-f6d2-4aa1-878b-5bf0c2a0c69a"],
+ ")."
+}], "Notes",
+ CellID->1979018960,ExpressionUUID->"7f4334b3-ab62-4653-bc75-ea99713e1ebd"],
+
+Cell["The following option can be given:", "Notes",
+ CellID->729515642,ExpressionUUID->"bb8a62ad-598b-40d5-8dce-0714fce44380"],
+
+Cell[BoxData[GridBox[{
+   {Cell["      ", "TableRowIcon",ExpressionUUID->
+     "6b6e5596-8c5f-4ed2-b89f-83b5158ba6c4"], 
+    RowBox[{
+     TemplateBox[{
+       Cell[
+        TextData["GOFast"]], "paclet:GroupTheory/ref/GOFast", 
+       "GroupTheory Package Symbol"},
+      "PackageLink",
+      BaseStyle->"3ColumnTableMod"], " ", 
+     TemplateBox[{168475934},
+      "ExampleJumpLink"]}], 
+    TemplateBox[{
+      Cell[
+       TextData["GOFastValue"]], "paclet:GroupTheory/ref/GOFastValue", 
+      "GroupTheory Package Symbol"},
+     "PackageLink",
+     BaseStyle->"3ColumnTableMod"], Cell[TextData[Cell[
+    "Skips the input validation ", "TableText",ExpressionUUID->
+     "3bcde101-948a-403c-ab23-e3ed8164331a"]], "TableText",ExpressionUUID->
+     "f4c6397c-b34e-4d89-a004-2f8566bd7d31"]}
+  }]], "3ColumnTableMod",
+ GridBoxOptions->{
+ GridBoxBackground->{"Columns" -> {{None}}, "Rows" -> {{None}}},
+ GridBoxDividers->{"Rows" -> {{True, True}}}},
+ CellID->52044944,ExpressionUUID->"180a3bec-44ef-4743-b5b6-a856b7f9f6f3"],
+
+Cell[TextData[{
+ "See: W. Hergert, M. Geilhufe, ",
+ StyleBox["Group Theory in Solid State Physics and Photonics. Problem Solving \
+with Mathematica,",
+  FontSlant->"Italic"],
+ " chapter 4.1,2"
+}], "Notes",
+ CellID->1586135739,ExpressionUUID->"7f71ba8d-a522-4663-9683-eee5861515dd"]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "PrimaryExamplesSection"}, Open], 
+      Alternatives[True, Open]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"5dd6d4cd-250f-4d49-b8d9-9feabb5f747d"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"0711af3d-15b2-4fff-b67d-8e381b66eb3e"],
+ "Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(8)", "ExampleCount",ExpressionUUID->
+  "d995f757-3b07-49e0-af11-fdd9845a8ba4"]
+}], "PrimaryExamplesSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellTags->"PrimaryExamplesSection",
+ CellID->1486794685,ExpressionUUID->"2b7cef03-c544-46b3-9196-386e84b20b11"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{13.600000000000001`, {5., 8.600000000000001}}]],
+  ExpressionUUID->"dd537bcb-fd69-4282-a179-dc7f203aa031"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"ab4346a0-739d-4643-b0ad-0269f26d1ea6"],
+ "Basic Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(2)", "ExampleCount",ExpressionUUID->
+  "6e8971cd-f832-4db5-8a9c-9ad61f292bac"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->437635521,ExpressionUUID->"60883dd1-7c66-42c0-b51a-1daf0abf65c1"],
+
+Cell["First, load the package:", "ExampleText",
+ CellID->10029131,ExpressionUUID->"061674f0-2df7-4b25-88c8-e5e8fc4f5500"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->700278011,ExpressionUUID->"1024c467-078c-408e-815e-34f50cf70281"],
+
+Cell[TextData[{
+ "Calculate the generators of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["C", 
+    RowBox[{"3", "v"}]], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "d3dfa3c9-0016-405f-ade8-080bcaa75619"]
+}], "ExampleText",
+ CellID->57049781,ExpressionUUID->"a7d24085-1f3e-4946-96ca-9bf59755ecda"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"c3v", "=", 
+  RowBox[{"GTInstallGroup", "[", "C3v", "]"}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->355318902,ExpressionUUID->"f7fb021f-951a-439c-80fb-9abfe689275a"],
+
+Cell[BoxData["\<\"The standard representation has changed to O(3)\"\>"], \
+"Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->1009802955,ExpressionUUID->"98f6f0be-c0da-4407-9ba8-414b76fe11ae"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Ee\"\>", ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3z\"\>", "\<\"-1\"\>"], ",", 
+   
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3z\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2D\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2C\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->195002444,ExpressionUUID->"16b6e447-1aff-4b99-afad-13662e5f1380"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTGenerators", "[", "c3v", "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->1478780972,ExpressionUUID->"1b32f54a-45c9-4b5a-ad35-428866d31850"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3z\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[3]=",
+ CellID->346030986,ExpressionUUID->"418127e1-7fca-40b1-9777-f69e82a67f3a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "9ed1c149-bec0-4651-9f85-d5990c17c846"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->90098061,ExpressionUUID->"99e91b07-9974-466f-80ff-eeb27c07cb71"],
+
+Cell[TextData[{
+ "Calculate the generators of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", "4"], TraditionalForm]], "InlineMath",ExpressionUUID->
+  "f87e0253-8c08-40b2-8c24-e3b2c90fbf4c"]
+}], "ExampleText",
+ CellID->1514311582,ExpressionUUID->"229b5133-eda0-4844-ac70-f8766a47b97a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"d4", "=", 
+  RowBox[{"GTInstallGroup", "[", "D4", "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1408796558,ExpressionUUID->"8ea53e98-f676-408e-9241-5305de067716"],
+
+Cell[BoxData["\<\"The standard representation has changed to O(3)\"\>"], \
+"Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->357065626,ExpressionUUID->"04c0be1e-26e9-4b06-bf76-4f721d81638c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Ee\"\>", ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2d\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2c\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"4y\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"4y\"\>", "\<\"-1\"\>"]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->1132666464,ExpressionUUID->"442d52a1-9276-4e84-bf6b-8142c87f127a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTGenerators", "[", "d4", "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->2002778485,ExpressionUUID->"977d45ff-1336-4179-b84c-9d27d6d1ecc8"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"4y\"\>", "\<\"-1\"\>"], ",", 
+   
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1430213440,ExpressionUUID->"77f70616-3722-4eb8-a7e2-dcc267668ce0"]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, 
+  Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "1"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+  ExpressionUUID->"08eff32e-2abc-4df1-a68e-e68abbae1fac"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"95277558-9dbd-43ea-94b6-8d2bead03735"],
+ "Options",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(2)", "ExampleCount",ExpressionUUID->
+  "0081b049-ccee-4048-9eaf-00b592bbf05a"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->2061341341,ExpressionUUID->"264baae8-2fb1-437e-ad35-23e8ad7f1df5"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {
+       TaggingRules, "Openers", "ExampleSubsection", "0"}, Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+  ExpressionUUID->"404ab61b-1174-4c99-abfe-db27e2850cd4"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"d2de3e30-27c5-4480-b0aa-708634aade3b"],
+ "GOFast",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(2)", "ExampleCount",ExpressionUUID->
+  "3c981fde-fd39-4f2a-a261-2051f39ff1e6"]
+}], "ExampleSubsection", "ExampleSubsection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->168475934,ExpressionUUID->"1209ebf9-b19c-4e6f-a1b2-fa0f253395b3"],
+
+Cell["First, load the package:", "ExampleText",
+ CellID->435184156,ExpressionUUID->"4ce4f025-ae2b-49eb-bfc2-41ab7ffa6391"],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<GroupTheory`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->30805625,ExpressionUUID->"0e6fa929-6b02-42dd-abc8-2b1e175abd28"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"oh", "=", 
+  RowBox[{
+   RowBox[{"GTInstallGroup", "[", "Oh", "]"}], "//", 
+   "GTGetSymbol"}]}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->156965885,ExpressionUUID->"50af4e19-7945-40cd-b2da-8678d9ee3236"],
+
+Cell[BoxData["\<\"The standard representation has changed to O(3)\"\>"], \
+"Print",
+ CellLabel->"During evaluation of In[2]:=",
+ CellID->489149153,ExpressionUUID->"24f3f7cf-bc71-449c-9bc9-3970c470dac2"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Ee\"\>", ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2f\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2e\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2b\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2d\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2c\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2a\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"\"\>"], 
+   ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", "\<\"\"\>"], 
+   ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", "\<\"-1\"\>"],
+    ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", "\<\"\"\>"], 
+   ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", "\<\"\"\>"], 
+   ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"4z\"\>", "\<\"-1\"\>"], ",", 
+   
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"4y\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"4y\"\>", "\<\"-1\"\>"], ",", 
+   
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"4z\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"4x\"\>", "\<\"-1\"\>"], ",", 
+   
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"4x\"\>", "\<\"\"\>"], 
+   ",", "\<\"IEe\"\>", ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2x\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2a\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2c\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2d\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2b\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2e\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2f\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2z\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"4x\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"4x\"\>", "\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"4z\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"4y\"\>", "\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"4y\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"4z\"\>", "\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", "\<\"\"\>"],
+    ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", "\<\"\"\>"],
+    ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"3\[Delta]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"3\[Alpha]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", \
+"\<\"-1\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"3\[Gamma]\"\>", "\<\"\"\>"],
+    ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"3\[Beta]\"\>", \
+"\<\"\"\>"]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1292066255,ExpressionUUID->"590fa4d9-6aa1-44bb-a37e-ec4186bc129f"]
+}, Open  ]],
+
+Cell[TextData[{
+ "The evaluation time can be decreased, using ",
+ ButtonBox["GOFast",
+  BaseStyle->"Link",
+  ButtonData->"paclet:GroupTheory/ref/GOFast"],
+ "\[Rule]",
+ ButtonBox["True",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/True"],
+ "."
+}], "ExampleText",
+ CellID->1936364349,ExpressionUUID->"73943477-b99f-4626-8a2e-c219cf363d31"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AbsoluteTiming", "[", 
+   RowBox[{"GTGenerators", "[", 
+    RowBox[{"oh", ",", 
+     RowBox[{"GOFast", "\[Rule]", " ", "True"}]}], "]"}], "]"}], "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellLabel->"In[3]:=",
+ CellID->786722795,ExpressionUUID->"0a331743-0883-4bae-afde-04b13465abbc"],
+
+Cell[BoxData["0.154301`"], "Output",
+ CellLabel->"Out[3]=",
+ CellID->425155511,ExpressionUUID->"8149e1ae-821a-4e89-b516-32675dff8740"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AbsoluteTiming", "[", 
+   RowBox[{"GTGenerators", "[", 
+    RowBox[{"oh", ",", 
+     RowBox[{"GOFast", "\[Rule]", " ", "False"}]}], "]"}], "]"}], "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellLabel->"In[4]:=",
+ CellID->1620099093,ExpressionUUID->"7b235dc6-14d6-4fae-bc9d-e3030398b2c1"],
+
+Cell[BoxData["0.264969`"], "Output",
+ CellLabel->"Out[4]=",
+ CellID->635821720,ExpressionUUID->"1b61629a-4e23-4695-8f78-d59dfd400776"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "520b9134-7f4e-4b42-9e6d-4454092c9448"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1584672630,ExpressionUUID->"303aac5e-9c97-4ce1-9a65-d833ddb86e4c"],
+
+Cell[TextData[{
+ "If ",
+ ButtonBox["GOFast",
+  BaseStyle->"Link",
+  ButtonData->"paclet:GroupTheory/ref/GOFast"],
+ "\[Rule]",
+ ButtonBox["False",
+  BaseStyle->"Link",
+  ButtonData->"paclet:ref/False"],
+ " is used, it will be checked if the input is a group."
+}], "ExampleText",
+ CellID->1697292234,ExpressionUUID->"ef2f48f0-e151-49f3-a553-7a30a335020b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTGenerators", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"Ee", ",", "C3z"}], "}"}], ",", 
+   RowBox[{"GOFast", "\[Rule]", " ", "False"}]}], "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1841808856,ExpressionUUID->"fd482196-ec90-407b-a74f-7e440fd20500"],
+
+Cell[BoxData["\<\"Error: Input is not a group!\"\>"], "Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->1003979168,ExpressionUUID->"5b7c4ea4-785f-472c-857f-b86b95084390"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellLabel->"Out[1]=",
+ CellID->601428990,ExpressionUUID->"8a852a81-5398-4278-b256-8d405f069e64"]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSubsection", "0"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "1"}, 
+  Closed]]]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ Cell[BoxData[
+  DynamicBox[ToBoxes[
+    If[
+     MatchQ[
+      CurrentValue[
+       EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "2"},
+        Closed], 
+      Alternatives[Open, True]], 
+     Style[
+      Graphics[{
+        Thickness[0.18], 
+        RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+        Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+       PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+      0.68 Inherited], 
+     Rotate[
+      Style[
+       Graphics[{
+         Thickness[0.18], 
+         RGBColor[0.8509803921568627, 0.396078431372549, 0], 
+         Line[{{-1.8, 0.5}, {0, 0}, {1.8, 0.5}}]}, AspectRatio -> 1, 
+        PlotRange -> {{-3, 4}, {-1, 1}}, ImageSize -> 20], Magnification -> 
+       0.68 Inherited], Rational[1, 2] Pi, {-1.65, -1}]]],
+   ImageSizeCache->{
+    13.600000000000001`, {0.5800000000000001, 13.020000000000001`}}]],
+  ExpressionUUID->"0d76cceb-232a-4d07-9112-a6a1a0387df5"],
+ Cell[BoxData[
+  TemplateBox[{1},
+   "Spacer1"]],ExpressionUUID->"4627f9ba-6513-4129-924c-115121d745e1"],
+ "Neat Examples",
+ "\[NonBreakingSpace]\[NonBreakingSpace]",
+ Cell["(4)", "ExampleCount",ExpressionUUID->
+  "fcc70609-59ab-454e-bbf6-50fef6bd82e5"]
+}], "ExampleSection", "ExampleSection",
+ WholeCellGroupOpener->True,
+ CacheGraphics->False,
+ CellID->589267740,ExpressionUUID->"ac4b0821-d5f3-4b8e-9026-3fe5916bca31"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"c3v", "=", 
+  RowBox[{"GTInstallGroup", "[", "C3v", "]"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1152791072,ExpressionUUID->"c5096bd4-ba6b-4365-a66a-53ffb311ea63"],
+
+Cell[BoxData["\<\"The standard representation has changed to O(3)\"\>"], \
+"Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->298214231,ExpressionUUID->"0384cee4-fac9-4176-8f5d-33053722cef3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Ee\"\>", ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3z\"\>", "\<\"-1\"\>"], ",", 
+   
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3z\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2D\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2C\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->2007231966,ExpressionUUID->"1e7238cb-b29c-45e0-999c-67bd1ee8246b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTGenerators", "[", "c3v", "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1098619929,ExpressionUUID->"a2589186-8378-48b8-88d0-bc6801ad4ebc"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   SubsuperscriptBox[
+    OverscriptBox["\<\"C\"\>", "\<\"\"\>"], "\<\"3z\"\>", "\<\"\"\>"], ",", 
+   SubsuperscriptBox[
+    OverscriptBox["\<\"IC\"\>", "\<\"\"\>"], "\<\"2y\"\>", "\<\"\"\>"]}], 
+  "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->727041839,ExpressionUUID->"7c0f4cc9-08d9-4c7f-890d-421b50fca67b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "bb3f06a7-0093-401e-a8fb-8f9b586bf31b"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1346296548,ExpressionUUID->"73a80e61-ee21-4758-ba5e-d3b969245b38"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"c3v", "=", 
+  RowBox[{
+   RowBox[{"GTInstallGroup", "[", "C3v", "]"}], "//", 
+   "GTGetMatrix"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->103035548,ExpressionUUID->"2094e99f-f2cd-469b-90b7-f186337438b2"],
+
+Cell[BoxData["\<\"The standard representation has changed to O(3)\"\>"], \
+"Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->210236643,ExpressionUUID->"79a008cb-d1bf-42c8-a199-5166c52888b7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", 
+       RowBox[{"-", 
+        FractionBox[
+         SqrtBox["3"], "2"]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox[
+        SqrtBox["3"], "2"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", 
+       FractionBox[
+        SqrtBox["3"], "2"], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         SqrtBox["3"], "2"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", 
+       RowBox[{"-", 
+        FractionBox[
+         SqrtBox["3"], "2"]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         SqrtBox["3"], "2"]}], ",", 
+       FractionBox["1", "2"], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", 
+       FractionBox[
+        SqrtBox["3"], "2"], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox[
+        SqrtBox["3"], "2"], ",", 
+       FractionBox["1", "2"], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->836659586,ExpressionUUID->"7a374ef1-6e84-4f7f-bfa2-529abfce4bad"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTGenerators", "[", "c3v", "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->289937190,ExpressionUUID->"d51a0300-6a94-4700-9852-8b041efb93f2"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", 
+       FractionBox[
+        SqrtBox["3"], "2"], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         SqrtBox["3"], "2"]}], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->14741346,ExpressionUUID->"71a6c2c2-7a8f-4151-8f38-4533d9e48f3a"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "3e71d903-ec45-4063-beeb-71dbbf090f96"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1785903512,ExpressionUUID->"2a0fd872-3d03-4c36-8ae2-41654f3e86d3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"c3v", "=", 
+  RowBox[{
+   RowBox[{"GTInstallGroup", "[", "C3v", "]"}], "//", 
+   "GTGetQuaternion"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->871713296,ExpressionUUID->"5ee9efbd-1c2c-4a98-86eb-a0e100dac02a"],
+
+Cell[BoxData["\<\"The standard representation has changed to O(3)\"\>"], \
+"Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->797182817,ExpressionUUID->"0281c0d9-7732-45fa-8784-f8bec0858aad"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       FractionBox[
+        SqrtBox["3"], "2"]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       RowBox[{"-", 
+        FractionBox[
+         SqrtBox["3"], "2"]}]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox[
+        SqrtBox["3"], "2"], ",", 
+       FractionBox["1", "2"], ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox[
+        SqrtBox["3"], "2"], ",", 
+       RowBox[{"-", 
+        FractionBox["1", "2"]}], ",", "0"}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"-", "1"}], ",", "0"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->101131686,ExpressionUUID->"c139fdf6-fd06-406e-be66-fe304e82b96d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTGenerators", "[", "c3v", "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->669593329,ExpressionUUID->"96f764c5-4526-407d-9115-c038513464fa"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox["1", "2"], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       RowBox[{"-", 
+        FractionBox[
+         SqrtBox["3"], "2"]}]}], "}"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"0", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       FractionBox[
+        SqrtBox["3"], "2"], ",", 
+       FractionBox["1", "2"], ",", "0"}], "}"}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->1060681825,ExpressionUUID->"ec65388a-3703-4c50-92b2-1720c400db12"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell[
+  "\t", "ExampleDelimiter",ExpressionUUID->
+   "1abf472e-7688-4004-8331-a5f3a18eb80b"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->145779833,ExpressionUUID->"d68fdb72-fd8a-4fcb-b97b-e7c1cb8c75c5"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"c3v", "=", 
+  RowBox[{
+   RowBox[{"GTInstallGroup", "[", "C3v", "]"}], "//", 
+   "GTGetEulerAngles"}]}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->1299095599,ExpressionUUID->"ff1c7eb9-827c-4f78-ab05-fb5e8a4e961f"],
+
+Cell[BoxData["\<\"The standard representation has changed to O(3)\"\>"], \
+"Print",
+ CellLabel->"During evaluation of In[1]:=",
+ CellID->617679028,ExpressionUUID->"128af04e-6b6d-41f7-b930-11a9a230b2ab"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       FractionBox[
+        RowBox[{"2", " ", "\[Pi]"}], "3"]}], "}"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"2", " ", "\[Pi]"}], "3"]}]}], "}"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "\[Pi]", ",", 
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"4", " ", "\[Pi]"}], "3"]}]}], "}"}], ",", 
+     RowBox[{"-", "1"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "\[Pi]", ",", 
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"2", " ", "\[Pi]"}], "3"]}]}], "}"}], ",", 
+     RowBox[{"-", "1"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "\[Pi]", ",", "0"}], "}"}], ",", 
+     RowBox[{"-", "1"}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[1]=",
+ CellID->395473998,ExpressionUUID->"f8343f2f-aff8-4d11-abf2-c7dd8ba0158b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"GTGenerators", "[", "c3v", "]"}]], "Input",
+ CellLabel->"In[2]:=",
+ CellID->1497118043,ExpressionUUID->"5f85bdbc-e1ba-426f-a77a-bfa6374c9e12"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", 
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"2", " ", "\[Pi]"}], "3"]}]}], "}"}], ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "\[Pi]", ",", "0"}], "}"}], ",", 
+     RowBox[{"-", "1"}]}], "}"}]}], "}"}]], "Output",
+ CellLabel->"Out[2]=",
+ CellID->269596921,ExpressionUUID->"41fab1f1-9d20-49f8-b594-e5e9bff99a03"]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "2"}, 
+  Closed]]]]
+}, Dynamic[CurrentValue[
+ EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, 
+  Closed]]]],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, 
+       "RelatedFunction.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"See", " ", "Also"}], "SeeAlsoSection"]},
+      {Cell[TextData[{
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTGroupFromGenerators"]], 
+           "paclet:GroupTheory/ref/GTGroupFromGenerators", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "5cbde549-cf84-4c9c-9791-1f4670d85eec"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTGroupOrder"]], "paclet:GroupTheory/ref/GTGroupOrder", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "4156332d-d0ea-4775-8833-e72e349f52dd"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTOrderOfElement"]], 
+           "paclet:GroupTheory/ref/GTOrderOfElement", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "6edfbdce-98b4-4884-8cce-05989e25582d"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTCyclicQ"]], "paclet:GroupTheory/ref/GTCyclicQ", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "06582763-06a4-4376-acf3-7110e96b2b69"],
+        "\[NonBreakingSpace]",
+        StyleBox[
+        "\[MediumSpace]\[FilledVerySmallSquare]\[MediumSpace]", 
+         "InlineSeparator"],
+        " ",
+        Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["GTGetSubGroups"]], 
+           "paclet:GroupTheory/ref/GTGetSubGroups", 
+           "GroupTheory Package Symbol"},
+          "PackageLink",
+          BaseStyle->"InlineFormula"]], "InlineFormula",
+         FontFamily->"Source Sans Pro",ExpressionUUID->
+         "0e77de16-c65f-4871-b846-92b54387916a"]
+       }], "SeeAlso",ExpressionUUID->"903deacf-2c8a-4c23-be17-758646efd2ac"]}
+     }]}
+  }]], "SeeAlsoSection",ExpressionUUID->"60a16efb-c835-460f-94a8-\
+9120b8c401fb"],
+
+Cell[BoxData[GridBox[{
+   {
+    DynamicBox[FEPrivate`ImportImage[
+      FrontEnd`FileName[{"Documentation", "FooterIcons"}, "RelatedGuide.png"]],
+     ImageSizeCache->{50., {27., 33.}}], GridBox[{
+      {
+       StyleBox[
+        RowBox[{"Related", " ", "Guides"}], "MoreAboutSection"]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["Basic"]], "paclet:GroupTheory/guide/Basic"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "02eb9d0f-ac1c-421d-bcf2-cf4d81b25e7d"]}]},
+      {
+       RowBox[{"\[FilledVerySmallSquare]", Cell[BoxData[
+         TemplateBox[{
+           Cell[
+            TextData["The Mathematica Group Theory Package GTPack, V 1.4"]], 
+           "paclet:GroupTheory/guide/GroupTheory"},
+          "RefLinkPlain",
+          BaseStyle->{"MoreAbout"}]], "MoreAbout",ExpressionUUID->
+         "d14c2ef2-621b-4d3c-abc5-e525e07b2d51"]}]}
+     }]}
+  }]], "MoreAboutSection",ExpressionUUID->"e5486e2f-7213-4809-b613-\
+890c9d822cf0"],
+
+Cell[" ", "FooterCell",ExpressionUUID->"a7deff28-df08-4496-bf77-23e1aecc13b1"]
+},
+Saveable->False,
+ScreenStyleEnvironment->"Working",
+WindowSize->{900., 830.25},
+WindowMargins->{{55.5, Automatic}, {Automatic, 20.25}},
+WindowTitle->"GTGenerators",
+TaggingRules->{
+ "ModificationHighlight" -> False, "ColorType" -> "", "LinkTrails" -> "", 
+  "HasOptions" -> True, "ExampleCounter" -> 1, 
+  "Openers" -> {
+   "PrimaryExamplesSection" -> Open, 
+    "ExampleSection" -> {"0" -> Open, "1" -> Closed, "2" -> Closed}, 
+    "NotesSection" -> Closed, "ExampleSubsection" -> {"0" -> Closed}}, 
+  "NewStyles" -> True, "CitationPopupData" -> $Failed, "ShowCitation" -> 
+  False, "RootCaptions" -> "", 
+  "Metadata" -> {
+   "built" -> "{2023, 4, 4, 9, 53, 52.879583}", 
+    "history" -> {"1.0", "", "", ""}, "context" -> "GroupTheory`", 
+    "keywords" -> {}, "specialkeywords" -> {}, 
+    "tutorialcollectionlinks" -> {}, "index" -> True, "label" -> 
+    "Group Theory Symbol", "language" -> "en", "paclet" -> "GroupTheory", 
+    "status" -> "None", "summary" -> 
+    "GTGenerators[group] gives the generators of a certain group.", 
+    "synonyms" -> {}, "tabletags" -> {}, "title" -> "GTGenerators", 
+    "titlemodifier" -> "", "metadescription" -> "", "windowtitle" -> 
+    "GTGenerators", "type" -> "Symbol", "uri" -> 
+    "GroupTheory/ref/GTGenerators"}},
+CellContext->"Global`",
+FrontEndVersion->"13.2 for Linux x86 (64-bit) (December 7, 2022)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[
+    StyleDefinitions -> FrontEnd`FileName[{"Wolfram"}, "Reference.nb"]]], 
+   Cell[
+    StyleData["Input"], CellContext -> "Global`"], 
+   Cell[
+    StyleData["Output"], CellContext -> "Global`"]}, Visible -> False, 
+  FrontEndVersion -> "13.2 for Linux x86 (64-bit) (December 7, 2022)", 
+  StyleDefinitions -> "Default.nb"],
+ExpressionUUID->"ab6099eb-7b67-490e-8d86-ce1c745a4e99"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "PrimaryExamplesSection"->{
+  Cell[14417, 388, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"2b7cef03-c544-46b3-9196-386e84b20b11",
+   CellTags->"PrimaryExamplesSection",
+   CellID->1486794685]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"PrimaryExamplesSection", 52914, 1541}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[584, 21, 5728, 134, 56, "AnchorBarGrid",ExpressionUUID->"e096525d-6b01-4f65-86f9-7f9e75c7ff67",
+ CellID->1],
+Cell[6315, 157, 94, 0, 24, "ContextNameCell",ExpressionUUID->"21398433-ba6d-466c-8247-31266b47bc3d"],
+Cell[CellGroupData[{
+Cell[6434, 161, 555, 14, 59, "ObjectNameGrid",ExpressionUUID->"883e420f-56be-4e83-b895-b8484511d668"],
+Cell[6992, 177, 765, 20, 110, "Usage",ExpressionUUID->"93b3ce45-c75a-44b7-a1c6-aafa008d0b3c",
+ CellID->982511436]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7794, 202, 1920, 48, 37, "NotesSection",ExpressionUUID->"95f0edcc-b2ab-410f-9cca-b5035bb2a066",
+ CellGroupingRules->{"SectionGrouping", 50},
+ CellID->1628606060],
+Cell[9717, 252, 1799, 50, 70, "Notes",ExpressionUUID->"c641753e-fa3f-4583-9df6-1832e491f65f",
+ CellID->1067943069],
+Cell[11519, 304, 148, 1, 70, "Notes",ExpressionUUID->"35637d10-ae27-4bd8-85cc-5cce39f86b30",
+ CellID->1468855162],
+Cell[11670, 307, 1183, 36, 70, "Notes",ExpressionUUID->"7f4334b3-ab62-4653-bc75-ea99713e1ebd",
+ CellID->1979018960],
+Cell[12856, 345, 126, 1, 70, "Notes",ExpressionUUID->"bb8a62ad-598b-40d5-8dce-0714fce44380",
+ CellID->729515642],
+Cell[12985, 348, 1021, 25, 70, "3ColumnTableMod",ExpressionUUID->"180a3bec-44ef-4743-b5b6-a856b7f9f6f3",
+ CellID->52044944],
+Cell[14009, 375, 281, 7, 70, "Notes",ExpressionUUID->"7f71ba8d-a522-4663-9683-eee5861515dd",
+ CellID->1586135739]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "NotesSection"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[14417, 388, 1421, 37, 35, "PrimaryExamplesSection",ExpressionUUID->"2b7cef03-c544-46b3-9196-386e84b20b11",
+ CellTags->"PrimaryExamplesSection",
+ CellID->1486794685],
+Cell[CellGroupData[{
+Cell[15863, 429, 1398, 36, 30, "ExampleSection",ExpressionUUID->"60883dd1-7c66-42c0-b51a-1daf0abf65c1",
+ CellID->437635521],
+Cell[17264, 467, 121, 1, 38, "ExampleText",ExpressionUUID->"061674f0-2df7-4b25-88c8-e5e8fc4f5500",
+ CellID->10029131],
+Cell[17388, 470, 175, 3, 27, "Input",ExpressionUUID->"1024c467-078c-408e-815e-34f50cf70281",
+ CellID->700278011],
+Cell[17566, 475, 305, 8, 41, "ExampleText",ExpressionUUID->"a7d24085-1f3e-4946-96ca-9bf59755ecda",
+ CellID->57049781],
+Cell[CellGroupData[{
+Cell[17896, 487, 192, 4, 27, "Input",ExpressionUUID->"f7fb021f-951a-439c-80fb-9abfe689275a",
+ CellID->355318902],
+Cell[18091, 493, 203, 3, 25, "Print",ExpressionUUID->"98f6f0be-c0da-4407-9ba8-414b76fe11ae",
+ CellID->1009802955],
+Cell[18297, 498, 677, 16, 47, "Output",ExpressionUUID->"16b6e447-1aff-4b99-afad-13662e5f1380",
+ CellID->195002444]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19011, 519, 166, 3, 27, "Input",ExpressionUUID->"1b32f54a-45c9-4b5a-ad35-428866d31850",
+ CellID->1478780972],
+Cell[19180, 524, 353, 9, 47, "Output",ExpressionUUID->"418127e1-7fca-40b1-9777-f69e82a67f3a",
+ CellID->346030986]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19570, 538, 241, 5, 12, "ExampleDelimiter",ExpressionUUID->"99e91b07-9974-466f-80ff-eeb27c07cb71",
+ CellID->90098061],
+Cell[19814, 545, 287, 7, 38, "ExampleText",ExpressionUUID->"229b5133-eda0-4844-ac70-f8766a47b97a",
+ CellID->1514311582],
+Cell[CellGroupData[{
+Cell[20126, 556, 191, 4, 27, "Input",ExpressionUUID->"8ea53e98-f676-408e-9241-5305de067716",
+ CellID->1408796558],
+Cell[20320, 562, 202, 3, 25, "Print",ExpressionUUID->"04c0be1e-26e9-4b06-bf76-4f721d81638c",
+ CellID->357065626],
+Cell[20525, 567, 869, 19, 47, "Output",ExpressionUUID->"442d52a1-9276-4e84-bf6b-8142c87f127a",
+ CellID->1132666464]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21431, 591, 165, 3, 27, "Input",ExpressionUUID->"977d45ff-1336-4179-b84c-9d27d6d1ecc8",
+ CellID->2002778485],
+Cell[21599, 596, 359, 10, 47, "Output",ExpressionUUID->"77f70616-3722-4eb8-a7e2-dcc267668ce0",
+ CellID->1430213440]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "0"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[22119, 615, 1415, 37, 70, "ExampleSection",ExpressionUUID->"264baae8-2fb1-437e-ad35-23e8ad7f1df5",
+ CellID->2061341341],
+Cell[CellGroupData[{
+Cell[23559, 656, 1422, 37, 70, "ExampleSubsection",ExpressionUUID->"1209ebf9-b19c-4e6f-a1b2-fa0f253395b3",
+ CellID->168475934],
+Cell[24984, 695, 122, 1, 70, "ExampleText",ExpressionUUID->"4ce4f025-ae2b-49eb-bfc2-41ab7ffa6391",
+ CellID->435184156],
+Cell[25109, 698, 174, 3, 70, "Input",ExpressionUUID->"0e6fa929-6b02-42dd-abc8-2b1e175abd28",
+ CellID->30805625],
+Cell[CellGroupData[{
+Cell[25308, 705, 229, 6, 70, "Input",ExpressionUUID->"50af4e19-7945-40cd-b2da-8678d9ee3236",
+ CellID->156965885],
+Cell[25540, 713, 202, 3, 70, "Print",ExpressionUUID->"24f3f7cf-bc71-449c-9bc9-3970c470dac2",
+ CellID->489149153],
+Cell[25745, 718, 4968, 116, 96, "Output",ExpressionUUID->"590fa4d9-6aa1-44bb-a37e-ec4186bc129f",
+ CellID->1292066255]
+}, Open  ]],
+Cell[30728, 837, 340, 11, 70, "ExampleText",ExpressionUUID->"73943477-b99f-4626-8a2e-c219cf363d31",
+ CellID->1936364349],
+Cell[CellGroupData[{
+Cell[31093, 852, 327, 8, 70, "Input",ExpressionUUID->"0a331743-0883-4bae-afde-04b13465abbc",
+ CellID->786722795],
+Cell[31423, 862, 134, 2, 36, "Output",ExpressionUUID->"8149e1ae-821a-4e89-b516-32675dff8740",
+ CellID->425155511]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31594, 869, 329, 8, 70, "Input",ExpressionUUID->"7b235dc6-14d6-4fae-bc9d-e3030398b2c1",
+ CellID->1620099093],
+Cell[31926, 879, 134, 2, 36, "Output",ExpressionUUID->"1b61629a-4e23-4695-8f78-d59dfd400776",
+ CellID->635821720]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32097, 886, 243, 5, 70, "ExampleDelimiter",ExpressionUUID->"303aac5e-9c97-4ce1-9a65-d833ddb86e4c",
+ CellID->1584672630],
+Cell[32343, 893, 353, 11, 70, "ExampleText",ExpressionUUID->"ef2f48f0-e151-49f3-a553-7a30a335020b",
+ CellID->1697292234],
+Cell[CellGroupData[{
+Cell[32721, 908, 283, 7, 70, "Input",ExpressionUUID->"fd482196-ec90-407b-a74f-7e440fd20500",
+ CellID->1841808856],
+Cell[33007, 917, 182, 2, 70, "Print",ExpressionUUID->"5b7c4ea4-785f-472c-857f-b86b95084390",
+ CellID->1003979168],
+Cell[33192, 921, 133, 2, 36, "Output",ExpressionUUID->"8a852a81-5398-4278-b256-8d405f069e64",
+ CellID->601428990]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSubsection", "0"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "1"}, Closed]]]],
+Cell[CellGroupData[{
+Cell[33601, 935, 1420, 37, 70, "ExampleSection",ExpressionUUID->"ac4b0821-d5f3-4b8e-9026-3fe5916bca31",
+ CellID->589267740],
+Cell[CellGroupData[{
+Cell[35046, 976, 193, 4, 70, "Input",ExpressionUUID->"c5096bd4-ba6b-4365-a66a-53ffb311ea63",
+ CellID->1152791072],
+Cell[35242, 982, 202, 3, 70, "Print",ExpressionUUID->"0384cee4-fac9-4176-8f5d-33053722cef3",
+ CellID->298214231],
+Cell[35447, 987, 678, 16, 47, "Output",ExpressionUUID->"1e7238cb-b29c-45e0-999c-67bd1ee8246b",
+ CellID->2007231966]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36162, 1008, 166, 3, 70, "Input",ExpressionUUID->"a2589186-8378-48b8-88d0-bc6801ad4ebc",
+ CellID->1098619929],
+Cell[36331, 1013, 353, 9, 47, "Output",ExpressionUUID->"7c0f4cc9-08d9-4c7f-890d-421b50fca67b",
+ CellID->727041839]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36721, 1027, 243, 5, 70, "ExampleDelimiter",ExpressionUUID->"73a80e61-ee21-4758-ba5e-d3b969245b38",
+ CellID->1346296548],
+Cell[CellGroupData[{
+Cell[36989, 1036, 231, 6, 70, "Input",ExpressionUUID->"2094e99f-f2cd-469b-90b7-f186337438b2",
+ CellID->103035548],
+Cell[37223, 1044, 202, 3, 70, "Print",ExpressionUUID->"79a008cb-d1bf-42c8-a199-5166c52888b7",
+ CellID->210236643],
+Cell[37428, 1049, 2526, 87, 124, "Output",ExpressionUUID->"7a374ef1-6e84-4f7f-bfa2-529abfce4bad",
+ CellID->836659586]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39991, 1141, 165, 3, 70, "Input",ExpressionUUID->"d51a0300-6a94-4700-9852-8b041efb93f2",
+ CellID->289937190],
+Cell[40159, 1146, 902, 30, 55, "Output",ExpressionUUID->"71a6c2c2-7a8f-4151-8f38-4533d9e48f3a",
+ CellID->14741346]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[41110, 1182, 243, 5, 70, "ExampleDelimiter",ExpressionUUID->"2a0fd872-3d03-4c36-8ae2-41654f3e86d3",
+ CellID->1785903512],
+Cell[CellGroupData[{
+Cell[41378, 1191, 235, 6, 70, "Input",ExpressionUUID->"5ee9efbd-1c2c-4a98-86eb-a0e100dac02a",
+ CellID->871713296],
+Cell[41616, 1199, 202, 3, 70, "Print",ExpressionUUID->"0281c0d9-7732-45fa-8784-f8bec0858aad",
+ CellID->797182817],
+Cell[41821, 1204, 1231, 43, 55, "Output",ExpressionUUID->"c139fdf6-fd06-406e-be66-fe304e82b96d",
+ CellID->101131686]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43089, 1252, 165, 3, 70, "Input",ExpressionUUID->"96f764c5-4526-407d-9115-c038513464fa",
+ CellID->669593329],
+Cell[43257, 1257, 559, 19, 55, "Output",ExpressionUUID->"ec65388a-3703-4c50-92b2-1720c400db12",
+ CellID->1060681825]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43865, 1282, 242, 5, 70, "ExampleDelimiter",ExpressionUUID->"d68fdb72-fd8a-4fcb-b97b-e7c1cb8c75c5",
+ CellID->145779833],
+Cell[CellGroupData[{
+Cell[44132, 1291, 237, 6, 70, "Input",ExpressionUUID->"ff1c7eb9-827c-4f78-ab05-fb5e8a4e961f",
+ CellID->1299095599],
+Cell[44372, 1299, 202, 3, 70, "Print",ExpressionUUID->"128af04e-6b6d-41f7-b930-11a9a230b2ab",
+ CellID->617679028],
+Cell[44577, 1304, 1269, 42, 55, "Output",ExpressionUUID->"f8343f2f-aff8-4d11-abf2-c7dd8ba0158b",
+ CellID->395473998]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45883, 1351, 166, 3, 70, "Input",ExpressionUUID->"5f85bdbc-e1ba-426f-a77a-bfa6374c9e12",
+ CellID->1497118043],
+Cell[46052, 1356, 504, 16, 55, "Output",ExpressionUUID->"41fab1f1-9d20-49f8-b594-e5e9bff99a03",
+ CellID->269596921]
+}, Open  ]]
+}, Open  ]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "ExampleSection", "2"}, Closed]]]]
+}, Dynamic[CurrentValue[EvaluationNotebook[], {TaggingRules, "Openers", "PrimaryExamplesSection"}, Closed]]]],
+Cell[46810, 1382, 3020, 81, 70, "SeeAlsoSection",ExpressionUUID->"60a16efb-c835-460f-94a8-9120b8c401fb"],
+Cell[49833, 1465, 1078, 27, 70, "MoreAboutSection",ExpressionUUID->"e5486e2f-7213-4809-b613-890c9d822cf0"],
+Cell[50914, 1494, 78, 0, 70, "FooterCell",ExpressionUUID->"a7deff28-df08-4496-bf77-23e1aecc13b1"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
