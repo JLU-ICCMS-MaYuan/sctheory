@@ -1,0 +1,61 @@
+&CONTROL
+ calculation='vc-relax',         
+ restart_mode='from_scratch',    
+ prefix='Ce1H10',                    
+ pseudo_dir='/work/home/mayuan/workplace/1.typical_hydride/003.MH10/2.CeH10/250/Tc-666-paw/pp',                
+ verbosity = 'high',             
+ outdir='./tmp',                 
+ forc_conv_thr = 1.0d-6,             
+ etot_conv_thr = 1.0d-7,             
+ wf_collect = .true.,            
+ tstress = .true.,               
+ tprnfor = .true.,               
+ nstep = 2000,                   
+/
+&SYSTEM
+ ibrav=0,                        
+ nat=11,                         
+ ntyp=2,                        
+ occupations = 'smearing',         
+ smearing = 'gauss',            
+ degauss = 0.02,               
+ ecutwfc = 80,                   
+ ecutrho = 960,                   
+ lspinorb = .false.,                
+ noncolin = .false.,                
+/
+&ELECTRONS
+ diagonalization = 'david'          
+ conv_thr = 1.0d-9,                  
+ mixing_beta = 0.7,               
+ electron_maxstep = 200,          
+/
+&ions                            
+ ion_dynamics = 'bfgs',          
+/
+&cell                            
+ cell_dynamics = 'bfgs',         
+ press = 2500.0,                     
+ press_conv_thr = 0.01,            
+/
+ATOMIC_SPECIES                   
+ Ce     140.116     Ce.paw.z_12.atompaw.wentzcovitch.v1.2.upf          
+ H      1.00794     H.pbe-kjpaw_psl.1.0.0.UPF                          
+CELL_PARAMETERS {angstrom}        
+  -0.000000000   2.388512061   2.388512061
+   2.388512061  -0.000000000   2.388512061
+   2.388512061   2.388512061  -0.000000000
+ATOMIC_POSITIONS (crystal)       
+Ce            0.5000000000        0.5000000000        0.5000000000
+H             0.2500000000        0.2500000000        0.2500000000
+H             0.7500000000        0.7500000000        0.7500000000
+H             0.8776219026        0.8776219026        0.8776219026
+H             0.1223780974        0.1223780974        0.1223780974
+H             0.8776219026        0.8776219026        0.3671342923
+H             0.1223780974        0.1223780974        0.6328657077
+H             0.8776219026        0.3671342923        0.8776219026
+H             0.1223780974        0.6328657077        0.1223780974
+H             0.3671342923        0.8776219026        0.8776219026
+H             0.6328657077        0.1223780974        0.1223780974
+K_POINTS {automatic}             
+ 24 24 24 0 0 0                  

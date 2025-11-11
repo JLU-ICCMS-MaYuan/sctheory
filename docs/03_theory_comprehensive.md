@@ -256,117 +256,7 @@ $$
 \lambda = 2\int_0^{\infty} \frac{\alpha^2F(\omega)}{\omega} d\omega
 $$
 
-### 6.2 从Quantum ESPRESSO计算α²F(ω)
-
-**完整工作流程**：
-
-#### 步骤1：DFT自洽计算 (QE: pw.x)
-
-```bash
-pw.x < scf.in > scf.out
-```
-
-**关键设置**：
-- 收敛精度：`conv_thr = 1.0d-12`
-- k点网格：密集网格（如12×12×12）
-- 交换关联泛函：通常使用PBE
-
-#### 步骤2：声子计算 (QE: ph.x)
-
-```bash
-ph.x < ph.in > ph.out
-```
-
-**关键输入**：
-```fortran
-&inputph
-  tr2_ph = 1.0d-14,      ! 声子收敛阈值
-  ldisp = .true.,        ! 计算声子色散
-  nq1 = 6, nq2 = 6, nq3 = 6,  ! q点网格
-  fildyn = 'dyn',        ! 动力学矩阵文件前缀
-/
-```
-
-**输出**：
-- 动力学矩阵：`dyn0`, `dyn1`, ..., `dynN`
-- 声子频率和本征矢
-
-#### 步骤3：电声耦合插值 (EPW)
-
-**EPW输入文件**（`epw.in`）：
-
-```fortran
-&inputepw
-  ! 关键参数
-  elph = .true.              ! 计算电声耦合
-  epbwrite = .false.         ! 不写原始矩阵元（节省空间）
-  epbread = .false.
-
-  ! Wannier插值
-  wannierize = .true.        ! 使用Wannier90
-  nbndsub = 8                ! Wannier能带数
-
-  ! k和q网格
-  nkf1 = 40, nkf2 = 40, nkf3 = 40  ! 精细k网格
-  nqf1 = 20, nqf2 = 20, nqf3 = 20  ! 精细q网格
-
-  ! Eliashberg谱函数
-  eliashberg = .true.        ! 计算α²F(ω)
-  la2F = .true.              ! 输出α²F文件
-
-  ! 频率范围
-  nqstep = 500               ! 频率点数
-  degaussw = 0.05            ! 展宽参数 (eV)
-/
-```
-
-**关键过程**：
-
-1. **粗网格计算**：
-   - DFT和DFPT在粗k/q网格上计算
-   - 得到$g_{mn\nu}(\mathbf{k},\mathbf{q})$在粗网格上的值
-
-2. **Wannier插值**：
-   - 将Bloch态投影到Wannier基组
-   - 在Wannier表示下插值到任意k点
-
-3. **精细网格重建**：
-   - 在密集k/q网格上重建$g_{mn\nu}$
-   - 计算α²F(ω)的频率依赖
-
-**数学细节**：
-$$
-g_{mn\nu}(\mathbf{k},\mathbf{q}) = \langle \psi_{m\mathbf{k}} | \frac{\partial V}{\partial u_{q\nu}} | \psi_{n\mathbf{k}+\mathbf{q}} \rangle
-$$
-
-其中$u_{q\nu}$是声子位移模式。
-
-#### 步骤4：α²F(ω)的数值计算
-
-**离散化公式**：
-$$
-\alpha^2F(\omega) = \frac{1}{N(0)} \frac{1}{N_k N_q} \sum_{\mathbf{k},\mathbf{q},m,n,\nu} |g_{mn\nu}|^2 \delta(\epsilon_{m\mathbf{k}}) \delta(\epsilon_{n\mathbf{k}+\mathbf{q}}) \delta(\omega - \omega_{q\nu})
-$$
-
-**δ函数处理**（高斯展宽）：
-$$
-\delta(x) \to \frac{1}{\sigma\sqrt{2\pi}} e^{-x^2/(2\sigma^2)}
-$$
-
-**展宽参数选择**：
-- 电子：`degaussq` ~ 0.05 eV（匹配费米面展宽）
-- 声子：`degaussw` ~ 0.5-1.0 cm⁻¹
-
-**输出文件**：`ALPHA2F.OUT`
-
-```
-# omega (Hartree)    alpha2F(omega)
-0.000000000000      0.000000000000
-0.000045563353      0.012345678901
-...
-```
-
-### 6.3 数值例子与解释
+### 6.2 数值例子与解释
 
 **典型材料的α²F(ω)特征**：
 
@@ -402,7 +292,7 @@ $$
    - $\omega_{\log}$更接近主峰位置
    - 低频模式贡献更大（因为$1/\omega$权重）
 
-### 6.4 常见问题与解决方案
+### 6.3 常见问题与解决方案
 
 **问题1：α²F(ω)有负值？**
 
@@ -479,7 +369,7 @@ python tools/example_pade_continuation.py
 ```
 
 ---
-
+   
 ## 总结
 
 本理论框架建立了从第一性原理到超导Tc预测的完整链条：

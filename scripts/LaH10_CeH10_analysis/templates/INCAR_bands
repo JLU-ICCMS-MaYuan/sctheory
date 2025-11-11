@@ -1,0 +1,49 @@
+# VASP输入文件：能带结构计算（用于冻结声子分析）
+# 适用于LaH10/CeH10等氢化物超导体
+
+SYSTEM = LaH10_frozen_phonon
+
+# 计算类型
+ISTART = 0        # 从头开始
+ICHARG = 2        # 从原子电荷计算
+PREC = Accurate   # 精确计算
+
+# 电子结构
+ENCUT = 600       # 平面波截断能（eV）
+EDIFF = 1E-7      # 电子自洽收敛标准
+NELM = 100        # 最大电子步数
+
+# k点和展宽
+ISMEAR = 0        # 高斯展宽
+SIGMA = 0.05      # 展宽参数（eV）
+
+# 态密度和投影
+LORBIT = 11       # 输出PDOS和投影波函数
+NEDOS = 3000      # DOS能量点数（高分辨率）
+
+# 输出控制
+LWAVE = .TRUE.    # 输出WAVECAR（用于轨道可视化）
+LCHARG = .FALSE.  # 不输出CHGCAR（节省空间）
+
+# 对称性
+# ISYM = 2        # 使用对称性加速（默认）
+
+# 自旋（根据阶段一的结果调整）
+ISPIN = 1         # 1=非磁性，2=自旋极化
+
+# DFT+U（如果需要，针对Ce的4f电子）
+# LDAU = .TRUE.
+# LDAUTYPE = 2
+# LDAUL = 3 -1      # Ce用f轨道，H不用
+# LDAUU = 5.0 0.0   # U值（eV）
+# LDAUJ = 0.0 0.0
+# LMAXMIX = 6       # f轨道需要
+
+# 并行优化（可选）
+# NCORE = 4         # 每个轨道组使用的核数
+# KPAR = 2          # k点并行数
+
+# 其他
+ALGO = Normal     # 电子优化算法
+LREAL = .FALSE.   # 实空间投影（精确计算用False）
+ADDGRID = .TRUE.  # 额外的精细网格
