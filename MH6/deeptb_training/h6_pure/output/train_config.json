@@ -1,0 +1,102 @@
+{
+    "common_options": {
+        "basis": {
+            "H": [
+                "1s"
+            ]
+        },
+        "device": "cpu",
+        "dtype": "float32",
+        "overlap": false,
+        "seed": 199511
+    },
+    "model_options": {
+        "nnsk": {
+            "onsite": {
+                "method": "uniform"
+            },
+            "hopping": {
+                "method": "powerlaw",
+                "rs": 1.0,
+                "w": 0.3
+            },
+            "freeze": false,
+            "push": false,
+            "soc": {},
+            "std": 0.01,
+            "atomic_radius": "v1"
+        }
+    },
+    "train_options": {
+        "num_epoch": 100,
+        "batch_size": 1,
+        "optimizer": {
+            "lr": 0.01,
+            "type": "Adam",
+            "betas": [
+                0.9,
+                0.999
+            ],
+            "eps": 1e-08,
+            "weight_decay": 0,
+            "amsgrad": false
+        },
+        "lr_scheduler": {
+            "type": "exp",
+            "gamma": 0.999
+        },
+        "loss_options": {
+            "train": {
+                "method": "eigvals",
+                "diff_on": false,
+                "eout_weight": 0.001,
+                "diff_weight": 0.01,
+                "diff_valence": null,
+                "spin_deg": 2
+            },
+            "validation": {
+                "method": "eigvals",
+                "diff_on": false,
+                "eout_weight": 0.001,
+                "diff_weight": 0.01,
+                "diff_valence": null,
+                "spin_deg": 2
+            }
+        },
+        "save_freq": 50,
+        "validation_freq": 50,
+        "display_freq": 10,
+        "ref_batch_size": 1,
+        "val_batch_size": 1,
+        "use_tensorboard": false,
+        "update_lr_per_iter": false,
+        "sliding_win_size": 50,
+        "max_ckpt": 4,
+        "valid_fast": true
+    },
+    "data_options": {
+        "train": {
+            "root": "./data",
+            "prefix": "set",
+            "get_eigenvalues": true,
+            "get_Hamiltonian": false,
+            "get_overlap": false,
+            "type": "DefaultDataset",
+            "separator": ".",
+            "get_DM": false
+        },
+        "validation": {
+            "root": "./data",
+            "prefix": "set",
+            "get_eigenvalues": true,
+            "get_Hamiltonian": false,
+            "get_overlap": false,
+            "type": "DefaultDataset",
+            "separator": ".",
+            "get_DM": false
+        },
+        "r_max": null,
+        "oer_max": null,
+        "er_max": null
+    }
+}

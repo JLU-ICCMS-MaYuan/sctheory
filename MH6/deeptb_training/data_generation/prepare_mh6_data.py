@@ -1,5 +1,5 @@
 """
-生成CaH6的DeePTB训练数据
+生成mh6的DeePTB训练数据
 包含Ca和H两种元素，模拟Ca电子填充效应
 """
 import numpy as np
@@ -10,9 +10,9 @@ import sys
 sys.path.append('.')
 from generate_tb_eigenvalues import generate_deeptb_data
 
-def prepare_cah6_dataset(output_dir: str = '../cah6_full/data/set.0'):
+def prepare_mh6_dataset(output_dir: str = '../mh6_full/data/set.0'):
     """
-    准备CaH6的DeePTB训练数据集
+    准备mh6的DeePTB训练数据集
 
     Parameters:
     -----------
@@ -20,7 +20,7 @@ def prepare_cah6_dataset(output_dir: str = '../cah6_full/data/set.0'):
         输出目录路径
     """
     print("=" * 60)
-    print("开始生成CaH6 DeePTB训练数据")
+    print("开始生成mh6 DeePTB训练数据")
     print("=" * 60)
 
     # 创建输出目录
@@ -28,7 +28,7 @@ def prepare_cah6_dataset(output_dir: str = '../cah6_full/data/set.0'):
     output_path.mkdir(parents=True, exist_ok=True)
 
     # 输入文件路径
-    poscar_file = '../../std_Ca2H12_Im-3m_229_.vasp'  # CaH6完整结构
+    poscar_file = '/home/mayuan/code/sctheory/MH6/structure/YH6/POSCAR'  # mh6完整结构
 
     print(f"\n1. 读取结构文件: {poscar_file}")
     structure = read(poscar_file)
@@ -93,7 +93,7 @@ def prepare_cah6_dataset(output_dir: str = '../cah6_full/data/set.0'):
             "emin": None,
             "emax": None
         },
-        "description": "CaH6 with Ca and H cage tight-binding model",
+        "description": "mh6 with Ca and H cage tight-binding model",
         "parameters": {
             "t_avg": hopping_params['default'],
             "e_Ca": onsite_energies['Ca'],
@@ -126,7 +126,7 @@ def prepare_cah6_dataset(output_dir: str = '../cah6_full/data/set.0'):
     print(f"   → 费米能级预期位于能带2和能带3之间")
 
     print("\n" + "=" * 60)
-    print("✓ CaH6数据生成完成！")
+    print("✓ mh6数据生成完成！")
     print(f"✓ 输出目录: {output_path.absolute()}")
     print("=" * 60)
 
@@ -135,11 +135,11 @@ def prepare_cah6_dataset(output_dir: str = '../cah6_full/data/set.0'):
 
 if __name__ == "__main__":
     # 执行数据生成
-    output_dir = '../cah6_full/data/set.0'
-    prepare_cah6_dataset(output_dir)
+    output_dir = '../mh6_full/data/set.0'
+    prepare_mh6_dataset(output_dir)
 
     print("\n下一步：")
-    print("  1. 对比H6和CaH6的Gamma点能级")
-    print("  2. 配置 cah6_full/input.json")
-    print("  3. 开始训练: dptb train cah6_full/input.json -o cah6_full/output")
+    print("  1. 对比H6和mh6的Gamma点能级")
+    print("  2. 配置 mh6_full/input.json")
+    print("  3. 开始训练: dptb train mh6_full/input.json -o mh6_full/output")
     print("  4. 运行分析脚本对比两个体系")

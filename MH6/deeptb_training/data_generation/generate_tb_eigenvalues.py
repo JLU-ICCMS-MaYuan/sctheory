@@ -218,14 +218,14 @@ def generate_deeptb_data(structure_file: str, element_list: List[str],
     # 构造onsite能级数组
     onsite_array = np.array([onsite_energies[elem] for elem in structure.get_chemical_symbols()])
 
-    # 定义高对称路径（立方系统）
+    # 定义高对称路径（立方系统）- 根据Mathematica笔记本定义
     points = {
         'G': [0, 0, 0],
-        'X': [0.5, 0, 0],
+        'X': [0, 0.5, 0],        # 修改：与Mathematica一致
         'M': [0.5, 0.5, 0],
         'R': [0.5, 0.5, 0.5]
     }
-    path_segments = [('G', 'X'), ('X', 'M'), ('M', 'G'), ('G', 'R')]
+    path_segments = [('G', 'X'), ('X', 'M'), ('M', 'G'), ('G', 'R'), ('R', 'X')]  # 添加R->X段
 
     # 生成k点路径
     k_list, k_distances, tick_positions = generate_kpath(points, path_segments, n_k_per_segment)

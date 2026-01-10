@@ -29,7 +29,7 @@ def prepare_h6_dataset(output_dir: str = '../h6_pure/data/set.0'):
     output_path.mkdir(parents=True, exist_ok=True)
 
     # 输入文件路径
-    poscar_file = '../../POSCAR'  # 纯H6结构
+    poscar_file = '/home/mayuan/code/sctheory/MH6/structure/YH6/std_H12_Im-3m_229_.vasp'  # 纯H6结构
 
     print(f"\n1. 读取结构文件: {poscar_file}")
     structure = read(poscar_file)
@@ -44,7 +44,7 @@ def prepare_h6_dataset(output_dir: str = '../h6_pure/data/set.0'):
     onsite_energies = {
         'H': 0.0  # H的onsite能级 (eV)
     }
-    cutoff = 1.3  # 截断距离 (Å)，覆盖最近邻
+    cutoff = 1.2  # 截断距离 (Å)，覆盖最近邻
     n_k_per_segment = 100  # 每段k路径100个点
 
     print(f"   - H-H跳跃: t = {hopping_params['default']} eV")
@@ -131,6 +131,6 @@ if __name__ == "__main__":
 
     print("\n下一步：")
     print("  1. 检查生成的数据文件")
-    print("  2. 运行 prepare_cah6_data.py 生成CaH6数据")
+    print("  2. 运行 prepare_h6_data.py 生成mH6数据")
     print("  3. 配置 h6_pure/input.json")
     print("  4. 开始训练: dptb train h6_pure/input.json -o h6_pure/output")

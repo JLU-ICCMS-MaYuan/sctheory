@@ -1,20 +1,18 @@
 {
     "common_options": {
         "basis": {
-            "Ca": ["s"],
-            "H": ["s"]
+            "Ca": ["4s"],
+            "H": ["1s"]
         },
         "device": "cpu",
         "dtype": "float32",
         "overlap": false,
-        "seed": 42
+        "seed": 199511
     },
     "model_options": {
         "nnsk": {
             "onsite": {
-                "method": "uniform",
-                "rs": 1.0,
-                "w": 0.3
+                "method": "uniform"
             },
             "hopping": {
                 "method": "powerlaw",
@@ -23,10 +21,10 @@
                     "H-H": 1.3,
                     "Ca-Ca": 3.5
                 },
-                "w": 0.2
+                "w": 0.3
             },
             "freeze": false,
-            "std": 0.01
+            "push":false
         }
     },
     "train_options": {
@@ -34,26 +32,24 @@
         "batch_size": 1,
         "optimizer": {
             "lr": 0.01,
-            "type": "Adam",
-            "betas": [0.9, 0.999],
-            "eps": 1e-8,
-            "weight_decay": 0,
-            "amsgrad": false
+            "type": "Adam"
         },
         "lr_scheduler": {
-            "type": "rop",
-            "factor": 0.8,
-            "patience": 50,
-            "min_lr": 1e-6,
-            "threshold": 0.0001,
-            "threshold_mode": "rel",
-            "cooldown": 0,
-            "eps": 1e-8
+            "type": "exp",
+            "gamma": 0.999
         },
         "loss_options": {
             "train": {
                 "method": "eigvals",
-                "diff_on": false
+                "diff_on": false,
+                "eout_weight": 0.001,
+                "diff_weight": 0.01
+            },
+            "validation": {
+                "method": "eigvals",
+                "diff_on": false,
+                "eout_weight": 0.001,
+                "diff_weight": 0.01
             }
         },
         "save_freq": 50,
@@ -61,14 +57,20 @@
         "display_freq": 10
     },
     "data_options": {
-        "use_reference": false,
         "train": {
             "root": "./data",
             "prefix": "set",
-            "batch_size": 1,
             "get_eigenvalues": true,
             "get_Hamiltonian": false,
             "get_overlap": false
+        },
+        "validation": {
+            "root": "./data",
+            "prefix": "set",
+            "get_eigenvalues": true,
+            "get_Hamiltonian": false,
+            "get_overlap": false,
+            "type": "DefaultDataset"
         }
     }
 }
