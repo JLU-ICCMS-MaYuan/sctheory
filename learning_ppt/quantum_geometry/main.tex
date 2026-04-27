@@ -1,0 +1,639 @@
+\documentclass[aspectratio=169,11pt,UTF8]{ctexbeamer}
+
+\usetheme{Boadilla}
+\usecolortheme{dove}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\setbeameroption{hide notes}
+
+\usepackage{amsmath,amssymb,bm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{hyperref}
+
+\definecolor{sctBlue}{RGB}{20,62,114}
+\definecolor{sctLight}{RGB}{235,242,250}
+\definecolor{sctAccent}{RGB}{180,34,34}
+\definecolor{sctGray}{RGB}{70,70,70}
+
+\setbeamercolor{title}{fg=sctBlue}
+\setbeamercolor{frametitle}{fg=sctBlue,bg=sctLight}
+\setbeamercolor{structure}{fg=sctBlue}
+\setbeamercolor{block title}{fg=white,bg=sctBlue}
+\setbeamercolor{block body}{bg=sctLight}
+\setbeamercolor{alerted text}{fg=sctAccent}
+
+\newcommand{\takeaway}[1]{%
+  \vfill
+  \begin{beamercolorbox}[wd=\textwidth,sep=0.7ex,rounded=true]{block body}
+    \small\textbf{Takeaway：}#1
+  \end{beamercolorbox}
+}
+
+\newcommand{\figureplaceholder}[2]{%
+  \begin{block}{图示占位：#1}
+    \small #2
+  \end{block}
+}
+
+\title{量子几何如何增强电子--声子耦合}
+\subtitle{\textit{Non-trivial quantum geometry and the strength of electron--phonon coupling}\\Nature Physics (2024) 教学型入门精读}
+\author{}
+\institute{基于主文与 Supplementary Information 重构}
+\date{文献在线发表：2024 年}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+  \note{开场先说明这不是逐页翻译论文，而是面向零拓扑基础的教学型重构。强调主线问题：量子几何会不会直接增强 EPC。}
+\end{frame}
+
+\begin{frame}{目录}
+  \tableofcontents
+  \takeaway{整场报告按“背景、研究现状、方法、结论”四步推进。}
+  \note{提醒听众：方法部分是核心，会用 graphene 和 MgB2 两个案例把抽象概念落地。}
+\end{frame}
+
+\section{背景}
+
+\begin{frame}{文献与作者基本信息}
+  \footnotesize
+  \begin{columns}[T]
+    \begin{column}{0.49\textwidth}
+      \begin{block}{论文信息}
+        \begin{itemize}
+          \item 标题：\textit{Non-trivial quantum geometry and the strength of electron--phonon coupling}
+          \item 类型：理论研究 + 第一性原理数值验证
+          \item 期刊：\textit{Nature Physics}
+          \item 投稿：2023-04-14
+          \item 接收：2024-03-26
+          \item 在线发表：2024 年
+          \item 领域：凝聚态物理、EPC、量子几何、拓扑材料、超导
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      \begin{block}{作者与单位}
+        \begin{itemize}
+          \item 作者：Jiabin Yu, C. J. Ciccarino, R. Bianco, I. Errea, P. Narang, B. A. Bernevig
+          \item 单位：Princeton、Maryland、Stanford、UCLA、Donostia/UPV-EHU、IKERBASQUE 等
+          \item 通讯作者：B. A. Bernevig
+          \item 邮箱：\href{mailto:bernevig@princeton.edu}{bernevig@princeton.edu}
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \takeaway{这是一篇顶刊理论论文，核心主张是“量子几何可直接贡献 EPC 常数 $\lambda$”。}
+  \note{这里点出 Bernevig 是拓扑能带理论的重要代表人物，但说明这是补充背景，不是论文正文结论。不要在作者背景上停留过久。}
+\end{frame}
+
+\begin{frame}{EPC 是声子超导的核心控制量}
+  \begin{itemize}
+    \item 在声子介导超导中，电子通过交换声子形成有效吸引，相互作用强弱常用 EPC 常数 $\lambda$ 表征。
+    \item 经典经验是：在其它条件相近时，$\lambda$ 越大，超导转变温度 $T_c$ 往往越高。
+    \item 因此材料研究里常问：什么因素会让 EPC 变强？
+    \item 传统答案多聚焦于：声子软化、态密度 $D(\mu)$ 增大、轨道成键特征、费米面嵌套等。
+  \end{itemize}
+  \begin{equation*}
+    \lambda = 2 \int_0^\infty \mathrm{d}\omega \, \frac{\alpha^2 F(\omega)}{\omega}
+  \end{equation*}
+  \takeaway{论文要挑战的不是 EPC 重要性，而是“决定 EPC 的因素是否还包括波函数几何”。}
+  \note{这里不要推导 Eliashberg 理论，只强调 $\lambda$ 是一个把电子和声子的耦合强度汇总起来的量。}
+\end{frame}
+
+\begin{frame}{波函数几何提供超越色散的信息}
+  \begin{columns}[T]
+    \begin{column}{0.57\textwidth}
+      \begin{itemize}
+        \item 同一条能带不仅有能量 $E_n(\mathbf{k})$，还有 Bloch 波函数的周期部分 $|u_{n\mathbf{k}}\rangle$。
+        \item 真正有物理意义的不是整体相位，而是态在 Hilbert 空间里的“方向”有没有明显转动。
+        \item 如果相邻 $k$ 点上波函数方向几乎不变，则量子几何弱；若方向快速转动，则量子几何强。
+        \item 因而量子几何衡量的是“$k$ 轻微变化时，投影算符 $P_n(k)$ 转得快不快”。
+        \item 论文后面用的正是这种变化率，对应 Fubini--Study metric (FSM) 与 OFSM。
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.39\textwidth}
+      \begin{block}{图示建议：相邻 $k$ 点波函数方向变化}
+        \small
+        上半部分画“几何弱”：
+        两个很近的 $k$ 点，对应两个几乎平行的箭头 $|u_k\rangle, |u_{k+dk}\rangle$。
+
+        下半部分画“几何强”：
+        同样大小的 $dk$，但两个箭头方向明显转开。
+
+        讲解时强调：看的是态方向变化，不是整体相位变化。
+      \end{block}
+    \end{column}
+  \end{columns}
+  \takeaway{关键不是只看 $E_n(\mathbf{k})$ 怎么变，而是看相邻 $k$ 点上态的“方向”转得快不快。}
+  \note{对初学者强调：量子几何不是“更高级的拓扑术语”，而是对波函数变化快慢的一种度量。}
+\end{frame}
+
+\begin{frame}{三个例子可以快速建立“波函数变化快慢”的直觉}
+  \begin{itemize}
+    \item 单轨道近自由电子或原子极限：$E_n(k)$ 可以明显变化，但波函数内部结构几乎不变，因此几何弱。
+    \item graphene 的 Dirac 锥：围着 Dirac 点转动时，赝自旋方向也跟着转，因此相邻 $k$ 点上的波函数方向变化明显，几何强。
+    \item 两能级 avoided crossing：远离简并点时态方向变化慢，靠近带反转或能带接近处时态方向变化快，几何自然增强。
+  \end{itemize}
+  \begin{block}{最适合口头讲的一句话}
+    把 Bloch 波函数想成一个带方向的箭头；当我在 $k$ 空间轻轻挪一步，这个箭头如果明显转向，量子几何就大。
+  \end{block}
+  \takeaway{graphene 是最好的入门例子，因为它把“波函数转得快”这件事直接变成了可见的赝自旋缠绕。}
+  \note{这页的作用是把抽象定义落到三个熟悉模型上，尤其为后面 graphene 正文实例做铺垫。}
+\end{frame}
+
+\begin{frame}{量子几何为 EPC 提供新的增强机制}
+  \begin{itemize}
+    \item FSM 可以理解为“Bloch 波函数在动量空间中的局部距离度量”。
+    \item 拓扑并不等于几何，但某些拓扑不变量会给几何量提供下界。
+    \item 因此一个自然问题是：如果费米面附近的 Bloch 态量子几何很强，是否会让 EPC 也变强？
+    \item 这正是本文的中心问题：\alert{量子几何能否直接进入真实材料中的 EPC 常数 $\lambda$？}
+  \end{itemize}
+  \begin{equation*}
+    g_{ij}^{(n)}(\mathbf{k}) = \frac{1}{2}\mathrm{Tr}\left[\partial_{k_i} P_n(\mathbf{k}) \, \partial_{k_j} P_n(\mathbf{k})\right]
+  \end{equation*}
+  \takeaway{论文不是只问“拓扑材料会不会超导”，而是问“波函数几何本身是否增强 EPC”。}
+  \note{公式只作识别用途，不细推。强调 $P_n$ 的导数将成为后文把几何带入 EPC 的关键。}
+\end{frame}
+
+\section{研究现状}
+
+\begin{frame}{本文把量子几何接入真实 EPC 常数}
+  \begin{itemize}
+    \item 过去量子几何常被讨论于平带超流权重、异常光学响应、Berry 曲率相关输运等问题。
+    \item 但很多工作把相互作用强度当作外加参数，而不是从真实微观耦合出发计算。
+    \item 对 EPC 研究而言，传统重点更多是声子频率、态密度、轨道成键和费米面结构。
+    \item 因而一个关键空白是：\alert{真实材料的 EPC 强度，能否被波函数几何系统性地增强？}
+  \end{itemize}
+  \begin{block}{本文创新}
+    给出一套从紧束缚 hopping 出发、把量子几何直接带入 $\lambda$ 的理论框架，并用 graphene 与 MgB$_2$ 验证。
+  \end{block}
+  \takeaway{本文的创新不在“再谈拓扑”，而在“把量子几何接入真实 EPC 常数”。}
+  \note{把“真实相互作用”四个字强调出来，这是文章相对已有几何研究最重要的差异。}
+\end{frame}
+
+\section{方法}
+
+\begin{frame}{推导主线是从实空间位移走到费米面几何}
+  \begin{columns}[T]
+    \begin{column}{0.57\textwidth}
+      \begin{enumerate}
+        \item 从实空间 tight-binding 哈密顿量写出离子位移对 hopping 的影响。
+        \item 保留位移的一阶项，得到 EPC 哈密顿量。
+        \item Fourier 变换到动量空间，识别出电子哈密顿量 $h(\mathbf{k})$ 与 EPC 矩阵 $f_i(\mathbf{k})$。
+        \item 用 Gaussian approximation 把 $f_i$ 变成 $\partial_{k_i} h$。
+        \item 对 $h(\mathbf{k})$ 做谱分解，自然得到能量项与几何项。
+      \end{enumerate}
+    \end{column}
+    \begin{column}{0.39\textwidth}
+      \figureplaceholder{整段推导路线}{
+        建议插入：实空间轨道与离子位移 $\rightarrow$ 动量空间哈密顿量 $\rightarrow$ 投影算符导数 $\rightarrow$ FSM/OFSM $\rightarrow$ $\lambda$。
+      }
+    \end{column}
+  \end{columns}
+  \takeaway{真正要记住的不是某一条公式，而是这五步逻辑链。}
+  \note{这一页是方法部分的总导航，后面每页都对应这条链中的一个环节。}
+\end{frame}
+
+\begin{frame}{EPC 的起点是离子位移改变了实空间 hopping}
+  \begin{itemize}
+    \item 设原胞中子晶格位置为 $\tau$，晶格点为 $\mathbf{R}$，离子位移为 $\mathbf{u}_{\mathbf{R}+\tau}$。
+    \item 电子在两个轨道之间的 hopping 依赖相对位置，因此位移会直接改写 hopping 振幅。
+    \item 这一步完全是实空间图像，还没有引入任何量子几何。
+  \end{itemize}
+  \begin{equation*}
+    H_{\mathrm{el+ion}} =
+    \sum_{\mathbf{R}\tau,\mathbf{R}'\tau'}
+    t(\mathbf{R}+\tau+\mathbf{u}_{\mathbf{R}+\tau}-\mathbf{R}'-\tau'-\mathbf{u}_{\mathbf{R}'+\tau'})
+    c^{\dagger}_{\mathbf{R}+\tau} c_{\mathbf{R}'+\tau'}
+  \end{equation*}
+  \takeaway{EPC 的微观源头就是“离子一动，轨道重叠就变”。}
+  \note{提醒听众：这里只是最朴素的 tight-binding 直觉，后面的所有几何结构都从这里长出来。}
+\end{frame}
+
+\begin{frame}{对离子位移做一阶展开就得到 EPC 哈密顿量}
+  \begin{itemize}
+    \item 对 hopping 函数按位移差 $(\mathbf{u}_{\mathbf{R}+\tau}-\mathbf{u}_{\mathbf{R}'+\tau'})$ 展开。
+    \item 零阶项给出普通电子哈密顿量；一阶项就是电子--声子耦合。
+    \item 这解释了为什么 EPC 与 hopping 的空间导数天然相关。
+  \end{itemize}
+  \begin{equation*}
+    H_{\mathrm{el-ph}}
+    \propto
+    \sum
+    (\mathbf{u}_{\mathbf{R}+\tau}-\mathbf{u}_{\mathbf{R}'+\tau'})
+    \cdot
+    \nabla_{\mathbf{r}} t(\mathbf{r})\big|_{\mathbf{r}=\mathbf{R}+\tau-\mathbf{R}'-\tau'}
+    \,
+    c^{\dagger}_{\mathbf{R}+\tau} c_{\mathbf{R}'+\tau'}
+  \end{equation*}
+  \begin{block}{这一页的关键}
+    论文后面所有“几何进入 EPC”的内容，都建立在 $\nabla_{\mathbf{r}} t(\mathbf{r})$ 这一对象上。
+  \end{block}
+  \takeaway{先有空间导数，再有动量导数；动量空间只是把这一步改写得更清楚。}
+  \note{这里建议口头强调“一阶展开”就是小振动近似。不要把符号解释得太满。}
+\end{frame}
+
+\begin{frame}{Fourier 变换把问题带到动量空间}
+  \begin{itemize}
+    \item 对电子算符和离子位移做 Fourier 变换后，电子哈密顿量写成矩阵 $h(\mathbf{k})$。
+    \item 同样地，EPC 被整理成一个依赖初末态动量的矩阵对象 $F_{\tau i}(\mathbf{k}_1,\mathbf{k}_2)$。
+    \item 论文真正操作的对象，不再是单个 hopping，而是这些矩阵。
+  \end{itemize}
+  \begin{equation*}
+    h_{\tau\tau'}(\mathbf{k})
+    =
+    \sum_{\mathbf{R}}
+    t(\mathbf{R}+\tau-\tau')
+    e^{-i\mathbf{k}\cdot(\mathbf{R}+\tau-\tau')}
+  \end{equation*}
+  \takeaway{实空间的“离子动了影响 hopping”在动量空间里变成了矩阵哈密顿量与矩阵耦合。}
+  \note{此处不要把所有 Fourier 规则全写出来，重点是让听众接受：后面只需研究 $h(\mathbf{k})$ 与 EPC 矩阵。}
+\end{frame}
+
+\begin{frame}{两中心近似把 EPC 压缩成更可用的形式}
+  \begin{itemize}
+    \item 两中心近似的意思是：EPC 主要由两原子间相对位移决定，而不是更复杂的多中心环境。
+    \item 这样 EPC 矩阵可以写成一个左右各乘投影矩阵、中央由某个 $f_i(\mathbf{k})$ 控制的结构。
+    \item 在正文中，作者最终关心的是这个 $f_i(\mathbf{k})$ 到底与什么有关。
+  \end{itemize}
+  \begin{equation*}
+    F_{\tau i}(\mathbf{k}_1,\mathbf{k}_2)
+    =
+    \chi_{\tau} \, f_i(\mathbf{k}_2)
+    -
+    f_i(\mathbf{k}_1)\, \chi_{\tau}
+  \end{equation*}
+  \takeaway{两中心近似把复杂 EPC 信息收敛到了一个核心矩阵 $f_i(\mathbf{k})$。}
+  \note{强调：后文的目标其实就是解释 $f_i(\mathbf{k})$ 的深层物理来源。}
+\end{frame}
+
+\begin{frame}{Gaussian approximation 把空间导数变成动量导数}
+  \begin{itemize}
+    \item Gaussian approximation 假设 hopping 的空间衰减近似为高斯：
+    $t(\mathbf{r})=t_0 e^{\gamma |\mathbf{r}|^2/2}$，$\gamma<0$。
+    \item 这不是说真实材料真的完全高斯，而是它允许把 $\nabla_{\mathbf{r}} t$ 精确转成位置乘以 $t$。
+    \item Fourier 变换后，位置算符再变成动量导数，于是出现全文最关键的桥梁公式。
+  \end{itemize}
+  \begin{equation*}
+    \nabla_{\mathbf{r}} t(\mathbf{r}) = \gamma \mathbf{r} t(\mathbf{r})
+    \quad \Longrightarrow \quad
+    f_i(\mathbf{k}) = i\gamma \partial_{k_i} h(\mathbf{k})
+  \end{equation*}
+  \takeaway{GA 的真正价值，不是“近似高斯”，而是“把 EPC 嵌进电子哈密顿量的导数结构”。}
+  \note{这一页一定要慢讲。听众如果抓住这一步，后面的量子几何就不再神秘。}
+\end{frame}
+
+\begin{frame}{为什么动量导数会把量子几何带进来？}
+  \begin{itemize}
+    \item 把电子哈密顿量写成谱分解：
+    $h(\mathbf{k})=\sum_n E_n(\mathbf{k})P_n(\mathbf{k})$。
+    \item 对动量求导时，有两类项：能量导数与投影算符导数。
+    \item 前者只看色散，后者描述本征态本身如何随动量变化。
+  \end{itemize}
+  \begin{equation*}
+    \partial_{k_i} h
+    =
+    \sum_n \partial_{k_i} E_n \, P_n
+    +
+    \sum_n E_n \, \partial_{k_i} P_n
+  \end{equation*}
+  \takeaway{只要公式里出现 $\partial_{k_i}P_n$，问题就从“能量学”进入了“波函数几何学”。}
+  \note{这里可口头补一句：投影算符 $P_n=|u_n\rangle\langle u_n|$，所以它的导数就是波函数变化。}
+\end{frame}
+
+\begin{frame}{EPC 矩阵自然分成能量项与几何项}
+  \begin{itemize}
+    \item 将上一页结果代入 $f_i(\mathbf{k})=i\gamma \partial_{k_i}h(\mathbf{k})$，就得到自然拆分。
+    \item 第一项只依赖 $\partial_{k_i}E_n$，若能带完全平坦则它消失。
+    \item 第二项依赖 $\partial_{k_i}P_n$，若波函数不随动量变化则它消失。
+  \end{itemize}
+  \begin{equation*}
+    f_i = f_{E,i} + f_{{geo},i}, \qquad
+    f_{{geo},i}
+    =
+    i\gamma \sum_n E_n(\mathbf{k}) \, \partial_{k_i} P_n(\mathbf{k})
+  \end{equation*}
+  \takeaway{几何项不是人为定义的修正，而是谱分解后不可避免出现的一部分。}
+  \note{这页是整份 PPT 最关键的一页之一。建议把“自动长出来”这个口头表达强调出来。}
+\end{frame}
+
+\begin{frame}{从 EPC 矩阵到 EPC 常数需要经过平均线宽}
+  \begin{itemize}
+    \item 正文并不是直接从 $f_i$ 跳到 $\lambda$，中间还要经过 phonon linewidth 与 Eliashberg 函数。
+    \item 对本文最重要的是：在费米面平均后，$\lambda$ 的主要结构信息来自 EPC 矩阵本身。
+    \item 因此只要 $f_i$ 中有几何项，$\lambda$ 中就一定会留下几何痕迹。
+  \end{itemize}
+  \begin{equation*}
+    \lambda
+    =
+    \frac{2}{D(\mu)}
+    \frac{\langle \Gamma \rangle}{\hbar \langle \omega^2 \rangle}
+    \times \text{(常数因子)}
+  \end{equation*}
+  \begin{block}{理解重点}
+    对固定材料而言，比较 $\lambda$ 各部分大小时，真正有结构内容的是费米面上的 EPC 矩阵元。
+  \end{block}
+  \takeaway{$\lambda$ 不是凭空定义的几何量，而是由费米面上的 EPC 统计平均得到。}
+  \note{不用过分纠结 prefactor，重点在“费米面平均 + 矩阵元结构”这两件事。}
+\end{frame}
+
+\begin{frame}{因此 $\lambda$ 也会分成能量项、几何项与交叉项}
+  \begin{itemize}
+    \item 因为 $f_i=f_{E,i}+f_{{geo},i}$，所以二次型的 EPC 强度自然拆成三部分。
+    \item $\lambda_E$ 对应纯色散贡献；$\lambda_{geo}$ 对应纯几何贡献；$\lambda_{E-geo}$ 是混合项。
+    \item 在 graphene 与 MgB$_2$ 的主要近似中，混合项被对称性压制或可以忽略。
+  \end{itemize}
+  \begin{equation*}
+    \lambda = \lambda_E + \lambda_{geo} + \lambda_{E-geo}
+  \end{equation*}
+  \takeaway{本文最有力的定量结论，就是在真实材料里 $\lambda_{geo}$ 可以占到非常大。}
+  \note{这里建议明确说：文章不是把 $\lambda$ 改写成纯几何量，而是说明它有一个可分离的几何来源。}
+\end{frame}
+
+\begin{frame}{FSM 来自投影算符导数的二次型}
+  \begin{itemize}
+    \item 在两带情形中，$\lambda_{geo}$ 中会出现 $\partial_{k_i}P_n \partial_{k_j}P_n$ 的结构。
+    \item 这正是 Fubini--Study metric 在 tight-binding 表述下的核心对象。
+    \item 因而“几何贡献”并非抽象比喻，而是可被标准量子几何张量直接度量。
+  \end{itemize}
+  \begin{equation*}
+    [g_n(\mathbf{k})]_{ij}
+    =
+    \frac{1}{2}
+    \mathrm{Tr}\!\left[\partial_{k_i}P_n(\mathbf{k})\,\partial_{k_j}P_n(\mathbf{k})\right]
+  \end{equation*}
+  \takeaway{FSM 出现在公式里，是因为几何项本质上就是“投影算符导数的平方”。}
+  \note{这页要让听众把“量子几何”与“波函数变化速率的平方”建立稳固联系。}
+\end{frame}
+
+\begin{frame}{OFSM 反映的是“哪些轨道在耦合”}
+  \begin{itemize}
+    \item 若不同轨道对 EPC 的贡献不同，只用总的 FSM 会丢失轨道选择信息。
+    \item 作者因此定义了 orbital-selective FSM，用轨道投影矩阵 $\chi_\tau$ 给几何量加权。
+    \item 这一步对多轨道材料尤其关键，MgB$_2$ 就是最重要的例子。
+  \end{itemize}
+  \begin{equation*}
+    [g_{n,\tau}(\mathbf{k})]_{ij}
+    =
+    \frac{1}{2}\mathrm{Tr}\!\left[
+      \partial_{k_i}P_n \, P_n \, \partial_{k_j}P_n \, \chi_\tau
+    \right] + (i \leftrightarrow j)
+  \end{equation*}
+  \takeaway{OFSM 可以理解成“只看与某类轨道/原子通道相关的量子几何”。}
+  \note{对初学者把 OFSM 讲成“带权重的几何度量”就够了，不必上升到一般张量语言。}
+\end{frame}
+
+\begin{frame}{拓扑下界说明几何贡献不会无缘无故消失}
+  \begin{itemize}
+    \item 几何比拓扑更细，但某些受保护缠绕会迫使几何积分保持非零下界。
+    \item 因此作者不是只说“拓扑材料可能有大 EPC”，而是给出“拓扑下界 $\Rightarrow$ 几何下界 $\Rightarrow$ EPC 下界”的逻辑。
+    \item 具体下界形式在不同材料中不同，但基本思想一致。
+  \end{itemize}
+  \begin{block}{直观理解}
+    如果波函数在费米面附近必须缠绕或翻转，那么 $\partial_{\mathbf{k}}P_n$ 就不可能处处很小，因此几何项也不可能任意小。
+  \end{block}
+  \takeaway{拓扑的作用不是替代计算，而是保证“几何贡献至少有多大”的最低门槛。}
+  \note{不要硬写 Hölder 不等式等技术证明。这里的目标是建立“拓扑约束几何”的概念图像。}
+\end{frame}
+
+\begin{frame}[fragile]{graphene 是最适合看清主线的两带模型}
+  \begin{itemize}
+    \item graphene 的低能电子态来自蜂窝晶格上的两亚晶格两带模型。
+    \item 费米能附近是 Dirac 锥，波函数缠绕可用 winding number 直接描述。
+    \item 因为对称性足够强，文中在 graphene 中得到非常干净的拆分结果。
+  \item 图示建议：Dirac 锥、K/K' 点、靠近 Dirac 点的圆形费米面。
+  \end{itemize}
+  \takeaway{graphene 的价值在于：它把“几何进入 EPC”的逻辑以最简单的两带形式展示出来。}
+\end{frame}
+
+\begin{frame}[fragile]{在 graphene 中几何项直接由普通 FSM 控制}
+  \begin{itemize}
+    \item graphene 中子晶格对称性使各轨道权重等价，因此 OFSM 退化为普通 FSM。
+    \item 同时在文中采用的近似下，$\lambda_{E-geo}=0$，所以总 EPC 只剩两部分。
+    \item 这使 graphene 成为检验“几何贡献是否真的存在”的理想案例。
+  \end{itemize}
+  \begin{equation*}
+    \lambda^{\mathrm{graphene}}
+    =
+    \lambda_E + \lambda_{geo},
+    \qquad
+    \lambda_{geo}
+    \propto
+    \int_{\mathrm{FS}}
+    \frac{\Delta E^2(\mathbf{k}) \, \mathrm{Tr}[g(\mathbf{k})]}
+         {|\nabla_{\mathbf{k}} E_F(\mathbf{k})|}
+    \, d\sigma_{\mathbf{k}}
+  \end{equation*}
+  \takeaway{graphene 里几何贡献不是靠复杂轨道权重“做出来”的，而是直接来自普通 FSM。}
+\end{frame}
+
+\begin{frame}[fragile]{graphene 的 50\% 结果说明几何不是小修正}
+  \begin{itemize}
+    \item 作者解析地证明：当化学势靠近 Dirac 点时，$\lambda_{geo}/\lambda \to 50\%$。
+    \item 也就是说，EPC 里有约一半不是来自色散快慢，而是来自波函数的几何变化。
+    \item 这已经足够说明“几何进入 EPC”不是形式上的小校正，而是主量级效应。
+  \end{itemize}
+  \begin{block}{为什么是 50\%？}
+    因为在 Dirac 低能模型里，色散项与波函数缠绕项在 EPC 中具有同阶权重；对称性又把混合项压掉，于是几何项与能量项并列。
+  \end{block}
+  \takeaway{graphene 的关键价值，是用最简洁模型证明几何贡献可以达到与能量贡献同量级。}
+\end{frame}
+
+\begin{frame}[fragile]{graphene 的拓扑下界来自 Dirac 点的 winding number}
+  \begin{itemize}
+    \item K 与 K' 两个 Dirac 点分别携带相反的 winding number。
+    \item 作者证明，费米面上几何量的积分可以被这些缠绕数从下方约束。
+    \item 因而接近 Dirac 点时，graphene 的几何贡献几乎与其拓扑下界一致。
+  \end{itemize}
+  \begin{equation*}
+    \lambda_{geo} \ge \lambda_{topo},
+    \qquad
+    \lambda_{topo}
+    \propto
+    \left(|W_K|+|W_{K'}|\right)^2
+    \int_{\mathrm{FS}}
+    \frac{d\sigma_{\mathbf{k}}}{|\nabla_{\mathbf{k}}E_F|\,\Delta E^{-2}}
+  \end{equation*}
+  \takeaway{在 graphene 中，“几何大”并不是巧合，它被 Dirac 缠绕数稳定地托住了。}
+\end{frame}
+
+\begin{frame}[fragile]{MgB$_2$ 之所以更难，是因为它是多轨道多费米面的体系}
+  \begin{itemize}
+    \item MgB$_2$ 虽然是经典声子超导，但电子结构比 graphene 复杂得多。
+    \item 费米能附近主要涉及 B 原子的 $\pi$ bonding（来自 $p_z$）和 $\sigma$ bonding（来自 $p_x/p_y$）。
+    \item 主导 EPC 的声子模式主要是 B 原子相关的 $E_{2g}$ 模式，因此需要精细区分轨道通道。
+  \item 图示建议：$\pi$ 带与 $\sigma$ 带的费米面，以及 B 原子面内振动模式。
+  \end{itemize}
+  \takeaway{MgB$_2$ 的核心困难，不在于公式更长，而在于“必须分清是哪些轨道在耦合”。}
+\end{frame}
+
+\begin{frame}[fragile]{MgB$_2$ 中必须先分开 $\pi$ bonding 与 $\sigma$ bonding}
+  \begin{itemize}
+    \item $\pi$ bonding 与 $\sigma$ bonding 的费米面在动量空间中相距较远。
+    \item 主导 EPC 的声子模式具有较小的面内动量，因此这两类态在 EPC 中近似解耦。
+    \item 作者据此把总 EPC 常数拆成两个部分分别研究。
+  \end{itemize}
+  \begin{equation*}
+    \lambda = \lambda_{\pi} + \lambda_{\sigma}
+  \end{equation*}
+  \begin{block}{物理图像}
+    $\pi$ 部分更像 AA 堆叠 graphite 的延伸；$\sigma$ 部分则由面内强成键与 $E_{2g}$ 模式耦合主导。
+  \end{block}
+  \takeaway{MgB$_2$ 的推导必须分通道进行，否则会把几何来源混在一起。}
+\end{frame}
+
+\begin{frame}[fragile]{MgB$_2$ 的 $\pi$ 通道延续了 graphene 的几何逻辑}
+  \begin{itemize}
+    \item $\pi$ bonding 来自 B 的 $p_z$ 轨道，结构上与 graphite/graphene 关系最近。
+    \item 因此它的几何贡献与拓扑下界逻辑和 graphene 很相似。
+    \item 这一部分证明：graphene 中看到的几何机制并非孤例，而能延伸到三维材料通道中。
+  \end{itemize}
+  \begin{equation*}
+    \lambda_{\pi,geo} \ge \lambda_{\pi,topo}
+  \end{equation*}
+  \takeaway{MgB$_2$ 的 $\pi$ 通道告诉我们：graphene 的几何-EPC 逻辑可以迁移到真实超导材料。}
+\end{frame}
+
+\begin{frame}[fragile]{MgB$_2$ 的 $\sigma$ 通道需要 OFSM 而不是普通 FSM}
+  \begin{itemize}
+    \item $\sigma$ bonding 主要来自 $p_x/p_y$ 轨道，并且真正强耦合的是某些奇偶组合对 $E_{2g}$ 模式的响应。
+    \item 因此这里不能把所有轨道平均，而必须挑出和 EPC 真正相关的轨道线性组合。
+    \item 这正是 OFSM 发挥作用的地方。
+  \end{itemize}
+  \begin{equation*}
+    \lambda_{\sigma,geo}
+    \propto
+    \int_{\mathrm{FS}_{\sigma}}
+    \frac{\Delta E_{\mathrm{eff}}^2 \,
+    \sum_{\alpha}^{-} [g_{\mathrm{eff},\alpha}(0)]_{ii}}
+    {|\nabla_{\mathbf{k}}E_{\mathrm{eff},1}|}
+    \, d\sigma_{\mathbf{k}}
+  \end{equation*}
+  \takeaway{MgB$_2$ 最关键的物理点是：真正增强 EPC 的是“被特定声子挑中的轨道几何”。}
+\end{frame}
+
+\begin{frame}[fragile]{MgB$_2$ 的大 EPC 主要由 $\sigma$ 通道的几何贡献支撑}
+  \begin{itemize}
+    \item 作者的解析与数值都表明：$\sigma$ 通道的能量项很小，而几何项很大。
+    \item 总体上，MgB$_2$ 中量子几何贡献约占总 $\lambda$ 的 90\% 以上。
+    \item 这使 MgB$_2$ 成为“几何贡献主导真实声子超导”的核心案例。
+  \end{itemize}
+  \begin{block}{物理解释}
+    $E_{2g}$ 面内振动强烈耦合到 B 原子的面内成键态，而这些成键态的波函数结构恰好具有强 OFSM。
+  \end{block}
+  \takeaway{MgB$_2$ 把文章推进到了最强结论：量子几何不仅重要，而且可以主导 EPC。}
+\end{frame}
+
+\begin{frame}[fragile]{MgB$_2$ 的拓扑下界不再只靠 Dirac 缠绕}
+  \begin{itemize}
+    \item $\pi$ 通道下界与 nodal line 的 winding 相关。
+    \item $\sigma$ 通道更微妙：作者利用有效模型中的 band inversion 与 Euler 结构，为几何项构造下界。
+    \item 因而 MgB$_2$ 展示了“不同拓扑结构都可能托住几何贡献”的更一般图景。
+  \item 图示建议：左侧画 $\pi$ 通道 nodal line，右侧画 $\sigma$ 通道 band inversion / effective Euler 结构。
+  \end{itemize}
+  \takeaway{拓扑下界在 MgB$_2$ 中变得更丰富，说明几何增强 EPC 不是二维 Dirac 体系专利。}
+\end{frame}
+
+\begin{frame}{第一性原理验证的关键是先匹配矩阵元再比较总量}
+  \begin{itemize}
+    \item SI 中的 ab initio 计算不是只对着一个总 $\lambda$ 调参。
+    \item 作者先匹配特定动量点的 EPC 矩阵元，再用这些参数去预测总 EPC 常数。
+    \item 对 MgB$_2$，两套独立 ab initio 方法得到的 $\lambda$ 非常接近，这显著提升了可信度。
+  \end{itemize}
+  \begin{block}{为什么这很重要？}
+    如果只拟合总 $\lambda$，几何贡献可能是“调参结果”；先匹配矩阵元则说明桥梁公式本身抓住了微观结构。
+  \end{block}
+  \takeaway{正文中的几何结论不是形式推导悬空，而是被第一性原理矩阵元直接支撑的。}
+  \note{这是方法部分的收束页，把理论与数值闭环起来。}
+\end{frame}
+
+\begin{frame}{到这里可以完整复述“量子几何如何进入 EPC”}
+  \begin{enumerate}
+    \item 离子位移改变实空间 hopping，EPC 来自其一阶导数。
+    \item GA 把空间导数变成动量空间哈密顿量导数。
+    \item 谱分解后，哈密顿量导数自动包含投影算符导数。
+    \item 投影算符导数的二次型就是 FSM/OFSM。
+    \item 费米面平均后，这部分直接进入 EPC 常数 $\lambda$。
+    \item 在 graphene 与 MgB$_2$ 中，这个几何部分分别达到约 50\% 和 90\% 以上。
+  \end{enumerate}
+  \takeaway{量子几何进入 EPC 的本质，是“波函数变化率被嵌入了 EPC 矩阵元”。}
+  \note{这页是方法部分的总收束，讲完这里听众应该能够自己复述整篇文章的主逻辑。}
+\end{frame}
+
+\section{结论}
+
+\begin{frame}{核心结论与理论创新}
+  \begin{itemize}
+    \item 文章建立了一个直接把量子几何接入 EPC 常数 $\lambda$ 的理论框架。
+    \item 在 Gaussian approximation 下，EPC 与电子哈密顿量的动量导数直接相关。
+    \item 因而 $\lambda$ 可以分成能量贡献与几何贡献，后者由 FSM/OFSM 控制。
+    \item graphene 中几何贡献约占总 EPC 的 50\%；MgB$_2$ 中约占 90\% 以上。
+    \item 在合适体系里，几何贡献还能被拓扑不变量下界约束。
+  \end{itemize}
+  \takeaway{本文最重要的创新，是把“波函数几何”从背景结构量变成了“能影响真实耦合强度的主角”。}
+  \note{这一页适合做整场报告最强的总结。最后一句可以停顿一下，让听众记住“geometry can dominate EPC”。}
+\end{frame}
+
+\begin{frame}{这篇工作改变了 EPC 的理解框架}
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{启发}
+        \begin{itemize}
+          \item 选材时不能只看 DOS、软声子和费米面，还要看费米面附近的波函数几何。
+          \item 对多轨道体系，轨道选择的几何量可能比整体几何更关键。
+          \item 这为理解高 $T_c$ 声子超导提供了新的筛选维度。
+        \end{itemize}
+      \end{block}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{block}{局限}
+        \begin{itemize}
+          \item 依赖 GA、two-center approximation 与弱耦合/Migdal--Eliashberg 语境。
+          \item 不是所有材料都能像 graphene、MgB$_2$ 一样简化。
+          \item 强关联、强耦合、复杂多带体系中如何推广仍待发展。
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+  \takeaway{最值得学习的是“把抽象几何量转成可计算耦合常数”的方法；最需谨慎的是其适用范围。}
+  \note{收尾时可自然连接到你自己的研究：如果比较两个材料的 $\lambda$ 差异，不能只盯着 DOS，还要看轨道混合与 OFSM。}
+\end{frame}
+
+\begin{frame}{如何最快读懂这篇论文？}
+  \begin{itemize}
+    \item 第一遍先读正文首页、GA 主线、graphene 结论、MgB$_2$ 结论、Discussion。
+    \item 先抓三条公式链：$f_i=i\gamma \partial_{k_i}h$；$f=f_E+f_{geo}$；$\lambda=\lambda_E+\lambda_{geo}+\lambda_{E-geo}$。
+    \item SI 第一优先：Appendix A、F、H；第二优先：I；J 作为实验联系补充。
+    \item 第一遍可先跳过冗长的不等式证明与完整 ab initio 技术细节。
+    \item 最好的理解框架是：\alert{离子位移 $\rightarrow$ hopping 导数 $\rightarrow$ 哈密顿量导数 $\rightarrow$ 投影导数 $\rightarrow$ 量子几何进入 EPC。}
+  \end{itemize}
+  \takeaway{先抓主线，再补证明；先理解“为什么会出现几何”，再追细节。}
+  \note{这页是给你自己后续复习用的，也适合答疑时推荐给听众。}
+\end{frame}
+
+\begin{frame}{术语表}
+  \small
+  \begin{tabular}{>{\raggedright\arraybackslash}p{0.27\textwidth} >{\raggedright\arraybackslash}p{0.67\textwidth}}
+    \toprule
+    术语 & 一句话解释 \\
+    \midrule
+    EPC & 电子与晶格振动之间的耦合，是声子介导超导的核心输入。 \\
+    Bloch state & 周期势中的电子本征态，既有能量也有波函数结构。 \\
+    Quantum geometry & 描述 Bloch 波函数随动量变化的几何信息。 \\
+    FSM & Fubini--Study metric，衡量相邻动量点波函数变化的“距离”。 \\
+    OFSM & 带轨道权重的 FSM，强调哪些轨道通道对目标响应更重要。 \\
+    Winding number & 描述波函数相位或赝自旋绕某点缠绕次数的拓扑量。 \\
+    Nodal line & 能带在动量空间中沿一条线相交形成的节点结构。 \\
+    Obstructed atomic limit & 拓扑平庸但 Wannier 中心不在原子位点上的几何结构。 \\
+    Eliashberg function & 把声子频率与 EPC 权重综合起来的谱函数 $\alpha^2F(\omega)$。 \\
+    Topological contribution & 由拓扑不变量给出的几何贡献下界。 \\
+    \bottomrule
+  \end{tabular}
+  \takeaway{理解这 10 个术语，基本就跨过了本文的概念门槛。}
+  \note{最后可以提醒听众：真正要记住的不是术语本身，而是“几何控制耦合”的主线。}
+\end{frame}
+
+\end{document}
