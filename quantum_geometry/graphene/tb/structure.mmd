@@ -1,0 +1,54 @@
+flowchart TD
+    subgraph Entry["入口层"]
+        CLI["run_workflow.py\n命令行入口"]
+        Args["解析参数\noutput-dir / mesh-size / mu-range"]
+        CLI --> Args
+    end
+
+    subgraph Core["核心计算层 core.py"]
+        Params["GrapheneParameters\n论文参数容器"]
+        Model["build_model()\n构造 pythtb 石墨烯模型"]
+        Path["high_symmetry_path()\n高对称路径带结构"]
+        Mesh["uniform_mesh_quantities()\n均匀 k 网格物理量"]
+        Lambda["lambda_decomposition_scan()\nlambda_E / lambda_geo / lambda_topo"]
+        SaveLambda["save_lambda_scan_json()\n保存 lambda 扫描结果"]
+    end
+
+    subgraph Plot["绘图层 run_workflow.py"]
+        PlotBands["plot_band_structure()"]
+        PlotMaps["plot_map()"]
+        PlotLambda["plot_lambda_scan()"]
+        PlotFrac["plot_fraction_scan()"]
+    end
+
+    subgraph Output["输出层"]
+        DataDir["data/\nnpz / json"]
+        PlotDir["plots/\npng"]
+        Summary["summary.json\n本次运行摘要"]
+    end
+
+    Args --> Params
+    Params --> Model
+    Model --> Path
+    Model --> Mesh
+    Params --> Lambda
+    Mesh --> Lambda
+    Lambda --> SaveLambda
+
+    Path --> PlotBands
+    Mesh --> PlotMaps
+    Lambda --> PlotLambda
+    Lambda --> PlotFrac
+
+    Path --> DataDir
+    Mesh --> DataDir
+    SaveLambda --> DataDir
+    Params --> DataDir
+
+    PlotBands --> PlotDir
+    PlotMaps --> PlotDir
+    PlotLambda --> PlotDir
+    PlotFrac --> PlotDir
+
+    DataDir --> Summary
+    PlotDir --> Summary

@@ -14,6 +14,7 @@ import numpy as np
 from core import (
     GrapheneParameters,
     build_model,
+    estimate_dirac_winding_numbers,
     high_symmetry_path,
     lambda_decomposition_scan,
     save_lambda_scan_json,
@@ -128,17 +129,23 @@ def main() -> None:
     model = build_model(params)
     path_data = high_symmetry_path(model)
     mesh_data = uniform_mesh_quantities(model, mesh_size=args.mesh_size)
+    winding_numbers = estimate_dirac_winding_numbers(model)
+    winding_sum_abs = sum(abs(value) for value in winding_numbers.values())
     mu_values = np.linspace(args.mu_min, args.mu_max, args.mu_count)
-    scan = lambda_decomposition_scan(params, mesh_data, mu_values)
+    scan = lambda_decomposition_scan(
+        model, params, mesh_data, mu_values, winding_sum_abs=winding_sum_abs
+    )
     scan_dicts = [asdict(item) for item in scan]
 
     np.savez_compressed(
         data_dir / "graphene_mesh_data.npz",
         k_pts=mesh_data["k_pts"],
+        k_pts_cart=mesh_data["k_pts_cart"],
         evals_ev=mesh_data["evals_ev"],
         gap_ev=mesh_data["gap_ev"],
         metric_trace=mesh_data["metric_trace"],
         berry_curvature=mesh_data["berry_curvature"],
+        velocity_norm=mesh_data["velocity_norm"],
     )
     np.savez_compressed(
         data_dir / "graphene_band_path.npz",
@@ -149,6 +156,9 @@ def main() -> None:
     )
     (data_dir / "parameters.json").write_text(
         json.dumps(asdict(params), indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    (data_dir / "winding_numbers.json").write_text(
+        json.dumps(winding_numbers, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     save_lambda_scan_json(scan, data_dir / "lambda_scan.json")
 
@@ -176,6 +186,8 @@ def main() -> None:
         "mu_max_ev": float(args.mu_max),
         "mu_count": int(args.mu_count),
         "mesh_size": int(args.mesh_size),
+        "winding_numbers": winding_numbers,
+        "winding_sum_abs": int(winding_sum_abs),
         "sample_small_doping_point": scan_dicts[-1],
     }
     (output_dir / "summary.json").write_text(
