@@ -41,7 +41,9 @@ class GrapheneParameters:
     hbar_omega_e2g_gamma_ev: float = 0.1935
     hbar_omega_a1_k_ev: float = 0.1622
     carbon_mass_amu: float = 12.0
-    onsite_delta_ev: float = 1.0e-3
+    # Keep a tiny sublattice offset only as a numerical regulator.
+    # The graphene Dirac-limit formulas in the paper assume the gapless case.
+    onsite_delta_ev: float = 1.0e-4
 
     @property
     def unit_cell_area_a2(self) -> float:
