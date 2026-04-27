@@ -248,12 +248,99 @@ def estimate_dirac_winding_numbers(model, loop_radius: float = 0.04, num_points:
     return windings
 
 
+def _solve_dirac_pocket_radius(
+    model,
+    center_cart: np.ndarray,
+    direction_cart: np.ndarray,
+    mu_ev: float,
+    recip_lat_vecs: np.ndarray,
+    initial_upper: float = 0.02,
+    max_upper: float = 1.0,
+    tol: float = 1.0e-8,
+) -> float | None:
+    """Find the radial distance from a Dirac point to the Fermi contour along a direction."""
+    inv_recip = np.linalg.inv(np.asarray(recip_lat_vecs))
+
+    def lower_energy(rho: float) -> float:
+        point_cart = center_cart + rho * direction_cart
+        point_reduced = np.mod(point_cart @ inv_recip, 1.0)
+        evals = np.asarray(model.solve_ham(point_reduced))
+        return float(evals[0])
+
+    f0 = lower_energy(0.0) - mu_ev
+    if f0 <= 0.0:
+        return None
+
+    upper = initial_upper
+    f_upper = lower_energy(upper) - mu_ev
+    while f_upper > 0.0 and upper < max_upper:
+        upper *= 1.5
+        f_upper = lower_energy(upper) - mu_ev
+    if f_upper > 0.0:
+        return None
+
+    lower = 0.0
+    for _ in range(80):
+        mid = 0.5 * (lower + upper)
+        f_mid = lower_energy(mid) - mu_ev
+        if abs(f_mid) < tol:
+            return mid
+        if f_mid > 0.0:
+            lower = mid
+        else:
+            upper = mid
+    return 0.5 * (lower + upper)
+
+
+def extract_dirac_pocket_segments(
+    model,
+    recip_lat_vecs: np.ndarray,
+    mu_ev: float,
+    num_angles: int = 720,
+) -> list[np.ndarray]:
+    """Construct high-precision Fermi pockets around K and K' by radial root finding."""
+    centers_reduced = {
+        "K": np.array([2.0 / 3.0, 1.0 / 3.0]),
+        "K_prime": np.array([1.0 / 3.0, 2.0 / 3.0]),
+    }
+    centers_cart = {
+        label: reduced_k_to_cartesian(center[None, :], recip_lat_vecs)[0]
+        for label, center in centers_reduced.items()
+    }
+
+    theta = np.linspace(0.0, 2.0 * math.pi, num_angles, endpoint=False)
+    segments: list[np.ndarray] = []
+    for label, center_cart in centers_cart.items():
+        points_cart = []
+        for angle in theta:
+            direction = np.array([math.cos(angle), math.sin(angle)])
+            rho = _solve_dirac_pocket_radius(
+                model,
+                center_cart=center_cart,
+                direction_cart=direction,
+                mu_ev=mu_ev,
+                recip_lat_vecs=recip_lat_vecs,
+            )
+            if rho is None:
+                points_cart = []
+                break
+            points_cart.append(center_cart + rho * direction)
+        if points_cart:
+            points_cart_arr = np.asarray(points_cart)
+            points_cart_arr = np.vstack([points_cart_arr, points_cart_arr[0]])
+            inv_recip = np.linalg.inv(np.asarray(recip_lat_vecs))
+            points_reduced = np.mod(points_cart_arr @ inv_recip, 1.0)
+            segments.append(points_reduced)
+    return segments
+
+
 def lambda_decomposition_scan(
     model,
     params: GrapheneParameters,
     mesh: dict[str, np.ndarray],
     chemical_potentials_ev: Iterable[float],
     winding_sum_abs: int = 2,
+    dirac_local_cutoff_ev: float = 0.10,
 ) -> list[LambdaDecomposition]:
     evals = mesh["evals_ev"]
     lower = evals[:, 0]
@@ -272,7 +359,10 @@ def lambda_decomposition_scan(
     )
     results: list[LambdaDecomposition] = []
     for mu_ev in chemical_potentials_ev:
-        segments = extract_fermi_surface_segments(lower, mu_ev, mesh_size)
+        if abs(mu_ev - params.onsite_delta_ev) <= dirac_local_cutoff_ev:
+            segments = extract_dirac_pocket_segments(model, recip_lat_vecs, mu_ev)
+        else:
+            segments = extract_fermi_surface_segments(lower, mu_ev, mesh_size)
         integrals = integrate_fermi_surface_observables(model, segments, recip_lat_vecs)
         dos = (
             params.unit_cell_area_a2
