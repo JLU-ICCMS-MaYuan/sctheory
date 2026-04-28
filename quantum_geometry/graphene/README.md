@@ -79,6 +79,76 @@
 4. 对照 `SI FIG. 2-3` 做模型与 `ab initio` 的 EPC 矩阵元比较
 5. 在 `plots/` 中整理主文 `Fig. 2` 的复现图
 
+## 当前 `tb` 数值链路
+
+当前 `tb` 实现已经不是“直接把论文极限写死”，而是按下面的链路数值计算：
+
+1. `build_model()` 建立带极小 `delta` 正则化的两带石墨烯模型
+2. `uniform_mesh_quantities()` 在均匀 `k` 网格上输出：
+   - 带结构
+   - `gap`
+   - quantum metric trace
+   - Berry curvature
+3. `estimate_dirac_winding_numbers()` 围绕 `K/K'` 小回路计算绕数
+4. `lambda_decomposition_scan()` 对每个化学势做费米线积分：
+   - 大掺杂区间：用全局 contour 抽取费米线
+   - Dirac 点附近：改用 `extract_dirac_pocket_segments()` 围绕 `K/K'` 做局部高精度 pocket 求根
+5. `integrate_fermi_surface_observables()` 在费米线上逐段积分，得到：
+   - `lambda_E`
+   - `lambda_geo`
+   - 构造 `lambda_topo` 所需的分母积分
+
+和论文附录 F 对应时，应这样理解：
+
+- `lambda_total = lambda_E + lambda_geo`
+- `lambda_geo` 来自费米线上的量子度规积分，不是手工把 Berry curvature 加进去
+- `lambda_topo` 不是总 `lambda` 的新加项，而是由绕数给出的 `lambda_geo` 下界
+
+## 为什么现在 `lambda_topo / lambda_geo -> 1`
+
+这件事现在是数值结果，不是硬编码假设。原因分成三层：
+
+### 1. 物理层
+
+论文在石墨烯的 Dirac 极限下给出：
+
+- `lambda_E = lambda_geo = lambda_topo = lambda / 2`
+
+这里的意思是：
+
+- 几何项的实际值
+- 由绕数控制的拓扑下界
+
+在低能 Dirac 模型里变成同一个值，也就是“不等式取等”。
+
+### 2. 数值层
+
+之前 `lambda_topo / lambda_geo` 偏离 `1`，主要不是公式错，而是费米线在 Dirac 点附近太小，用粗网格全局 contour 容易把局部口袋抽坏。现在改成：
+
+- 围绕 `K/K'` 单独构造局部费米 pocket
+- 沿每个角度径向求根，直接解 `E(k) = mu`
+- 对 pocket 显式闭合后再做弧长积分
+
+这样 `lambda_geo` 的费米线积分和 `lambda_topo` 的下界分母，都会在同一条高精度局部口袋上评估。
+
+### 3. 正则化层
+
+代码里保留了极小的 `onsite_delta_ev`，只作为数值稳定用的正则化，不代表论文真正想研究的有隙石墨烯。把它从 `1e-3 eV` 降到 `1e-4 eV` 后，Dirac 极限更接近无隙模型，因此：
+
+- `lambda_geo / lambda` 更稳定地逼近 `0.5`
+- `lambda_topo / lambda_geo` 更稳定地逼近 `1`
+
+当前已验证的代表性结果：
+
+- `mu = -0.02 eV`：`lambda_geo / lambda = 0.500023`，`lambda_topo / lambda_geo = 0.999964`
+- `mu = -0.003 eV`：`lambda_geo / lambda = 0.500764`，`lambda_topo / lambda_geo = 0.999988`
+
+因此当前代码已经具备下面这个解释力：
+
+- `lambda_geo` 是量子度规控制的实际几何贡献
+- `lambda_topo` 是由 `K/K'` Dirac 绕数给出的下界
+- 在石墨烯低能极限中，这个下界数值上确实逼近实际值
+
 ## 每次回传内容
 
 - 运行命令

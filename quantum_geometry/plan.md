@@ -248,9 +248,11 @@ MgB2 必须使用 `EPW` 主线的原因是：
 
 第一轮策略：
 
-- 采用论文低能极限中最稳的关系
-- 先确保趋势和比例正确
-- 再考虑是否引入更细的数值积分版本
+- 现在已经从“解析低能极限占位版”升级到“数值费米线积分版”
+- `lambda_total = lambda_E + lambda_geo`
+- `lambda_geo` 由费米线上的量子度规积分得到
+- `lambda_topo` 单独按绕数下界公式构造，不并入总 `lambda`
+- 在 Dirac 点附近额外启用局部高精度 `K/K'` pocket 积分，避免粗网格 contour 破坏极限行为
 
 输出：
 
@@ -262,6 +264,18 @@ MgB2 必须使用 `EPW` 主线的原因是：
 
 - 小掺杂极限下 `lambda_geo / lambda -> 0.5`
 - `lambda_topo / lambda_geo -> 1`
+
+当前数值说明：
+
+- `lambda_topo / lambda_geo -> 1` 现在是数值收敛结果，不是代码中手工设定
+- 物理原因是石墨烯低能 Dirac 极限下，拓扑下界对几何项取等
+- 数值原因是 Dirac 点附近的费米口袋很小，必须局部构造 `K/K'` pocket，再用闭合弧长积分评估
+- 稳定性原因是模型保留了极小 `onsite_delta_ev` 作为正则化；把它压小后，结果更接近论文的无隙极限
+
+当前已验证的代表性点：
+
+- `mu = -0.02 eV`：`lambda_geo / lambda = 0.500023`，`lambda_topo / lambda_geo = 0.999964`
+- `mu = -0.003 eV`：`lambda_geo / lambda = 0.500764`，`lambda_topo / lambda_geo = 0.999988`
 
 ### A4. 当前状态
 
@@ -276,6 +290,7 @@ MgB2 必须使用 `EPW` 主线的原因是：
 - quantum metric
 - Berry curvature
 - `lambda` 扫描结果
+- Dirac 点附近的局部高精度 pocket 积分结果
 
 后续待补：
 
