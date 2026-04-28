@@ -29,7 +29,7 @@
 
 需要固定记录：
 
-- `a = 2.46 A`
+- `a = 2.46 Å`
 - `t = -2.751 eV`
 - `gamma = -7.308 a^-2`
 - `hbar*sqrt(<omega^2>) = 0.1615 eV`
@@ -91,8 +91,8 @@
    - Berry curvature
 3. `estimate_dirac_winding_numbers()` 围绕 `K/K'` 小回路计算绕数
 4. `lambda_decomposition_scan()` 对每个化学势做费米线积分：
-   - 大掺杂区间：用全局 contour 抽取费米线
-   - Dirac 点附近：改用 `extract_dirac_pocket_segments()` 围绕 `K/K'` 做局部高精度 pocket 求根
+   - 负化学势的 Dirac 锥区间：优先用 `extract_dirac_pocket_segments()` 围绕 `K/K'` 做局部高精度 pocket 求根
+   - Dirac 求根失败或不适用时：回退到全局 contour 抽取费米线
 5. `integrate_fermi_surface_observables()` 在费米线上逐段积分，得到：
    - `lambda_E`
    - `lambda_geo`
@@ -118,7 +118,7 @@
 - `hbar*sqrt(<omega^2>) = 0.1615 eV`
 - `m_C = 12 amu`
 
-代码中的 `unit_cell_area_a2`、`gamma_ev_per_a2`、`mean_omega2_ev2` 和 `carbon_mass_ev_s2_per_a2` 用来组装 `SI Eq. (F72)` 和 `SI Eq. (F78)` 中的 prefactor：
+代码中的 `unit_cell_area_a2`、`gamma_ev_per_a2`、`mean_omega2_ev2` 和 `carbon_mass_inv_ev_a2` 用来组装 `SI Eq. (F72)` 和 `SI Eq. (F78)` 中的 prefactor。这里 `carbon_mass_inv_ev_a2` 表示 `m_C / hbar^2`，单位是 `1/(eV Å^2)`：
 
 ```text
 Omega * gamma^2 / [(2*pi)^2 * m_C * <omega^2>]
@@ -152,10 +152,10 @@ $$ [g_n(k)]_ij = 1/2 Tr[(d_i P_n(k)) (d_j P_n(k))] $$
 
 `core.py::lambda_decomposition_scan()` 对每个化学势 `mu` 选择费米线抽取方式：
 
-- 远离 Dirac 点：`extract_fermi_surface_segments()` 在全局网格上抽取 `E_1(k)=mu` 的等值线。
-- 接近 Dirac 点：`extract_dirac_pocket_segments()` 围绕 `K/K'` 沿不同角度径向求根，直接解 `E(k)=mu`，构造两个小 pocket。
+- 负化学势的 Dirac 锥区间：`extract_dirac_pocket_segments()` 围绕 `K/K'` 沿不同角度径向求根，直接解 `E(k)=mu`，构造两个小 pocket。
+- Dirac 求根失败或不适用时：`extract_fermi_surface_segments()` 在全局网格上抽取 `E_1(k)=mu` 的等值线。
 
-第二种方式对应 `SI Eq. (F83)-(F86)` 的 Dirac pocket 图像，可以避免小掺杂时粗网格 contour 带来的积分误差。
+Dirac pocket 方式对应 `SI Eq. (F83)-(F86)` 的图像，可以避免 `-0.2 eV` 到 Dirac 点附近混用粗网格 contour 带来的非线性数值误差。
 
 ### 5. 沿费米线积分
 
@@ -176,7 +176,7 @@ fs_inv_gap_integral = integral_FS ds * |grad E| / DeltaE^2
 
 对应关系如下：
 
-- `dos_integral`：对应 DOS 公式和 `SI Eq. (B73)`
+- `dos_integral`：对应 DOS 定义 `SI Eq. (B72)` 经过 `SI Eq. (B73)` 转成费米线积分后的积分核
 - `lambda_e_integral`：对应 `SI Eq. (F64)-(F65)` 和 `SI Eq. (F72)` 的色散项
 - `lambda_geo_integral`：对应主文 `Eq. (7)`、`SI Eq. (F68)` 和 `SI Eq. (F72)` 的几何项
 - `fs_inv_gap_integral`：对应主文 `Eq. (10)` 和 `SI Eq. (F78)` 中 `lambda_topo` 的分母
@@ -224,7 +224,7 @@ lambda     = lambda_E + lambda_geo
 lambda_E = lambda_geo = lambda_topo = lambda / 2
 ```
 
-当前代码的 `lambda_geo / lambda -> 0.5` 和 `lambda_topo / lambda_geo -> 1` 就是在数值上复现这个极限。
+当前代码的 `lambda_geo / lambda -> 0.5`、`lambda_topo / lambda -> 0.5` 和 `lambda_topo / lambda_geo -> 1` 就是在数值上复现这个极限。本项目的占比图按当前约定画 `lambda_geo / lambda` 和 `lambda_topo / lambda_geo`。
 
 ### 8. 输出文件和图
 
@@ -272,17 +272,20 @@ lambda_E = lambda_geo = lambda_topo = lambda / 2
 代码里保留了极小的 `onsite_delta_ev`，只作为数值稳定用的正则化，不代表论文真正想研究的有隙石墨烯。把它从 `1e-3 eV` 降到 `1e-4 eV` 后，Dirac 极限更接近无隙模型，因此：
 
 - `lambda_geo / lambda` 更稳定地逼近 `0.5`
+- `lambda_topo / lambda` 更稳定地逼近 `0.5`
 - `lambda_topo / lambda_geo` 更稳定地逼近 `1`
 
 当前已验证的代表性结果：
 
-- `mu = -0.02 eV`：`lambda_geo / lambda = 0.500023`，`lambda_topo / lambda_geo = 0.999964`
-- `mu = -0.003 eV`：`lambda_geo / lambda = 0.500764`，`lambda_topo / lambda_geo = 0.999988`
+- `mu = -0.02 eV`：`lambda_geo / lambda = 0.500023`，`lambda_topo / lambda = 0.500005`，`lambda_topo / lambda_geo = 0.999964`
+- `mu = -0.10 eV`：`lambda_geo / lambda = 0.500148`，`lambda_topo / lambda = 0.499847`，`lambda_topo / lambda_geo = 0.999400`
 
 因此当前代码已经具备下面这个解释力：
 
 - `lambda_geo` 是量子度规控制的实际几何贡献
 - `lambda_topo` 是由 `K/K'` Dirac 绕数给出的下界
+- `topological_fraction = lambda_topo / lambda_total`
+- `topological_fraction_of_geo = lambda_topo / lambda_geo`，当前占比图使用这个量
 - 在石墨烯低能极限中，这个下界数值上确实逼近实际值
 
 ## 每次回传内容

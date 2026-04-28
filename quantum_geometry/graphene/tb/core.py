@@ -26,10 +26,10 @@ PYTHTB_ROOT = REPO_ROOT / "external" / "pythtb"
 if str(PYTHTB_ROOT) not in sys.path:
     sys.path.insert(0, str(PYTHTB_ROOT))
 
-from pythtb.models import graphene as graphene_model  # noqa: E402
+from pythtb import Lattice, TBModel  # noqa: E402
 
 
-AMU_TO_EV_S2_PER_A2 = 1.0364269e-4
+AMU_TO_INV_EV_A2 = 238.9347806
 
 
 @dataclass(frozen=True)
@@ -59,7 +59,12 @@ class GrapheneParameters:
 
     @property
     def carbon_mass_ev_s2_per_a2(self) -> float:
-        return self.carbon_mass_amu * AMU_TO_EV_S2_PER_A2
+        return self.carbon_mass_inv_ev_a2
+
+    @property
+    def carbon_mass_inv_ev_a2(self) -> float:
+        """Carbon mass divided by hbar^2, in 1/(eV Angstrom^2)."""
+        return self.carbon_mass_amu * AMU_TO_INV_EV_A2
 
 
 @dataclass(frozen=True)
@@ -71,11 +76,28 @@ class LambdaDecomposition:
     lambda_geo: float
     lambda_topo: float
     geometric_fraction: float
+    topological_fraction: float
     topological_fraction_of_geo: float
 
 
 def build_model(params: GrapheneParameters):
-    return graphene_model(delta=params.onsite_delta_ev, t=params.hopping_t_ev)
+    """Build the graphene model with Cartesian lattice vectors in Angstrom."""
+    a = params.lattice_constant_a
+    lat_vecs = a * np.array(
+        [
+            [1.0, 0.0],
+            [0.5, math.sqrt(3.0) / 2.0],
+        ]
+    )
+    orb_vecs = [[1.0 / 3.0, 1.0 / 3.0], [2.0 / 3.0, 2.0 / 3.0]]
+    lattice = Lattice(lat_vecs, orb_vecs, periodic_dirs=[0, 1])
+    model = TBModel(lattice=lattice, spinful=False)
+
+    model.set_onsite([-params.onsite_delta_ev, params.onsite_delta_ev])
+    model.set_hop(params.hopping_t_ev, 0, 1, [0, 0])
+    model.set_hop(params.hopping_t_ev, 1, 0, [1, 0])
+    model.set_hop(params.hopping_t_ev, 1, 0, [0, 1])
+    return model
 
 
 def reduced_k_to_cartesian(k_pts: np.ndarray, recip_lat_vecs: np.ndarray) -> np.ndarray:
@@ -342,7 +364,7 @@ def lambda_decomposition_scan(
     mesh: dict[str, np.ndarray],
     chemical_potentials_ev: Iterable[float],
     winding_sum_abs: int = 2,
-    dirac_local_cutoff_ev: float = 0.10,
+    dirac_local_cutoff_ev: float | None = None,
 ) -> list[LambdaDecomposition]:
     evals = mesh["evals_ev"]
     lower = evals[:, 0]
@@ -352,18 +374,21 @@ def lambda_decomposition_scan(
     common_prefactor = (
         params.unit_cell_area_a2
         * (params.gamma_ev_per_a2**2)
-        / ((2.0 * math.pi) ** 2 * params.carbon_mass_ev_s2_per_a2 * params.mean_omega2_ev2)
+        / ((2.0 * math.pi) ** 2 * params.carbon_mass_inv_ev_a2 * params.mean_omega2_ev2)
     )
     topo_prefactor = (
         params.unit_cell_area_a2
         * (params.gamma_ev_per_a2**2)
-        / (4.0 * params.carbon_mass_ev_s2_per_a2 * params.mean_omega2_ev2)
+        / (4.0 * params.carbon_mass_inv_ev_a2 * params.mean_omega2_ev2)
     )
     results: list[LambdaDecomposition] = []
     for mu_ev in chemical_potentials_ev:
-        if abs(mu_ev - params.onsite_delta_ev) <= dirac_local_cutoff_ev:
+        use_dirac = mu_ev < -params.onsite_delta_ev
+        if dirac_local_cutoff_ev is not None:
+            use_dirac = use_dirac and abs(mu_ev - params.onsite_delta_ev) <= dirac_local_cutoff_ev
+        if use_dirac:
             segments = extract_dirac_pocket_segments(model, recip_lat_vecs, mu_ev)
-        else:
+        if not use_dirac or not segments:
             segments = extract_fermi_surface_segments(lower, mu_ev, mesh_size)
         integrals = integrate_fermi_surface_observables(model, segments, recip_lat_vecs)
         dos = (
@@ -381,6 +406,7 @@ def lambda_decomposition_scan(
         )
         lambda_total = lambda_e + lambda_geo
         geo_fraction = lambda_geo / lambda_total if lambda_total else 0.0
+        topo_fraction = lambda_topo / lambda_total if lambda_total else 0.0
         topo_fraction_of_geo = lambda_topo / lambda_geo if lambda_geo else 0.0
         results.append(
             LambdaDecomposition(
@@ -391,6 +417,7 @@ def lambda_decomposition_scan(
                 lambda_geo=lambda_geo,
                 lambda_topo=lambda_topo,
                 geometric_fraction=geo_fraction,
+                topological_fraction=topo_fraction,
                 topological_fraction_of_geo=topo_fraction_of_geo,
             )
         )

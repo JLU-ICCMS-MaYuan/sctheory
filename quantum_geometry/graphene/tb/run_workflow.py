@@ -71,9 +71,10 @@ def plot_lambda_scan(scan: list[dict], output_path: Path) -> None:
 
 
 def plot_fraction_scan(scan: list[dict], output_path: Path) -> None:
-    mu = np.array([item["chemical_potential_ev"] for item in scan])
-    geo = np.array([item["geometric_fraction"] for item in scan])
-    topo = np.array([item["topological_fraction_of_geo"] for item in scan])
+    valid_scan = [item for item in scan if item["lambda_total"] > 0.0]
+    mu = np.array([item["chemical_potential_ev"] for item in valid_scan])
+    geo = np.array([item["geometric_fraction"] for item in valid_scan])
+    topo = np.array([item["topological_fraction_of_geo"] for item in valid_scan])
 
     fig, ax = plt.subplots(figsize=(6.4, 4.0))
     ax.plot(mu, geo, label=r"$\lambda_{\mathrm{geo}}/\lambda$", color="tab:green", lw=1.6)
