@@ -13,17 +13,27 @@
 ## 子目录
 
 - `tb/`
+
   - 紧束缚基线
   - quantum metric / FSM
   - `lambda_E / lambda_geo / lambda_topo` 分解
+
 - `abinitio/jdftx/`
+
   - 原文同构路线
+
 - `abinitio/qe_equiv/`
+
   - 等价路线：`QE + frozen phonon + Wannier90`
+
 - `plots/`
+
   - 统一存放 `Fig. 2` 和 `SI FIG. 1-3` 对应图片
+
 - `runs/`
+
   - 每次运行的参数、结果摘要、日志
+
 
 ## 原文参数
 
@@ -85,18 +95,24 @@
 
 1. `build_model()` 建立带极小 `delta` 正则化的两带石墨烯模型
 2. `uniform_mesh_quantities()` 在均匀 `k` 网格上输出：
+
    - 带结构
    - `gap`
    - quantum metric trace
    - Berry curvature
+
 3. `estimate_dirac_winding_numbers()` 围绕 `K/K'` 小回路计算绕数
 4. `lambda_decomposition_scan()` 对每个化学势做费米线积分：
+
    - 负化学势的 Dirac 锥区间：优先用 `extract_dirac_pocket_segments()` 围绕 `K/K'` 做局部高精度 pocket 求根
    - Dirac 求根失败或不适用时：回退到全局 contour 抽取费米线
+
 5. `integrate_fermi_surface_observables()` 在费米线上逐段积分，得到：
+
    - `lambda_E`
    - `lambda_geo`
    - 构造 `lambda_topo` 所需的分母积分
+
 
 和论文附录 F 对应时，应这样理解：
 
@@ -144,7 +160,7 @@ Omega * gamma^2 / [4 * m_C * <omega^2>]
 
 这里最关键的是量子度规，对应 `SI Eq. (F69)`：
 
-$$ [g_n(k)]_ij = 1/2 Tr[(d_i P_n(k)) (d_j P_n(k))] $$
+$[g_n(k)]_ij = 1/2 Tr[(d_i P_n(k)) (d_j P_n(k))]$
 
 `metric_trace` 进入 `SI Eq. (F72)` 的 `lambda_geo`。Berry 曲率当前只作为几何/拓扑诊断量输出，不直接进入 `lambda` 分解。
 
@@ -167,12 +183,82 @@ Dirac pocket 方式对应 `SI Eq. (F83)-(F86)` 的图像，可以避免 `-0.2 eV
 
 然后执行四个线积分：
 
-```text
-dos_integral        = integral_FS ds / |grad E|
-lambda_e_integral   = integral_FS ds * |grad E|
-lambda_geo_integral = integral_FS ds * DeltaE^2 * Tr(g) / |grad E|
-fs_inv_gap_integral = integral_FS ds * |grad E| / DeltaE^2
-```
+$$
+\mathrm{dos\_integral}
+=
+\oint_{FS} ds \, \frac{1}{|\nabla_k E|}
+$$
+
+$$
+\lambda_{E,\mathrm{integral}}
+=
+\oint_{FS} ds \, |\nabla_k E|
+$$
+
+$$
+\lambda_{geo,\mathrm{integral}}
+=
+\oint_{FS} ds \,
+\frac{\Delta E^2(k)\,\mathrm{Tr}\,g(k)}{|\nabla_k E|}
+$$
+
+$$
+\mathrm{fs\_inv\_gap\_integral}
+=
+\oint_{FS} ds \,
+\frac{|\nabla_k E|}{\Delta E^2(k)}
+$$
+
+这里论文里之所以一定会出现沿费米线积分，不是代码的人为选择，而是因为二维体系的费米面就是一条线。主文和附录里的 $k$ 空间积分在含有 $\delta(\mu-E_n(k))$ 之后，会被压缩到满足 $E_n(k)=\mu$ 的等能线上，也就是 Fermi surface。对石墨烯二维模型来说，这条 Fermi surface 就是费米线，所以代码里必须沿费米线做线积分，而不是继续对整个二维布里渊区面积积分。
+
+在这个理论框架下，graphene 部分最终可以写成下面三类量：
+
+$$
+\lambda_E
+=
+\frac{\Omega\gamma^2}{(2\pi)^2 m_C\langle\omega^2\rangle}
+\oint_{FS} d\sigma_k\, |\nabla_k E_{n_F}(k)|
+$$
+
+$$
+\lambda_{geo}
+=
+\frac{\Omega\gamma^2}{(2\pi)^2 m_C\langle\omega^2\rangle}
+\oint_{FS} d\sigma_k
+\frac{\Delta E^2(k)\,\mathrm{Tr}\,g_{n_F}(k)}{|\nabla_k E_{n_F}(k)|}
+$$
+
+$$
+\lambda_{topo}
+=
+\frac{\Omega\gamma^2}{4m_C\langle\omega^2\rangle}
+\frac{(|W_K|+|W_{K'}|)^2}
+{\oint_{FS} d\sigma_k\, |\nabla_k E_{n_F}(k)|/\Delta E^2(k)}
+$$
+
+这三条式子已经明确表明，二维石墨烯里计算的是沿 $FS$ 的积分，也就是沿费米线积分。
+
+需要严格区分的是：这并不等于“完全不需要任何 EPC 或声子信息”。更准确的说法是，一旦用 `ab initio`、实验或文献拟合先确定了 $\gamma$、$\langle\omega^2\rangle$、$t$ 等模型参数，后续对 $\mu$ 的扫描中，$\lambda_E$、$\lambda_{geo}$ 和 $\lambda_{topo}$ 可以主要通过电子能带、量子度规和 Dirac winding 的费米线积分得到，而不必在每个 $k$ 点重新计算完整的第一性原理 EPC 矩阵元。
+
+这句话在论文中的体现是分两步出现的。
+
+第一步是“先定参数”。主文 graphene 部分明确说，作者先通过和 `ab initio` 结果匹配来确定模型参数，也就是 $\gamma$，以及电子最近邻 hopping $t$ 和 $\langle\omega^2\rangle$。README 前面列出的 `SI TABLE I`、`SI Eq. (F93)-(F96)` 对应的正是这组输入参数。
+
+第二步是“再扫化学势”。主文随后说明，在这些模型参数已经固定之后，模型算出的 $\lambda$ 会在一大段化学势范围内和 `ab initio` 很好符合；`Fig. 2` 的图注也直接写明 graphene 的 chemical potential 取值范围是 $-1\,\mathrm{eV}$ 到 $0\,\mathrm{eV}$，并把 Dirac 点能量设为 $0$。这说明论文做的是固定 $\gamma$、$\langle\omega^2\rangle$、$t$ 之后，对 $\mu$ 做扫描，而不是对每个 $\mu$ 重新拟合一遍 EPC 参数。
+
+因此，在这个框架里，$\mu$ 扫描时真正变化的是费米线本身，以及费米线上的电子量：
+
+$$
+E_n(k), \quad \nabla_k E_n(k), \quad \Delta E(k), \quad \mathrm{Tr}\,g_n(k)
+$$
+
+而 prefactor 中的
+
+$$
+\gamma, \quad \langle\omega^2\rangle, \quad t
+$$
+
+在一次计算中是先固定住的。也正因为如此，代码里 `lambda_decomposition_scan()` 的职责是扫描 $\mu$ 并重新抽取费米线、评估电子量，而不是在每个 $\mu$ 点重新生成一套新的 EPC 模型参数。
 
 对应关系如下：
 
@@ -185,24 +271,25 @@ fs_inv_gap_integral = integral_FS ds * |grad E| / DeltaE^2
 
 `core.py::estimate_dirac_winding_numbers()` 围绕 `K` 和 `K'` 各取一个小回路，读取哈密顿量非对角元 `h_AB(k)` 的相位绕数：
 
-```text
-W = (1 / 2*pi) * integral d theta(k)
-```
+$$
+W = \frac{1}{2\pi}\oint d\theta(k)
+$$
 
 这对应 `SI Eq. (F18)`、`SI Eq. (F20)-(F21)`。理想石墨烯中，`K` 和 `K'` 的 winding 分别为 `+1` 和 `-1`，代码取绝对值后得到：
 
-```text
-|W_K| + |W_K'| = 2
-```
+$$
+|W_K| + |W_{K'}| = 2
+$$
 
 随后 `lambda_decomposition_scan()` 用主文 `Eq. (10)` / `SI Eq. (F78)` 计算：
 
-```text
-lambda_topo =
-    [Omega * gamma^2 / (4 * m_C * <omega^2>)]
-    * (|W_K| + |W_K'|)^2
-    / integral_FS ds * |grad E| / DeltaE^2
-```
+$$
+\lambda_{topo}
+=
+\frac{\Omega \gamma^2}{4 m_C \langle \omega^2 \rangle}
+\frac{(|W_K| + |W_{K'}|)^2}
+{\oint_{FS} ds \, |\nabla_k E| / \Delta E^2}
+$$
 
 这里的 `lambda_topo` 是 `lambda_geo` 的拓扑下界，不是额外加入总 `lambda` 的新贡献。
 
@@ -210,19 +297,28 @@ lambda_topo =
 
 `core.py::lambda_decomposition_scan()` 最终把费米线积分乘上 prefactor，得到：
 
-```text
-lambda_E   = C * integral_FS ds * |grad E|
-lambda_geo = C * integral_FS ds * DeltaE^2 * Tr(g) / |grad E|
-lambda     = lambda_E + lambda_geo
-```
+$$
+\lambda_E = C \oint_{FS} ds \, |\nabla_k E|
+$$
+
+$$
+\lambda_{geo}
+=
+C \oint_{FS} ds \,
+\frac{\Delta E^2 \, \mathrm{Tr}\,g}{|\nabla_k E|}
+$$
+
+$$
+\lambda = \lambda_E + \lambda_{geo}
+$$
 
 这对应 `SI Eq. (F71)-(F72)`。石墨烯中 `lambda_E-geo` 交叉项因 `C3` 对称性和子晶格手征结构为 0，对应 `SI Eq. (F62)-(F63)`，因此代码没有单独计算该项。
 
 在 Dirac 小掺杂极限，论文给出 `SI Eq. (F89)-(F92)`：
 
-```text
-lambda_E = lambda_geo = lambda_topo = lambda / 2
-```
+$$
+\lambda_E = \lambda_{geo} = \lambda_{topo} = \lambda / 2
+$$
 
 当前代码的 `lambda_geo / lambda -> 0.5`、`lambda_topo / lambda -> 0.5` 和 `lambda_topo / lambda_geo -> 1` 就是在数值上复现这个极限。本项目的占比图按当前约定画 `lambda_geo / lambda` 和 `lambda_topo / lambda_geo`。
 
