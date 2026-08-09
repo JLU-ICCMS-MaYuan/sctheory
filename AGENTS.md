@@ -1,34 +1,33 @@
-# Repository Guidelines
+# WorkPlaner Agent Instructions
 
-## Project Structure & Module Organization
+## Project skills
 
-This repository is a research workspace rather than a single package. Root-level folders such as `H3S/`, `MH6/`, `MH9/`, and `MH10/` store material-specific calculation data. Core theory and analysis live in `docs/`, `EliashbergEquation/`, `scripts/`, and `reference/`. Three Python subprojects are maintained independently: `DeePTB/` (`dptb/` source), `dftio/` (`dftio/` source, `test/` tests), and `pythtb/` (`pythtb/` source, `tests/` tests). Keep new code close to the owning module; do not mix reusable package code into data directories.
+- `.agents/skills/ingest-research-pdf/SKILL.md`: extract and stage research PDFs.
+- `.agents/skills/maintain-research-wiki/SKILL.md`: compile, query, and lint the research wiki.
 
-## Build, Test, and Development Commands
+## Hard boundaries
 
-Run commands from the relevant subproject root, not from `/`.
+- Never read, search, summarize, ingest, or cite `Journal/**` for research-knowledge tasks.
+- Only files explicitly placed in `Knowledge/Sources/**` are eligible source material.
+- Treat `Knowledge/Sources/PDF/**` as immutable.
+- PDF extraction writes only to `Knowledge/Extracted/**`; publishing to `Knowledge/Wiki/**` is a separate confirmed operation.
+- Wiki queries and lint are read-only unless the user explicitly approves a write plan.
+- Human edits in `Knowledge/Wiki/**` are authoritative and must not be silently overwritten.
 
-- `python "EliashbergEquation/eliashberg_solver.py" --input INPUT --alpha2f ALPHA2F.OUT`: run the standalone Eliashberg solver.
-- `cd "DeePTB" && uv sync`: install DeePTB with locked dependencies.
-- `cd "dftio" && uv sync --group dev`: install `dftio` plus pytest/doc tooling.
-- `cd "pythtb" && pip install -e ".[dev,tests]"`: editable install for local development.
-- `cd "dftio" && pytest`: run `dftio` tests.
-- `cd "pythtb" && pytest`: run `pythtb` tests.
+## Language and evidence
 
-If a change touches only scripts or notebooks, run the smallest relevant command and document any unverified paths in the PR.
+- Write Chinese-first prose with English originals in parentheses.
+- Preserve equations exactly. Explain symbols as Chinese meaning (English definition).
+- Every load-bearing scientific claim needs a source ID and page/figure/table/equation locator.
+- Distinguish `reported`, `derived`, `hypothesis`, and `conflict` claims.
+- Consult `Knowledge/Wiki/indexes/terminology.md` before creating or renaming scientific terms.
 
-## Coding Style & Naming Conventions
+## Knowledge schema
 
-Follow the existing style of the target module. Python uses 4-space indentation, `snake_case` for functions/files, `PascalCase` for classes, and concise module docstrings where needed. Respect local tooling when present: `ruff` and `black` are configured in `pythtb`; pytest settings are embedded in `dftio` and `pythtb` `pyproject.toml`. Prefer small, single-purpose functions and avoid introducing framework-wide abstractions into one-off research scripts.
+Before publishing extracted material, read these files in order:
 
-## Testing Guidelines
+1. `Knowledge/RAW-SPEC.md`
+2. `Knowledge/WIKI-SPEC.md`
+3. `Knowledge/COMPILE-SPEC.md`
 
-Place tests beside the owning package conventions: `dftio/test/test_*.py` and `pythtb/tests/test_*.py`. Reuse existing pytest naming (`test_*`, `Test*`). Add regression tests for parser, IO, or numerical workflow changes; for data-heavy research updates, provide a minimal reproducible input or a before/after result summary.
-
-## Commit & Pull Request Guidelines
-
-Recent history uses short Chinese summaries such as `添加了dftio子模块`, `修改了H6.nb模型`, and `删除了不必要的内容以及追加了.gitignore`. Keep commit messages brief, specific, and action-oriented; one logical change per commit. PRs should include scope, affected paths, validation commands, and representative plots/screenshots when changing analysis output or documentation figures.
-
-## Data & Safety Notes
-
-Large calculation outputs and vendor code snapshots already exist in-tree. Avoid bulk reformatting, renaming dataset folders, or committing regenerated binaries unless the change is intentional and documented. Record external data sources and parameter assumptions in the nearest `README.md` or docs file.
+Use the templates under `Knowledge/Templates/`. Do not invent an incompatible page shape.

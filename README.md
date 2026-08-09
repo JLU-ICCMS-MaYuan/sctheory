@@ -1,62 +1,67 @@
-# sctheory - 高压氢化物超导理论研究项目
+# WorkPlaner
 
-本项目旨在通过第一性原理计算（DFT）、Eliashberg 强耦合理论和群论分析，深入研究高压氢化物超导体（如 $LaH_{10}$, $CeH_{10}$, $H_3S$）的电子结构、电声耦合机制及化学键特性。
+这是一个可直接作为 Obsidian vault 根目录使用的项目工作模板。克隆仓库后，在
+Obsidian 中选择 WorkPlaner 仓库根目录作为 vault；不要把仓库嵌套复制到另一个 vault。
 
----
+## 已包含
 
-## 核心科学问题：LaH10 vs CeH10 的临界温度差异
+- `Journal/Daily`：每日原始日记与工作进展。
+- `Journal/Weekly`、`Journal/Monthly`、`Journal/Quarterly`、`Journal/Yearly`：周期导航。
+- `Templates`：周期笔记模板。
+- `.obsidian`：已安装并启用的 Calendar、Periodic Notes、Templater、BRAT、Claudian、AnuPpuccin 主题，以及每日星期配色样式。
+- `.claudian`：不含凭据和会话历史的 Codex Agent 初始配置。
 
-研究重点在于解释为什么结构几乎完全相同的两种氢化物，其超导转变温度（$T_c$）存在巨大差异：
+## 使用
 
-| 体系 | 压力 (GPa) | $T_c$ (K) | $\lambda$ | 电子排布特征 |
-| :--- | :---: | :---: | :---: | :--- |
-| **LaH10** | 250 | ~250 | 2.3 | La: [Xe]5d6s (无 4f 电子) |
-| **CeH10** | ~250 | 50-100? | ? | Ce: [Xe]4f5d6s (包含 1个 4f 电子) |
+在 Calendar 中选择日期，或通过 Periodic Notes 命令创建周期笔记。每日文件使用
+`YYYY-MM-DD` 命名，并会自动渲染日期、前后日链接和周期导航。
 
-**主要假说：**
-1. **轨道反转 (Orbital Inversion)**：Ce 的 4f 轨道下移可能改变了 H 笼子的成键轨道能级顺序。
-2. **EPC 机制差异**：$\sigma$ 键与 $\pi$ 键对声子的敏感度不同，4f 电子可能削弱了关键模式的电声耦合（EPC）。
-3. **磁性竞争**：Ce 的 4f 局域磁矩可能对超导配对产生抑制。
+Daily 模板依赖 Templater 自动触发：当新文件创建在 `Journal/Daily` 中时，Templater 会
+执行 `Templates/Daily-TEMPLATE.md`，生成日期、前后日链接与周期导航。核心插件 Daily
+Notes 保持关闭，Daily、Weekly、Monthly、Quarterly 和 Yearly 笔记统一由 Periodic Notes
+管理。
 
----
+WorkPlaner 默认使用 AnuPpuccin 主题，并启用 `Daily Note Themes` 与 `General Tweaks`
+CSS 片段，使每日深色页面中的内嵌表格与背景保持一致。
 
-## 目录结构
+Daily 中的 `## 工作灵感` 用于记录尚未完成、尚未落地并有待后续评估的碎片想法；
+“工作进展”用于已进入执行阶段的目标、进展与产出、问题与决策、下一步；其余个人记录
+写在“日记”部分。
 
-```text
-sctheory/
-├── docs/                             # 理论文档与研究计划
-│   ├── 01_fortran_to_python_guide.md # 求解器从 Fortran 到 Python 的迁移指南
-│   ├── 02_questions_and_answers.md   # Eliashberg 理论 Q&A 汇总
-│   ├── 03_theory_comprehensive.md    # 电声耦合与超导理论深度解析
-│   └── 04_LaH10_CeH10_research_plan.md # LaH10/CeH10 对比研究路线图
-├── EliashbergEquation/               # Eliashberg 方程数值求解工具
-│   └── eliashberg_solver.py          # Python 实现的自洽求解器
-├── scripts/                          # 数据处理与分析脚本
-│   └── LaH10_CeH10_analysis/         # 针对 La/Ce 体系的专项分析工作流
-├── MH10/, H3S/, MH9/                 # 各个具体体系的 VASP/QE 计算数据
-├── reference/                        # 关键参考文献及笔记
-└── mathematica_GroupTheory1.4/       # 基于 GTPack 的群论对称性分析代码
-```
+### 新 vault 验收
 
----
+1. 完全退出旧 vault，使用仓库根目录打开新 vault；不要只复制内容子目录。
+2. 确认 Calendar、Periodic Notes 和 Templater 已启用，核心 Daily Notes 已关闭；在
+   Templater 设置中确认“Trigger Templater on new file creation”设为 Folder templates，且
+   `Journal/Daily` 映射到 `Templates/Daily-TEMPLATE.md`。
+3. 运行 `node scripts/validate-journal-config.mjs` 检查模板、插件配置和目录结构。
+4. 在 Calendar 中选择一个尚无日记的日期。
+5. 确认文件生成在 `Journal/Daily/YYYY-MM-DD.md`，包含 `## 工作灵感`、居中的前后日导航，
+   且没有残留 `<% ... %>` 模板源码。
 
-## 快速入门
+如果新建日记仍显示 `<% ... %>`，说明 Templater 自动触发未执行。请检查文件是否位于
+`Journal/Daily`，并在 Templater 设置中确认文件夹映射；对于已创建的文件，可执行
+`Templater: Replace templates in the active file` 重新渲染。
 
-1. **环境准备**：
-   - Python 3.7+ (numpy, scipy, matplotlib)
-   - Mathematica + GTPack (用于对称性分析)
+## Agent
 
-2. **求解 Eliashberg 方程**：
-   进入 `EliashbergEquation/` 目录：
-   ```bash
-   python eliashberg_solver.py --input INPUT --alpha2f ALPHA2F.OUT
-   ```
+Claudian 默认使用 Codex、中文界面、`gpt-5.6-terra` 和中等推理强度。打开右侧栏的
+Claudian 视图即可开始新会话；BRAT 已订阅 `YishenTu/claudian`，用于后续更新插件。
 
-3. **查看研究计划**：
-   阅读 `docs/04_LaH10_CeH10_research_plan.md` 了解当前实验进度和下一步计算任务。
+WorkPlaner 不携带 API Key、Base URL、设备 ID、CLI 绝对路径或历史会话。首次在一台新机器
+使用前，需要安装 Codex CLI 并通过 Codex 自身完成认证；不要把密钥写入可提交文件。
+`.gitignore` 会排除 Claudian 本地设置、会话记录和 Obsidian 工作区状态。
 
----
+## 依赖版本
 
-## 相关文档
-- [GEMINI.md](./GEMINI.md)：项目上下文与 AI 交互指南。
-- [request.md](./request.md)：计算问题解决记录与历史存档。
+- Obsidian 1.13.0 或更高版本
+- Templater 2.24.3
+- Periodic Notes 0.0.17
+- Calendar 1.5.10
+- BRAT 2.2.0
+- Claudian 2.1.2（桌面端）
+- Codex CLI（由用户环境提供）
+
+Obsidian 只读取 vault 根目录的 `.obsidian` 配置。若必须将 WorkPlaner 并入现有项目，
+应先退出 Obsidian 并备份目标 `.obsidian`，再把仓库内容合并到目标 vault 根目录；重新打开
+后执行上述验收，避免运行中的旧插件设置覆盖新配置。
