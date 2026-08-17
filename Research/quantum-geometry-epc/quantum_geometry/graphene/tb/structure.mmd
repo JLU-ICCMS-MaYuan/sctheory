@@ -1,0 +1,122 @@
+flowchart TD
+    %% Graphene TB workflow for quantum-geometry EPC paper.
+    %% Each computational block lists: function/object, code position, paper formula, physical meaning.
+
+    subgraph Paper["论文公式层：EPC 的能量项、几何项与拓扑下界"]
+        P_GA["GA: f_i(k)=i gamma d_i h(k)<br/>主文 Eq.(3), SI Eq.(F46)<br/>EPC 矩阵由电子哈密顿量动量导数给出"]
+        P_SPLIT["f_i=f_i^E+f_i^geo<br/>主文 Eq.(4), SI Eq.(F44)<br/>EPC 分解为色散项与波函数几何项"]
+        P_METRIC["Fubini-Study metric<br/>g_ij=1/2 Tr[d_i P d_j P]<br/>主文 Fig.1b, SI Eq.(F69)"]
+        P_LAMBDA["lambda=lambda_E+lambda_geo<br/>主文 Eq.(7), SI Eq.(F71)-(F72)<br/>石墨烯中交叉项因对称性为 0"]
+        P_TOPO["lambda_geo >= lambda_topo<br/>主文 Eq.(10), SI Eq.(F78)-(F80)<br/>K/K' Dirac winding 给出拓扑下界"]
+        P_LIMIT["mu -> Dirac: lambda_E=lambda_geo=lambda_topo=lambda/2<br/>SI Eq.(F89)-(F92)<br/>小掺杂极限几何项约占 50%"]
+    end
+
+    subgraph Params["参数与模型层"]
+        GP["GrapheneParameters<br/>core.py:35<br/>SI Table I, Eq.(F93)-(F96)<br/>a,t,gamma,phonon frequency,m_C"]
+        Conv["unit_cell_area / gamma_ev_per_a2 / mean_omega2 / mass conversion<br/>core.py:48<br/>SI Eq.(F72),(F78) prefactor 所需单位换算"]
+        Build["build_model(params)<br/>core.py:77<br/>SI Eq.(F14)-(F15)<br/>构造最近邻 graphene 两带 TB 模型"]
+        Pythtb["pythtb.models.graphene(delta,t)<br/>external/pythtb/.../graphene.py:5<br/>蜂窝晶格 A/B 子晶格 + 最近邻 hopping"]
+    end
+
+    subgraph BandGeom["能带与量子几何层"]
+        Path["high_symmetry_path(model)<br/>core.py:86<br/>对应论文能带检查图<br/>Gamma-K-M-Gamma 路径能带"]
+        Mesh["uniform_mesh_quantities(model)<br/>core.py:100<br/>SI Eq.(F69),(F72)<br/>均匀 BZ 网格上计算 E,gap,metric,Berry,velocity"]
+        Metric["model.quantum_metric(...), metric_trace<br/>core.py:104,110<br/>SI Eq.(F69)<br/>Tr g = g_xx + g_yy, 进入 lambda_geo"]
+        Berry["model.berry_curvature(...)<br/>core.py:107<br/>几何/拓扑诊断量<br/>输出 Berry curvature map"]
+        Grad["estimate_energy_gradient_cartesian()<br/>core.py:135<br/>SI Eq.(F64),(F72)<br/>有限差分计算 |grad_k E|"]
+    end
+
+    subgraph FS["Fermi surface 采样与积分层"]
+        FSContour["extract_fermi_surface_segments()<br/>core.py:151<br/>SI Eq.(F72),(F78)<br/>从 E_1(k)=mu 抽取 FS 线段"]
+        DiracRoot["_solve_dirac_pocket_radius()<br/>core.py:253<br/>SI Eq.(F83)-(F86)<br/>靠近 Dirac 点时沿径向找 FS 根"]
+        DiracPocket["extract_dirac_pocket_segments()<br/>core.py:297<br/>SI Eq.(F83)-(F86)<br/>高精度构造 K/K' 小 pocket"]
+        Sample["evaluate_band_quantities_on_points()<br/>core.py:163<br/>SI Eq.(F72)<br/>在 FS 中点采样 gap,Tr g,velocity"]
+        Integrate["integrate_fermi_surface_observables()<br/>core.py:196<br/>SI Eq.(B72),(B73),(F72),(F78)<br/>执行所有 FS 线积分"]
+        IDOS["dos_integral=sum ds/|v|<br/>core.py:216<br/>SI Eq.(B72) via Eq.(B73)<br/>态密度 D(mu) 的费米线积分核"]
+        IE["lambda_e_integral=sum ds |v|<br/>core.py:217<br/>SI Eq.(F64)-(F65),(F72)<br/>色散贡献 lambda_E 的积分核"]
+        IGeo["lambda_geo_integral=sum ds gap^2 Tr(g)/|v|<br/>core.py:218<br/>主文 Eq.(7), SI Eq.(F68),(F72)<br/>量子几何贡献 lambda_geo 的积分核"]
+        ITopo["fs_inv_gap_integral=sum ds |v|/gap^2<br/>core.py:221<br/>主文 Eq.(10), SI Eq.(F78)<br/>拓扑下界 lambda_topo 的分母"]
+    end
+
+    subgraph Topology["Dirac 拓扑层"]
+        Winding["estimate_dirac_winding_numbers()<br/>core.py:230<br/>SI Eq.(F18),(F20)-(F21)<br/>offdiag h_AB(k) 相位绕数 W_K,W_K'"]
+        Wsum["winding_sum_abs=sum |W|<br/>run_workflow.py:132<br/>主文 Eq.(10)<br/>(|W_K|+|W_K'|) 进入 lambda_topo"]
+    end
+
+    subgraph Lambda["lambda 扫描与数据对象"]
+        Scan["lambda_decomposition_scan()<br/>core.py:339<br/>主文 Eq.(7),(10), SI Eq.(F71),(F72),(F78)<br/>对 mu 扫描 lambda_E,lambda_geo,lambda_topo"]
+        Pref["common_prefactor / topo_prefactor<br/>core.py:352,357<br/>SI Eq.(F72),(F78)<br/>把无量纲 FS 积分转为 EPC 常数"]
+        OutObj["LambdaDecomposition<br/>core.py:65<br/>lambda_total,lambda_E,lambda_geo,lambda_topo<br/>geometric/topological fraction"]
+        SaveLambda["save_lambda_scan_json()<br/>core.py:400<br/>保存 lambda_scan.json"]
+    end
+
+    subgraph Entry["运行入口与绘图层"]
+        Main["main()<br/>run_workflow.py:98<br/>组织完整 workflow"]
+        Args["argparse 参数<br/>run_workflow.py:99<br/>output-dir, mesh-size, mu-min/max/count"]
+        PlotBand["plot_band_structure()<br/>run_workflow.py:25<br/>输出 graphene_bands.png"]
+        PlotMap["plot_map()<br/>run_workflow.py:40<br/>输出 metric_trace / Berry curvature map"]
+        PlotLambda["plot_lambda_scan()<br/>run_workflow.py:52<br/>输出 lambda,lambda_E,lambda_geo,lambda_topo"]
+        PlotFrac["plot_fraction_scan()<br/>run_workflow.py:73<br/>输出 lambda_geo/lambda 与 lambda_topo/lambda_geo"]
+    end
+
+    subgraph Output["输出文件层"]
+        MeshNPZ["data/graphene_mesh_data.npz<br/>k_pts,evals,gap,metric_trace,berry,velocity"]
+        BandNPZ["data/graphene_band_path.npz<br/>高对称路径能带数据"]
+        ParamsJSON["data/parameters.json<br/>GrapheneParameters"]
+        WindingJSON["data/winding_numbers.json<br/>K/K' winding number"]
+        LambdaJSON["data/lambda_scan.json<br/>lambda 分解扫描数据"]
+        SummaryJSON["summary.json<br/>运行摘要与小掺杂样例点"]
+        Plots["plots/*.png<br/>能带, metric, Berry, lambda scan, fractions"]
+    end
+
+    P_GA --> P_SPLIT --> P_LAMBDA
+    P_METRIC --> P_LAMBDA
+    P_TOPO --> P_LIMIT
+    P_LAMBDA --> Scan
+    P_TOPO --> Scan
+
+    Main --> Args --> GP
+    GP --> Conv --> Scan
+    GP --> Build --> Pythtb
+    Pythtb --> Path
+    Pythtb --> Mesh
+
+    Mesh --> Metric
+    Mesh --> Berry
+    Mesh --> Grad
+    Mesh --> FSContour
+    Mesh --> DiracPocket
+    DiracRoot --> DiracPocket
+
+    FSContour --> Sample
+    DiracPocket --> Sample
+    Sample --> Integrate
+    Integrate --> IDOS
+    Integrate --> IE
+    Integrate --> IGeo
+    Integrate --> ITopo
+
+    Pythtb --> Winding --> Wsum
+    IDOS --> Scan
+    IE --> Scan
+    IGeo --> Scan
+    ITopo --> Scan
+    Wsum --> Scan
+    Pref --> Scan --> OutObj --> SaveLambda
+
+    Path --> PlotBand
+    Metric --> PlotMap
+    Berry --> PlotMap
+    OutObj --> PlotLambda
+    OutObj --> PlotFrac
+
+    Mesh --> MeshNPZ
+    Path --> BandNPZ
+    GP --> ParamsJSON
+    Winding --> WindingJSON
+    SaveLambda --> LambdaJSON
+    OutObj --> SummaryJSON
+    PlotBand --> Plots
+    PlotMap --> Plots
+    PlotLambda --> Plots
+    PlotFrac --> Plots
